@@ -1,0 +1,21 @@
+// partials + variables
+@import '../partials/colors';
+@import '../partials/mixins';
+@import '../partials/icomoon';
+
+// base
+@import '../modules/base';
+
+// modules
+@import '../modules/welcome';    
+@import '../modules/footer';
+@import '../modules/navbar';
+@import '../modules/inputs';
+@import '../modules/about';
+
+// third-party
+@import '../third-party/outside2';
+
+// responsiveness  
+// @import '../partials/rwd';
+  

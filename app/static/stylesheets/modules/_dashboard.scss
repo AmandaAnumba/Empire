@@ -1,0 +1,52 @@
+$gutter2: em(layout, 216px, $target);
+
+#content_wrapper {
+	background: #f9f9f9;
+	padding-left: $gutter2;
+	padding-top: 25px;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	box-shadow: inset 0 0px 6px rgba(0, 0, 0, 0.15);
+}
+
+#write_wrapper {
+	height: 900px;
+	background: white;
+	margin-left: $gutter + 1%;
+}
+
+.froala-wrapper.f-basic {
+	border-bottom: none !important;
+	border-right: none !important;
+	border-left: none !important;
+}
+
+.froala-element {
+	height: inherit !important;
+	padding: 0 30px !important;
+}
+
+#tags_list {
+	width: 100%;
+	height: 80px;
+	overflow-y: scroll;
+	display: none;
+	font-size: 0.8em;
+	background: rgb(71, 72, 79);
+}
+
+.doc-icon {
+	cursor: pointer;
+	color: rgba(92, 228, 184, 0.66);
+}
+
+.remove_tag {
+	cursor: pointer;
+	margin-right: 9px;
+	color: rgba(92, 228, 184, 0.66);
+}
+
+
+
+

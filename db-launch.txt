@@ -1,0 +1,11 @@
+db launch
+Terminal: ssh -N -L 1234:empire-db.cj8w2td4aocw.us-east-1.rds.amazonaws.com:3306 ec2-user@54.88.161.212 -i empire-prod-access.pem
+
+Sequel Pro:
+connect with the favorite
+
+---------------------------------
+
+Jan 15th, 2015
+We have migrated to Parse.com
+Figure out what's happening with RDS

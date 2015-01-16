@@ -1,0 +1,257 @@
+{% extends "blank_page.html" %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
+<script src="{{ url_for('static', filename='plugins/pushmenu/js/modernizr.custom.js') }}"></script>
+
+<!-- top header parallax -->
+<div class="img-holder visible" data-image="{{ url_for('static', filename='images/12.jpg') }}">
+    <div id="parallax-overlay">
+    	<p id="menu-btn"><span class="icon-nav icon-menu"></span></p>
+
+        <div id="top_title">
+            <!-- <div class="tag" style="width: 31px;">new</div> -->
+            <img src="{{ url_for('static', filename='images/logo.png') }}" width="270"/>
+            <p id="top_descrpt">We are a community-centric experience built to empower you.</p>
+            <p id="description">Inspire a vision. Rise to the challenge. Reign.</p>
+        </div>
+    </div>
+</div>
+
+<main id="about_wrapper">
+	<nav>
+		<ul class="inline-list">
+			<li onclick="$('#vision').animatescroll();">Our Mission</li>
+			<li onclick="$('#details').animatescroll();">In Depth Look</li>
+			<li onclick="$('#team').animatescroll();">The Team</li>
+			<li onclick="$('#connect').animatescroll();">Connect with Us</li>
+		</ul>
+	</nav>
+
+	<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+		<h3>
+			<span class="icon icon-cross" id="close-btn" style="float: left;color: darkgray;cursor: pointer;line-height: 1.1;"></span>
+			<span style="float:right;">Empire</span>
+			<p class="clearfix"></p>
+		</h3>
+		<a href="{{ url_for('index') }}">Home</a>
+		<a href="{{ url_for('cycle') }}">Current Cycle</a>
+		<a href="{{ url_for('contact') }}">Contact Us</a>
+	</nav>
+
+	<section class="text text-center" id="vision">
+		<header class="section_title">Our Mission</header>
+		<p>Empire represents a pipeline of ladies who are inspired to thrive. A community of femmes who are rising into their womanhood. A diverse queendom built to reign over all parts of their lives.</p>
+	</section>
+		
+	<div class="container marketing">
+		<div class="row">
+			<div class="col-lg-4">
+				<span class="feature_icon icon-fire"></span>
+				<h2>Inspire</h2>
+				<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+			</div>
+		
+			<div class="col-lg-4">
+				<span class="feature_icon icon-stats"></span>
+				<h2>Rise</h2>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+			</div>
+
+			<div class="col-lg-4">
+				<span class="feature_icon icon-trophy"></span>
+				<h2>Reign</h2>
+				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+			</div>
+		</div>
+
+  		<!-- <hr class="featurette-divider"> -->
+  	</div>
+
+	<section class="quote">
+        <p style="padding: 3% 3% 0 16%;">It’s the three pillars that hooked me – Inspire, Rise, Reign. The feeling that everyone gets a seat at the table…I think the abundance and authority that exudes from Empire would benefit many women.</p>
+        <p style="padding: 3% 11%;">- Alexandria Bobbitt, Student at Northwestern University</p>
+    </section>
+
+    <div class="clearfix"></div>
+	<!-- <hr class="featurette-divider"> -->
+
+	<section class="text" id="details">
+		<header class="section_title">In Depth Look</header>
+		<p>Empire is a virtual and in-person experience with the purpose of enabling millennial minority women to have the knowledge, resources, and community they need to live their best lives. Empire’s web-site functions as the hub of information and communication: using three focus pillars (Inspire, Rise, and Reign), users will be connected to in-depth content curated by prominent and established female leaders, young up-and-comers, and community members working to build their own path.</p>
+		<p>In tandem to the site, users will also be keyed in to national meetups and exclusive events, culminating in a celebratory Summit at the end of the year. The Summit will commemorate the achievements of Empire and its community: the Empire Awards, hack-a-thons, one-on-ones with corporate sponsors, and a concert are a few examples of the elements that will be built into Empire’s annual Summit.</p> 
+		<p>Besides being the first site focused on the careerist millennial woman, Empire will also innovate in the digital space by form and function. The timing of the site operates on “cycles”, which are periods of time in which content focused on one overarching theme is constantly available. Conversation will be supported by a built-in comment system, allowing users to engage within any and all parts of the content that is posted. As the site grows, Empire will evolve to learn each user’s unique interests, and cater their version of the site – in addition to the upcoming mobile application – to their unique searches.</p>
+	</section>
+
+	<div class="clearfix"></div>
+	<!-- <hr class="featurette-divider"> -->
+
+	<section class="quote">
+        <p style="padding: 3% 3% 0 16%;">I like the seeds that are being plated and nurtured here. Please, continue with vigil and fervency [because many will try to tear you down]...We can rest a while, yet we can never quit on a good thing.</p>
+        <p style="padding: 3% 11%;">- Guy on Facebook</p>
+    </section>
+
+    <div class="clearfix"></div>
+	<!-- <hr class="featurette-divider"> -->
+
+	<div class="container marketing" id="team">
+
+		<header class="section_title">The Team</header>
+		
+		<div class="row featurette">
+			<div class="col-md-7">
+				<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+				<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+			</div>
+			<div class="col-md-5">
+				<img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE5MC4zMTI1IiB5PSIyNTAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjNwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj41MDB4NTAwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true">
+			</div>
+		</div>
+
+  		<hr class="featurette-divider">
+
+		<div class="row featurette">
+			<div class="col-md-5">
+				<img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE5MC4zMTI1IiB5PSIyNTAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjNwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj41MDB4NTAwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true">
+			</div>
+			<div class="col-md-7">
+				<h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+				<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+			</div>
+		</div>
+
+		<hr class="featurette-divider">
+
+		<div class="row featurette">
+			<div class="col-md-7">
+				<h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+				<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+			</div>
+			<div class="col-md-5">
+				<img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE5MC4zMTI1IiB5PSIyNTAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjNwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj41MDB4NTAwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true">
+			</div>
+		</div>
+
+  		<hr class="featurette-divider">
+
+  		<div class="row featurette">
+			<div class="col-md-5">
+				<img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE5MC4zMTI1IiB5PSIyNTAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjNwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj41MDB4NTAwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true">
+			</div>
+			<div class="col-md-7">
+				<h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+				<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+	<hr class="featurette-divider">
+
+	<section id="connect">
+		<header class="section_title">Connect with Us</header>
+		<ul class="inline-list">
+			<a href="mailto:hello@empire.life" target="_top">
+				<li><span class="icon icon-mail"></span></li>
+			</a>
+			<a href="https://www.facebook.com/InspireRiseReign" target="_blank">
+				<li><span class="icon icon-facebook"></span></li>
+			</a>
+			<a href="http://www.instagram.com/thisisempire" target="_blank">
+				<li><span class="icon icon-instagram"></span></li>
+			</a>
+			<a href="https://twitter.com/_thisisempire" target="_blank">
+				<li><span class="icon icon-twitter"></span></li>
+			</a>
+			<a href="http://thisisempire.tumblr.com" target="_blank">
+				<li><span class="icon icon-tumblr"></span></li>
+			</a>
+		</ul>
+	</section>
+
+	<div class="clearfix divider"></div>
+</main>
+
+<footer>
+    <nav class="nav-footer other">
+        <ul>
+            <li>© 2015 ThreePillarMedia, LLC</li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <!-- <li><a href="">Archives</a></li> -->
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('terms') }}">Terms</a></li>
+            <li><a href="{{ url_for('privacy') }}">Privacy</a></li>
+            <!-- <li id="social">Social Media</li> -->
+        </ul>
+    </nav>
+</footer>
+
+<script src="{{ url_for('static', filename='js/parallax.min.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/pushmenu/js/classie.js') }}"></script>
+<script>
+    var parallax = $(window).height() - 
+    $('.img-holder').imageScroll({
+        image: null,
+        imageAttribute: 'image',
+        container: $('body'),
+        speed: 0.2,
+        coverRatio: 0.7,
+        holderClass: 'imageHolder',
+        holderMinHeight: 200,
+        extraHeight: 0,
+        mediaWidth: 1600,
+        mediaHeight: 900,
+        parallax: true,
+        touch: false
+    });
+
+
+    // for the header
+    $(function(){
+        $('.imageHolder img').css({'height':'auto'});
+        var win = $(window),
+            nav = $('.img-holder'),
+            offset = nav.offset().top;
+        
+        win.scroll(function() {
+            if (win.scrollTop() >= (win.height()*0.9)) {
+                $('.header_navbar').addClass("fixed");
+                $('.header_navbar').css('margin-top','0');
+            } else {
+                $('.header_navbar').removeClass("fixed");
+                $('.header_navbar').css('margin-top','0px');
+            }
+        });
+
+        var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+			showRight = document.getElementById( 'menu-btn' ),
+			closeRight = document.getElementById( 'close-btn' );
+		
+		showRight.onclick = function() {
+			classie.toggle( this, 'active' );
+			classie.toggle( menuRight, 'cbp-spmenu-open' );
+			// disableOther( 'showRight' );
+		};
+
+		closeRight.onclick = function() {
+			// classie.toggle( this, 'active' );
+			classie.toggle( menuRight, 'cbp-spmenu-open' );
+			// disableOther( 'showRight' );
+		};
+
+        // var shrinkHeader = 155;
+        // $(window).scroll(function() {
+        //     var scroll = getCurrentScroll();
+        //     if ( scroll >= shrinkHeader ) {
+        //        $('.header').addClass('shrink');
+        //     }
+        //     else {
+        //         $('.header').removeClass('shrink');
+        //     }
+        // });
+        // function getCurrentScroll() {
+        //     return window.pageYOffset || document.documentElement.scrollTop;
+        // }
+    });
+</script>
+{% endblock %}

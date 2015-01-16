@@ -1,0 +1,136 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+	// front page
+	#main {
+		display: none;
+	}
+
+	#mobile_main {
+		display: block;
+		background: linear-gradient(rgba(254, 255, 245, 0.5), rgba(34, 6, 6, 0.5)), url("../../images/12-sm.jpg") no-repeat center center fixed;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		-webkit-background-size: cover;
+		background-size: cover;
+		height: 100%;
+
+		#menu-btn {
+			color: white;
+			padding: 10px;
+			width: auto;
+		}
+
+		.cbp-spmenu-vertical {
+			width: 55%;
+		}
+
+		header {
+			text-align: center;
+			padding: 20px 0;
+
+
+			img {
+				width: 220px;
+				margin-top: 23%;
+			}
+		}
+
+		#cycle {
+			// background: blue;
+		}
+
+		#categories {
+			// background: red;
+		}
+	}
+}
+ 
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-device-width : 321px)
+and (max-device-width : 640px)
+and (orientation : landscape) {
+	// login
+	.bkg-img {
+		background: whitesmoke;
+	}
+	#login {
+		height: 350px;
+
+		h1 {
+			font-size: 4em;
+			color: #58666e;
+		}
+		.form {
+			width: em(layout, 350px, 640px);
+		}
+	}
+	.form-input {
+		height: 45px;
+		background: white;
+		margin: 2px 0 2px 0;
+		color: black;
+	}
+	.additional-info, .description  {
+		color: #58666e;
+		text-align: center;
+	}
+}
+ 
+/* Smartphones (portrait) ----------- 
+@media only screen
+and (max-width : 480px) {
+}*/
+ 
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+
+	// login
+	#login {
+		h1 {
+			font-size: 6em;
+		}
+
+		.form {
+			width: em(layout, 350px, 1024px);
+		}
+	}
+	.form-input {
+		height: 50px;
+	}
+}
+ 
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+	// login
+	#login {
+		h1 {
+			font-size: 6em;
+		}
+
+		.form {
+			width: em(layout, 350px, 768px);
+		}
+	}
+}
+ 
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1300px) {
+	#login {
+		height: 550px;
+	}
+}
+ 
+/* iPhone 4 ----------- 
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+}*/
