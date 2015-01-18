@@ -1,0 +1,260 @@
+.navbar_menu > li {
+	margin-left: 4em;
+	display: inline-block;
+}
+
+.navbar_menu > li:first-child {
+	margin-left: 0;
+}
+
+/* Main menu link style */
+.navbar_menu > li > a {
+	/*color: black;
+	font-size: 1.2em;
+	line-height: 2.4em;
+	display: inline-block;
+	position: relative;
+	z-index: 10000;
+	outline: none;*/
+	color: rgb(240, 240, 240);
+	font-size: 0.9em;
+	line-height: 2.7em;
+	font-weight: 300;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	display: inline-block;
+	position: relative;
+	z-index: 10000;
+	outline: none;
+}
+
+
+.no-touch .navbar_menu > li > a:hover,
+.no-touch .navbar_menu > li > a:focus,
+.navbar_menu > li.cbp-hsitem-open > a {
+	color: rgb(126, 126, 126);
+	-webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+/* Add a triangle to currently open menu item link */
+.navbar_menu > li.open > a:after {
+	top: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: transparent;
+	border-top-color: black;
+	border-width: 10px;
+	left: 50%;
+	margin-left: -10px;
+}
+
+/* Submenu style */
+.submenu {
+	list-style: none;
+	position: absolute;
+	padding: 0;
+	width: 350px;
+	height: auto;
+	z-index: 0;
+	text-align: center; /* for aligning the sub items */
+	visibility: hidden;
+	background: black;
+}
+
+.submenu:before, 
+.submenu:after { 
+	content: " "; 
+	display: table; 
+}
+.submenu:after { 
+	clear: both; 
+}
+
+/* Let's allow 6 item in a row */
+/*.submenu > li {
+	width: 16.2%;
+	display: inline-block;
+	vertical-align: top;
+	box-shadow: -28px 0 0 -27px #ddd, 0 -28px 0 -27px #ddd;
+}*/
+
+/* First 6 items don't have upper box shadow */
+.submenu > li:nth-child(-n+6) {
+	box-shadow: -28px 0 0 -27px #ddd;
+} 
+
+/* Every 7th item does not have a left box shadow */
+.submenu > li:nth-child(6n+1) {
+	box-shadow:  0 -28px 0 -27px #ddd;
+}
+
+/* The first one does not have any box shadow */
+.submenu > li:first-child {
+	box-shadow: none;
+}
+
+.submenu li {
+	height: 40px;
+	line-height: 40px;
+	text-align: left;
+	font-weight: 300;
+	font-size: 7pt;
+	letter-spacing: 1px;
+	font-style: italic;
+	text-transform: uppercase;
+	background: #161616;
+	display: block;
+	padding: 0 0 0 15px;
+	position: relative;
+	cursor: pointer;
+	border-bottom: 1px solid #1F1F1F;
+}
+
+.submenu li a {
+	color: lightgray;
+}
+
+.submenu li a:hover {
+	border-bottom: 1px solid indianred;
+}
+
+.navbar_menu > li.open .submenu {
+	z-index: 1000;
+	visibility: visible;
+}
+
+.navbar_menu > li.open .submenu > li {
+	opacity: 1;
+	-webkit-transition: opacity 0.5s 0.1s;
+	-moz-transition: opacity 0.5s 0.1s;
+	transition: opacity 0.5s 0.1s;
+}
+.links {
+	/* position: static; */
+	float: right;
+	/* text-align: right; */
+	width: 135px;
+	border-left: 1px solid yellow;
+}
+
+.featured {
+	position: absolute;
+	/* left: 4em; */
+	/* top: 2em; */
+	width: 215px;
+	height: 100%;
+	background-image: url('../images/sample.png');
+	background-size: cover;
+}
+
+@media screen and (max-width: 65em){
+	.header_navbar {
+		font-size: 80%;
+	}
+}
+
+@media screen and (max-width: 51.4375em){
+	.header_navbar {
+		font-size: 100%;
+	}
+
+	.header_navbar .navbar_menu {
+		padding: 0;
+		max-width: none;
+		width: 100%;
+	}
+
+	.navbar_menu > li {
+		border-top: 1px solid rgba(255,255,255,0.5);
+		text-align: center;
+		margin: 0 auto;
+		display: block;
+	}
+
+	.navbar_menu > li:first-child {
+		border-top: none;
+	}
+
+	.navbar_menu > li > a {
+		display: block;
+	}
+
+	.navbar_menu > li > a:not(:only-child):before {
+		line-height: 1.8;
+		right: 0;
+		position: absolute;
+		font-size: 200%;
+	}
+
+	.navbar_menubg {
+		display: none;
+	}
+
+	.submenu {
+		background: #f7f7f7;
+		position: relative;
+		overflow: hidden;
+		height: 0;
+	}
+
+	.navbar_menu > li.cbp-hsitem-open .submenu {
+		height: auto;
+	}
+
+	/* Let's only allow 3 item in a row now */
+	.submenu > li {
+		width: 30%;
+	}
+
+	/* Reset box shadows for the 6 items in row case */
+	.submenu > li:nth-child(-n+6),
+	.submenu > li:nth-child(6n+1) {
+		box-shadow: -28px 0 0 -27px #ddd, 0 -28px 0 -27px #ddd;
+	}
+
+	/* First 4 items don't have upper box shadow */
+	.submenu > li:nth-child(-n+3) {
+		box-shadow: -28px 0 0 -27px #ddd;
+	} 
+
+	/* Every 5th item does not have a left box shadow */
+	.submenu > li:nth-child(3n+1) {
+		box-shadow:  0 -28px 0 -27px #ddd;
+	}
+
+}
+
+@media screen and (max-width: 25em){
+	/* Let's only allow 1 item in a row now */
+	.submenu > li {
+		width: 100%;
+		display: block;
+	}
+
+	.header_navbar .submenu > li {
+		box-shadow: 0 1px #cecece;
+		text-align: left;
+	}
+
+	.submenu > li a {
+		text-align: left;
+		line-height: 50px;
+		padding: 0.4em 1em;
+	}
+
+	.submenu > li a img {
+		float: left;
+		max-height: 50px;
+	}
+
+	.submenu > li a span {
+		min-height: 0;
+		margin: 0;
+	}
+}

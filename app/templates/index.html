@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta charset="utf-8">  
+        <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon.png') }}">
+        <title>Empire</title>
+        <meta name="description" content="Inspire, Rise, Reign" />
+        <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
+        <meta name="author" content="ThreePillarMedia, LLC" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
+        <script src="{{ url_for('static', filename='plugins/pushmenu/js/modernizr.custom.js') }}"></script>
+        <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/ArrowNavigationStyles/css/component.css') }}" /> -->
+    </head>
+
+    <body id="welcome">
+        <div id="main">
+            <div hidden>
+                <svg width="64" height="64" viewBox="0 0 64 64">
+                    <path id="arrow-left-3" d="M44.797 17.28l0.003 29.44-25.6-14.72z" />
+                </svg>
+                <svg width="64" height="64" viewBox="0 0 64 64">
+                    <path id="arrow-right-3" d="M19.203 17.28l-0.003 29.44 25.6-14.72z" />
+                </svg>
+            </div>
+
+            <div class="container">
+                <div id="splitlayout">
+                    
+                    <div id="logo">
+                        <img src="{{ url_for('static', filename='images/logo-blk.png') }}" alt="Empire logo" width="320" />
+                        <p class="beta" data-toggle="tooltip" data-placement="right" title="PSSST! Click Me!" style="cursor:pointer;" onclick="$('#info').modal('show');">Beta!</p>
+                    </div>
+                    
+                    <div class="side side-left text-center" style="overflow-y:hidden;">
+                        <div class="intro-content">
+                            <h1 class="title">
+                                <span class="animated fadeInUp">Choose a topic</span>
+                            </h1>
+                        </div>
+                        
+                        <div id="categories" class="text-center" hidden>
+                            <p id="close_cat" class="pull-right" style="cursor: pointer; padding:17px; font-size: 2em;"><span class="icon icon-cross"></span></p>
+
+                            <h1>What are you in the mood for?</h1> 
+
+                            <ul>
+                                
+                                <li class="category" style="background:url(../static/images/categories/politics.jpg) no-repeat; background-size: cover;background-position-y: -68px;">
+                                    <a href="{{ url_for('news') }}"><p>Current Events</p></a>
+                                </li>
+                                
+                                
+                                <li class="category" style="background:url(../static/images/categories/tech.png) no-repeat; background-size: cover;background-position-y: -27px;">
+                                    <a href="{{ url_for('tech') }}"><p>Technology</p></a>
+                                </li>
+                                
+                                
+                                <li class="category" style="background:url(../static/images/categories/money2.png) no-repeat; background-size: cover;background-position-y: -64px;">
+                                    <a href="{{ url_for('money') }}"><p>Money</p></a>
+                                </li>
+                                
+                                
+                                <li class="category" style="background:url(../static/images/categories/work.jpg) no-repeat; background-size: cover;background-position-y: -99px;">
+	                                <a href="{{ url_for('career') }}"><p>Career</p></a>
+	                            </li>
+                                
+                                <!-- <a href="">
+                                    <li class="category" style="background:url(../static/images/1.jpg) no-repeat; background-size: cover;background-position-y: -112px;">
+                                        <p>Body + Beauty</p>
+                                    </li>
+                                </a>
+                                <a href="">
+                                    <li class="category" style="background:url(../static/images/5.jpg) no-repeat; background-size: cover;background-position-y: -112px;">
+                                        <p>Relationships</p>
+                                    </li>
+                                </a> -->
+                                
+                                <li class="category" style="background:url(../static/images/categories/mind.jpg) no-repeat; background-size: cover;background-position-y: -55px;">
+	                                <a href="{{ url_for('mindbody') }}"><p>Mind, Body, and Spirit</p></a>
+	                            </li>
+                                
+                                <!-- <a href="">
+                                    <li class="category" style="background:url(../static/images/categories/sports2.png) no-repeat; background-size: cover;background-position-y: -80px;">
+                                        <p>Sports</p>
+                                    </li>
+                                </a> -->
+                                
+                                <li class="category" style="background:url(../static/images/categories/ent.png) no-repeat; background-size: cover;background-position-y: -41px;">
+                                	<a href="{{ url_for('culture') }}"><p>Culture + Entertainment</p></a>
+                                </li>
+                                
+                                <!-- <a href="">
+                                    <li class="category" style="background:url(../static/images/categories/music.png) no-repeat; background-size: cover;background-position-y: -90px;">
+                                        <p>TV + Music</p>
+                                    </li>
+                                </a> -->
+                                
+                                <li class="category" style="background:url(../static/images/categories/calm.jpg) no-repeat; background-size: cover;background-position-y: -68px;">
+                                    <a href="{{ url_for('wildcard') }}"><p>Wildcard</p></a>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="side side-right" style="background: url({{ url_for('static', filename='images/frontpage/mindy.png') }}) no-repeat center;background-size:cover;background-position-x:0px;">
+                        <a id="current_cycle" href="{{ url_for('cycle') }}">
+                            <!-- <img src="" alt="Cycle #1 Front Page image featuring Mindy Kaling" /> -->
+
+                            <div class="intro-content">
+                                <p>Cycle #1</p>
+                                <h1><span class="animated fadeInUp">This Is Empire</span></h1>
+                            </div>
+
+                            <nav class="nav-multithumb">
+                                <span class="icon-wrap"><svg class="icon" width="32" height="32" viewBox="0 0 64 64"><use xlink:href="#arrow-right-3"></svg></span>
+                                <div></div>
+                            </nav>
+                        </a>
+                    </div>
+
+                    <footer>
+                        <nav class="nav-footer" style="left: 0;">
+                            <ul>
+                                <li>© 2015 ThreePillarMedia, LLC</li>
+                                <li><a href="{{ url_for('about') }}">About</a></li>
+                                <!-- <li><a href="">Archives</a></li> -->
+                                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                                <li><a href="{{ url_for('terms') }}">Terms</a></li>
+                                <li><a href="{{ url_for('privacy') }}">Privacy</a></li>
+                                <!-- <li id="social">Social Media</li> -->
+                            </ul>
+                        </nav>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile_main" hidden>
+            <div class="svg-wrap" hidden>
+                <svg width="64" height="64" viewBox="0 0 64 64">
+                    <path id="arrow-left-2" d="M26.667 10.667q1.104 0 1.885 0.781t0.781 1.885q0 1.125-0.792 1.896l-14.104 14.104h41.563q1.104 0 1.885 0.781t0.781 1.885-0.781 1.885-1.885 0.781h-41.563l14.104 14.104q0.792 0.771 0.792 1.896 0 1.104-0.781 1.885t-1.885 0.781q-1.125 0-1.896-0.771l-18.667-18.667q-0.771-0.813-0.771-1.896t0.771-1.896l18.667-18.667q0.792-0.771 1.896-0.771z" />
+                </svg>
+                <svg width="64" height="64" viewBox="0 0 64 64">
+                    <path id="arrow-right-2" d="M37.333 10.667q1.125 0 1.896 0.771l18.667 18.667q0.771 0.771 0.771 1.896t-0.771 1.896l-18.667 18.667q-0.771 0.771-1.896 0.771-1.146 0-1.906-0.76t-0.76-1.906q0-1.125 0.771-1.896l14.125-14.104h-41.563q-1.104 0-1.885-0.781t-0.781-1.885 0.781-1.885 1.885-0.781h41.563l-14.125-14.104q-0.771-0.771-0.771-1.896 0-1.146 0.76-1.906t1.906-0.76z" />
+                </svg>
+                <svg width="64" height="64" viewBox="0 0 64 64">
+                    <path id="arrow-left-1" d="M46.077 55.738c0.858 0.867 0.858 2.266 0 3.133s-2.243 0.867-3.101 0l-25.056-25.302c-0.858-0.867-0.858-2.269 0-3.133l25.056-25.306c0.858-0.867 2.243-0.867 3.101 0s0.858 2.266 0 3.133l-22.848 23.738 22.848 23.738z" />
+                </svg>
+                <svg width="64" height="64" viewBox="0 0 64 64">
+                    <path id="arrow-right-1" d="M17.919 55.738c-0.858 0.867-0.858 2.266 0 3.133s2.243 0.867 3.101 0l25.056-25.302c0.858-0.867 0.858-2.269 0-3.133l-25.056-25.306c-0.858-0.867-2.243-0.867-3.101 0s-0.858 2.266 0 3.133l22.848 23.738-22.848 23.738z" />
+                </svg>
+            </div>
+
+            <p id="menu-btn" class="pull-right"><span class="icon-nav icon-menu"></span></p>
+            
+            <nav class="articles_page cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+                <h3>
+                    <span class="icon icon-cross" id="close-btn" style="float: left;color: darkgray;cursor: pointer;line-height: 1.1;"></span>
+                    <!-- <span style="float:right;">Empire</span> -->
+                    <p class="clearfix"></p>
+                </h3>
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('cycle') }}">Current Cycle</a>
+                <a href="{{ url_for('cycle') }}">Categories</a>
+                <ul id="cat_list">
+                    <li><a class="media-body block m-b-none"href="{{ url_for('news') }}">Current Events</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('tech') }}">Technology</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('money') }}">Money</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('career') }}">Career</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('mindbody') }}">Mind, Body, and Spirit</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('culture') }}">Culture + Entertainment</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('wildcard') }}">Wildcard</a></li>
+                </ul>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('terms') }}">Terms and Conditions</a>
+                <a href="{{ url_for('privacy') }}">Privacy Policy</a>
+                <a href="{{ url_for('contact') }}">Contact Us</a>
+
+                <!-- <div id="footer"> 
+                    <p>© 2015 ThreePillarMedia, LLC</p>
+                </div>-->
+            </nav>
+
+            <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1" style="width: 75%;">
+                <h3>
+                    <span class="icon icon-cross" id="closeLeft" style="float: right;color: darkgray;cursor: pointer;"></span>
+                    <span style="float:right;">What are you in the mood for?</span>
+                    <p class="clearfix"></p>
+                </h3>
+                <!-- <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('cycle') }}">Current Cycle</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('terms') }}">Terms and Conditions</a>
+                <a href="{{ url_for('privacy') }}">Privacy Policy</a>
+                <a href="{{ url_for('contact') }}">Contact Us</a> -->
+
+                <a href="{{ url_for('news') }}" class="category" style="background:url(../static/images/categories/politics.jpg) no-repeat; background-size: cover;background-position-y: -10px;">Current Events</a>
+                
+                
+                <a href="{{ url_for('tech') }}" class="category" style="background:url(../static/images/categories/tech.png) no-repeat; background-size: cover;">Technology</a>
+                
+                
+                <a href="{{ url_for('money') }}" class="category" style="background:url(../static/images/categories/money2.png) no-repeat; background-size: cover;">Money</a>
+            
+                
+                <a href="{{ url_for('career') }}" class="category" style="background:url(../static/images/categories/work.jpg) no-repeat; background-size: cover;">Career</a>
+                
+                <!-- <a href="">
+                    <li class="category" style="background:url(../static/images/1.jpg) no-repeat; background-size: cover;background-position-y: -112px;">
+                        <p>Body + Beauty</p>
+                    </li>
+                </a>
+                <a href="">
+                    <li class="category" style="background:url(../static/images/5.jpg) no-repeat; background-size: cover;background-position-y: -112px;">
+                        <p>Relationships</p>
+                    </li>
+                </a> -->
+                
+                <a href="{{ url_for('mindbody') }}" class="category" style="background:url(../static/images/categories/mind.jpg) no-repeat; background-size: cover;">Mind, Body, and Spirit</a>
+                
+                <!-- <a href="">
+                    <li class="category" style="background:url(../static/images/categories/sports2.png) no-repeat; background-size: cover;background-position-y: -80px;">
+                        <p>Sports</p>
+                    </li>
+                </a> -->
+                
+                <a href="{{ url_for('culture') }}" class="category" style="background:url(../static/images/categories/ent.png) no-repeat; background-size: cover;">Culture + Entertainment</a>
+
+                <!-- <a href="">
+                    <li class="category" style="background:url(../static/images/categories/music.png) no-repeat; background-size: cover;background-position-y: -90px;">
+                        <p>TV + Music</p>
+                    </li>
+                </a> -->
+                
+                <a href="{{ url_for('wildcard') }}" class="category" style="background:url(../static/images/categories/calm.jpg) no-repeat; background-size: cover;">Wildcard</a>
+            </nav>
+
+
+            <header class="animated fadeInDown">
+                <img src="{{ url_for('static', filename='images/logo-blk.png') }}" alt="Empire logo"/>
+                <p class="beta" data-toggle="tooltip" data-placement="left" title="PSSST! Click Me!" style="cursor:pointer;" onclick="$('#info').modal('show');">Beta!</p>
+            </header>
+
+            <div class="clearfix"></div>
+
+            <div id="buttons">
+                <div class="btn-round animated fadeInLeft">
+                    <a href="{{ url_for('cycle') }}">Current Cycle <span class="pull-right"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-right-1"></svg></span></a>
+                </div>
+
+                <!-- <hr> -->
+
+                <div class="btn-round animated fadeInRight">
+                    <p id="topicsTogg">Topics <span class="pull-left"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-left-1"></svg></span></p>
+                </div>
+            </div>
+            <!-- <nav class="nav-growpop">
+                <a class="prev" href="/item1">
+                    <span class="icon-wrap"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-left-2"></svg></span>
+                    <div>
+                        <span>Previous Story</span>
+                        <h3>Child full of grace saviour of the human race</h3>
+                        <p>by Holly Brighton</p>
+                        <img src="{{ url_for('static', filename='plugins/ArrowNavigationStyles/img/22.png') }}" alt="Previous thumb"/>
+                    </div>
+                </a>
+                <a class="next" href="/item3">
+                    <span class="icon-wrap"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-right-2"></svg></span>
+                    <div>
+                        <span>Next Story</span>
+                        <h3>Ancient rulage of grains and the trees of the night</h3>
+                        <p>by Mark Ustinov</p>
+                        <img src="{{ url_for('static', filename='plugins/ArrowNavigationStyles/img/21.png') }}" alt="Next thumb"/>
+                    </div>
+                </a>
+            </nav> 
+
+            <nav class="nav-slit">
+                <a class="prev" href="/item1">
+                    <span class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 64 64"><use xlink:href="#arrow-left-2"></use></svg></span>
+                    <div>
+                        <h3>City Lights</h3>
+                        <img src="{{ url_for('static', filename='plugins/ArrowNavigationStyles/img/5.png') }}" alt="Previous thumb"/>
+                    </div>
+                </a>
+                <a class="next" href="/item3">
+                    <span class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 64 64"><use xlink:href="#arrow-right-2"></use></svg></span>
+                    <div>
+                        <h3>Street Hills</h3>
+                        <img src="{{ url_for('static', filename='plugins/ArrowNavigationStyles/img/6.png') }}" alt="Previous thumb"/>
+                    </div>
+                </a>
+            </nav>-->
+        </div>
+    </body>
+
+    <div class="modal fade" id="info">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                    <h4 class="modal-title" style="font-size: 1.3em;padding: 10px 0;">We're finally here!</h4>
+                
+                    <p class="padder-v">Welcome to Empire. During these next couple of weeks, we would like to collect feedback from <strong>YOU</strong> to help us build the best version of Empire, a site that <strong>YOU</strong> would want to come back to every day.</p>
+
+                    <p class="padder-v">Browse the topics on your left or experience an Empire cycle on your right. Don't forget to let us know what you think of this beta release! Your feedback will be invaluable to us when we release the full-site and content.</p> 
+
+                    <p class="padder-v">Feel free to use the <a href="{{ url_for('contact') }}" style="color:#d20150 !important;">contact form</a> or reach out to us on social media.</p>
+
+                    <p style="text-align:left;">Stay Blessed,</p>
+                    <p style="text-align: left;font-style: italic;">- Team Empire</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='plugins/pushmenu/js/classie.js') }}"></script>
+    <script>
+        $(function(){
+            $('.beta').tooltip();
+
+            setTimeout("jQuery('.beta').tooltip('show');", 1000);
+
+            var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+                menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+                showRight = document.getElementById( 'menu-btn' ),
+                showLeft = document.getElementById( 'topicsTogg' ),
+                closeRight = document.getElementById( 'close-btn' ),
+                closeLeft = document.getElementById( 'closeLeft' );
+            
+            showRight.onclick = function() {
+                classie.toggle( this, 'active' );
+                classie.toggle( menuRight, 'cbp-spmenu-open' );
+                // disableOther( 'showRight' );
+            };
+
+            showLeft.onclick = function() {
+                classie.toggle( this, 'active' );
+                classie.toggle( menuLeft, 'cbp-spmenu-open' );
+                // disableOther( 'showRight' );
+            };
+
+            closeRight.onclick = function() {
+                // classie.toggle( this, 'active' );
+                classie.toggle( menuRight, 'cbp-spmenu-open' );
+                // disableOther( 'showRight' );
+            };
+
+            closeLeft.onclick = function() {
+                // classie.toggle( this, 'active' );
+                classie.toggle( menuLeft, 'cbp-spmenu-open' );
+                // disableOther( 'showRight' );
+            };
+        });
+    </script>
+</html>

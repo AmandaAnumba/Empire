@@ -1,0 +1,427 @@
+#welcome {
+	@include body-format;
+	background: whitesmoke;
+}
+
+#splitlayout {
+	// position: relative;
+	// overflow-x: hidden;
+	// min-height: 100%;
+	// width: 100%;
+
+	#logo {
+  		z-index: 1000;
+  		margin-top: 10%;
+  		position: absolute;
+  		// width: 100%;
+  		left: 37%;
+		text-align: center;
+	}
+
+}
+
+// #welcome_header {
+// 	text-align: center;
+// 	// margin-top: 10%;
+
+	
+
+// 	p {
+// 		font-weight: 300;		
+// 		font-size: 1.1em;
+// 		letter-spacing: 1px;
+// 	}
+// }
+
+.side {
+	position: fixed;
+	top: 0;
+	/*z-index: 100;*/
+	width: 50%;
+	height: 100%;
+	text-align: center;
+	-webkit-backface-visibility: hidden;
+	transition: all 0.4s;
+}
+
+.intro-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	/*padding: 0 1em;*/
+	/*width: 50%;*/
+	cursor: pointer;
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	transform: translateY(-50%) translateX(-50%);
+	z-index: 500;
+
+	h1 > span {
+		display: block;
+		white-space: nowrap;
+
+		&:first-child {
+			font-weight: 300;
+			font-size: 2em;
+		}
+
+		&:nth-child(2) {
+			position: relative;
+			margin-top: 0.5em;
+			padding: 0.8em;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-size: 0.8em;
+		}
+
+		&:nth-child(2):before {
+			position: absolute;
+			top: 0;
+			left: 25%;
+			width: 50%;
+			height: 2px;
+			background: #fff;
+			content: '';
+		}
+	}
+}
+
+.side-right {
+	right: 0;
+	// background: url(../../images/frontpage/mindy.png);
+	// background-size: cover;
+	color: white;
+	
+	-webkit-transition: opacity 0.35s, background-position-x 0.35s;
+	transition: opacity 0.35s, background-position-x 0.35s;
+	// outline: 1px solid #5A5A5A; /* avoid gap */
+
+	// img {
+	// 	height: 100%;
+	// 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	// 	transition: opacity 0.35s, transform 0.35s;
+	// 	-webkit-transform: translate3d(40px,0,0);
+	// 	transform: translate3d(40px,0,0);
+	// 	margin-left: -40px;	
+	// }
+
+	&:hover {
+
+		background-position-x: -15px;
+		// 	
+		// img {
+		// 	opacity: 0.7;
+		// 	-webkit-transform: translate3d(0,0,0);
+		// 	transform: translate3d(0,0,0);
+		// }
+
+		.nav-multithumb {
+			width: 200px;
+
+			.icon-wrap::after {
+				width: 200px;
+				-webkit-transition-delay: 0s;
+				transition-delay: 0s;
+			}
+
+			div {
+				pointer-events: auto;
+
+				&::after {
+					opacity: 1;
+					-webkit-transition-delay: 0.2s;
+					transition-delay: 0.2s;
+					-webkit-transform: translateY(0);
+					transform: translateY(0);
+				}
+			}
+		}
+	}
+
+	.intro-content {
+
+		p {
+			text-align: left;
+			text-transform: uppercase;
+			font-weight: 300;
+			font-size: 1.3em;
+			letter-spacing: 1px;
+			text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+		}
+	}
+}
+
+
+.side-left {
+	left: 0;
+	background: white;
+	color: #5A5A5A;
+	// outline: 1px solid #5A5A5A; /* avoid gap */
+	overflow-y: scroll;
+	z-index: 50;
+
+	#title {
+		font-size: 4.7em;
+		color: rgb(81, 81, 81);
+		font-weight: 300;
+		// margin: 0;
+	}
+
+	#categories {
+		opacity: 0;
+		position: absolute;
+		width: 100%;
+
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 15px 0 50px 0;
+
+			li {
+				display: inline-block;
+				height: 100px;
+				width: 75%;
+				background: whitesmoke;
+				color: white;
+				font-size: 1em;
+				font-weight: 300;
+				margin: 9px 0;
+				opacity: 0.4;
+
+				p {
+					margin-top: 25px;
+					font-size: 1.7em;
+					color: black;
+					font-weight: 700;
+				}
+
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+
+.nav-multithumb {
+	width: 60px;
+	height: 100px;
+
+	.icon-wrap {
+		position: absolute;
+		top: 60%;
+		display: block;
+		width: 32px;
+		height: 32px;
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
+		right: 0;
+
+		&::after {
+			position: absolute;
+			top: 50%;
+			width: 20px;
+			height: 1px;
+			background: #fff;
+			content: '';
+			-webkit-transition: width 0.3s 0.2s;
+			transition: width 0.3s 0.2s;
+			// -webkit-backface-visibility: hidden; /* needed because of Chrome bug with prefixed calc */
+			// backface-visibility: hidden;
+			right: -webkit-calc(100% - 10px);
+			right: calc(100% - 10px);
+		}
+	}
+
+	svg.icon {
+		fill: #fff;
+	}
+
+	div {
+		position: absolute;
+		// top: -25%;
+		right: 40px;
+		top: 60%;
+		width: 290px;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-align: end;
+		// width: 170px;
+		pointer-events: none;
+		-webkit-box-align: end;
+		-webkit-align-items: flex-end;
+		align-items: flex-end;
+
+		&::after {
+			content: 'Browse This Cycle';
+			text-align: right;
+			position: absolute;
+			top: 100%;
+			left: 20px;
+			margin: 19px 0;
+			width: 100%;
+			color: #fff;
+			text-transform: uppercase;
+			letter-spacing: 6px;
+			font-weight: 300;
+			font-size: 0.65em;
+			opacity: 0;
+			-webkit-transition: -webkit-transform 0.3s;
+			transition: transform 0.3s;
+			-webkit-transform: translateY(-50%);
+			transform: translateY(-50%);
+		}
+	}
+}
+
+/* Media Queries */
+@media screen and (max-width: 83em) {
+	.intro-content { font-size: 60%; }
+}
+
+@media screen and (max-width: 58em) {
+	body { font-size: 90%; }
+}
+
+@media screen and (max-width: 49.4375em) {
+
+	.intro-content {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 42.5em) {
+	body { font-size: 80%; }
+	.intro-content { font-size: 50%; }
+}
+
+@media screen and (max-height: 41.125em) {
+	.intro-content {
+		-webkit-transform: translateY(-25%) translateX(-50%);
+		transform: translateY(-25%) translateX(-50%);
+	}
+}
+
+@media screen and (max-width: 39.375em) {
+	.intro-content .profile { -webkit-transform: scale(0.5); transform: scale(0.5); }
+}
+
+@media screen and (max-width: 320px) {
+	body { font-size: 70%; }
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 500px;
+  margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
+
+.feature_icon {
+	font-size: 6em;
+}
+
+.beta {
+	color: #d20150;
+	font-size: 1.6em;
+	font-weight: 300;
+	text-transform: uppercase;
+	width: 80px;
+	margin: 0 auto;
+	letter-spacing: 2.7px;
+}

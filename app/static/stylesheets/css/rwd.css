@@ -1,0 +1,256 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  /* line 6, ../sass/rwd.scss */
+  #main {
+    display: none;
+  }
+
+  /* line 10, ../sass/rwd.scss */
+  #mobile_main {
+    display: block;
+    background: linear-gradient(rgba(254, 255, 245, 0.5), rgba(34, 6, 6, 0.5)), url(../../images/12-sm.jpg), no-repeat center center fixed;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+  }
+  /* line 21, ../sass/rwd.scss */
+  #mobile_main #menu-btn {
+    color: white;
+    padding: 10px;
+    width: auto;
+    z-index: 1000;
+    cursor: pointer;
+  }
+  /* line 29, ../sass/rwd.scss */
+  #mobile_main header {
+    text-align: center;
+    /* padding: 20px 0; */
+    width: 230px;
+    margin: 75px auto;
+  }
+  /* line 36, ../sass/rwd.scss */
+  #mobile_main header img {
+    width: 220px;
+    margin-top: 23%;
+  }
+  /* line 41, ../sass/rwd.scss */
+  #mobile_main header .beta {
+    text-align: right;
+    font-size: 2em;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: black;
+    width: 80px;
+    /* margin: 0 auto; */
+    float: right;
+  }
+  /* line 54, ../sass/rwd.scss */
+  #mobile_main #buttons {
+    margin-top: 27%;
+  }
+  /* line 58, ../sass/rwd.scss */
+  #mobile_main .btn-round {
+    background: rgba(255, 226, 226, 0.38);
+    margin: 20px 40px;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 1.1em;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 300;
+  }
+  /* line 70, ../sass/rwd.scss */
+  #mobile_main .icon {
+    fill: #fff;
+  }
+  /* line 76, ../sass/rwd.scss */
+  #mobile_main #cbp-spmenu-s1 .category {
+    /* display: inline-block; */
+    height: 35px;
+    /* width: 100%; */
+    background: whitesmoke;
+    color: white !important;
+    font-size: 1.6em;
+    font-weight: 700;
+    margin: 9px 0;
+    opacity: 0.7;
+    padding: 0.6em;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.85);
+  }
+
+  /* line 92, ../sass/rwd.scss */
+  #cbp-spmenu-s2 {
+    width: 55%;
+  }
+  /* line 95, ../sass/rwd.scss */
+  #cbp-spmenu-s2 h3 {
+    padding: 20px 0 0 0;
+    border-bottom: none !important;
+  }
+  /* line 100, ../sass/rwd.scss */
+  #cbp-spmenu-s2 footer {
+    position: absolute;
+    bottom: 10px;
+  }
+
+  /* line 106, ../sass/rwd.scss */
+  #navbar_top {
+    /* height: 60px; */
+    padding: 10px 3% 0;
+    position: fixed;
+    z-index: 999;
+    background: white;
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  /* line 117, ../sass/rwd.scss */
+  #grid {
+    margin: 0px 30px;
+  }
+
+  /* line 121, ../sass/rwd.scss */
+  figure.effect-zoe figcaption,
+  figure.effect-zoe h2,
+  figure.effect-zoe p.icon-links a {
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+  }
+
+  /* line 128, ../sass/rwd.scss */
+  figure.effect-zoe figcaption {
+    background: rgba(255, 255, 255, 0.27) !important;
+    color: #FFFFFF !important;
+  }
+
+  /* line 133, ../sass/rwd.scss */
+  .grid figure p {
+    font-size: 90% !important;
+  }
+
+  /* line 137, ../sass/rwd.scss */
+  #center_menu,
+  #right_menu {
+    display: none;
+  }
+
+  /* line 142, ../sass/rwd.scss */
+  #menu-btn {
+    display: block;
+    position: absolute;
+    top: 18px;
+    color: black;
+  }
+
+  /* line 151, ../sass/rwd.scss */
+  #regular_article #navbar_top {
+    top: 0;
+  }
+  /* line 155, ../sass/rwd.scss */
+  #regular_article #menu-btn {
+    display: block;
+    position: relative;
+    top: 13px;
+    color: black;
+    margin: 0;
+  }
+  /* line 163, ../sass/rwd.scss */
+  #regular_article #cbp-spmenu-s2 {
+    font-size: 13px;
+  }
+  /* line 167, ../sass/rwd.scss */
+  #regular_article #container {
+    margin-top: 75px;
+  }
+  /* line 171, ../sass/rwd.scss */
+  #regular_article #cat_list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 3px solid black;
+    border-top: 2px solid black;
+  }
+  /* line 178, ../sass/rwd.scss */
+  #regular_article #cat_list li > a {
+    background: rgba(247, 247, 247, 0.4);
+    padding: 0.9em;
+    font-size: 0.9em;
+    border-bottom: 1px solid rgba(86, 86, 86, 0.06);
+  }
+  /* line 186, ../sass/rwd.scss */
+  #regular_article header {
+    height: 75%;
+  }
+
+  /* line 192, ../sass/rwd.scss */
+  .flex-viewport {
+    max-height: 3400px !important;
+  }
+
+  /* line 196, ../sass/rwd.scss */
+  .header-img {
+    width: 80% !important;
+    height: 180px !important;
+    margin: 2% auto !important;
+    background-size: contain !important;
+  }
+
+  /* line 203, ../sass/rwd.scss */
+  .regular > h1 {
+    font-size: 1.25em !important;
+  }
+
+  /* line 207, ../sass/rwd.scss */
+  .content > div:not(.title) p {
+    font-size: 1.35em !important;
+  }
+
+  /* line 211, ../sass/rwd.scss */
+  .smilie {
+    font-size: 3em !important;
+    padding: 0 3px !important;
+  }
+
+  /* line 216, ../sass/rwd.scss */
+  #list_stuff {
+    margin-left: 0 !important;
+  }
+
+  /* line 220, ../sass/rwd.scss */
+  #contact_form {
+    margin: 3% 6%;
+    border: none;
+  }
+  /* line 224, ../sass/rwd.scss */
+  #contact_form h1 {
+    position: relative;
+    left: 0;
+    background: none;
+    margin-top: 0;
+    width: 100%;
+  }
+
+  /* line 233, ../sass/rwd.scss */
+  #about_wrapper nav ul li {
+    padding: 0 8px;
+  }
+}
+/* Smartphones (landscape) ----------- */
+/* Smartphones (portrait) ----------- 
+@media only screen
+and (max-width : 480px) {
+}*/
+/* iPads (portrait and landscape) ----------- */
+/* iPads (portrait) ----------- */
+/* Large screens ----------- */
+/* iPhone 4 ----------- 
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+}*/

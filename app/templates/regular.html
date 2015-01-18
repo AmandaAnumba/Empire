@@ -1,305 +1,404 @@
-{% extends "base_editor.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+        <script src="{{ url_for('static', filename='js/moment.js') }}"></script>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>{{ article.title }} - Empire</title>
+		<meta name="description" content="Inspire, Rise, Reign" />
+        <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
+        <meta name="author" content="ThreePillarMedia, LLC" />
+		<link rel="icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon.png') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/intro/css/normalize.css') }}" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/intro/css/demo.css') }}" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/intro/css/component.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/icons.css') }}" />
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54b74dc434356003" async="async"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
+		<link href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" rel="stylesheet">
+		
 
-<p id="id" hidden>{{ article.id }}</p>
+		<!-- <link rel="stylesheet" href="{{ url_for('static', filename='plugins/sc/release/themes/default-theme.css') }}" /> -->
+		<!-- <link rel="stylesheet" href="{{ url_for('static', filename='plugins/sc/support/css/basics.css') }}" /> -->
+		<!--[if IE]>
+  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body id="regular_article">
+		<nav id='navbar_top'>
+            <ul id="center_menu">
+                
+                <li class="tab"><a href="{{ url_for('index') }}">Home </a></li>
+               
+                <li class="dropdown">
+                    <div class="dropdown-toggle" dropdown-toggle="categories" style="cursor: pointer;">Categories <span class="icon-arrow-down"></span></div>
+                    <div class="dropdown-menu w-sm animated fadeInUp" id="categories">
+                        <div class="panel bg-white">
+                            <div class="list-group">
+                                <div class="media list-group-item">
+                                    <p class="media-body block m-b-none"><a href="{{ url_for('news') }}">Current Events</a></p>
+                                </div>
+                                <div class="media list-group-item">
+                                    <p class="media-body block m-b-none"><a href="{{ url_for('tech') }}">Technology</a></p>
+                                </div>
+                                <div class="media list-group-item">
+                                    <p class="media-body block m-b-none"><a href="{{ url_for('money') }}">Money</a></p>
+                                </div>
+                                <div class="media list-group-item">
+                                    <p class="media-body block m-b-none"><a href="{{ url_for('career') }}">Career</a></p>
+                                </div>
+                                <div class="media list-group-item">
+                                    <p class="media-body block m-b-none"><a href="{{ url_for('mindbody') }}">Mind, Body, and Spirit</a></p>
+                                </div>
+                                <div class="media list-group-item">
+                                    <p class="media-body block m-b-none"><a href="{{ url_for('culture') }}">Culture + Entertainment</a></p>
+                                </div>
+                                <div class="media list-group-item">
+                                    <p class="media-body block m-b-none"><a href="{{ url_for('wildcard') }}">Wildcard</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
 
-<nav id="top_nav">
-	<div id="back" class="pull-left">
-		<a href="{{ url_for('review') }}">
-			<span class="icon-arrow-left"></span> back to other articles
-		</a>
-	</div>
+                <!-- <a href="">
+                    <li class="tab">Filters</li>
+                </a> -->
 
-	{% if article.status == 'ready' %}
-	<div class="pull-right padder">
-		<p class="btn btn-default"style="background-color: #F2F2F2;" data-toggle="tooltip" data-placement="bottom" title="only save the changes you've made" onclick="save();">Save Changes</p>
-		<p class="btn btn-default" style="background-color: #F2F2F2;" data-toggle="tooltip" data-placement="bottom" title="this article needs to be proofed again">Have someone review again</p>
-		<p class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="this article is ready to be published">Mark as Proofread</p>
-	</div>
-	{% else %}
-	<div class="pull-right padder">
-		<p class="btn btn-primary">Submit to be reviewed</p>
-	</div>
-	{% endif %}
-</nav>
+                <li class="tab"><a href="{{ url_for('cycle') }}">Cycle #1</a></li> 
+                
+            </ul>
+            <img src="{{ url_for('static', filename='images/logo-blk.png') }}" width="100px">
+            <p id="menu-btn" class="pull-right" hidden><span class="icon-nav icon-menu"></span></p>
+        </nav>
 
-<section id="proof_wrapper">
+		<p id="id" hidden>{{ article['objectId'] }}</p>
+		
+		<div id="container" class="container">
+			<header class="header">
+				<div class="header-img" style="background:url({{ article.headerIMG }}) no-repeat center;">
+					<!-- <img src="" alt="Header Image" /> -->
+				</div>
 
-	<div id="error_msg" class="alert error sticky animated fadeInDown" hidden>
-        <button type="button" class="close" data-dismiss="alert">
-            <span aria-hidden="true">&times;</span>
-            <span class="sr-only">Close</span>
-        </button>
-        <p class="message"></p>
-    </div>
+				<div class="regular">
+					<h1 style="text-align: center;">{{ article.title }}</h1>
+					<p class="subline">{{ article.description }}</p>
+					<p>by <strong>{{ article.author }}</strong> &#8212; Posted in <strong>{{ article.category }}</strong> on <strong id="date"></strong></p>
+				</div>
+			</header>
 
-    <div id="success_msg" class="alert alert-info sticky animated fadeInDown" hidden>
-        <button type="button" class="close" data-dismiss="alert">
-            <span aria-hidden="true">&times;</span>
-            <span class="sr-only">Close</span>
-        </button>
-        <p class="message">You are now previewing the article in Inline Editing Mode. To edit a field, simply highlight the text and edit it.</p>
-    </div>
+			 <nav class="articles_page cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+	            <h3>
+	                <span class="icon icon-cross" id="close-btn" style="float: left;color: darkgray;cursor: pointer;line-height: 1.1;"></span>
+	                <!-- <span style="float:right;">Empire</span> -->
+	                <!-- <p class="clearfix"></p> -->
+	            </h3>
+	            <a href="{{ url_for('index') }}">Home</a>
+	            <a href="{{ url_for('cycle') }}">Current Cycle</a>
+	            <a href="{{ url_for('cycle') }}">Categories</a>
+	            <ul id="cat_list">
+	                <li><a class="media-body block m-b-none"href="{{ url_for('news') }}">Current Events</a></li>
+	                <li><a class="media-body block m-b-none" href="{{ url_for('tech') }}">Technology</a></li>
+	                <li><a class="media-body block m-b-none" href="{{ url_for('money') }}">Money</a></li>
+	                <li><a class="media-body block m-b-none" href="{{ url_for('career') }}">Career</a></li>
+	                <li><a class="media-body block m-b-none" href="{{ url_for('mindbody') }}">Mind, Body, and Spirit</a></li>
+	                <li><a class="media-body block m-b-none" href="{{ url_for('culture') }}">Culture + Entertainment</a></li>
+	                <li><a class="media-body block m-b-none" href="{{ url_for('wildcard') }}">Wildcard</a></li>
+	            </ul>
+	            <a href="{{ url_for('about') }}">About</a>
+	            <a href="{{ url_for('terms') }}">Terms and Conditions</a>
+	            <a href="{{ url_for('privacy') }}">Privacy Policy</a>
+	            <a href="{{ url_for('contact') }}">Contact Us</a>
 
-	<form id="post" action="{{ url_for('submit') }}" accept-charset="UTF-8" method="POST" enctype="multipart/form-data">
+	            <!-- <div id="footer"> 
+	                <p>© 2015 ThreePillarMedia, LLC</p>
+	            </div>-->
+	        </nav>
 
-		<section id="popouts_wrapper">
-			<!-- uploaded media -->
-			<div id="pop_uploads" class="popout-left" hidden>
-				<header>Uploaded Media</header>
 
-				<div class="popout_content">
-					<p class="description" style="color:white;font-size: 0.8em;margin:0;">Copy the code and paste it into the document in the HTML view ( click <code><i class="fa fa-code"></i></code> in the text editor toolbar )</p>
+			<article class="content">
+				<div id="commentable-container" class="container commentable-container"></div>
+			</article>			
+
+			<section id="beta_msg" style="text-align: center;margin: 0 15%;padding-bottom: 40px;">
+				<hr>
+
+				<h3>How'd you like this article?</h3>
+				<div>
+					<span onclick="rate('likes');" class="icon smilie icon-smile-o" style="color:#6dd7a5;"></span>
+					<span onclick="rate('meh');" class="icon smilie icon-meh-o" style="color:#ffbc41;"></span>
+					<span onclick="rate('dislikes');" class="icon smilie icon-frown-o" style="color:indianred;"></span>
+					<p id="message" hidden><small>Your response has been recorded. Thank you!</small></p>
+				</div>
+				<p>When we roll out the full-site, you will be able to:</p>
+				<ul id="list_stuff">
+					<li>create an account and log in</li>
+					<li>comment on article <a href="https://medium.com/about/why-medium-notes-are-different-and-how-to-use-them-well-5972c72b18f2" target="_blank">Medium.com style</a></li>
+					<li>contribute your own thoughts to an article</li>
+					<li>start a dialog with the Empire community</li>
+					<li>bookmark and favorite an article</li>
+					<li>... and more!</li>
+				</ul>
+				<p>Is there something particular you would like to see? Suggest a feature through our <a href="{{ url_for('contact') }}">contact form</a>.</p>
+			</section>
+		</div>
+		
+		<div id="article_content" hidden>{{ article.content }}</div>
+		<div id="article_date" hidden>{{ article.releaseDate }}</div>
+		
+		<script src="{{ url_for('static', filename='plugins/intro/js/classie.js') }}"></script>
+		<style>
+	        .header-img {
+	            width: 80%; 
+	            height:250px;
+	            margin: 4% auto;
+	        }
+
+	        .smilie {
+	            cursor:pointer; 
+	            font-size:4em; 
+	            padding:0 8px;
+	        }
+
+	        #list_stuff {
+	            text-align: left;
+	            margin-left: 20%;
+	            font-size: 0.8em;
+	        }
+	    </style>
+		<!-- <script src="{{ url_for('static', filename='plugins/sc/release/side-comments.js') }}"></script>
+		<script src="{{ url_for('static', filename='plugins/sc/support/js/jquery.js') }}"></script>
+		 <script src="{{ url_for('static', filename='plugins/sc/support/test_data.js') }}"></script> -->
+		
+		<script>
+			// (function() {
+
+			// 	// detect if IE : from http://stackoverflow.com/a/16657946		
+			// 	var ie = (function(){
+			// 		var undef,rv = -1; // Return value assumes failure.
+			// 		var ua = window.navigator.userAgent;
+			// 		var msie = ua.indexOf('MSIE ');
+			// 		var trident = ua.indexOf('Trident/');
+
+			// 		if (msie > 0) {
+			// 			// IE 10 or older => return version number
+			// 			rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+			// 		} else if (trident > 0) {
+			// 			// IE 11 (or newer) => return version number
+			// 			var rvNum = ua.indexOf('rv:');
+			// 			rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
+			// 		}
+
+			// 		return ((rv > -1) ? rv : undef);
+			// 	}());
+
+
+			// 	// disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179					
+			// 	// left: 37, up: 38, right: 39, down: 40,
+			// 	// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+			// 	var keys = [32, 37, 38, 39, 40], wheelIter = 0;
+
+			// 	function preventDefault(e) {
+			// 		e = e || window.event;
+			// 		if (e.preventDefault)
+			// 		e.preventDefault();
+			// 		e.returnValue = false;  
+			// 	}
+
+			// 	function keydown(e) {
+			// 		for (var i = keys.length; i--;) {
+			// 			if (e.keyCode === keys[i]) {
+			// 				preventDefault(e);
+			// 				return;
+			// 			}
+			// 		}
+			// 	}
+
+			// 	function touchmove(e) {
+			// 		preventDefault(e);
+			// 	}
+
+			// 	function wheel(e) {
+			// 		// for IE 
+			// 		//if( ie ) {
+			// 			//preventDefault(e);
+			// 		//}
+			// 	}
+
+			// 	function disable_scroll() {
+			// 		window.onmousewheel = document.onmousewheel = wheel;
+			// 		document.onkeydown = keydown;
+			// 		document.body.ontouchmove = touchmove;
+			// 	}
+
+			// 	function enable_scroll() {
+			// 		window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;  
+			// 	}
+
+			// 	var docElem = window.document.documentElement,
+			// 		scrollVal,
+			// 		isRevealed, 
+			// 		noscroll, 
+			// 		isAnimating,
+			// 		container = document.getElementById( 'container' ),
+			// 		trigger = container.querySelector( 'button.trigger' );
+
+			// 	function scrollY() {
+			// 		return window.pageYOffset || docElem.scrollTop;
+			// 	}
+				
+			// 	function scrollPage() {
+			// 		scrollVal = scrollY();
 					
-				</div>
+			// 		if( noscroll && !ie ) {
+			// 			if( scrollVal < 0 ) return false;
+			// 			// keep it that way
+			// 			window.scrollTo( 0, 0 );
+			// 		}
 
-				<div id="uploads_toggle" class="slide_toggle-left" data-toggle="tooltip" data-placement="right" title="Uploaded Media"></div>
-			</div>
+			// 		if( classie.has( container, 'notrans' ) ) {
+			// 			classie.remove( container, 'notrans' );
+			// 			return false;
+			// 		}
 
-			<!-- article settings -->
-			<div id="pop_settings" class="popout">
-				<header>Article Settings</header>
+			// 		if( isAnimating ) {
+			// 			return false;
+			// 		}
+					
+			// 		if( scrollVal <= 0 && isRevealed ) {
+			// 			toggle(0);
+			// 		}
+			// 		else if( scrollVal > 0 && !isRevealed ){
+			// 			toggle(1);
+			// 		}
+			// 	}
 
-				<div class="popout_content">
-					<p class="label">Category</p>
-					<p class="sub-label">the main category this article falls under. Hold <code>Cmd</code> or <code>Ctrl</code> to select all major categories that apply. </p>
-					<select multiple class="clear-input-small2" id="category" name="category">
-						<option>Politics</option>
-						<option>Technology</option>
-						<option>Money</option>
-						<option>Body + Beauty</option>
-						<option>Relationships</option>
-						<option>Mind + Spirit</option>
-						<option>Sports</option>
-						<option>Arts + Fashion</option>
-						<option>TV + Music</option>
-						<option>Wildcard</option>
-					</select>
+			// 	function toggle( reveal ) {
+			// 		isAnimating = true;
+					
+			// 		if( reveal ) {
+			// 			classie.add( container, 'modify' );
+			// 		}
+			// 		else {
+			// 			noscroll = true;
+			// 			disable_scroll();
+			// 			classie.remove( container, 'modify' );
+			// 		}
 
-					<p class="label">Tags</p>
-					<input class="clear-input-small2" id="taginput" name="taginput" placeholder="separate, tags, with, commas" style="width:85%;" type="text" value="">
+			// 		// simulating the end of the transition:
+			// 		setTimeout( function() {
+			// 			isRevealed = !isRevealed;
+			// 			isAnimating = false;
+			// 			if( reveal ) {
+			// 				noscroll = false;
+			// 				enable_scroll();
+			// 			}
+			// 		}, 600 );
+			// 	}
 
-					<span class="doc-icon icon-circle-plus" id="add2list"></span>
-					<div id="tags_list" style="display:block;"></div>
-				</div>
-
-				<div id="settings_toggle" class="slide_toggle" data-toggle="tooltip" data-placement="left" title="Article Metadata"></div>
-			</div>
-
-			<!-- article media -->
-			<div id="pop_media" class="popout">
-				<header>Media Uploads</header>
+			// 	// refreshing the page...
+			// 	var pageScroll = scrollY();
+			// 	noscroll = pageScroll === 0;
 				
-				<div class="popout_content">
-					<p class="description" style="color:white;font-size: 0.8em;margin:0;"><span class="padder icon icon-warning"></span> <span class="label">Note: </span> All media used in your article needs to be uploaded to the web server. When your media has been successfully uploaded, you will be provided with the HTML code to paste into your article.</p>
-					<p class="label">Media types for an article</p>
-					<ol style="font-weight: 300;font-size: 0.8em;letter-spacing: 0.3px;color:white;">
-						<li>Required: Image for header of article</li>
-						<li>Required: Image, Gif, or Video for article display on the home page
-							<ul>
-								<li>featured article- at least 600px wide</li>
-								<li>regular article- no larger than 350px wide</li>
-								<li>sponsored article- at least 400px wide</li>
-								<!-- <li>** please fit the size restrictions or else the image will be distorted and pixelated if it's too small or take a long time to load if it's too large**</li> -->
-							</ul>
-						</li>
-						<li>Optional: Images throughout the article, not including external media</li>
-
-					</ol>
-
-					<p class="label">Upload Feature Image</p>
-					<p class="description" style="color:white;font-size: 0.75em;margin:0;">(the image for the article that will be displayed on the front page)</p>
-					<ul class="radio_btn clear-input-small3" id="media" placeholder="None" style="line-height: 0px !important;">
-						<li>
-							<input id="media-0" name="feature-media" type="radio" value="image" checked> 
-							<label for="media-0">image/picture/gif</label>
-						</li>
-						<li class="video" data-toggle="tooltip" data-placement="top" title="video support coming soon!">
-							<input id="media-2" name="feature-media" type="radio" value="video" disabled> 
-							<label for="media-2">video</label>
-						</li>
-					</ul>
-					<input class="clear-input-small2" id="featureIMG" name="featureIMG" type="file" accept="image/png,image/jpg,image/jpeg,image/gif">
-					<p id="upload_btn2" class="btn btn-primary" hidden>Upload</p>
-					<div id="progress2" hidden></div>
-			        
-			        <div class="response" id="success_upload2" style="text-align:center;" hidden><span style="color: #4CDBA5;" class="icon icon-check"></span></div>
-			        
-			        <div class="response" id="error_upload2" style="text-align:center;" hidden><span style="color: #FA626E;" class="icon icon-cross"></span></div>
-
-					<p class="label">Upload all other media</p>
-					<p class="description" style="color:white;font-size: 0.75em;margin:0;">(upload files one at a time)</p>
-					<ul class="radio_btn clear-input-small3" id="media" placeholder="None" style="line-height: 0px !important;">
-						<li>
-							<input id="media-0" name="media" type="radio" value="image" checked> 
-							<label for="media-0">image/picture/gif</label>
-						</li>
-						<li class="video" data-toggle="tooltip" data-placement="top" title="video support coming soon!">
-							<input id="media-2" name="media" type="radio" value="video" disabled> 
-							<label for="media-2">video</label>
-						</li>
-					</ul>
-
-					<input class="clear-input-small2" id="allmedia" name="allmedia" type="file" accept="image/png,image/jpg,image/jpeg,image/gif">
-					<p id="upload_btn3" class="btn btn-primary" onclick="uploadIMG('allmedia');" hidden >Upload</p>
-					<div id="progress3" hidden></div>
-			        
-			        <div class="response" id="success_upload3" style="text-align:center;" hidden><span style="color: #4CDBA5;" class="icon icon-check"></span></div>
-			        
-			        <div class="response" id="error_upload3" style="text-align:center;" hidden><span style="color: #FA626E;" class="icon icon-cross"></span></div>
-				</div>
+			// 	disable_scroll();
 				
-				<div id="media_toggle" class="slide_toggle" data-toggle="tooltip" data-placement="left" title="Images + Media Upload"></div>
-			</div>
-
-			<!-- article release -->
-			<div id="pop_review" class="popout">
-				<header>Publishing</header>
-
-				<div class="popout_content">
-					<p class="label" for="doc-type">Change Article Type</p>
-					<ul class="radio_btn clear-input-small2" id="doctype" placeholder="None" style="line-height: 0px !important;">
-						<li>
-							<input id="doctype-0" name="doctype" type="radio" value="feature"> 
-							<label for="doctype-0">feature</label>
-						</li>
-						<li>
-							<input id="doctype-1" name="doctype" type="radio" value="regular"> 
-							<label for="doctype-1">regular</label>
-						</li>
-						<li>
-							<input id="doctype-2" name="doctype" type="radio" value="sponsored"> 
-							<label for="doctype-2">sponsored</label>
-						</li>
-					</ul>
-
-					<p class="label" for="doc-release">Change Release Date</p>
-					<p id="date" class="sub-label">Current: <span></span></p>
-					<input class="clear-input-small2" id="release" name="release" type="date" value="">
-				</div>
+			// 	if( pageScroll ) {
+			// 		isRevealed = true;
+			// 		classie.add( container, 'notrans' );
+			// 		classie.add( container, 'modify' );
+			// 	}
 				
-				<div id="review_toggle" class="slide_toggle" data-toggle="tooltip" data-placement="left" title="Publishing"></div>
-			</div>
-		</section>
+			// 	window.addEventListener( 'scroll', scrollPage );
+			// 	// trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+			// })();
 
-		<section id="preview_header" style="text-align: center;">
-			<div id="article_category">{{ article.category }}</div>
+			$(function() {
+				var text = $('#article_content').text(),
+					dateStr = $('#article_date').text().split(','),
+					date = moment(dateStr).format("ddd, MMMM Do YYYY");
 
-			{% if article.headerIMG %}
-	        <img id="header" src="{{ article.headerIMG }}" alt="{{ article.title }}" width="650" />
-	        <div class="clearfix"></div>
-	        <p id="change_img" class="btn btn-default">Change Header Image</p>
-	        <div id="avi" hidden>
-	            <p id="pic_icon">
-	                <span class="icon-focus"></span>
-	                <img id="avatar_pic" src="" alt="Article Header Image" width="650" style="margin-bottom:15px;" hidden />
-	            </p>
-	            <input class="form-control" id="headerIMG" name="headerIMG" type="file" style="width:36%;" accept="image/png,image/jpg,image/jpeg">
-	    		<p id="upload_btn1" class="btn btn-primary" onclick="uploadIMG('headerIMG')" style="display:none;">Upload Image</p>
-	        </div>
-	        {% else %}  
-			<section id="article-header-img" class="text-center">
-				<p class="label2">Article Header Image</p>
-	            <p><small>** must be a large, hi-res image (at least 600px wide)</small></p>
-		        <p id="pic_icon">
-		            <span class="icon-focus"></span>
-		            <img id="avatar_pic" src="" alt="Article Header Image" width="650" style="margin-bottom:15px;" hidden />
-		        </p>
-		        <input class="form-control" id="headerIMG" name="headerIMG" type="file" accept="image/png,image/jpg,image/jpeg">
-		        <p id="upload_btn1" class="btn btn-primary" onclick="uploadIMG('headerIMG')" style="display:none;">Upload Image</p>
-	        </section>
-	        {% endif %}
-	    </section>
+				$('.content > div').html(text);
+				$('#date').append(date);
+				$('.dropdown-toggle').dropdown();
 
-		<section id="article-data">
-			<input class="clear-input-large" id="title" name="title" placeholder="Enter Title Here" type="text" value="{{ article.title }}">
+				// dropdown menus
+			    $('.dropdown-toggle').click(function(e) {
+			        var target = $(this).attr('dropdown-toggle');
+			        $('.dropdown-menu').not('#'+target).hide();
+			        
+			        if ($('#'+target).is(':visible')) {
+			            $('#'+target).hide();
+			        }
+			        else {
+			            e.stopPropagation();
+			            $('#'+target).show();
+			        }
+			    });
 
-			<textarea class="clear-input-small m-b-sm m-t-sm " name="description" placeholder="This will be displayed on the empire home page. Be brief." style="font-style: italic; height:auto;">{{ article.description }}</textarea>
+			    var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+                    showRight = document.getElementById( 'menu-btn' ),
+                    closeRight = document.getElementById( 'close-btn' );
+                
+                showRight.onclick = function() {
+                    classie.toggle( this, 'active' );
+                    classie.toggle( menuRight, 'cbp-spmenu-open' );
+                    // disableOther( 'showRight' );
+                };
 
-			<div class="pull-left" style="padding-left:0;">
-				<input class="clear-input-med" id="author" name="author" placeholder="Author" type="text" value={{ article.author }} style="width: 30%; font-size: 1.1em;">
+                closeRight.onclick = function() {
+                    // classie.toggle( this, 'active' );
+                    classie.toggle( menuRight, 'cbp-spmenu-open' );
+                    // disableOther( 'showRight' );
+                };
+
+				// $('p.fr-tag').each(function(i) {
+				// 	$(this).addClass('commentable-section').attr('data-section-id', i+1);
+				// });
+
+				// var SideComments = require('side-comments');
+				// window.sideComments = new SideComments('#commentable-container', currentUser, existingComments);
 				
-				{% if article.coAuthor %}
-				<input class="clear-input-med" id="co-author" name="co-author" placeholder="username of co-author(s) separated by commas" type="text" style="width: 30%; font-size: 1.1em;" value={{ article.coAuthor }}>
-				{% else %}
-				<p id="add-author" class="description" style="color:indianred; cursor:pointer;margin:0;"><span class="icon icon-circle-plus" style="padding-right:15px;"></span> Add another author</p>
-				<div id="more-authors" hidden>
-					<input class="clear-input-med" id="co-author" name="co-author" placeholder="username of co-author(s) separated by commas" type="text" style="width: 30%;">
-				</div>
-				{% endif %}
-			</div>
+				// window.sideComments.on('commentPosted', function( comment ) {
+				// 	comment.id = parseInt(Math.random() * (100000 - 1) + 1);
+				// 	sideComments.insertComment(comment);
+				// });
+				
+				// window.sideComments.on('commentDeleted', function( comment ) {
+				// 	sideComments.removeComment(comment.sectionId, comment.id);
+				// });
 
-
-			<div class="pull-right">
-				<div id="releaseDate"> {{ article.releaseDate }} </div>
-			</div>
-
-		</section>
-
-		<div class="clearfix"></div>
-		<div id="editor" style="margin-top: 30px;"></div>
-	</form>
-
-	<div id="text" hidden> {{ article.content }} </div>
-	<div id="article_tags" hidden> {{ article.tags }} </div>
-	<div id="article_type" hidden> {{ article.doctype }} </div>
-</section>
-
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-body" style="text-align:center;">
-                <h4>Are you sure you want to delete this?</h4>
-                <div>
-                    <button type="button" class="btn btn-primary" id="yes" onclick="deletedraft();">Yeah, do it</button>
-                    <button type="button" class="btn btn-default" style="background-color: #F2F2F2;" id="no" data-dismiss="modal">No, I changed my mind</button>   
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-	$(function() {
-		$('.slide_toggle, .btn').tooltip();
-		$('#editor').editable({
-			inlineMode: true, 
-			minHeight: 500,
-			placeholder: 'The article\'s content will be displayed here',
-			spellcheck: true,
-			buttons: ["bold", "italic", "underline", "strikeThrough", "fontSize","fontFamily", "color",'sep',"subscript", "superscript", "formatBlock", "blockStyle", "align", "insertOrderedList", "insertUnorderedList", "outdent", "indent", 'sep', "selectAll", "createLink", "undo", "removeFormat", "redo", "html", "insertHorizontalRule", "table"]
-		});
-
-		if (!Modernizr.inputtypes.date) {
-		    $('input[type=date]').datepicker({
-		        // Consistent format with the HTML5 picker
-		        dateFormat: 'yy-mm-dd'
-		    });
-		}
-
-		var release = $('#releaseDate').text().split(','),
-			date = moment(release).format("dddd, MMMM Do YYYY"),
-			category = $('#article_category').text(),
-			x = category.split(','),
-			tags = $('#article_tags').text().split(','),
-			doctype = $('#article_type').text();
-
-		$('#editor').editable("setHTML", $('#text').text(), true);
-		$('#releaseDate').empty().append(date);
-		$('#date.sub-label span').empty().append(date);
-		$('#article_category').empty();
-		$("input[name=doctype][value=" + doctype + "]").prop('checked', true);
-
-		for (var i = 0; i < x.length; i++) {
-			$('#article_category').append('<p class="pull-left">'+x[i].trim()+'</p>');
-		}
-
-		for (var i=0; i < tags.length; i++) {
-			$('#tags_list').append('<p><span class="icon-circle-cross remove_tag" onclick="$(this).parent().hide();"></span>'+tags[i].trim()+'</p>');
-		}
-
-		setTimeout("jQuery('.alert-info').show();", 2000);
-		setTimeout("jQuery('.alert-info').hide();", 5500);
-	});
-</script>
-{% endblock %}
+				// Listen to "commentPosted", and send a request to your backend to save the comment.
+				// More about this event in the "docs" section.
+				// sideComments.on('commentPosted', function( comment ) {
+				//     $.ajax({
+				//         url: '/comments',
+				//         type: 'POST'
+				//         data: comment,
+				//         success: function( savedComment ) {
+				//             // Once the comment is saved, you can insert the comment into the comment stream with "insertComment(comment)".
+				//             sideComments.insertComment(comment);
+				//         }
+				//     });
+				// });
+				 
+				// // Listen to "commentDeleted" and send a request to your backend to delete the comment.
+				// // More about this event in the "docs" section.
+				// sideComments.on('commentDeleted', function( commentId ) {
+				//     $.ajax({
+				//         url: '/comments/' + commentId,
+				//         type: 'DELETE',
+				//         success: function( success ) {
+				//             // Do something.
+				//         }
+				//     });
+				// });
+			});
+		</script>
+	</body>
+</html>

@@ -1,37 +1,21 @@
 <!DOCTYPE html>
 <html lang='en'>
     <head>
-    	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
-        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet'>
+        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta charset="utf-8">  
-        <title>Error 404 | Empire</title>
-        <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon.png') }}">
+        <title>Empire</title>
         <meta name="description" content="Inspire, Rise, Reign" />
         <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
         <meta name="author" content="ThreePillarMedia, LLC" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/error.css') }}" />
-		<style>
-			a:hover,
-			a:active {
-				color: #333;
-			}
-		</style>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/admin.css') }}" />
+        <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
     </head>
 
     <body>
-		<div class="homepage">
-			<img src="{{ url_for('static', filename='images/404v3.png') }}" alt="404 Error" />
-			<div style="text-transform:uppercase; letter-spacing: 1px; font-size: 18pt; margin-top:20px; font-family: Lato;">
-				We are sorry. This page cannot be found.
-			</div>
-			<div style="font-size: 16pt; margin-top:20px; font-family: Lato;">
-				<p class="btn"><a href="{{ url_for('index') }}" >Return to my dashboard.</a></p>
-			</div>
-		</div>
-
+        <h1>404 Page </h1>
     </body>
 
 </html>
