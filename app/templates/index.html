@@ -147,12 +147,6 @@
         <div id="mobile_main" hidden>
             <div class="svg-wrap" hidden>
                 <svg width="64" height="64" viewBox="0 0 64 64">
-                    <path id="arrow-left-2" d="M26.667 10.667q1.104 0 1.885 0.781t0.781 1.885q0 1.125-0.792 1.896l-14.104 14.104h41.563q1.104 0 1.885 0.781t0.781 1.885-0.781 1.885-1.885 0.781h-41.563l14.104 14.104q0.792 0.771 0.792 1.896 0 1.104-0.781 1.885t-1.885 0.781q-1.125 0-1.896-0.771l-18.667-18.667q-0.771-0.813-0.771-1.896t0.771-1.896l18.667-18.667q0.792-0.771 1.896-0.771z" />
-                </svg>
-                <svg width="64" height="64" viewBox="0 0 64 64">
-                    <path id="arrow-right-2" d="M37.333 10.667q1.125 0 1.896 0.771l18.667 18.667q0.771 0.771 0.771 1.896t-0.771 1.896l-18.667 18.667q-0.771 0.771-1.896 0.771-1.146 0-1.906-0.76t-0.76-1.906q0-1.125 0.771-1.896l14.125-14.104h-41.563q-1.104 0-1.885-0.781t-0.781-1.885 0.781-1.885 1.885-0.781h41.563l-14.125-14.104q-0.771-0.771-0.771-1.896 0-1.146 0.76-1.906t1.906-0.76z" />
-                </svg>
-                <svg width="64" height="64" viewBox="0 0 64 64">
                     <path id="arrow-left-1" d="M46.077 55.738c0.858 0.867 0.858 2.266 0 3.133s-2.243 0.867-3.101 0l-25.056-25.302c-0.858-0.867-0.858-2.269 0-3.133l25.056-25.306c0.858-0.867 2.243-0.867 3.101 0s0.858 2.266 0 3.133l-22.848 23.738 22.848 23.738z" />
                 </svg>
                 <svg width="64" height="64" viewBox="0 0 64 64">
@@ -170,7 +164,7 @@
                 </h3>
                 <a href="{{ url_for('index') }}">Home</a>
                 <a href="{{ url_for('cycle') }}">Current Cycle</a>
-                <a href="{{ url_for('cycle') }}">Categories</a>
+                <a href="" style="border-bottom:none;">Categories</a>
                 <ul id="cat_list">
                     <li><a class="media-body block m-b-none"href="{{ url_for('news') }}">Current Events</a></li>
                     <li><a class="media-body block m-b-none" href="{{ url_for('tech') }}">Technology</a></li>
@@ -181,8 +175,7 @@
                     <li><a class="media-body block m-b-none" href="{{ url_for('wildcard') }}">Wildcard</a></li>
                 </ul>
                 <a href="{{ url_for('about') }}">About</a>
-                <a href="{{ url_for('terms') }}">Terms and Conditions</a>
-                <a href="{{ url_for('privacy') }}">Privacy Policy</a>
+                <a href="{{ url_for('terms') }}">Terms and Privacy</a>
                 <a href="{{ url_for('contact') }}">Contact Us</a>
 
                 <!-- <div id="footer"> 
@@ -193,7 +186,7 @@
             <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1" style="width: 75%;">
                 <h3>
                     <span class="icon icon-cross" id="closeLeft" style="float: right;color: darkgray;cursor: pointer;"></span>
-                    <span style="float:right;">What are you in the mood for?</span>
+                    <span style="float:right;font-size: 0.7em;">What are you in the mood for?</span>
                     <p class="clearfix"></p>
                 </h3>
                 <!-- <a href="{{ url_for('index') }}">Home</a>

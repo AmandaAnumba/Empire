@@ -97,7 +97,7 @@
             </h3>
             <a href="{{ url_for('index') }}">Home</a>
             <a href="{{ url_for('cycle') }}">Current Cycle</a>
-            <a href="{{ url_for('cycle') }}">Categories</a>
+            <a href="" style="border-bottom:none;">Categories</a>
             <ul id="cat_list">
                 <li><a class="media-body block m-b-none"href="{{ url_for('news') }}">Current Events</a></li>
                 <li><a class="media-body block m-b-none" href="{{ url_for('tech') }}">Technology</a></li>
@@ -108,8 +108,7 @@
                 <li><a class="media-body block m-b-none" href="{{ url_for('wildcard') }}">Wildcard</a></li>
             </ul>
             <a href="{{ url_for('about') }}">About</a>
-            <a href="{{ url_for('terms') }}">Terms and Conditions</a>
-            <a href="{{ url_for('privacy') }}">Privacy Policy</a>
+            <a href="{{ url_for('terms') }}">Terms and Privacy</a>
             <a href="{{ url_for('contact') }}">Contact Us</a>
 
             <!-- <div id="footer"> 

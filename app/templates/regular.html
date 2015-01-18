@@ -93,33 +93,31 @@
 				</div>
 			</header>
 
-			 <nav class="articles_page cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
-	            <h3>
-	                <span class="icon icon-cross" id="close-btn" style="float: left;color: darkgray;cursor: pointer;line-height: 1.1;"></span>
-	                <!-- <span style="float:right;">Empire</span> -->
-	                <!-- <p class="clearfix"></p> -->
-	            </h3>
-	            <a href="{{ url_for('index') }}">Home</a>
-	            <a href="{{ url_for('cycle') }}">Current Cycle</a>
-	            <a href="{{ url_for('cycle') }}">Categories</a>
-	            <ul id="cat_list">
-	                <li><a class="media-body block m-b-none"href="{{ url_for('news') }}">Current Events</a></li>
-	                <li><a class="media-body block m-b-none" href="{{ url_for('tech') }}">Technology</a></li>
-	                <li><a class="media-body block m-b-none" href="{{ url_for('money') }}">Money</a></li>
-	                <li><a class="media-body block m-b-none" href="{{ url_for('career') }}">Career</a></li>
-	                <li><a class="media-body block m-b-none" href="{{ url_for('mindbody') }}">Mind, Body, and Spirit</a></li>
-	                <li><a class="media-body block m-b-none" href="{{ url_for('culture') }}">Culture + Entertainment</a></li>
-	                <li><a class="media-body block m-b-none" href="{{ url_for('wildcard') }}">Wildcard</a></li>
-	            </ul>
-	            <a href="{{ url_for('about') }}">About</a>
-	            <a href="{{ url_for('terms') }}">Terms and Conditions</a>
-	            <a href="{{ url_for('privacy') }}">Privacy Policy</a>
-	            <a href="{{ url_for('contact') }}">Contact Us</a>
+			<nav class="articles_page cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+                <h3>
+                    <span class="icon icon-cross" id="close-btn" style="float: left;color: darkgray;cursor: pointer;line-height: 1.1;"></span>
+                    <!-- <span style="float:right;">Empire</span> -->
+                </h3>
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('cycle') }}">Current Cycle</a>
+                <a href="" style="border-bottom:none;">Categories</a>
+                <ul id="cat_list">
+                    <li><a class="media-body block m-b-none"href="{{ url_for('news') }}">Current Events</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('tech') }}">Technology</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('money') }}">Money</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('career') }}">Career</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('mindbody') }}">Mind, Body, and Spirit</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('culture') }}">Culture + Entertainment</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('wildcard') }}">Wildcard</a></li>
+                </ul>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('terms') }}">Terms and Privacy</a>
+                <a href="{{ url_for('contact') }}">Contact Us</a>
 
-	            <!-- <div id="footer"> 
-	                <p>© 2015 ThreePillarMedia, LLC</p>
-	            </div>-->
-	        </nav>
+                <!-- <div id="footer"> 
+                    <p>© 2015 ThreePillarMedia, LLC</p>
+                </div>-->
+            </nav>
 
 
 			<article class="content">
@@ -171,6 +169,17 @@
 	            margin-left: 20%;
 	            font-size: 0.8em;
 	        }
+
+	        #menu-btn {
+				position: absolute;
+				width: 100%;
+				text-align: right;
+				right: 35px;
+				color: white;
+				font-size: 2.5em;
+				top: 12px;
+				cursor: pointer;
+			}
 	    </style>
 		<!-- <script src="{{ url_for('static', filename='plugins/sc/release/side-comments.js') }}"></script>
 		<script src="{{ url_for('static', filename='plugins/sc/support/js/jquery.js') }}"></script>
