@@ -1,0 +1,181 @@
+{% extends "base_admin.html" %}
+{% block content %}
+<script src="{{ url_for('static', filename='js/s3upload.js') }}"></script>
+<script src="{{ url_for('static', filename='js/progressbar.min.js') }}"></script>
+
+<main id="profile_wrapper">
+    {% macro render_field(field, placeholder=None) %}
+        {% if field.errors %}
+        <div>
+        {% elif field.flags.error %}
+        <div>
+        {% else %}
+        <div>
+        {% endif %}
+            {% set css_class = 'form-control' + kwargs.pop('class', '') %}
+            {{ field(class=css_class, placeholder=placeholder, **kwargs) }}
+        </div>
+    {% endmacro %}
+
+    <div id="error_msg" class="alert error sticky animated fadeInDown" hidden>
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <p class="message"></p>
+    </div>
+
+    <div id="success_msg" class="alert success sticky animated fadeInDown" hidden>
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <p class="message"></p>
+    </div>
+    
+    <!-- loading animation -->
+    <div id="loader" class="text-center" hidden> 
+        <img src="{{ url_for('static', filename='images/svg/tail-spin-black.svg') }}" width="50" alt="loading animation">
+    </div>
+
+    <form id="profile" accept-charset="UTF-8" enctype="multipart/form-data" style="margin: 0 11%; padding: 20px 0;">
+        <div class="text-center padder-v">
+            <h2>My Profile</h2>
+            <p class="small">This is the data that is shown when someone checks out your profile</p>
+        </div>
+
+        <h3>General Settings</h3>
+        <p class="label2">Username</p>
+        {{ user['username'] }}
+
+        <p class="label2">Email Address</p>
+        {{ render_field(profile.email, placeholder="", value=user['email'] ) }}
+
+        <p class="label2">Full Name</p>
+        {{ render_field(profile.fullname, placeholder="", value=user['fullname']) }}
+
+        <!-- <p class="label2">New Password</p>
+        {{ render_field(profile.password, placeholder="") }}
+
+        <p class="label2">Confirm New Password</p>
+        {{ render_field(profile.confirm, placeholder="") }} -->
+
+        <h3 style="margin: 22px 0 0;">Avatar</h3>
+        {% if user.avatar %}
+            <img id="old_avatar" src="{{ user['avatar'] }}" alt="Profile picture" width="250" />
+            <p id="change_avatar" class="btn btn-default">Change Avatar</p>
+            <div id="avi" hidden>
+                <p id="pic_icon">
+                    <span class="icon-focus"></span>
+                    <img id="avatar_pic" src="" alt="Profile Picture" width="278" style="margin-bottom:15px;" hidden />
+                </p>
+                
+                {{ render_field(profile.avatar, style="margin-bottom:25px;") }}
+                
+                <p class="btn btn-primary" id="uploadAvi">Upload Image</p>
+
+                <div id="progress" hidden></div>
+                    
+                <div class="response" id="success_upload" style="text-align:center;" hidden><span style="color: #4CDBA5;" class="icon icon-check"></span></div>
+                    
+                <div class="response" id="error_upload" style="text-align:center;" hidden><span style="color: #FA626E;" class="icon icon-cross"></span></div>
+            </div>
+        {% else %}
+            <p class="label2">Profile Picture</p>
+            
+            <p id="pic_icon">
+                <span class="icon-focus"></span>
+                <img id="avatar_pic" src="" alt="Profile Picture" width="278" style="margin-bottom:15px;" hidden />
+            </p>
+            
+            {{ render_field(profile.avatar, style="margin-bottom:25px;") }}
+            
+            <p class="btn btn-primary" id="uploadAvi">Upload Image</p>
+
+            <div id="progress" hidden></div>
+                    
+            <div class="response" id="success_upload" style="text-align:center;" hidden><span style="color: #4CDBA5;" class="icon icon-check"></span></div>
+                    
+            <div class="response" id="error_upload" style="text-align:center;" hidden><span style="color: #FA626E;" class="icon icon-cross"></span></div>
+        {% endif %}
+
+        <h3 style="margin: 22px 0 0;">Personal Info</h3>
+        <p class="label2">Biographical Info</p>
+        {{ render_field(profile.bio, placeholder="A short, captivating statement about yourself", value=user['bio']) }}
+
+        <div class="input-wrap">
+            <p class="label2">Personal Website</p>
+            <span class="icon icon-global icon-social"></span>
+            {% if user.website %}
+            <input class="form-inline" id="website" name="website" placeholder=" " type="text" value={{ user['website'] }}>
+            {% else %}
+            <input class="form-inline" id="website" name="website" placeholder=" " type="text" value="">
+            {% endif %}
+        </div>
+
+        <div class="input-wrap">
+            <p class="label2">Facebook</p>
+            <span class="icon icon-facebook2 icon-social"></span>
+            {% if user.facebook %}
+            <input class="form-inline" id="facebook" name="facebook" placeholder=" " type="text" value={{ user['facebook'] }}>
+            {% else %}
+            <input class="form-inline" id="facebook" name="facebook" placeholder=" " type="text" value="">
+            {% endif %}
+        </div>
+
+        <div class="input-wrap">
+            <p class="label2">Twitter</p>
+            <span class="icon icon-twitter2 icon-social"></span>
+            {% if user.twitter %}
+            <input class="form-inline" id="twitter" name="twitter" placeholder=" " type="text" value={{ user['twitter'] }}>
+            {% else %}
+            <input class="form-inline" id="twitter" name="twitter" placeholder=" " type="text" value="">
+            {% endif %}
+        </div>
+
+        <div class="input-wrap">
+            <p class="label2">Tumblr</p>
+            <span class="icon icon-tumblr2 icon-social"></span>
+            {% if user.tumblr %}
+            <input class="form-inline" id="tumblr" name="tumblr" placeholder=" " type="text" value={{ user['tumblr'] }}>
+            {% else %}
+            <input class="form-inline" id="tumblr" name="tumblr" placeholder=" " type="text" value="">
+            {% endif %}
+        </div>
+
+        <div class="input-wrap">
+            <p class="label2">Pinterest</p>
+            <span class="icon icon-pinterest icon-social"></span>
+            {% if user.pinterest %}
+            <input class="form-inline" id="pinterest" name="pinterest" placeholder=" " type="text" value={{ user['pinterest'] }}>
+            {% else %}
+            <input class="form-inline" id="pinterest" name="pinterest" placeholder=" " type="text" value="">
+            {% endif %}
+        </div>
+
+        <div class="input-wrap">
+            <p class="label2">LinkedIn</p>
+            <span class="icon icon-linkedin icon-social"></span>
+            {% if user.linkedin %}
+            <input class="form-inline" id="linkedin" name="linkedin" placeholder=" " type="text" value={{ user['linkedin'] }}>
+            {% else %}
+            <input class="form-inline" id="linkedin" name="linkedin" placeholder=" " type="text" value="">
+            {% endif %}
+        </div>
+
+        <div class="input-wrap">
+            <p class="label2">Instagram</p>
+            <span class="icon icon-instagram icon-social"></span>
+            {% if user.instagram %}
+            <input class="form-inline" id="instagram" name="instagram" placeholder=" " type="text" value={{ user['instagram'] }}>
+            {% else %}
+            <input class="form-inline" id="instagram" name="instagram" placeholder=" " type="text" value="">
+            {% endif %}
+        </div>
+        
+        <div id="imageURL" hidden>{{ user['avatar'] }}</div>
+
+        <p class='btn' value='updateProfile' style="float:left;" onclick="updateProfile();">Update Profile</p>
+    </form>
+</main>
+{% endblock %}

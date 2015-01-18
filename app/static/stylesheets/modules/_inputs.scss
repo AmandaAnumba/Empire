@@ -19,12 +19,12 @@
 	margin-top: 9px;
 }
 
-@mixin input($width, $bkg-color, $text-color, $padding, $font-size: $base-font-size, $height: 44px) {
+@mixin input($width, $bkg-color, $text-color, $padding, $font-size: $base-font-size, $height: 44px, $line: 22px) {
 	@include box-sizing(border-box);
 	position: relative;
 	background-color: $bkg-color;
 	padding: $padding;
-	line-height: 22px;
+	line-height: $line;
 	height: $height;
 	width: $width;
 	color: $text-color;
@@ -42,9 +42,8 @@
 // input
 .form-input {
 	// @include input(100%, white, #3e3e3e, 11px);
-	@include input(100%, rgba(255, 255, 255, 0.31), black, 11px);
+	@include input(100%, rgba(255, 255, 255, 0.31), white, 11px);
 	margin: 7px 0;
-	border-bottom: 1px solid rgb(231, 231, 231);
 	// &:focus {
 	// 	@include box-shadow(rgba(0,0,0,.075) 0 1px 1px, rgba(102,175,233,.6) 0 0 8px inset);
 	// 	border-color: #66afe9;
@@ -53,7 +52,6 @@
 
 	&:focus {
 		@include no-focus();
-		border-bottom: 1px solid rgb(231, 231, 231) !important;
 	}
 }
 
@@ -66,9 +64,32 @@
 	}
 }
 
-.clear-input-small {
-	@include input(100%, transparent, white, 11px 0, 12px, 30px);
+.clear-input-large {
+	@include input(100%, transparent, black, 0, 25px, auto, 1);
+	text-align: center;
+	font-size: 2.7em !important;
 	// margin: 9px 0;
+
+	&:focus {
+		@include no-focus();
+	}
+}
+
+.clear-input-med {
+	@include input(100%, transparent, black, 0, 12px, auto, 1);
+	// margin: 9px 0;
+	font-size: 1.3em;
+	font-weight: 300;
+
+	&:focus {
+		@include no-focus();
+	}
+}
+
+.clear-input-small {
+	@include input(100%, transparent, black, 0, 12px, 30px, 1);
+	font-size: 1.6em !important;
+	font-weight: 300;
 
 	&:focus {
 		@include no-focus();
@@ -76,7 +97,16 @@
 }
 
 .clear-input-small2 {
-	@include input(100%, dimgray, white, 11px, 12px, 30px);
+	@include input(100%, dimgray, white, 11px, 12px, auto, 1);
+	// margin: 9px 0;
+
+	&:focus {
+		@include no-focus();
+	}
+}
+
+.clear-input-small3 {
+	@include input(100%, transparent, white, 11px, 12px, auto, 1);
 	// margin: 9px 0;
 
 	&:focus {
@@ -85,15 +115,7 @@
 }
 
 
-.clear-input-large {
-	@include input(100%, transparent, white, 11px 0, 25px, 50px);
-	font-weight: 300;
-	// margin: 9px 0;
 
-	&:focus {
-		@include no-focus();
-	}
-}
 
 .radio_btn {
 	list-style:none;
@@ -126,7 +148,7 @@
 // 	font-weight: 300;
 // }
 .label {
-	font-size: 0.65em;
+	font-size: 0.7em;
 	color: #A2C5E4;
 	text-transform: uppercase;
 	letter-spacing: 0.9px;

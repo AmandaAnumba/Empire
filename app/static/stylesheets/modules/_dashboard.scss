@@ -1,21 +1,55 @@
-$gutter2: em(layout, 216px, $target);
-
 #content_wrapper {
 	background: #f9f9f9;
-	padding-left: $gutter2;
+	padding-left: 85px;
 	padding-top: 25px;
-	width: 100%;
+	// width: 100%;
 	height: 100%;
-	position: absolute;
+	position: relative;
 	box-shadow: inset 0 0px 6px rgba(0, 0, 0, 0.15);
+	padding-bottom: 5%;
 }
 
-#write_wrapper {
-	height: 900px;
+#review_wrapper {
+	background: #f9f9f9;
+	padding-left: 115px;
+	padding-top: 25px;
+	// width: 100%;
+	height: 100%;
+	position: relative;
+	box-shadow: inset 0 0px 6px rgba(0, 0, 0, 0.15);
+
+	header {
+		padding-left: 30px;
+		color: rgb(107, 107, 107);
+		font-size: 1.2em;
+		font-weight: 300;
+	}
+}
+
+#proof_wrapper {
+	// height: 900px;
 	background: white;
-	margin-left: $gutter + 1%;
+	margin: 0 14%;
+	position: relative;
+
+	.btn-default {
+		background-color: #F2F2F2;
+	}
 }
 
+#menu-toggle > p {
+	transform: rotate(-90deg);
+	transform-origin: left bottom;
+	position: relative;
+	left: 29px;
+	top: 221px;
+	/* height: 200px; */
+	width: 200px;
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: 3px;
+}
 .froala-wrapper.f-basic {
 	border-bottom: none !important;
 	border-right: none !important;
@@ -24,29 +58,212 @@ $gutter2: em(layout, 216px, $target);
 
 .froala-element {
 	height: inherit !important;
-	padding: 0 30px !important;
+	// padding: 0 30px !important;
 }
 
-#tags_list {
-	width: 100%;
-	height: 80px;
-	overflow-y: scroll;
-	display: none;
+
+
+.label2 {
+	font-size: 0.85em;
+	color: #303030;
+	/* text-transform: uppercase; */
+	letter-spacing: 0.9px;
+	/* border-bottom: 1px solid #5A5A5A; */
+	padding-top: 15px;
+	/* margin: 0 2em; */
+	font-weight: 300;
+}
+
+.media {
+	text-align: left;
+}
+
+.draft_item {
+	// margin-left: 15px;
+	margin-bottom: 5px;
+	cursor: pointer;
+	// position: relative;
+	// display: inline-block;
+	color: #7d7f7f;
 	font-size: 0.8em;
-	background: rgb(71, 72, 79);
+}
+.flip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    -ms-filter: fliph; /*IE*/
+    filter: fliph; /*IE*/
 }
 
-.doc-icon {
-	cursor: pointer;
-	color: rgba(92, 228, 184, 0.66);
+.panel {
+	max-height: 320px;
+	overflow-y: scroll;
 }
 
-.remove_tag {
-	cursor: pointer;
-	margin-right: 9px;
-	color: rgba(92, 228, 184, 0.66);
+.thin {
+	font-weight: 300;
 }
 
+span.title {
+	padding-left: 9px;
+}
+// xenon code
+.xe-widget.xe-todo-list {
+background: #fff;
+padding: 20px;
+margin-bottom: 20px;
+border: 1px solid #e7ecee;
+}
+.xe-widget {
+position: relative;
+}
 
+.xe-widget.xe-todo-list .xe-header {
+display: table;
+width: 100%;
+border-bottom: 1px solid #eee;
+margin-bottom: 15px;
+padding-bottom: 8px;
+}
+.xe-widget.xe-todo-list .xe-header .xe-label {
+padding-left: 15px;
+}
 
+widget.xe-todo-list .xe-header .xe-label {
+display: table-cell;
+vertical-align: top;
+padding-bottom: 20px;
+}
 
+.xe-icon.pull-left {
+	margin-right: 10px;
+}
+
+.xe-widget.xe-todo-list .xe-header .xe-label span {
+font-size: 12px;
+zoom: 1;
+-webkit-opacity: .8;
+-moz-opacity: .8;
+opacity: .8;
+-ms-filter: alpha(Opacity=80);
+filter: alpha(opacity=80);
+}
+.xe-widget.xe-todo-list .xe-header .xe-label span, .xe-widget.xe-todo-list .xe-header .xe-label strong {
+display: block;
+line-height: 1.1;
+}
+
+.xe-widget.xe-todo-list .xe-header .xe-label strong {
+font-size: 15px;
+}
+.xe-widget.xe-todo-list .xe-header .xe-label span, .xe-widget.xe-todo-list .xe-header .xe-label strong {
+display: block;
+line-height: 1.1;
+}
+
+.list-unstyled {
+padding-left: 0;
+list-style: none;
+}
+.xe-widget.xe-todo-list .xe-body li {
+margin: 2px 0;
+}
+.xe-widget.xe-todo-list .xe-body label {
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+label {
+font-weight: 400;
+}
+label {
+display: inline-block;
+max-width: 100%;
+margin-bottom: 5px;
+font-weight: 700;
+}
+label .cbr-replaced {
+margin-right: 4px;
+}
+.cbr-replaced {
+position: relative;
+display: inline-block;
+vertical-align: middle;
+top: -1px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+.cbr-replaced .cbr-input {
+display: none;
+}
+input[type=checkbox] {
+margin: 4px 0 0;
+margin-top: 1px \9;
+line-height: normal;
+}
+input[type=checkbox], input[type=radio] {
+box-sizing: border-box;
+padding: 0;
+}
+.cbr-replaced .cbr-state {
+position: relative;
+display: block;
+background: #FFF;
+border: 1px solid #ddd;
+line-height: 1;
+width: 15px;
+height: 15px;
+}
+.cbr-replaced.cbr-checked span {
+background-image: url(../../images/ok.png);
+}
+.cbr-replaced .cbr-state span {
+display: block;
+background: url(../../images/ok.png) no-repeat center center;
+background-image: none;
+position: absolute;
+left: 0;
+right: 0;
+bottom: 0;
+top: 0;
+cursor: pointer;
+}
+.xe-widget.xe-todo-list .xe-body li.done label>span {
+zoom: 1;
+-webkit-opacity: .5;
+-moz-opacity: .5;
+opacity: .5;
+-ms-filter: alpha(Opacity=50);
+filter: alpha(opacity=50);
+font-size: 0.8em;
+}
+.xe-widget.xe-todo-list .xe-body label>span {
+position: relative;
+display: inline-block;
+color: #7d7f7f;
+font-size: 0.8em;
+}
+.xe-widget.xe-todo-list .xe-body li.done label>span:after {
+display: block;
+position: absolute;
+left: 0;
+right: 0;
+top: 9px;
+height: 1px;
+background: #8a8b8b;
+content: '';
+}
+:before, :after {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.xe-footer > .form-control {
+	width: 90% !important;
+}

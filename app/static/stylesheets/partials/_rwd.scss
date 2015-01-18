@@ -2,48 +2,28 @@
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 480px) {
-	// front page
-	#main {
-		display: none;
+	// login
+	.bkg-img {
+		background: rgb(86, 84, 84);
 	}
+	#login {
 
-	#mobile_main {
-		display: block;
-		background: linear-gradient(rgba(254, 255, 245, 0.5), rgba(34, 6, 6, 0.5)), url("../../images/12-sm.jpg") no-repeat center center fixed;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		-webkit-background-size: cover;
-		background-size: cover;
-		height: 100%;
-
-		#menu-btn {
-			color: white;
-			padding: 10px;
-			width: auto;
+		img {
+			width: 200px;
 		}
-
-		.cbp-spmenu-vertical {
-			width: 55%;
+		.form {	
+			width: em(layout, 350px, 480px);
 		}
-
-		header {
-			text-align: center;
-			padding: 20px 0;
-
-
-			img {
-				width: 220px;
-				margin-top: 23%;
-			}
-		}
-
-		#cycle {
-			// background: blue;
-		}
-
-		#categories {
-			// background: red;
-		}
+	}
+	.form-input {
+		height: 45px;
+		background: white;
+		margin: 2px 0 2px 0;
+		color: black;
+	}
+	.additional-info, .description  {
+		color: #A9A9A9;
+		text-align: center;
 	}
 }
  
@@ -54,14 +34,13 @@ and (max-device-width : 640px)
 and (orientation : landscape) {
 	// login
 	.bkg-img {
-		background: whitesmoke;
+		background: rgb(86, 84, 84);
 	}
 	#login {
 		height: 350px;
 
-		h1 {
-			font-size: 4em;
-			color: #58666e;
+		img {
+			width: 150px;
 		}
 		.form {
 			width: em(layout, 350px, 640px);
@@ -74,7 +53,7 @@ and (orientation : landscape) {
 		color: black;
 	}
 	.additional-info, .description  {
-		color: #58666e;
+		color: #A9A9A9;
 		text-align: center;
 	}
 }
@@ -91,8 +70,8 @@ and (max-device-width : 1024px) {
 
 	// login
 	#login {
-		h1 {
-			font-size: 6em;
+		img {
+			width: 325px;
 		}
 
 		.form {
@@ -111,8 +90,8 @@ and (max-device-width : 1024px)
 and (orientation : portrait) {
 	// login
 	#login {
-		h1 {
-			font-size: 6em;
+		img {
+			width: 325px;
 		}
 
 		.form {

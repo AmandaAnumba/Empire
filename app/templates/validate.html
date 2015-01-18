@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta charset="utf-8">  
+        <title>Empire</title>
+        <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon.png') }}">
+        <meta name="description" content="Inspire, Rise, Reign" />
+        <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
+        <meta name="author" content="ThreePillarMedia, LLC" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/admin.css') }}" />
+        <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+    </head>
+    
+    <body class='bkg-img'>
+        <section id='login'>
+            <img src="{{ url_for('static', filename='images/logo.png') }}" width="320px;" />
+
+            {% macro render_field(field, placeholder=None) %}
+                {% if field.errors %}
+                <div>
+                {% elif field.flags.error %}
+                <div>
+                {% else %}
+                <div>
+                {% endif %}
+                    {% set css_class = 'form-input' + kwargs.pop('class', '') %}
+                    {{ field(class=css_class, placeholder=placeholder, **kwargs) }}
+                </div>
+            {% endmacro %}
+
+            <div id="alert_message" class="alert" hidden>
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <p id="message"></p>
+            </div>
+
+            <div class='form'>
+                <form id="resetValform" action="{{ url_for('check') }}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+                    {{ form.csrf_token }}
+
+                    {% if type=="reset" %}
+                        <p class="description">Enter a new password below.</p>
+                        {{ render_field(form.password, placeholder="Password") }}
+                        {{ render_field(form.confirm, placeholder="Repeat Password") }}
+                        {{ render_field(form.reset, value=code) }}
+                        {{ render_field(form.actionType, value=type) }}
+                        <p onclick="reset();" class='btn' value='reset' style="float:right;">Reset Password</p>
+
+                        <div id="tt_match" class="tooltip fade right" style="top: 93px; right: -126px; display: block;">
+                            <div class="tooltip-arrow"></div>
+                            <div class="tooltip-inner">Passwords must match</div>
+                        </div>
+                        <div id="tt_pw" class="tooltip fade right" style="top: 54px; right: -207px; display: block;">
+                            <div class="tooltip-arrow"></div>
+                            <div class="tooltip-inner"></div>
+                        </div>
+                    {% else %}
+                        <!-- <p class="description">Confirm your email address below.</p> -->
+                        {{ render_field(form.code, placeholder="Registration Code", value=code, hidden=true) }}
+                        {{ render_field(form.password, placeholder="Password", hidden=true, value="none") }}
+                        {{ render_field(form.confirm, placeholder="Repeat Password", hidden=true, value="none") }}
+                        {{ render_field(form.actionType, value=type) }}
+                        <p onclick="val();" class='btn' value='validate'>Confirm Email Address</p>
+                    {% endif %}
+                </form>
+
+                <a href="{{ url_for('index') }}" class='btn' id="return" value='validate' style="display:none;">Return to Homepage</a>
+            </div>
+
+            <!-- loading animation -->
+            <div id="loader" hidden> 
+                <img src="{{ url_for('static', filename='images/svg/tail-spin.svg') }}" width="50" alt="loading animation">
+            </div>
+        </section>
+    </body>
+</html>

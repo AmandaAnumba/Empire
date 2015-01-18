@@ -2,13 +2,11 @@
 @import "compass/css3";
 @import "compass/layout";
 
-
 // vars
 $main-font: 'Lato' sans-serif;
 $serif: Georgia,Times,"Times New Roman",serif;
 $target: 960px;
 $base-font-size: 16px;
-
 
 // functions
 @function em($type, $px, $base: $base-font-size) {
@@ -25,14 +23,16 @@ $base-font-size: 16px;
 
 i { font-style: normal; }
 
-body {
-	@include body-format();
-}
+body { @include body-format; }
 
 h1,h2,h3,h4,h5,p {
 	padding: 0;
 	margin: 0;
 }
 
-a { text-decoration: none !important; color:inherit !important;}
- 
+a { text-decoration: none !important; color:inherit;}
+
+.icon-social {
+	position: absolute;
+	
+}

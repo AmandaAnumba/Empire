@@ -1,0 +1,72 @@
+// front page body styling
+.bkg-img {
+	@include bkg_img_overlay("../../images/14.jpg", rgba(0, 0, 0, 0.6));
+}
+
+// login form
+
+#login-buttons {
+	width: 272px;
+	padding: 0 2%;
+	margin: 0 auto;
+	position: relative;
+}
+
+#login {
+	height: 485px;
+	margin: auto;
+	text-align: center;
+	@include stretch;
+
+	.form {
+		position: relative;
+		width: em(layout, 320px, $target);
+		padding: 2%;
+		margin: 0 auto;
+	}
+
+	#register-form {
+		padding-top: 0 !important;
+	}
+
+	.alert {
+		margin: 0 30%;
+	}
+}
+ 
+.form-input {
+	margin: 9px 0 9px 0;
+}
+
+.additional-info, .description  {
+	color: rgba(255,255,255,.6);
+	font-weight: 300;
+	font-size: 0.8em;
+	letter-spacing: 0.3px;
+	margin-top: 14px;
+}
+
+.btn-toggle {
+	cursor: pointer;
+}
+
+.alert-icon {
+	margin-right: 10px;
+}
+
+.icon-arrow-left {
+	font-size: 2.2em;
+	vertical-align: middle;
+}
+
+.help-block {
+	text-align: left;
+	display: none;
+	font-size: 0.45em;
+	color: white;
+	font-weight: 300;
+}
+.tooltip {
+	display: none;
+}
+

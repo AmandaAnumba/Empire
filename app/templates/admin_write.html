@@ -1,0 +1,247 @@
+{% extends "base_editor.html" %}
+{% block content %}
+<section id="write_wrapper">
+	<div id="error_msg" class="alert error sticky animated fadeInDown" hidden>
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <p class="message"></p>
+    </div>
+
+    <div id="success_msg" class="alert success sticky" hidden>
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <p class="message"></p>
+    </div>
+
+
+	<!-- back button -->
+	<nav id="top_nav">
+		<div id="back" class="pull-left">
+			<a href="{{ url_for('admin') }}">
+				<span class="icon-arrow-left"></span> back to dashboard
+			</a>
+		</div>
+
+		<div class="pull-right padder">
+			<p class="btn btn-default" onclick="postArticle('draft');">Save as Draft</p>
+			<p class="btn btn-primary" onclick="postArticle('ready');">Submit to be reviewed</p>
+		</div>
+	</nav>
+
+	<div id="post">
+		<section id="popouts_wrapper">
+			<!-- uploaded media -->
+			<div id="pop_uploads" class="popout-left" hidden>
+				<header>Uploaded Media</header>
+
+				<div class="popout_content">
+					<p class="description" style="color:white;font-size: 0.8em;margin:0;">Copy the code and paste it into the document in the HTML view ( click <code><i class="fa fa-code"></i></code> in the text editor toolbar )</p>
+					
+				</div>
+
+				<div id="uploads_toggle" class="slide_toggle-left" data-toggle="tooltip" data-placement="right" title="Uploaded Media"></div>
+			</div>
+
+			<!-- article settings -->
+			<div id="pop_settings" class="popout">
+				<header>Article Settings</header>
+
+				<div class="popout_content">
+					<p class="label">Article Description</p>
+					<textarea class="clear-input-small2" name="description" placeholder="This will be displayed on the empire home page. Be brief." style="height:90px;"></textarea>
+
+					<p class="label">Article Category</p>
+					<p class="sub-label">the main category this article falls under. Hold <code>Cmd</code> or <code>Ctrl</code> to select and highlight all major categories that apply. </p>
+					<select multiple class="clear-input-small2" id="category" name="category">
+						<option>Politics</option>
+						<option>Current Events</option>
+						<option>Technology</option>
+						<option>Money</option>
+						<option>Body + Beauty</option>
+						<option>Career</option>
+						<option>Relationships</option>
+						<option>Mind + Spirit</option>
+						<option>Sports</option>
+						<option>Arts + Fashion</option>
+						<option>TV + Music</option>
+						<option>Wildcard</option>
+						<option>Inspire</option>
+						<option>Rise</option>
+						<option>Reign</option>
+						<option>Cycle</option>
+					</select>
+
+					<p class="label">Article Tags</p>
+					<p class="sub-label">tags help users search for your article. Tage are different from categories because they can be more specific to the article. Create your own tags to apply to the article, and each tag should be separated by a comma.</p>
+					<input class="clear-input-small2" id="taginput" name="taginput" placeholder="separate, tags, with, commas" style="width:85%;" type="text" value="">
+
+					<span class="doc-icon icon-circle-plus" id="add2list"></span>
+					<div id="tags_list"></div>
+				</div>
+
+				<div id="settings_toggle" class="slide_toggle" data-toggle="tooltip" data-placement="left" title="click to edit article's description and tags"></div>
+			</div>
+
+			<!-- article media -->
+			<div id="pop_media" class="popout">
+				<header>Media Uploads</header>
+				
+				<div class="popout_content">
+					<p class="description" style="color:white;font-size: 0.8em;margin:0;"><span class="padder icon icon-warning"></span> <span class="label">Note: </span> All media used in your article needs to be uploaded to the web server. When your media has been successfully uploaded, you will be provided with the HTML code to paste into your article.</p>
+					<p class="label">Media types for an article</p>
+					<ol style="font-weight: 300;font-size: 0.8em;letter-spacing: 0.3px;color:white;">
+						<li>Required: article header image</li>
+						<li>Required: image/gif for home page display
+							<ul>
+								<li>featured article- at least 600px wide</li>
+								<li>regular article- no larger than 350px wide</li>
+								<li>sponsored article- at least 400px wide</li>
+								<!-- <li>** please fit the size restrictions or else the image will be distorted and pixelated if it's too small or take a long time to load if it's too large**</li> -->
+							</ul>
+						</li>
+						<li>Optional: Images throughout the article, not including external media</li>
+					</ol>
+
+					<p class="label">Upload Feature Image</p>
+					<p class="description" style="color:white;font-size: 0.75em;margin:0;">(the image for the article that will be displayed on the front page)</p>
+					<ul class="radio_btn clear-input-small3" id="media" placeholder="None" style="line-height: 0px !important;">
+						<li>
+							<input id="media-0" name="feature-media" type="radio" value="image" checked> 
+							<label for="media-0">image/picture/gif</label>
+						</li>
+						<li class="video" data-toggle="tooltip" data-placement="top" title="video support coming soon!">
+							<input id="media-2" name="feature-media" type="radio" value="video" disabled> 
+							<label for="media-2">video</label>
+						</li>
+					</ul>
+					
+					<input class="clear-input-small2" id="featureIMG" name="featureIMG" type="file" accept="image/png,image/jpg,image/jpeg,image/gif">
+					
+					<p id="upload_btn2" class="btn btn-primary" hidden>Upload</p>
+					
+					<div id="progress2" hidden></div>
+			        
+			        <div class="response" id="success_upload2" style="text-align:center;" hidden><span style="color: #4CDBA5;" class="icon icon-check"></span></div>
+			        
+			        <div class="response" id="error_upload2" style="text-align:center;" hidden><span style="color: #FA626E;" class="icon icon-cross"></span></div>
+
+					<p class="label">Upload all other media</p>
+					<p class="description" style="color:white;font-size: 0.75em;margin:0;">(upload files one at a time)</p>
+					<ul class="radio_btn clear-input-small3" id="media" placeholder="None" style="line-height: 0px !important;">
+						<li>
+							<input id="media-0" name="media" type="radio" value="image" checked> 
+							<label for="media-0">image/picture/gif</label>
+						</li>
+						<li class="video" data-toggle="tooltip" data-placement="top" title="video support coming soon!">
+							<input id="media-2" name="media" type="radio" value="video" disabled> 
+							<label for="media-2">video</label>
+						</li>
+					</ul>
+
+					<input class="clear-input-small2" id="allmedia" name="allmedia" type="file" accept="image/png,image/jpg,image/jpeg,image/gif">
+
+					<p id="upload_btn3" class="btn btn-primary" hidden >Upload</p>
+
+					<div id="progress3" hidden></div>
+			        
+			        <div class="response" id="success_upload3" style="text-align:center;" hidden><span style="color: #4CDBA5;" class="icon icon-check"></span></div>
+			        
+			        <div class="response" id="error_upload3" style="text-align:center;" hidden><span style="color: #FA626E;" class="icon icon-cross"></span></div>
+				</div>
+				
+				<div id="media_toggle" class="slide_toggle" data-toggle="tooltip" data-placement="left" title="click to upload article images"></div>
+			</div>
+
+			<!-- article release -->
+			<div id="pop_review" class="popout">
+				<header>Publishing</header>
+
+				<div class="popout_content">
+					<p class="label" for="doc-type">Article Type</p>
+					<ul class="radio_btn clear-input-small3" id="doctype" placeholder="None" style="line-height: 0px !important;">
+						<li>
+							<input id="doctype-0" name="doctype" type="radio" value="feature"> 
+							<label for="doctype-0">feature</label>
+						</li>
+						<li>
+							<input id="doctype-1" name="doctype" type="radio" value="regular" checked> 
+							<label for="doctype-1">regular</label>
+						</li>
+						<li>
+							<input id="doctype-2" name="doctype" type="radio" value="sponsored"> 
+							<label for="doctype-2">sponsored</label>
+						</li>
+					</ul>
+
+					<p class="label" for="doc-release">Release Date</p>
+					<input class="clear-input-small2" id="release" name="release" type="date" value="">
+				</div>
+				
+				<div id="review_toggle" class="slide_toggle" data-toggle="tooltip" data-placement="left" title="click to edit article type and publication date"></div>
+			</div>
+		</section>
+
+		<section id="article-header-img" class="text-center">
+			<p class="label2">Article Header</p>
+			<p><small>** must be a large, hi-res image (at least 700px wide)</small></p>
+	        <p id="pic_icon">
+	            <span class="icon-focus"></span>
+	            <img id="avatar_pic" src="" alt="Profile Picture" width="600" style="margin-bottom:15px;" hidden />
+	        </p>
+	        <input class="form-control" id="headerIMG" name="headerIMG" type="file" accept="image/png,image/jpg,image/jpeg">
+	        <input class="form-control" id="photo_cred" name="photo_cred" placeholder="Photo Credit" type="text" style="display:none; width:50%; margin-top:7px;">
+	        <p id="upload_btn1" class="btn btn-primary" onclick="s3_upload($('#headerIMG').get(0).files[0].name, 'headerIMG')" style="display:none;">Upload Image to Server</p>
+	        <div class="padder-v response" id="circle-progress" hidden></div>
+	        <div class="padder-v response" id="success_upload" hidden><span style="font-size:2.4em;color: #4CDBA5;" class="icon icon-check"></span><p><small>Image has been successfully uploaded!</small></p></div>
+	        <div class="padder-v response" id="error_upload" hidden><span style="font-size:2.4em;color: #FA626E;" class="icon icon-cross"></span><p><small>Image could not be uploaded. Please try again.</small></p></div>
+		</section>
+
+		<section id="article-data">
+			<div class="form-group">
+				<input class="form-control" id="title" name="title" placeholder="Enter Title Here" type="text" value="">
+			</div>
+
+			<div class="form-group">
+ 				<input class="form-control" id="author" name="author" placeholder="Author" type="text" value="{{ username }}" style="width: 30%;" data-toggle="tooltip" data-placement="right" title="your username will be replaced by your full name when the article is published">
+			</div>
+
+			<div class="form-group">
+				<p id="add-author" class="description" style="color:indianred; cursor:pointer;"><span class="icon icon-circle-plus padder"></span> Add another author</p>
+				<div id="more-authors" hidden>
+					<input class="form-control" id="co-author" name="co-author" placeholder="username of co-author(s) separated by commas" type="text" style="width: 30%;">
+				</div>
+			</div>
+		</section>
+
+		<div id="editor"></div>
+
+		<input type="hidden" name="featureIMGurl" value="">
+		<input type="hidden" name="headerIMGurl" value="">
+	</div>
+</section>
+
+<script>
+	$(function() {
+		$('.slide_toggle, .slide_toggle-left, #author, .video').tooltip();
+		$('#editor').editable({
+			inlineMode: false, 
+			minHeight: 400,
+			maxHeight: 500,
+			placeholder: 'Start typing here...',
+			spellcheck: true,
+			buttons: ["bold", "italic", "underline", "strikeThrough", "fontSize","fontFamily", "color",'sep',"subscript", "superscript", "formatBlock", "blockStyle", "align", "insertOrderedList", "insertUnorderedList", "outdent", "indent", 'sep', "selectAll", "createLink", "undo", "removeFormat", "redo", "html", "insertHorizontalRule", "table"]
+		});
+
+		if (!Modernizr.inputtypes.date) {
+		    $('input[type=date]').datepicker({
+		        // Consistent format with the HTML5 picker
+		        dateFormat: 'yy-mm-dd'
+		    });
+		}
+	});
+</script>
+{% endblock %}
