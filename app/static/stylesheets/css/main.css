@@ -14894,10 +14894,10 @@ a.text-#000000:hover {
   #mobile_main header .beta {
     text-align: right;
     font-size: 2em;
-    font-weight: 300;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: black;
+    color: #ffdbed;
     width: 80px;
     /* margin: 0 auto; */
     float: right;
@@ -15029,6 +15029,10 @@ a.text-#000000:hover {
   }
 
   /* line 177, ../partials/_rwd.scss */
+  #regular_article header {
+    height: 85%;
+  }
+  /* line 181, ../partials/_rwd.scss */
   #regular_article #menu-btn {
     display: block;
     position: absolute;
@@ -15038,25 +15042,21 @@ a.text-#000000:hover {
     right: 11px;
     font-size: 1.4em;
   }
-  /* line 187, ../partials/_rwd.scss */
+  /* line 191, ../partials/_rwd.scss */
   #regular_article #cbp-spmenu-s2 {
     font-size: 12px;
   }
-  /* line 191, ../partials/_rwd.scss */
+  /* line 195, ../partials/_rwd.scss */
   #regular_article #container {
     margin-top: 75px;
   }
-  /* line 210, ../partials/_rwd.scss */
-  #regular_article header {
-    height: 75%;
-  }
 
-  /* line 216, ../partials/_rwd.scss */
+  /* line 218, ../partials/_rwd.scss */
   .flex-viewport {
     max-height: 3400px !important;
   }
 
-  /* line 220, ../partials/_rwd.scss */
+  /* line 222, ../partials/_rwd.scss */
   .header-img {
     width: 80% !important;
     height: 180px !important;
@@ -15064,33 +15064,33 @@ a.text-#000000:hover {
     background-size: contain !important;
   }
 
-  /* line 227, ../partials/_rwd.scss */
+  /* line 229, ../partials/_rwd.scss */
   .regular > h1 {
     font-size: 1.25em !important;
   }
 
-  /* line 231, ../partials/_rwd.scss */
+  /* line 233, ../partials/_rwd.scss */
   .content > div:not(.title) p {
     font-size: 1.35em !important;
   }
 
-  /* line 235, ../partials/_rwd.scss */
+  /* line 237, ../partials/_rwd.scss */
   .smilie {
     font-size: 3em !important;
     padding: 0 3px !important;
   }
 
-  /* line 240, ../partials/_rwd.scss */
+  /* line 242, ../partials/_rwd.scss */
   #list_stuff {
     margin-left: 0 !important;
   }
 
-  /* line 244, ../partials/_rwd.scss */
+  /* line 246, ../partials/_rwd.scss */
   #contact_form {
     margin: 3% 6%;
     border: none;
   }
-  /* line 248, ../partials/_rwd.scss */
+  /* line 250, ../partials/_rwd.scss */
   #contact_form h1 {
     position: relative;
     left: 0;
@@ -15099,7 +15099,7 @@ a.text-#000000:hover {
     width: 100%;
   }
 
-  /* line 257, ../partials/_rwd.scss */
+  /* line 259, ../partials/_rwd.scss */
   #about_wrapper nav ul li {
     padding: 0 8px;
   }

@@ -41,10 +41,10 @@
   #mobile_main header .beta {
     text-align: right;
     font-size: 2em;
-    font-weight: 300;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: black;
+    color: #ffdbed;
     width: 80px;
     /* margin: 0 auto; */
     float: right;
@@ -170,7 +170,16 @@
     color: black;
   }
 
-  /* line 173, ../sass/rwd.scss */
+  /* line 171, ../sass/rwd.scss */
+  #content_wrapper {
+    margin-top: 75px;
+  }
+
+  /* line 177, ../sass/rwd.scss */
+  #regular_article header {
+    height: 85%;
+  }
+  /* line 181, ../sass/rwd.scss */
   #regular_article #menu-btn {
     display: block;
     position: absolute;
@@ -180,25 +189,22 @@
     right: 11px;
     font-size: 1.4em;
   }
-  /* line 183, ../sass/rwd.scss */
+  /* line 191, ../sass/rwd.scss */
   #regular_article #cbp-spmenu-s2 {
     font-size: 12px;
+    width: 65%;
   }
-  /* line 187, ../sass/rwd.scss */
+  /* line 196, ../sass/rwd.scss */
   #regular_article #container {
     margin-top: 75px;
   }
-  /* line 206, ../sass/rwd.scss */
-  #regular_article header {
-    height: 75%;
-  }
 
-  /* line 212, ../sass/rwd.scss */
+  /* line 219, ../sass/rwd.scss */
   .flex-viewport {
     max-height: 3400px !important;
   }
 
-  /* line 216, ../sass/rwd.scss */
+  /* line 223, ../sass/rwd.scss */
   .header-img {
     width: 80% !important;
     height: 180px !important;
@@ -206,33 +212,33 @@
     background-size: contain !important;
   }
 
-  /* line 223, ../sass/rwd.scss */
+  /* line 230, ../sass/rwd.scss */
   .regular > h1 {
     font-size: 1.25em !important;
   }
 
-  /* line 227, ../sass/rwd.scss */
+  /* line 234, ../sass/rwd.scss */
   .content > div:not(.title) p {
     font-size: 1.35em !important;
   }
 
-  /* line 231, ../sass/rwd.scss */
+  /* line 238, ../sass/rwd.scss */
   .smilie {
     font-size: 3em !important;
     padding: 0 3px !important;
   }
 
-  /* line 236, ../sass/rwd.scss */
+  /* line 243, ../sass/rwd.scss */
   #list_stuff {
     margin-left: 0 !important;
   }
 
-  /* line 240, ../sass/rwd.scss */
+  /* line 247, ../sass/rwd.scss */
   #contact_form {
     margin: 3% 6%;
     border: none;
   }
-  /* line 244, ../sass/rwd.scss */
+  /* line 251, ../sass/rwd.scss */
   #contact_form h1 {
     position: relative;
     left: 0;
@@ -241,7 +247,7 @@
     width: 100%;
   }
 
-  /* line 253, ../sass/rwd.scss */
+  /* line 260, ../sass/rwd.scss */
   #about_wrapper nav ul li {
     padding: 0 8px;
   }

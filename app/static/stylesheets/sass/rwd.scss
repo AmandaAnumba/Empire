@@ -41,10 +41,10 @@ and (max-device-width : 480px) {
 			.beta {
 				text-align: right;
 				font-size: 2em;
-				font-weight: 300;
+				font-weight: 700;
 				text-transform: uppercase;
 				letter-spacing: 2px;
-				color: black;
+				color: rgb(255, 219, 237);
 				width: 80px;
 				/* margin: 0 auto; */
 				float: right;
@@ -171,8 +171,12 @@ and (max-device-width : 480px) {
 	#content_wrapper {
 		margin-top: 75px;
 	}
-	
+
 	#regular_article {
+
+		header {
+			height: 85%;
+		}
 
 		#menu-btn {
 			display: block;
@@ -186,6 +190,7 @@ and (max-device-width : 480px) {
 
 		#cbp-spmenu-s2 {
 			font-size: 12px;
+			width: 65%;
 		}
 
 		#container {
@@ -207,9 +212,7 @@ and (max-device-width : 480px) {
 		// 	}
 		// } 
 
-		header {
-			height: 75%;
-		}
+		
 
 	}
 
