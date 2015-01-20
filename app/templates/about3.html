@@ -17,7 +17,9 @@
     <link href="{{ url_for('static', filename='plugins/hd/css/styles.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='plugins/hd/css/queries.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='plugins/hd/css/animate.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
     <link href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/icons.css') }}" />
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -26,6 +28,31 @@
         <![endif]-->
       </head>
       <body id="top">
+        <nav class="articles_page cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+                <h3>
+                    <span class="icon-cross" id="close-btn" style="float: left;color: darkgray;cursor: pointer;line-height: 1.1;"></span>
+                    <!-- <span style="float:right;">Empire</span> -->
+                </h3>
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('cycle') }}">Current Cycle</a>
+                <a style="border-bottom:none;">Categories</a>
+                <ul id="cat_list">
+                    <li><a class="media-body block m-b-none"href="{{ url_for('news') }}">Current Events</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('tech') }}">Technology</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('money') }}">Money</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('career') }}">Career</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('mindbody') }}">Mind, Body, and Spirit</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('culture') }}">Culture + Entertainment</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('wildcard') }}">Wildcard</a></li>
+                </ul>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('terms') }}">Terms and Privacy</a>
+                <a href="{{ url_for('contact') }}">Contact Us</a>
+
+                <!-- <div id="footer"> 
+                    <p>© 2015 ThreePillarMedia, LLC</p>
+                </div>-->
+            </nav>
         <header id="home">
           <nav>
             <div class="container-fluid">
@@ -48,12 +75,13 @@
           <section class="hero" id="hero">
             <div class="container">
               <div class="row">
-                <div class="text-right navicon" style="float:right;">
+                <p id="menu-btn" class="pull-right" hidden><span class="icon-nav icon-menu"></span></p>
+                <div class="text-right navicon" style="float:right;" hidden>
                   <a id="nav-toggle" class="nav_slide_button" href="#"><span></span></a>
                 </div>
-                <div class="text-left navicon" style="float:left; font-size:2em;">
+                <!-- <div class="text-left navicon" style="float:left; font-size:2em;">
                   <a href="/"><i class="fa fa-chevron-left"></i></a>
-                </div>
+                </div> -->
               </div>
               <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center inner" style="background: rgba(0, 0, 0, 0.36);">
@@ -256,7 +284,7 @@
               <div class="col-md-12">
                 <div class="ignite-btn">
                   <p>I like the seeds that are being planted and nurtured here. Please, continue with vigil and fervency [because many will try to tear you down]...We can rest a while, yet we can never quit on a good thing.</p>
-                  <p style="text-align:left; float: left;">- Caleb Green</p>
+                  <p>- Caleb Green</p>
                 </div>
               </div>
             </div>
@@ -394,4 +422,25 @@
 
         </style>
       </body>
+
+      <script src="{{ url_for('static', filename='plugins/intro/js/classie.js') }}"></script>
+      <script>
+           $(function() { 
+            var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+                showRight = document.getElementById( 'menu-btn' ),
+                closeRight = document.getElementById( 'close-btn' );
+            
+            showRight.onclick = function() {
+                classie.toggle( this, 'active' );
+                classie.toggle( menuRight, 'cbp-spmenu-open' );
+                // disableOther( 'showRight' );
+            };
+
+            closeRight.onclick = function() {
+                // classie.toggle( this, 'active' );
+                classie.toggle( menuRight, 'cbp-spmenu-open' );
+                // disableOther( 'showRight' );
+            };
+        });
+        </script>
     </html>

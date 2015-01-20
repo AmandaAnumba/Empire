@@ -14852,13 +14852,21 @@ a.text-#000000:hover {
   }
 }
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  /* line 6, ../partials/_rwd.scss */
+/* Smartphones (landscape) ----------- */
+/* Smartphones (portrait) ----------- 
+@media only screen
+and (max-width : 480px) {
+}*/
+/* iPads (portrait and landscape) ----------- */
+/* iPads (portrait) ----------- */
+/* Small screens ----------- */
+@media only screen and (max-width: 480px) {
+  /* line 38, ../partials/_rwd.scss */
   #main {
     display: none;
   }
 
-  /* line 10, ../partials/_rwd.scss */
+  /* line 42, ../partials/_rwd.scss */
   #mobile_main {
     display: block;
     background: linear-gradient(rgba(254, 255, 245, 0.5), rgba(34, 6, 6, 0.5)), url(../../images/12-sm.jpg), no-repeat center center fixed;
@@ -14870,7 +14878,7 @@ a.text-#000000:hover {
     position: fixed;
     width: 100%;
   }
-  /* line 21, ../partials/_rwd.scss */
+  /* line 53, ../partials/_rwd.scss */
   #mobile_main #menu-btn {
     color: white;
     padding: 10px;
@@ -14878,19 +14886,19 @@ a.text-#000000:hover {
     z-index: 1000;
     cursor: pointer;
   }
-  /* line 29, ../partials/_rwd.scss */
+  /* line 61, ../partials/_rwd.scss */
   #mobile_main header {
     text-align: center;
     /* padding: 20px 0; */
     width: 230px;
     margin: 75px auto;
   }
-  /* line 36, ../partials/_rwd.scss */
+  /* line 68, ../partials/_rwd.scss */
   #mobile_main header img {
     width: 220px;
     margin-top: 23%;
   }
-  /* line 41, ../partials/_rwd.scss */
+  /* line 73, ../partials/_rwd.scss */
   #mobile_main header .beta {
     text-align: right;
     font-size: 2em;
@@ -14902,11 +14910,11 @@ a.text-#000000:hover {
     /* margin: 0 auto; */
     float: right;
   }
-  /* line 54, ../partials/_rwd.scss */
+  /* line 86, ../partials/_rwd.scss */
   #mobile_main #buttons {
-    margin-top: 27%;
+    margin-top: 20%;
   }
-  /* line 58, ../partials/_rwd.scss */
+  /* line 90, ../partials/_rwd.scss */
   #mobile_main .btn-round {
     background: rgba(255, 226, 226, 0.38);
     margin: 20px 40px;
@@ -14918,17 +14926,17 @@ a.text-#000000:hover {
     letter-spacing: 1.5px;
     font-weight: 300;
   }
-  /* line 70, ../partials/_rwd.scss */
+  /* line 102, ../partials/_rwd.scss */
   #mobile_main .icon {
     fill: #fff;
   }
-  /* line 76, ../partials/_rwd.scss */
+  /* line 108, ../partials/_rwd.scss */
   #mobile_main #cbp-spmenu-s1 h3 {
     padding: 10px;
     text-align: center;
     border-bottom: none;
   }
-  /* line 82, ../partials/_rwd.scss */
+  /* line 114, ../partials/_rwd.scss */
   #mobile_main #cbp-spmenu-s1 .category {
     /* display: inline-block; */
     height: 35px;
@@ -14943,21 +14951,21 @@ a.text-#000000:hover {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.85);
   }
 
-  /* line 98, ../partials/_rwd.scss */
+  /* line 130, ../partials/_rwd.scss */
   #cbp-spmenu-s2 {
     width: 55%;
   }
-  /* line 101, ../partials/_rwd.scss */
+  /* line 133, ../partials/_rwd.scss */
   #cbp-spmenu-s2 h3 {
     padding: 20px 0 0 0;
     border-bottom: none !important;
   }
-  /* line 106, ../partials/_rwd.scss */
+  /* line 138, ../partials/_rwd.scss */
   #cbp-spmenu-s2 footer {
     position: absolute;
     bottom: 10px;
   }
-  /* line 111, ../partials/_rwd.scss */
+  /* line 143, ../partials/_rwd.scss */
   #cbp-spmenu-s2 #cat_list {
     list-style-type: none;
     margin: 0;
@@ -14965,7 +14973,7 @@ a.text-#000000:hover {
     border-bottom: 2px solid black;
     border-top: 2px solid black;
   }
-  /* line 118, ../partials/_rwd.scss */
+  /* line 150, ../partials/_rwd.scss */
   #cbp-spmenu-s2 #cat_list li > a {
     background: rgba(247, 247, 247, 0.4);
     padding: 0.9em;
@@ -14973,7 +14981,7 @@ a.text-#000000:hover {
     border-bottom: 1px solid rgba(86, 86, 86, 0.06);
   }
 
-  /* line 127, ../partials/_rwd.scss */
+  /* line 159, ../partials/_rwd.scss */
   #navbar_top {
     /* height: 60px; */
     padding: 10px 3% 0;
@@ -14985,12 +14993,12 @@ a.text-#000000:hover {
     top: 0;
   }
 
-  /* line 139, ../partials/_rwd.scss */
+  /* line 171, ../partials/_rwd.scss */
   #grid {
     margin: 0px 30px;
   }
 
-  /* line 143, ../partials/_rwd.scss */
+  /* line 175, ../partials/_rwd.scss */
   figure.effect-zoe figcaption,
   figure.effect-zoe h2,
   figure.effect-zoe p.icon-links a {
@@ -14998,41 +15006,38 @@ a.text-#000000:hover {
     transform: translate3d(0, 0, 0) !important;
   }
 
-  /* line 150, ../partials/_rwd.scss */
+  /* line 182, ../partials/_rwd.scss */
   figure.effect-zoe figcaption {
     background: rgba(255, 255, 255, 0.27) !important;
     color: #FFFFFF !important;
   }
 
-  /* line 155, ../partials/_rwd.scss */
+  /* line 187, ../partials/_rwd.scss */
   .grid figure p {
     font-size: 90% !important;
   }
 
-  /* line 159, ../partials/_rwd.scss */
+  /* line 191, ../partials/_rwd.scss */
   #center_menu,
   #right_menu {
     display: none;
   }
 
-  /* line 164, ../partials/_rwd.scss */
+  /* line 196, ../partials/_rwd.scss */
   #menu-btn {
     display: block;
     position: absolute;
     top: 18px;
     color: black;
+    width: auto;
   }
 
-  /* line 171, ../partials/_rwd.scss */
+  /* line 204, ../partials/_rwd.scss */
   #content_wrapper {
     margin-top: 75px;
   }
 
-  /* line 177, ../partials/_rwd.scss */
-  #regular_article header {
-    height: 85%;
-  }
-  /* line 181, ../partials/_rwd.scss */
+  /* line 214, ../partials/_rwd.scss */
   #regular_article #menu-btn {
     display: block;
     position: absolute;
@@ -15041,22 +15046,24 @@ a.text-#000000:hover {
     margin: 0;
     right: 11px;
     font-size: 1.4em;
+    width: auto;
   }
-  /* line 191, ../partials/_rwd.scss */
+  /* line 225, ../partials/_rwd.scss */
   #regular_article #cbp-spmenu-s2 {
-    font-size: 12px;
+    font-size: 12.5px;
+    width: 65%;
   }
-  /* line 195, ../partials/_rwd.scss */
+  /* line 230, ../partials/_rwd.scss */
   #regular_article #container {
     margin-top: 75px;
   }
 
-  /* line 218, ../partials/_rwd.scss */
+  /* line 253, ../partials/_rwd.scss */
   .flex-viewport {
     max-height: 3400px !important;
   }
 
-  /* line 222, ../partials/_rwd.scss */
+  /* line 257, ../partials/_rwd.scss */
   .header-img {
     width: 80% !important;
     height: 180px !important;
@@ -15064,33 +15071,33 @@ a.text-#000000:hover {
     background-size: contain !important;
   }
 
-  /* line 229, ../partials/_rwd.scss */
+  /* line 264, ../partials/_rwd.scss */
   .regular > h1 {
     font-size: 1.25em !important;
   }
 
-  /* line 233, ../partials/_rwd.scss */
+  /* line 268, ../partials/_rwd.scss */
   .content > div:not(.title) p {
     font-size: 1.35em !important;
   }
 
-  /* line 237, ../partials/_rwd.scss */
+  /* line 272, ../partials/_rwd.scss */
   .smilie {
     font-size: 3em !important;
     padding: 0 3px !important;
   }
 
-  /* line 242, ../partials/_rwd.scss */
+  /* line 277, ../partials/_rwd.scss */
   #list_stuff {
     margin-left: 0 !important;
   }
 
-  /* line 246, ../partials/_rwd.scss */
+  /* line 281, ../partials/_rwd.scss */
   #contact_form {
     margin: 3% 6%;
     border: none;
   }
-  /* line 250, ../partials/_rwd.scss */
+  /* line 285, ../partials/_rwd.scss */
   #contact_form h1 {
     position: relative;
     left: 0;
@@ -15099,18 +15106,11 @@ a.text-#000000:hover {
     width: 100%;
   }
 
-  /* line 259, ../partials/_rwd.scss */
+  /* line 294, ../partials/_rwd.scss */
   #about_wrapper nav ul li {
     padding: 0 8px;
   }
 }
-/* Smartphones (landscape) ----------- */
-/* Smartphones (portrait) ----------- 
-@media only screen
-and (max-width : 480px) {
-}*/
-/* iPads (portrait and landscape) ----------- */
-/* iPads (portrait) ----------- */
 /* Large screens ----------- */
 /* iPhone 4 ----------- 
 @media

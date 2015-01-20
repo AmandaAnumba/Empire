@@ -2,6 +2,38 @@
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 480px) {
+	
+}
+ 
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-device-width : 321px)
+and (max-device-width : 640px)
+and (orientation : landscape) {
+}
+ 
+/* Smartphones (portrait) ----------- 
+@media only screen
+and (max-width : 480px) {
+}*/
+ 
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+}
+ 
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+}
+
+
+/* Small screens ----------- */
+@media only screen
+and (max-width : 480px) {
 	// front page
 	#main {
 		display: none;
@@ -52,7 +84,7 @@ and (max-device-width : 480px) {
 		}
 
 		#buttons {
-			margin-top: 27%;
+			margin-top: 20%;
 		}
 
 		.btn-round {
@@ -166,6 +198,7 @@ and (max-device-width : 480px) {
 		position: absolute;
 		top: 18px;
 		color: black;
+		width: auto;
 	}
 
 	#content_wrapper {
@@ -174,9 +207,9 @@ and (max-device-width : 480px) {
 
 	#regular_article {
 
-		header {
-			height: 85%;
-		}
+		// header {
+		// 	height: 85%;
+		// }
 
 		#menu-btn {
 			display: block;
@@ -186,10 +219,12 @@ and (max-device-width : 480px) {
 			margin: 0;
 			right: 11px;
 			font-size: 1.4em;
+			width: auto;
 		}
 
 		#cbp-spmenu-s2 {
-			font-size: 12px;
+			font-size: 12.5px;
+			width: 65%;
 		}
 
 		#container {
@@ -259,33 +294,10 @@ and (max-device-width : 480px) {
 	#about_wrapper nav ul li {
 		padding: 0 8px;
 	}
+
 }
- 
-/* Smartphones (landscape) ----------- */
-@media only screen
-and (min-device-width : 321px)
-and (max-device-width : 640px)
-and (orientation : landscape) {
-}
- 
-/* Smartphones (portrait) ----------- 
-@media only screen
-and (max-width : 480px) {
-}*/
- 
-/* iPads (portrait and landscape) ----------- */
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px) {
-}
- 
-/* iPads (portrait) ----------- */
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)
-and (orientation : portrait) {
-}
- 
+
+
 /* Large screens ----------- */
 @media only screen
 and (min-width : 1300px) {
