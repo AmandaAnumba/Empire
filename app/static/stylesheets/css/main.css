@@ -15057,25 +15057,29 @@ and (max-width : 480px) {
   #regular_article #container {
     margin-top: 75px;
   }
+  /* line 249, ../partials/_rwd.scss */
+  #regular_article img.fr-fin.fr-tag {
+    width: 220px;
+  }
 
-  /* line 251, ../partials/_rwd.scss */
+  /* line 255, ../partials/_rwd.scss */
   .grid figure {
     height: 170px !important;
   }
 
-  /* line 255, ../partials/_rwd.scss */
+  /* line 259, ../partials/_rwd.scss */
   .about_page#menu-btn {
     right: 0;
     font-size: 1.9em;
     padding: 0 20px;
   }
 
-  /* line 261, ../partials/_rwd.scss */
+  /* line 265, ../partials/_rwd.scss */
   .about_page#cbp-spmenu-s2 {
     width: 65%;
   }
 
-  /* line 265, ../partials/_rwd.scss */
+  /* line 269, ../partials/_rwd.scss */
   .about_page#cat_list {
     list-style-type: none;
     margin: 0;
@@ -15084,7 +15088,7 @@ and (max-width : 480px) {
     border-top: 2px solid black;
   }
 
-  /* line 273, ../partials/_rwd.scss */
+  /* line 277, ../partials/_rwd.scss */
   .about_page#cat_list li > a {
     background: rgba(247, 247, 247, 0.4);
     padding: 0.9em;
@@ -15092,12 +15096,12 @@ and (max-width : 480px) {
     border-bottom: 1px solid rgba(86, 86, 86, 0.06);
   }
 
-  /* line 280, ../partials/_rwd.scss */
+  /* line 284, ../partials/_rwd.scss */
   .flex-viewport {
     max-height: 3400px !important;
   }
 
-  /* line 284, ../partials/_rwd.scss */
+  /* line 288, ../partials/_rwd.scss */
   .header-img {
     width: 80% !important;
     height: 180px !important;
@@ -15105,33 +15109,33 @@ and (max-width : 480px) {
     background-size: contain !important;
   }
 
-  /* line 291, ../partials/_rwd.scss */
+  /* line 295, ../partials/_rwd.scss */
   .regular > h1 {
     font-size: 1.25em !important;
   }
 
-  /* line 295, ../partials/_rwd.scss */
+  /* line 299, ../partials/_rwd.scss */
   .content > div:not(.title) p {
     font-size: 1.35em !important;
   }
 
-  /* line 299, ../partials/_rwd.scss */
+  /* line 303, ../partials/_rwd.scss */
   .smilie {
     font-size: 3em !important;
     padding: 0 3px !important;
   }
 
-  /* line 304, ../partials/_rwd.scss */
+  /* line 308, ../partials/_rwd.scss */
   #list_stuff {
     margin-left: 0 !important;
   }
 
-  /* line 308, ../partials/_rwd.scss */
+  /* line 312, ../partials/_rwd.scss */
   #contact_form {
     margin: 3% 6%;
     border: none;
   }
-  /* line 312, ../partials/_rwd.scss */
+  /* line 316, ../partials/_rwd.scss */
   #contact_form h1 {
     position: relative;
     left: 0;
@@ -15140,9 +15144,15 @@ and (max-width : 480px) {
     width: 100%;
   }
 
-  /* line 321, ../partials/_rwd.scss */
+  /* line 325, ../partials/_rwd.scss */
   #about_wrapper nav ul li {
     padding: 0 8px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  /* line 335, ../partials/_rwd.scss */
+  #mobile_main #buttons {
+    margin-top: 14%;
   }
 }
 /* Large screens ----------- 

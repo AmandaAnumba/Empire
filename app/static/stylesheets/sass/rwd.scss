@@ -246,6 +246,10 @@ and (max-width : 480px) {
 		// 	}
 		// } 
 
+		img.fr-fin.fr-tag {
+			width: 220px;
+		}
+
 	}
 
 	.grid figure {
@@ -321,6 +325,18 @@ and (max-width : 480px) {
 	#about_wrapper nav ul li {
 		padding: 0 8px;
 	}
+
+}
+
+@media only screen
+and (max-width : 320px) {
+	
+	#mobile_main {
+		#buttons {
+			margin-top: 14%;
+		}
+	}
+
 
 }
 
