@@ -206,27 +206,32 @@ and (max-width : 480px) {
   }
   /* line 249, ../sass/rwd.scss */
   #regular_article img.fr-fin.fr-tag {
-    width: 220px;
+    width: 275px;
+  }
+  /* line 253, ../sass/rwd.scss */
+  #regular_article .froala-element .f-video-editor iframe {
+    width: 275px !important;
+    height: auto !important;
   }
 
-  /* line 255, ../sass/rwd.scss */
+  /* line 259, ../sass/rwd.scss */
   .grid figure {
     height: 170px !important;
   }
 
-  /* line 259, ../sass/rwd.scss */
+  /* line 263, ../sass/rwd.scss */
   .about_page#menu-btn {
     right: 0;
     font-size: 1.9em;
     padding: 0 20px;
   }
 
-  /* line 265, ../sass/rwd.scss */
+  /* line 269, ../sass/rwd.scss */
   .about_page#cbp-spmenu-s2 {
     width: 65%;
   }
 
-  /* line 269, ../sass/rwd.scss */
+  /* line 273, ../sass/rwd.scss */
   .about_page#cat_list {
     list-style-type: none;
     margin: 0;
@@ -235,7 +240,7 @@ and (max-width : 480px) {
     border-top: 2px solid black;
   }
 
-  /* line 277, ../sass/rwd.scss */
+  /* line 281, ../sass/rwd.scss */
   .about_page#cat_list li > a {
     background: rgba(247, 247, 247, 0.4);
     padding: 0.9em;
@@ -243,12 +248,12 @@ and (max-width : 480px) {
     border-bottom: 1px solid rgba(86, 86, 86, 0.06);
   }
 
-  /* line 284, ../sass/rwd.scss */
+  /* line 288, ../sass/rwd.scss */
   .flex-viewport {
     max-height: 3400px !important;
   }
 
-  /* line 288, ../sass/rwd.scss */
+  /* line 292, ../sass/rwd.scss */
   .header-img {
     width: 80% !important;
     height: 180px !important;
@@ -256,33 +261,33 @@ and (max-width : 480px) {
     background-size: contain !important;
   }
 
-  /* line 295, ../sass/rwd.scss */
+  /* line 299, ../sass/rwd.scss */
   .regular > h1 {
     font-size: 1.25em !important;
   }
 
-  /* line 299, ../sass/rwd.scss */
+  /* line 303, ../sass/rwd.scss */
   .content > div:not(.title) p {
     font-size: 1.35em !important;
   }
 
-  /* line 303, ../sass/rwd.scss */
+  /* line 307, ../sass/rwd.scss */
   .smilie {
     font-size: 3em !important;
     padding: 0 3px !important;
   }
 
-  /* line 308, ../sass/rwd.scss */
+  /* line 312, ../sass/rwd.scss */
   #list_stuff {
     margin-left: 0 !important;
   }
 
-  /* line 312, ../sass/rwd.scss */
+  /* line 316, ../sass/rwd.scss */
   #contact_form {
     margin: 3% 6%;
     border: none;
   }
-  /* line 316, ../sass/rwd.scss */
+  /* line 320, ../sass/rwd.scss */
   #contact_form h1 {
     position: relative;
     left: 0;
@@ -291,13 +296,13 @@ and (max-width : 480px) {
     width: 100%;
   }
 
-  /* line 325, ../sass/rwd.scss */
+  /* line 329, ../sass/rwd.scss */
   #about_wrapper nav ul li {
     padding: 0 8px;
   }
 }
 @media only screen and (max-width: 320px) {
-  /* line 335, ../sass/rwd.scss */
+  /* line 339, ../sass/rwd.scss */
   #mobile_main #buttons {
     margin-top: 14%;
   }

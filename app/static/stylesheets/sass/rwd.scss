@@ -247,9 +247,13 @@ and (max-width : 480px) {
 		// } 
 
 		img.fr-fin.fr-tag {
-			width: 220px;
+			width: 275px;
 		}
 
+		.froala-element .f-video-editor iframe {
+			width: 275px !important;
+			height: auto !important;
+		}
 	}
 
 	.grid figure {
