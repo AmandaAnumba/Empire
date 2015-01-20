@@ -113,7 +113,7 @@ and (max-width : 480px) {
 
 			.category {
 				/* display: inline-block; */
-				height: 35px;
+				height: 32px;
 				/* width: 100%; */
 				background: whitesmoke;
 				color: white !important;
@@ -246,8 +246,35 @@ and (max-width : 480px) {
 		// 	}
 		// } 
 
-		
+	}
 
+	.grid figure {
+		height: 170px !important;
+	}
+
+	.about_page#menu-btn {
+		right: 0;
+		font-size: 1.9em;
+		padding: 0 20px;
+	}
+
+	.about_page#cbp-spmenu-s2 {
+		width: 65%;
+	}
+	
+	.about_page#cat_list {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		border-bottom: 2px solid black;
+		border-top: 2px solid black;
+	}
+	
+	.about_page#cat_list li > a {
+		background: rgba(247, 247, 247, 0.4);
+		padding: 0.9em;
+		font-size: 0.9em;
+		border-bottom: 1px solid rgba(86, 86, 86, 0.06);
 	}
 
 	.flex-viewport {
@@ -298,10 +325,10 @@ and (max-width : 480px) {
 }
 
 
-/* Large screens ----------- */
+/* Large screens ----------- 
 @media only screen
 and (min-width : 1300px) {
-}
+}*/
  
 /* iPhone 4 ----------- 
 @media

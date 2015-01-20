@@ -1,0 +1,11 @@
+To run this project:
+
+* make sure you have python 2.7 and pip installed
+* install virtualenv by doing < $ pip install virtualenv > in the terminal
+
+1. Activate the virtual environment
+    - $ . ./devEnv/Scripts/activate.ps1 (for powershell)
+2. Run the application in the terminal
+    - $ python run.py
+3. Point your browser to localhost:3000 to see the application
+4. Use the terminal to view the debug output and information about the processes running
