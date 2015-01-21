@@ -1308,8 +1308,8 @@ a {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 300;
-  padding: 0 15px;
-  font-size: 0.9em;
+  padding: 15px;
+  font-size: 1.1em;
   cursor: pointer;
 }
 /* line 161, ../modules/_about.scss */

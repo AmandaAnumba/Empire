@@ -25,6 +25,7 @@
 		<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
 		<link href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', filename='plugins/froala/css/froala_content.min.css') }}" rel="stylesheet">
 		
 
 		<!-- <link rel="stylesheet" href="{{ url_for('static', filename='plugins/sc/release/themes/default-theme.css') }}" /> -->
@@ -82,22 +83,7 @@
             <p id="menu-btn" class="pull-right" hidden><span class="icon-nav icon-menu"></span></p>
         </nav>
 
-		<p id="id" hidden>{{ article['objectId'] }}</p>
-		
-		<div id="container" class="container">
-			<header class="header">
-				<div class="header-img" style="background:url({{ article.headerIMG }}) no-repeat center;">
-					<!-- <img src="" alt="Header Image" /> -->
-				</div>
-
-				<div class="regular">
-					<h1 style="text-align: center;">{{ article.title }}</h1>
-					<p class="subline">{{ article.description }}</p>
-					<p>by <strong>{{ article.author }}</strong> &#8212; Posted in <strong>{{ article.category }}</strong> on <strong id="date"></strong></p>
-				</div>
-			</header>
-
-			<nav class="articles_page cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+        <nav class="articles_page cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
                 <h3>
                     <span class="icon icon-cross" id="close-btn" style="float: left;color: darkgray;cursor: pointer;line-height: 1.1;"></span>
                     <!-- <span style="float:right;">Empire</span> -->
@@ -121,8 +107,20 @@
                 <!-- <div id="footer"> 
                     <p>© 2015 ThreePillarMedia, LLC</p>
                 </div>-->
-            </nav>
+        </nav>
 
+		<p id="id" hidden>{{ article['objectId'] }}</p>
+		
+		<div id="container" class="container">
+			<header class="header">
+				<div class="header-img" style="background:url({{ article.headerIMG }}) no-repeat center;"></div>
+
+				<div class="regular">
+					<h1 style="text-align: center;">{{ article.title }}</h1>
+					<p class="subline">{{ article.description }}</p>
+					<p>by <strong>{{ article.author }}</strong> &#8212; Posted in <strong>{{ article.category }}</strong> on <strong id="date"></strong></p>
+				</div>
+			</header>
 
 			<article class="content">
 				<div id="commentable-container" class="container commentable-container"></div>
