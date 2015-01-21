@@ -16,18 +16,18 @@
         <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
         <meta name="author" content="ThreePillarMedia, LLC" />
 		<link rel="icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon.png') }}">
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/intro/css/normalize.css') }}" />
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/intro/css/demo.css') }}" />
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/intro/css/component.css') }}" />
-		<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/icons.css') }}" />
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54b74dc434356003" async="async"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 		<script src="{{ url_for('static', filename='js/main.js') }}"></script>
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
-		<link href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" rel="stylesheet">
-		<link href="{{ url_for('static', filename='plugins/froala/css/froala_content.min.css') }}" rel="stylesheet">
-		
-
+		<script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
+		<link rel="stylesheet" href="{{ url_for('static', filename='plugins/intro/css/normalize.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='plugins/intro/css/demo.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='plugins/intro/css/component.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/icons.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='plugins/froala/css/froala_content.min.css') }}" />
 		<!-- <link rel="stylesheet" href="{{ url_for('static', filename='plugins/sc/release/themes/default-theme.css') }}" /> -->
 		<!-- <link rel="stylesheet" href="{{ url_for('static', filename='plugins/sc/support/css/basics.css') }}" /> -->
 		<!--[if IE]>
@@ -79,8 +79,10 @@
                 <li class="tab"><a href="{{ url_for('cycle') }}">Cycle #1</a></li> 
                 
             </ul>
+            
             <img src="{{ url_for('static', filename='images/logo-blk.png') }}" width="100px">
-            <p id="menu-btn" class="pull-right" hidden><span class="icon-nav icon-menu"></span></p>
+            
+            <p id="menu-btn" class="pull-right toggle-menu menu-right" hidden><span class="icon-nav icon-menu"></span></p>
         </nav>
 
         <nav class="articles_page cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
@@ -352,21 +354,9 @@
 			        }
 			    });
 
-			    var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-                    showRight = document.getElementById( 'menu-btn' ),
-                    closeRight = document.getElementById( 'close-btn' );
-                
-                showRight.onclick = function() {
-                    classie.toggle( this, 'active' );
-                    classie.toggle( menuRight, 'cbp-spmenu-open' );
-                    // disableOther( 'showRight' );
-                };
-
-                closeRight.onclick = function() {
-                    // classie.toggle( this, 'active' );
-                    classie.toggle( menuRight, 'cbp-spmenu-open' );
-                    // disableOther( 'showRight' );
-                };
+			    jQuery(document).ready(function($) {
+                    $('.toggle-menu').jPushMenu();
+                });
 
 				// $('p.fr-tag').each(function(i) {
 				// 	$(this).addClass('commentable-section').attr('data-section-id', i+1);

@@ -83,7 +83,7 @@
     width: 275px;
   }
   /* line 114, ../sass/rwd.scss */
-  #regular_article .froala-element .f-video-editor {
+  #regular_article .f-video-editor .fr-fvn {
     position: relative;
     padding-bottom: 56.25%;
     /* 16:9 */
@@ -91,7 +91,7 @@
     height: 0;
   }
   /* line 120, ../sass/rwd.scss */
-  #regular_article .froala-element .f-video-editor iframe {
+  #regular_article .f-video-editor .fr-fvn iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -499,7 +499,7 @@ and (max-width : 480px) {
     float: none !important;
   }
   /* line 575, ../sass/rwd.scss */
-  #regular_article .froala-element .f-video-editor {
+  #regular_article span.f-video-editor.fr-fvn {
     position: relative;
     padding-bottom: 56.25%;
     /* 16:9 */
@@ -507,12 +507,12 @@ and (max-width : 480px) {
     height: 0;
   }
   /* line 581, ../sass/rwd.scss */
-  #regular_article .froala-element .f-video-editor iframe {
+  #regular_article span.f-video-editor.fr-fvn iframe {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
   }
 
   /* line 592, ../sass/rwd.scss */

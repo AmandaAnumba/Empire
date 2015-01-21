@@ -88,7 +88,7 @@
                 </a>
             </ul>
 
-            <p id="menu-btn" class="pull-right" hidden><span class="icon-nav icon-menu"></span></p>
+            <p id="menu-btn" class="pull-right toggle-menu menu-right" hidden><span class="icon-nav icon-menu"></span></p>
         </nav>
 
         <nav class="articles_page cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
@@ -139,21 +139,25 @@
                     }
                 });
 
-                var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-                    showRight = document.getElementById( 'menu-btn' ),
-                    closeRight = document.getElementById( 'close-btn' );
-                
-                showRight.onclick = function() {
-                    classie.toggle( this, 'active' );
-                    classie.toggle( menuRight, 'cbp-spmenu-open' );
-                    // disableOther( 'showRight' );
-                };
+                jQuery(document).ready(function($) {
+                    $('.toggle-menu').jPushMenu();
+                });
 
-                closeRight.onclick = function() {
-                    // classie.toggle( this, 'active' );
-                    classie.toggle( menuRight, 'cbp-spmenu-open' );
-                    // disableOther( 'showRight' );
-                };
+                // var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+                //     showRight = document.getElementById( 'menu-btn' ),
+                //     closeRight = document.getElementById( 'close-btn' );
+                
+                // showRight.onclick = function() {
+                //     classie.toggle( this, 'active' );
+                //     classie.toggle( menuRight, 'cbp-spmenu-open' );
+                //     // disableOther( 'showRight' );
+                // };
+
+                // closeRight.onclick = function() {
+                //     // classie.toggle( this, 'active' );
+                //     classie.toggle( menuRight, 'cbp-spmenu-open' );
+                //     // disableOther( 'showRight' );
+                // };
             });
         </script>
         <style>
