@@ -137,11 +137,11 @@
                         <nav class="nav-footer" style="left: 0;">
                             <ul>
                                 <li>© 2015 ThreePillarMedia, LLC</li>
-                                <li><a href="{{ url_for('about') }}">About</a></li>
+                                <li><a href="{{ url_for('home.about') }}">About</a></li>
                                 <!-- <li><a href="">Archives</a></li> -->
-                                <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                                <li><a href="{{ url_for('terms') }}">Terms</a></li>
-                                <li><a href="{{ url_for('privacy') }}">Privacy</a></li>
+                                <li><a href="{{ url_for('home.contact') }}">Contact</a></li>
+                                <li><a href="{{ url_for('home.terms') }}">Terms</a></li>
+                                <li><a href="{{ url_for('home.privacy') }}">Privacy</a></li>
                                 <!-- <li id="social">Social Media</li> -->
                             </ul>
                         </nav>
@@ -167,7 +167,7 @@
                     <span class="icon icon-cross" id="close-btn" style="float: left;color: darkgray;cursor: pointer;line-height: 1.1;"></span>
                     <!-- <span style="float:right;">Empire</span> -->
                 </h3>
-                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('home.index') }}">Home</a>
                 <a href="{{ url_for('cycle') }}">Current Cycle</a>
                 <a style="border-bottom:none;">Categories</a>
                 <ul id="cat_list">
@@ -179,9 +179,9 @@
                     <li><a class="media-body block m-b-none" href="{{ url_for('culture') }}">Culture + Entertainment</a></li>
                     <li><a class="media-body block m-b-none" href="{{ url_for('wildcard') }}">Wildcard</a></li>
                 </ul>
-                <a href="{{ url_for('about') }}">About</a>
-                <a href="{{ url_for('terms') }}">Terms and Privacy</a>
-                <a href="{{ url_for('contact') }}">Contact Us</a>
+                <a href="{{ url_for('home.about') }}">About</a>
+                <a href="{{ url_for('home.terms') }}">Terms and Privacy</a>
+                <a href="{{ url_for('home.contact') }}">Contact Us</a>
             </nav>
 
             <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1" style="width: 75%;">
@@ -262,7 +262,7 @@
 
                         <p class="padder-v">Browse the topics on your left or experience an Empire cycle on your right. Don't forget to let us know what you think of this beta release! Your feedback will be invaluable to us when we release the full-site and content.</p> 
 
-                        <p class="padder-v">Feel free to use the <a href="{{ url_for('contact') }}" style="color:#d20150 !important;">contact form</a> or reach out to us on social media.</p>
+                        <p class="padder-v">Feel free to use the <a href="{{ url_for('home.contact') }}" style="color:#d20150 !important;">contact form</a> or reach out to us on social media.</p>
 
                         <p style="text-align:left;">Stay Blessed,</p>
                         <p style="text-align: left;font-style: italic;">- Team Empire</p>

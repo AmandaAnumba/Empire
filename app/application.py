@@ -1,27 +1,16 @@
 from app import app
 import os, random, sys, time, re, string, json, httplib, urllib
-# from forms import *
-# from models import *
-from emails import *
+# from emails import *
 
-from flask import flash, Flask, render_template, session, request, redirect, url_for, escape, jsonify
+from flask import flash, Flask, Blueprint, render_template, session, request, redirect, url_for, escape, jsonify
 
 from werkzeug import secure_filename, check_password_hash, generate_password_hash
 from werkzeug.exceptions import default_exceptions, HTTPException
 
-# import boto
-# from boto.s3.key import Key
-# from boto.s3.connection import S3Connection
-
-# # boto for uploads to s3
-# s3 = S3Connection('AKIAI63JCRPQ24S2ELUQ', 'qUYT8eUP3bM4DUXE3BLHrKlz/TGLvIOcQuAAbSyh')
-# bucket = s3.create_bucket('empire-images')
-# bucket.set_acl('public-read')
-# k = Key(bucket)
-
 # set after login
 # session.permanent = True
 
+# dashboard = Blueprint('dashboard', __name__, template_folder='templates',)
 application = app
 
 # Parse.com RESTful API
@@ -32,10 +21,10 @@ reload(sys)
 sys.setdefaultencoding("utf-8")
 
 
-@application.route("/")
-def index():
-    #display welcome page
-    return render_template('index.html')
+# blue prints
+
+# dashboard = Blueprint('dashboard', __name__, template_folder='templates')
+
 
 @application.route('/current')
 def cycle():
@@ -377,35 +366,7 @@ def rate():
             return jsonify({ 'success': "success" })
             
 
-@application.route("/about")
-def about():
-    return render_template('about3.html')
 
-@application.route('/contact', methods=['GET', 'POST'])
-def contact():
-    if request.method == 'GET':
-        return render_template("contact.html")
-
-    elif request.method == 'POST':
-        name = request.form.get('name', None)
-        email = request.form.get('email', None)
-        subject = request.form.get('subject', None)
-        message = request.form.get('message', None)
-
-        try:
-            empireContact(name, email, subject, message)
-            return jsonify({ 'success': "Your message has been sent. You will now be redirected to the front page." })
-
-        except:
-            return jsonify({ 'error': "Your email could not be sent. Please refresh the page and try again." })
-
-@application.route('/terms')
-def terms():
-    return render_template("terms.html")
-
-@application.route('/privacy')
-def privacy():
-    return render_template("privacy.html")
 
 
 

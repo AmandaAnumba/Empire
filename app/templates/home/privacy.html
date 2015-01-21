@@ -1,4 +1,4 @@
-{% extends "blank_page.html" %}
+{% extends "home/blank_page.html" %}
 {% block content %}
 
 <section id="policy">
@@ -12,11 +12,11 @@
 
 	<nav>
 		<ul class="inline-list">
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-			<li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
-            <li><a href="{{ url_for('terms') }}">Terms</a></li>
-            <li><a href="{{ url_for('privacy') }}">Privacy</a></li>
+	        <li><a href="{{ url_for('home.index') }}">Home</a></li>
+			<li><a href="{{ url_for('home.about') }}">About</a></li>
+	        <li><a href="{{ url_for('home.contact') }}">Contact</a></li>
+	        <li><a href="{{ url_for('home.terms') }}">Terms</a></li>
+	        <li><a href="{{ url_for('home.privacy') }}">Privacy</a></li>
 		</ul>
 	</nav>
 
@@ -61,12 +61,6 @@
 	    <nav class="nav-footer other">
 	        <ul>
 	            <li>© 2015 ThreePillarMedia, LLC</li>
-	            <!-- <li><a href="{{ url_for('about') }}">About</a></li>
-	            <li><a href="">Archives</a></li>
-	            <li><a href="{{ url_for('contact') }}">Contact</a></li>
-	            <li><a href="{{ url_for('terms') }}">Terms</a></li>
-	            <li><a href="{{ url_for('privacy') }}">Privacy</a></li>
-	            <li id="social">Social Media</li> -->
 	        </ul>
 	    </nav>
 	</footer>

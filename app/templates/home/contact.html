@@ -1,4 +1,4 @@
-{% extends "blank_page.html" %}
+{% extends "home/blank_page.html" %}
 {% block content %}
 
 <section id="policy">
@@ -12,14 +12,14 @@
 
     <main style="text-align: center;">
     	<nav>
-    		<ul class="inline-list">
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-    			<li><a href="{{ url_for('about') }}">About</a></li>
-                <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                <li><a href="{{ url_for('terms') }}">Terms</a></li>
-                <li><a href="{{ url_for('privacy') }}">Privacy</a></li>
-    		</ul>
-    	</nav>
+            <ul class="inline-list">
+                <li><a href="{{ url_for('home.index') }}">Home</a></li>
+                <li><a href="{{ url_for('home.about') }}">About</a></li>
+                <li><a href="{{ url_for('home.contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('home.terms') }}">Terms</a></li>
+                <li><a href="{{ url_for('home.privacy') }}">Privacy</a></li>
+            </ul>
+        </nav>
 
         <div id="error" class="alert error" style="width: 500px;margin: 0 auto;" hidden>
             <button type="button" class="close" data-dismiss="alert">
