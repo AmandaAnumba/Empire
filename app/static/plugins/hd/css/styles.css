@@ -324,3 +324,45 @@ Waypoints
 .delay-1s { animation-delay: 1s; -webkit-animation-delay: 1s; }
 .delay-15s { animation-delay: 1.5s; -webkit-animation-delay: 1.5s; }
 .wp3 { background: url('../../../images/sample4.jpg') no-repeat center center; background-position: 200px 10px; height: 100%; }
+
+#menu-btn {
+	font-size: 2.5em;
+	color: black;
+	cursor:pointer;
+}
+
+#cbp-spmenu-s2 h3 {
+	padding: 20px 0 0 0;
+	border-bottom: none !important;
+}
+
+#cbp-spmenu-s2 #cat_list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	border-bottom: 2px solid black;
+	border-top: 2px solid black;
+}
+#cbp-spmenu-s2 #cat_list li > a {
+	background: rgba(247, 247, 247, 0.4);
+	padding: 0.9em;
+	font-size: 0.9em;
+	border-bottom: 1px solid rgba(86, 86, 86, 0.06);
+} 
+
+.hero h1 {
+	color: white;
+	text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.45);
+	font-size: 60px;
+}
+
+.hero p {
+	color:white;
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.45);
+	letter-spacing: 0.5px;
+	font-size: 1.5em;
+	font-weight: 700;
+}
+
+
+

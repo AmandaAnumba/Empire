@@ -1,112 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Empire</title>
-    <meta name="description" content="Inspire, Rise, Reign" />
-    <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
-    <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon.png') }}">
-
-    <meta name="author" content="ThreePillarMedia, LLC" />
-    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-    <link href="{{ url_for('static', filename='plugins/hd/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{{ url_for('static', filename='plugins/hd/css/flexslider.css') }}" rel="stylesheet" >
-    <link href="{{ url_for('static', filename='plugins/hd/css/styles.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='plugins/hd/css/queries.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='plugins/hd/css/animate.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
-    <link href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/icons.css') }}" />
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <title>Empire</title>
+        <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
+        <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
+        <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon.png') }}">
+        <meta name="author" content="ThreePillarMedia, LLC" />
+        <script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
+        <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+        <link href="{{ url_for('static', filename='plugins/hd/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="{{ url_for('static', filename='plugins/hd/css/flexslider.css') }}" rel="stylesheet" >
+        <link href="{{ url_for('static', filename='plugins/hd/css/styles.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='plugins/hd/css/queries.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='plugins/hd/css/animate.css') }}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
+        <link href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/icons.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-      </head>
-      <body id="top">
-        <nav class="about_page cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
-                <h3>
-                    <span class="icon-cross" id="close-btn" style="float: left;color: darkgray;cursor: pointer;line-height: 1.1;"></span>
-                    <!-- <span style="float:right;">Empire</span> -->
-                </h3>
-                <a href="{{ url_for('index') }}">Home</a>
-                <a href="{{ url_for('cycle') }}">Current Cycle</a>
-                <a style="border-bottom:none;">Categories</a>
-                <ul id="cat_list">
-                    <li><a class="media-body block m-b-none"href="{{ url_for('news') }}">Current Events</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('tech') }}">Technology</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('money') }}">Money</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('career') }}">Career</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('mindbody') }}">Mind, Body, and Spirit</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('culture') }}">Culture + Entertainment</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('wildcard') }}">Wildcard</a></li>
-                </ul>
-                <a href="{{ url_for('about') }}">About</a>
-                <a href="{{ url_for('terms') }}">Terms and Privacy</a>
-                <a href="{{ url_for('contact') }}">Contact Us</a>
+    </head>
+    
+    <body id="top" class="about_page">
+        <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+            <h3>
+                <span class="icon-cross" id="close-btn" style="float: left;color: darkgray;cursor: pointer;line-height: 1.1;"></span>
+                <!-- <span style="float:right;">Empire</span> -->
+            </h3>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('cycle') }}">Current Cycle</a>
+            <a style="border-bottom:none;">Categories</a>
+            <ul id="cat_list">
+                <li><a class="media-body block m-b-none"href="{{ url_for('news') }}">Current Events</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('tech') }}">Technology</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('money') }}">Money</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('career') }}">Career</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('mindbody') }}">Mind, Body, and Spirit</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('culture') }}">Culture + Entertainment</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('wildcard') }}">Wildcard</a></li>
+            </ul>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('terms') }}">Terms and Privacy</a>
+            <a href="{{ url_for('contact') }}">Contact Us</a>
+        </nav>
 
-                <!-- <div id="footer"> 
-                    <p>© 2015 ThreePillarMedia, LLC</p>
-                </div>-->
-            </nav>
         <header id="home">
-          <nav>
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
-                  <nav class="pull">
-                    <ul class="top-nav">
-                      <li><a href="#intro">Mission <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
-                      <!-- <li><a href="#features">Features <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li> -->
-                      <li><a href="#responsive">In-Depth Look<span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
-                      <!-- <li><a href="#portfolio">Portfolio <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li> -->
-                      <li><a href="#team">The Team <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
-                      <li><a href="#contact">Connect <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
-                    </ul>
-                  </nav>
+            <!-- <nav>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+                            <nav class="pull">
+                                <ul class="top-nav">
+                                    <li><a href="#intro">Mission <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="#features">Features <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="#responsive">In-Depth Look<span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="#portfolio">Portfolio <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="#team">The Team <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="#contact">Connect <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </nav>
-          <section class="hero" id="hero">
-            <div class="container">
-              <div class="row">
-                <p id="menu-btn" class="pull-right about_page" hidden><span class="icon-nav icon-menu"></span></p>
-                <div class="text-right navicon" style="float:right;" hidden>
-                  <a id="nav-toggle" class="nav_slide_button" href="#"><span></span></a>
+            </nav> -->
+
+            <section class="hero" id="hero">
+                <div class="container">
+                    <div class="row">
+                        <p id="menu-btn" class="pull-right toggle-menu menu-right"><span class="icon-nav icon-menu"></span></p>
+                        
+                        <div class="text-right navicon" style="float:right;" hidden>
+                            <a id="nav-toggle" class="nav_slide_button" href="#"><span></span></a>
+                        </div>
+
+                        <div id="min_btn" class="text-right" hidden>
+                            <a href="{{ url_for('index') }}">Home</a>
+                            <span> | </span>
+                            <a href="{{ url_for('cycle') }}">Current Cycle</a>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center inner">
+                            <!-- <h1 class="animated fadeInDown" style="color: white;text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.45);"><img src="{{ url_for('static', filename='images/logo-blk.png') }}" width="350" alt="Empire logo"/></h1> -->
+                            <h1 class="animated fadeInDown">EMPIRE</h1>
+                            <p class="animated fadeInUp delay-05s">A community-centric experience built to empower you.</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- <div class="text-left navicon" style="float:left; font-size:2em;">
-                  <a href="/"><i class="fa fa-chevron-left"></i></a>
-                </div> -->
-              </div>
-              <div class="row">
-                <div class="col-md-8 col-md-offset-2 text-center inner">
-                  <h1 class="animated fadeInDown" style="color: white;text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.45);"><img src="{{ url_for('static', filename='images/logo-blk.png') }}" width="350" alt="Empire logo"/></h1>
-                  <p class="animated fadeInUp delay-05s" style="color: black;text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.45);letter-spacing: 0.5px;font-size: 1.7em;font-weight: 700;">A community-centric experience built to empower you.</p>
-                </div>
-              </div>
-              
-            </div>
-          </section>
+            </section>
         </header>
+
         <section class="intro text-center section-padding" id="intro">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-8 col-md-offset-2 wp1">
-                <h1 class="arrow">Our Mission</h1>
-				<p>To inspire a world where women of all backgrounds have equal access to the opportunities and resources that will help them excel personally and professionally.</p>
-                <!--<p>Empire represents a pipeline of ladies who are inspired to thrive. A community of femmes who are rising into their womanhood. A diverse queendom built to reign over all parts of their lives.</p>-->
-			  </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 wp1">
+                        <h1 class="arrow">Our Mission</h1>
+                        <p>To inspire a world where women of all backgrounds have equal access to the opportunities and resources that will help them excel personally and professionally.</p>
+                        <!--<p>Empire represents a pipeline of ladies who are inspired to thrive. A community of femmes who are rising into their womanhood. A diverse queendom built to reign over all parts of their lives.</p>-->
+                    </div>
+                </div>
             </div>
-          </div>
         </section>
 
         <section class="features text-center section-padding" id="features">
@@ -202,6 +209,7 @@
             </div>
           </div>
         </div>
+
         <section class="team text-center section-padding" id="team">
           <div class="container">
             <div class="row">
@@ -275,8 +283,6 @@
             </div>
           </div>
         </section>
-
-
 
         <section class="portfolio text-center section-padding" id="portfolio">
           <div class="container">
@@ -362,15 +368,7 @@
           </div>
         </section>
 
-
         <section class="subscribe text-center">
-          <!--<div class="container">
-            <h1><i class="fa fa-paper-plane"></i><span>Subscribe to stay in the loop</span></h1>
-            <form action="#">
-              <input type="text" name="" value="" placeholder="" required>
-              <input type="submit" name="" value="Send">
-            </form>
-          </div>-->
 		  <div class="container" id="contact">
             <div class="row">
               <div class="col-md-12">
@@ -390,56 +388,32 @@
               </div>
             </div>
           </div>
-		  
         </section>
-       <!-- <section class="dark-bg text-center section-padding contact-wrap" id="contact">
-          <a href="#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
-        </section>-->
+
         <footer>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6">
-                <ul class="legals">
-                  <li>© 2015 ThreePillarMedia, LLC</li>
-                  <li><a href="{{ url_for('terms') }}">Terms &amp; Conditions</a></li>
-                  <li><a href="{{ url_for('privacy') }}">Privacy</a></li>
-                </ul>
-              </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="legals">
+                            <li>© 2015 ThreePillarMedia, LLC</li>
+                            <li><a href="{{ url_for('terms') }}">Terms &amp; Conditions</a></li>
+                            <li><a href="{{ url_for('privacy') }}">Privacy</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
         </footer>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
+
         <script src="{{ url_for('static', filename='plugins/hd/js/waypoints.min.js') }}"></script>
         <script src="{{ url_for('static', filename='plugins/hd/js/bootstrap.min.js') }}"></script>
         <script src="{{ url_for('static', filename='plugins/hd/js/scripts.js') }}"></script>
         <script src="{{ url_for('static', filename='plugins/hd/js/jquery.flexslider.js') }}"></script>
         <script src="{{ url_for('static', filename='plugins/hd/js/modernizr.js') }}"></script>
+    </body>
 
-        <style>
-
-        </style>
-      </body>
-
-      <script src="{{ url_for('static', filename='plugins/intro/js/classie.js') }}"></script>
-      <script>
-           $(function() { 
-            var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-                showRight = document.getElementById( 'menu-btn' ),
-                closeRight = document.getElementById( 'close-btn' );
-            
-            showRight.onclick = function() {
-                classie.toggle( this, 'active' );
-                classie.toggle( menuRight, 'cbp-spmenu-open' );
-                // disableOther( 'showRight' );
-            };
-
-            closeRight.onclick = function() {
-                // classie.toggle( this, 'active' );
-                classie.toggle( menuRight, 'cbp-spmenu-open' );
-                // disableOther( 'showRight' );
-            };
+    <script>
+        jQuery(document).ready(function($) {
+          $('.toggle-menu').jPushMenu();
         });
-        </script>
-    </html>
+    </script>
+</html>

@@ -1,91 +1,80 @@
 {% extends "blank_page.html" %}
 {% block content %}
 
-<!-- top header parallax -->
-<div class="img-holder visible" data-image="{{ url_for('static', filename='images/12.jpg') }}">
-    <div id="parallax-overlay">
-        <div id="top_title">
-            <!-- <div class="tag" style="width: 31px;">new</div> -->
-            <img src="{{ url_for('static', filename='images/logo-blk.png') }}" width="270"/>
+<section id="policy">
+    <div class="img-holder visible" data-image="{{ url_for('static', filename='images/12.jpg') }}">
+        <div id="parallax-overlay">
+            <div id="top_title">
+                <img src="{{ url_for('static', filename='images/logo-blk.png') }}" width="270"/>
+            </div>
         </div>
     </div>
-</div>
 
-<main id="about_wrapper" style="text-align: center;">
-	<nav>
-		<ul class="inline-list">
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-			<li><a href="{{ url_for('about') }}">About</a></li>
-            <!-- <li><a href="">Archives</a></li> -->
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
-            <li><a href="{{ url_for('terms') }}">Terms</a></li>
-            <li><a href="{{ url_for('privacy') }}">Privacy</a></li>
-            <!-- <li id="social">Social Media</li> -->
-		</ul>
-	</nav>
+    <main style="text-align: center;">
+    	<nav>
+    		<ul class="inline-list">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+    			<li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('terms') }}">Terms</a></li>
+                <li><a href="{{ url_for('privacy') }}">Privacy</a></li>
+    		</ul>
+    	</nav>
 
-    <div id="error" class="alert error" style="width: 500px;margin: 0 auto;" hidden>
-        <button type="button" class="close" data-dismiss="alert">
-            <span aria-hidden="true">&times;</span>
-            <span class="sr-only">Close</span>
-        </button>
-        <p class="message"></p>
-    </div>
-
-    <div id="success" class="alert success" style="width: 500px;margin: 0 auto;" hidden>
-        <button type="button" class="close" data-dismiss="alert">
-            <span aria-hidden="true">&times;</span>
-            <span class="sr-only">Close</span>
-        </button>
-        <p class="message"></p>
-    </div>
-
-    <form id="contact_form">
-        <h1>Contact Us</h1>
-
-        <p style="font-size: 1.2em;">Drop us a line and we'll get back to you as soon as possible.</p>
-
-        <div class="form-group">
-            <input type="text" class="form-control" id="name" placeholder="Your Name">
+        <div id="error" class="alert error" style="width: 500px;margin: 0 auto;" hidden>
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <p class="message"></p>
         </div>
 
-        <div class="form-group">
-            <input type="email" class="form-control" id="email" placeholder="Email Address">
+        <div id="success" class="alert success" style="width: 500px;margin: 0 auto;" hidden>
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <p class="message"></p>
         </div>
 
-        <div class="form-group">
-            <input type="text" class="form-control" id="subject" placeholder="Subject">
+        <form id="contact_form">
+            <h1>Contact Us</h1>
+
+            <p style="font-size: 1.2em;">Drop us a line and we'll get back to you as soon as possible.</p>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="name" placeholder="Your Name">
+            </div>
+
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" placeholder="Email Address">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="subject" placeholder="Subject">
+            </div>
+
+            <div class="form-group">
+                <textarea name="message" id="message" class="form-control" style="min-height:200px; max-height:325px; line-height:normal;"></textarea>
+            </div>
+            
+            <p class="btn" onclick="send();">Send your message</p>
+        </form>
+
+        <!-- loading animation -->
+        <div id="loader" hidden> 
+            <img src="{{ url_for('static', filename='images/svg/tail-spin-black.svg') }}" width="50" alt="loading animation">
         </div>
-        
-        <!-- <select class="form-control">
-            <option>Subject</option>
-            <option>Marketing</option>
-            <option>3</option>
-            <option>Website Issues</option>
-            <option>5</option>
-        </select> -->
-        
-        <div class="form-group">
-            <textarea name="message" id="message" class="form-control" style="min-height:200px; max-height:325px; line-height:normal;"></textarea>
-        </div>
-        
-        <p class="btn" onclick="send();">Send your message</p>
-    </form>
+    </main>
 
-    <!-- loading animation -->
-    <div id="loader" hidden> 
-        <img src="{{ url_for('static', filename='images/svg/tail-spin-black.svg') }}" width="50" alt="loading animation">
-    </div>
-
-</main>
-
-<footer style="position: absolute;width: 100%;">
-    <nav class="nav-footer other">
-        <ul>
-            <li>© 2015 ThreePillarMedia, LLC</li>
-        </ul>
-    </nav>
-</footer>
+    <footer style="position: absolute;width: 100%;">
+        <nav class="nav-footer other">
+            <ul>
+                <li>© 2015 ThreePillarMedia, LLC</li>
+            </ul>
+        </nav>
+    </footer>
+</section>
 
 <script src="{{ url_for('static', filename='js/parallax.min.js') }}"></script>
 <script>
@@ -105,4 +94,5 @@
         touch: false
     });
 </script>
+
 {% endblock %}

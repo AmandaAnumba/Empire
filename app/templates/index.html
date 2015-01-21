@@ -7,21 +7,23 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
         <meta name="HandheldFriendly" content="true" />
-         <meta name="mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <meta charset="utf-8">  
         <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon.png') }}">
         <title>Empire</title>
-        <meta name="description" content="Inspire, Rise, Reign" />
+        <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
         <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
         <meta name="author" content="ThreePillarMedia, LLC" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
         <script src="{{ url_for('static', filename='plugins/pushmenu/js/modernizr.custom.js') }}"></script>
-        <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/ArrowNavigationStyles/css/component.css') }}" /> -->
+        <script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
+        <link href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" rel="stylesheet">
     </head>
 
     <body id="welcome">
@@ -158,7 +160,7 @@
                 </svg>
             </div>
 
-            <p id="menu-btn" class="pull-right"><span class="icon-nav icon-menu"></span></p>
+            <p id="menu-btn" class="pull-right toggle-menu menu-right"><span class="icon-nav icon-menu"></span></p>
             
             <nav class="articles_page cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
                 <h3>
@@ -180,10 +182,6 @@
                 <a href="{{ url_for('about') }}">About</a>
                 <a href="{{ url_for('terms') }}">Terms and Privacy</a>
                 <a href="{{ url_for('contact') }}">Contact Us</a>
-
-                <!-- <div id="footer"> 
-                    <p>© 2015 ThreePillarMedia, LLC</p>
-                </div>-->
             </nav>
 
             <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1" style="width: 75%;">
@@ -192,12 +190,6 @@
                     <span style="float:right;font-size: 0.7em;">What are you in the mood for?</span>
                     <p class="clearfix"></p>
                 </h3>
-                <!-- <a href="{{ url_for('index') }}">Home</a>
-                <a href="{{ url_for('cycle') }}">Current Cycle</a>
-                <a href="{{ url_for('about') }}">About</a>
-                <a href="{{ url_for('terms') }}">Terms and Conditions</a>
-                <a href="{{ url_for('privacy') }}">Privacy Policy</a>
-                <a href="{{ url_for('contact') }}">Contact Us</a> -->
 
                 <a href="{{ url_for('news') }}" class="category" style="background:url(../static/images/categories/politics.jpg) no-repeat; background-size: cover;background-position-y: -10px;">Current Events</a>
                 
@@ -252,111 +244,39 @@
                 <div class="btn-round animated fadeInLeft">
                     <a href="{{ url_for('cycle') }}">Current Cycle <span class="pull-right"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-right-1"></svg></span></a>
                 </div>
-
-                <!-- <hr> -->
-
                 <div class="btn-round animated fadeInRight">
-                    <p id="topicsTogg">Topics <span class="pull-left"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-left-1"></svg></span></p>
+                    <p id="topicsTogg" class="toggle-menu menu-left">Topics <span class="pull-left"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-left-1"></svg></span></p>
                 </div>
             </div>
-            <!-- <nav class="nav-growpop">
-                <a class="prev" href="/item1">
-                    <span class="icon-wrap"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-left-2"></svg></span>
-                    <div>
-                        <span>Previous Story</span>
-                        <h3>Child full of grace saviour of the human race</h3>
-                        <p>by Holly Brighton</p>
-                        <img src="{{ url_for('static', filename='plugins/ArrowNavigationStyles/img/22.png') }}" alt="Previous thumb"/>
-                    </div>
-                </a>
-                <a class="next" href="/item3">
-                    <span class="icon-wrap"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-right-2"></svg></span>
-                    <div>
-                        <span>Next Story</span>
-                        <h3>Ancient rulage of grains and the trees of the night</h3>
-                        <p>by Mark Ustinov</p>
-                        <img src="{{ url_for('static', filename='plugins/ArrowNavigationStyles/img/21.png') }}" alt="Next thumb"/>
-                    </div>
-                </a>
-            </nav> 
+        </div>
 
-            <nav class="nav-slit">
-                <a class="prev" href="/item1">
-                    <span class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 64 64"><use xlink:href="#arrow-left-2"></use></svg></span>
-                    <div>
-                        <h3>City Lights</h3>
-                        <img src="{{ url_for('static', filename='plugins/ArrowNavigationStyles/img/5.png') }}" alt="Previous thumb"/>
+        <div class="modal fade" id="info">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                        <h4 class="modal-title" style="font-size: 1.3em;padding: 10px 0;">We're finally here!</h4>
+                    
+                        <p class="padder-v">Welcome to Empire. During these next couple of weeks, we would like to collect feedback from <strong>YOU</strong> to help us build the best version of Empire, a site that <strong>YOU</strong> would want to come back to every day.</p>
+
+                        <p class="padder-v">Browse the topics on your left or experience an Empire cycle on your right. Don't forget to let us know what you think of this beta release! Your feedback will be invaluable to us when we release the full-site and content.</p> 
+
+                        <p class="padder-v">Feel free to use the <a href="{{ url_for('contact') }}" style="color:#d20150 !important;">contact form</a> or reach out to us on social media.</p>
+
+                        <p style="text-align:left;">Stay Blessed,</p>
+                        <p style="text-align: left;font-style: italic;">- Team Empire</p>
                     </div>
-                </a>
-                <a class="next" href="/item3">
-                    <span class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 64 64"><use xlink:href="#arrow-right-2"></use></svg></span>
-                    <div>
-                        <h3>Street Hills</h3>
-                        <img src="{{ url_for('static', filename='plugins/ArrowNavigationStyles/img/6.png') }}" alt="Previous thumb"/>
-                    </div>
-                </a>
-            </nav>-->
+                </div>
+            </div>
         </div>
     </body>
 
-    <div class="modal fade" id="info">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-                    <h4 class="modal-title" style="font-size: 1.3em;padding: 10px 0;">We're finally here!</h4>
-                
-                    <p class="padder-v">Welcome to Empire. During these next couple of weeks, we would like to collect feedback from <strong>YOU</strong> to help us build the best version of Empire, a site that <strong>YOU</strong> would want to come back to every day.</p>
-
-                    <p class="padder-v">Browse the topics on your left or experience an Empire cycle on your right. Don't forget to let us know what you think of this beta release! Your feedback will be invaluable to us when we release the full-site and content.</p> 
-
-                    <p class="padder-v">Feel free to use the <a href="{{ url_for('contact') }}" style="color:#d20150 !important;">contact form</a> or reach out to us on social media.</p>
-
-                    <p style="text-align:left;">Stay Blessed,</p>
-                    <p style="text-align: left;font-style: italic;">- Team Empire</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="{{ url_for('static', filename='plugins/pushmenu/js/classie.js') }}"></script>
     <script>
-        $(function(){
+        jQuery(document).ready(function($) {
+            $('.toggle-menu').jPushMenu();
             $('.beta').tooltip();
-
             setTimeout("jQuery('.beta').tooltip('show');", 1000);
-
-            var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-                menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-                showRight = document.getElementById( 'menu-btn' ),
-                showLeft = document.getElementById( 'topicsTogg' ),
-                closeRight = document.getElementById( 'close-btn' ),
-                closeLeft = document.getElementById( 'closeLeft' );
-            
-            showRight.onclick = function() {
-                classie.toggle( this, 'active' );
-                classie.toggle( menuRight, 'cbp-spmenu-open' );
-                // disableOther( 'showRight' );
-            };
-
-            showLeft.onclick = function() {
-                classie.toggle( this, 'active' );
-                classie.toggle( menuLeft, 'cbp-spmenu-open' );
-                // disableOther( 'showRight' );
-            };
-
-            closeRight.onclick = function() {
-                // classie.toggle( this, 'active' );
-                classie.toggle( menuRight, 'cbp-spmenu-open' );
-                // disableOther( 'showRight' );
-            };
-
-            closeLeft.onclick = function() {
-                // classie.toggle( this, 'active' );
-                classie.toggle( menuLeft, 'cbp-spmenu-open' );
-                // disableOther( 'showRight' );
-            };
         });
     </script>
 </html>

@@ -39,6 +39,7 @@ $(document).ready(function() {
             $('#'+target).show();
         }
     });
+
     // $(".side-left > .intro-content").mouseleave(function(){
     // 	$(this).find(".title").stop(true).delay(100).animate({
     //         opacity: 1

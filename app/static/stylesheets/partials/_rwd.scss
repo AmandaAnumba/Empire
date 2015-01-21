@@ -10,6 +10,34 @@ and (max-device-width : 480px) {
 and (min-device-width : 321px)
 and (max-device-width : 640px)
 and (orientation : landscape) {
+
+	.about_page {
+		.hero {
+			padding: 0;
+
+			.inner {
+				margin-top:0;
+			}
+		}
+
+		#menu-btn {
+			display: none;
+		}
+		
+		#min_btn {
+			display: block;
+		}
+	}
+
+	#welcome {
+
+		#logo {
+
+			img {
+				width: 200px !important;
+			}
+		}
+	}
 }
  
 /* Smartphones (portrait) ----------- 
@@ -31,7 +59,7 @@ and (orientation : portrait) {
 }
 
 
-/* Small screens ----------- */
+/* Screens ----------- */
 @media only screen
 and (max-width : 480px) {
 	// front page
@@ -260,33 +288,49 @@ and (max-width : 480px) {
 		height: 170px !important;
 	}
 
-	.about_page#menu-btn {
-		right: 0;
-		font-size: 1.9em;
-		padding: 0 20px;
-	}
+	.about_page {
+		#menu-btn {
+			right: 0;
+			font-size: 1.9em;
+			padding: 0 20px;
+		}
 
-	.about_page#cbp-spmenu-s2 {
-		width: 65%;
-	}
-	
-	.about_page#cat_list {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-		border-bottom: 2px solid black;
-		border-top: 2px solid black;
-	}
-	
-	.about_page#cat_list li > a {
-		background: rgba(247, 247, 247, 0.4);
-		padding: 0.9em;
-		font-size: 0.9em;
-		border-bottom: 1px solid rgba(86, 86, 86, 0.06);
-	}
+		#cbp-spmenu-s2 {
+			width: 65%;
+			font-size: 12.5px;
 
-	.flex-viewport {
-		max-height: 3400px !important;
+			a {
+				padding: 0.7em;
+			}
+
+			#cat_list {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				border-bottom: 2px solid black;
+				border-top: 2px solid black;
+
+				li > a {
+					background: rgba(247, 247, 247, 0.4);
+					padding: 0.8em;
+					font-size: 0.9em;
+					border-bottom: 1px solid rgba(86, 86, 86, 0.06);
+				}
+			}
+		}
+
+		.flex-viewport {
+			max-height: 3400px !important;
+		}
+
+		.hero h1 {
+			font-size: 40px;
+		}
+
+		.hero p {
+			text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.45);
+			font-size: 1.2em;
+		}
 	}
 
 	.header-img {
@@ -332,6 +376,7 @@ and (max-width : 480px) {
 
 }
 
+
 @media only screen
 and (max-width : 320px) {
 	
@@ -341,14 +386,57 @@ and (max-width : 320px) {
 		}
 	}
 
+	.about_page {
+		#menu-btn {
+			right: 0;
+			font-size: 1.9em;
+			padding: 0 20px;
+		}
+
+		#cbp-spmenu-s2 {
+			width: 65%;
+			font-size: 11px;
+
+			a {
+				padding: 0.6em;
+			}
+
+			#cat_list {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				border-bottom: 2px solid black;
+				border-top: 2px solid black;
+
+				li > a {
+					background: rgba(247, 247, 247, 0.4);
+					padding: 0.7em;
+					font-size: 0.85em;
+					border-bottom: 1px solid rgba(86, 86, 86, 0.06);
+				}
+			}
+		}
+
+		.flex-viewport {
+			max-height: 3400px !important;
+		}
+
+		.hero h1 {
+			font-size: 30px;
+		}
+
+		.hero p {
+			text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.45);
+			font-size: 1.1em;
+		}
+
+	}
 
 }
 
 
-/* Large screens ----------- */
 @media only screen
 and (min-width : 1280px) {
-
 	.wp3 {
 		background-position: -432px 0;
 	}
