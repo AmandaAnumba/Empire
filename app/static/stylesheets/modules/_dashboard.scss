@@ -1,3 +1,23 @@
+#main_wrapper {
+	margin-left: 176px;
+	background: whitesmoke;
+
+	#add_content {
+		width: 200px;
+		height: 200px;
+		border: 2px dashed black;
+		margin: 0 auto;
+		text-align: center;
+
+
+		.icon {
+			font-size: 4em;
+			font-weight: 300;
+		}
+	}
+}
+
+
 #content_wrapper {
 	background: #f9f9f9;
 	padding-left: 85px;
