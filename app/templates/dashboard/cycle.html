@@ -1,4 +1,4 @@
-{% extends "base_articles_home.html" %}
+{% extends "dashboard/base_articles_home.html" %}
 {% block content %}
 
 <!-- main content -->
@@ -12,7 +12,7 @@
 				<figcaption>
 					<h2>{{ i.title }}</h2>
 					<p class="drscpt">{{ i.description }}</p>
-					<a href="{{ url_for('read', username=i.author, id=i.objectId, title='-'.join((i.title).lower().split())) }}">View more</a>
+					<a href="{{ url_for('article.read', username=i.author, id=i.objectId, title='-'.join((i.title).lower().split())) }}">View more</a>
 				</figcaption>			
 			</figure>
 

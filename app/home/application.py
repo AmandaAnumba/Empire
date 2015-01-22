@@ -33,11 +33,6 @@ home = Blueprint('home', __name__)
 #         abort(404)
 
 
-@home.route("/")
-def index():
-    #display welcome page
-    return render_template('home/index.html')
-
 @home.route("/about")
 def about():
     return render_template('home/about.html')
