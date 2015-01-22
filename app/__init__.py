@@ -8,20 +8,19 @@ from app.article.application import article as articleBP
 # create the application
 app = Flask(__name__)
 app.config.from_object('config')
-app._static_folder = "static/"
+
 
 # initialize email client - GMail
 mail = Mail(app)
 mail.init_app(app)
 
+
 from app import application
 
-# register the blueprints=
+# register the blueprints
+app.register_blueprint(homeBP)
 app.register_blueprint(dashBP)
 app.register_blueprint(articleBP)
-app.register_blueprint(homeBP)
-
-# print app.url_map
 
 
 # Sample HTTP error handling

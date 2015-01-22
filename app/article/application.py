@@ -6,10 +6,8 @@ article = Blueprint('article', __name__)
 # Parse.com RESTful API
 connection = httplib.HTTPSConnection('api.parse.com', 443)
 
-@article.route('/<username>/<id>/<title>', methods=['GET'])
+@article.route('/r/<username>/<id>/<title>', methods=['GET'])
 def read(username, id, title):
-     
-
     if username == 'static':
         print username
         return redirect(url_for('index'))
@@ -43,20 +41,6 @@ def read(username, id, title):
     # else:
     #     abort(400)
 
-
-# @article.route('/article')
-# def article():
-#     # get all of the articles
-#     articles = Articles.query.filter_by(status='ready').first()
-
-#     return render_template("featured.html", article=articles)
-
-# @article.route('/regular')
-# def regular():
-#     # get all of the articles
-#     articles = Articles.query.filter_by(status='ready').first()
-
-#     return render_template("regular.html", article=articles)
 
 @article.route('/rate', methods=['GET', 'POST'])
 def rate():

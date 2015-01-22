@@ -1,10 +1,27 @@
+// user information header for dashboard
+// base_dash.html
 #header_wrapper {
-    height: 65px;
-    border-bottom: 1px solid #ededed;
-    // position: fixed;
-    // background: rgb(244, 244, 244);
-    background: white;
-    width: 100%;
+    border-radius: 0 0 10px 10px;
+    background: whitesmoke;
+    position: fixed;
+    top: 0;
+    right: 20px;
+    padding: 5px 10px;
+
+    div {
+        width: 30px;
+        height: 30px;
+        background: black;
+        float: left;
+    }
+
+    p {
+        float: right;
+        font-size: 0.6em;
+        padding: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
 }
 
 .navibar {
@@ -16,7 +33,7 @@
 }
 
 .dropdown {
-    padding: 0 12px;
+    padding: 0 14px;
     display: inline-block;
 }
 

@@ -768,7 +768,13 @@ and (min-width : 1280px) {
 		background-position: -432px 0;
 	}
 }
- 
+
+@media only screen
+and (min-width : 1328px) {
+ .intro-content h1 > span:first-child {
+		font-size:43px;
+	}
+}
 /* iPhone 4 ----------- 
 @media
 only screen and (-webkit-min-device-pixel-ratio : 1.5),

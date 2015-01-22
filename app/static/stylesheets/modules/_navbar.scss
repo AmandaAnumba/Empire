@@ -1,38 +1,61 @@
-// #menu {
-    
+// navbar styling for the dashboard
+// base-dash.html
+#menu_wrapper {
+    height: 100%;
+    position: fixed;
+    width: 175px;
+    background: white;
+    border-right: 1px solid lightgray;
+    z-index: 50;
+    top: 0;
+    left: 0px;
+    box-shadow: 0 0px 6px rgba(0, 0, 0, 0.15);
+    font-family: Raleway, sans-serif;
 
-//     li {
-//         height: 90px;
-//         cursor: pointer;
+    ul {
+        top: 0;
+        left: 0;
+        list-style-type: none;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        color: black;
 
-//         &:hover {
-//             background-color: #1D1F24;
-//         }
+        a {
+            li {
+                text-align: center;
+                border-bottom: 1px solid whitesmoke;
 
-//         &.disabled {
-//             cursor: not-allowed;
-//         }
-//     }
-// }
+                &.active {
+                    background: whitesmoke;
+                }
 
+                &.disabled {
+                    cursor: not-allowed;
+                }
 
-// .tab.active {
-//     background-color: #282c36;
-// }
+                p {
+                    font-size: 0.8em;
+                    font-weight: 300;
+                    letter-spacing: 0.5px;
+                    padding: 15px 0;
+                }
+            }
 
-// .icon {
-//     font-size: 1.9em;
-//     text-align: center;
-//     margin: 0 0 11px 0;
-//     padding-top: 17px;
-// }
+            &:nth-child(1) {
+                li {
+                    height: auto;
+                    text-align: center;
 
-// .icon_text {
-//     font-size: 0.75em;
-//     text-align: center;
-//     font-weight: 300;
-//     letter-spacing: 0.5px;
-// }
+                    img {
+                        margin-top: 24px;
+                    }
+                }
+            }
+        } 
+    }
+}
+
 
 $gutter: em(layout, 240px, $target);
 #navbar_top_wrapper {
@@ -199,6 +222,152 @@ $gutter: em(layout, 240px, $target);
             left: 50%;
             border-color: rgba(255, 255, 255, 0);
             border-bottom-color: white;
+        }
+    }
+}
+
+
+
+$gutter: em(layout, 240px, $target);
+.menu_lg_wrapper {
+    @include transition-property(all);
+    @include transition-duration(0.3s);
+    @include transition-timing-function(ease);
+    // @include single-box-shadow(-9px, -1px, 15px, -7px, rgba(13, 13, 13, 0.7), inset);
+    height: 100%;
+    position: fixed;
+    width: em(layout, 200px, $target);
+    background: #26272b;
+    z-index: 50;
+    top: 0;
+    left: $gutter * -1;
+    color: white;
+    padding: 2em;
+    transition: all 0.3s;
+
+    &.open {
+        left: 0px;
+
+        #menu-toggle {
+            right: 0;
+        }
+    }
+
+    #inner_wrapper {
+        height: 91%;
+        overflow-y: scroll;
+    }
+
+    #back {
+        text-align: center;
+        color: $silver;
+        font-weight: 300;
+        font-size: 0.75em;
+        letter-spacing: 0.5px;
+        margin: 0 0 2em 0;
+        cursor: pointer;
+    }
+
+    #menu-toggle {
+        width: 50px;
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        right: -45px;
+        padding-top: 6px;
+        transition: all 0.3s;
+        text-align: center;
+
+        .icon {
+            cursor: pointer;
+        }
+
+        &.closed {
+            background: #26272b;
+            height: 100%;
+        }
+    }
+}
+
+.menu_top_wrapper {
+    @include transition-property(all);
+    @include transition-duration(0.3s);
+    @include transition-timing-function(ease);
+    min-height: 50px;
+    height: auto;
+    position: fixed;
+    width: 100%;
+    background: rgba(0,0,0,0.84);
+    z-index: 50;
+    top:0;
+    color: white;
+    // padding: 2em;
+
+    &.open {
+        height: 135px !important;
+    }
+    
+    #back {
+        text-align: center;
+        font-weight: 300;
+        font-size: 0.75em;
+        letter-spacing: 0.5px;
+        margin-top: 14px;
+        cursor: pointer;
+        position: absolute;
+        left: 0;
+    }
+    
+    #inner_wrapper {
+        height: 91%;
+        overflow-y: scroll;
+
+        #metadata {
+            list-style-type: none;
+            text-align: center;
+            height: 100%;
+            line-height: 3;
+            margin: 0;
+
+            li {
+                display: inline-block;
+                font-size: 0.65em;
+                text-transform: uppercase;
+                cursor: pointer;
+                letter-spacing: 1px;
+                padding: 0 8px;
+
+                &:hover,
+                &.active {
+                    background: rgba(0,0,0,0.9);
+                }
+            }
+        }
+    }
+
+    #menu-toggle {
+        width: 50px;
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        right: 0;
+        text-align: center;
+        margin-top: 15px;
+
+        .icon {
+            cursor: pointer;
+        }
+
+        &.closed {
+            background: #26272b;
+            height: 100%;
+        }
+
+        small {
+            letter-spacing: 0.8px;
+            font-weight: 300;
+            font-size: 0.5em;
+            margin-left: 6px;
         }
     }
 }
