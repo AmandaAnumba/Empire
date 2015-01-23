@@ -25,7 +25,6 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/social.css') }}" />
         <script>
           window.fbAsyncInit = function() {
             FB.init({
@@ -297,20 +296,17 @@
 
                         <!-- <h4 class="modal-title" style="font-size: 1.3em;padding: 10px 0;">We're finally here!</h4> -->
                     
-                        <div class="col-md-6">
-                            <!--<div id="social-links">
-                                 <ul>
-                                    <li><span class="ifacebook"><img src="{{ url_for('static', filename='images/frontpage/facebook.png') }}"></span><a href="#" class="afacebook">sign in with facebook</a></li>
-                                    <li><span class="itwitter"><img src="{{ url_for('static', filename='images/frontpage/twitter.png') }}"></span><a href="#" class="atwitter">sign in with twitter</a></li>
-                                    <li><span class="igoogleplus"><img src="{{ url_for('static', filename='images/frontpage/googleplus.png') }}"></span><a href="#" class="agoogleplus">sign in with google+</a></li>
-                                </ul> 
+                        <div id="social-links">
+                             <ul>
+                                <li><span class="ifacebook"><img src="{{ url_for('static', filename='images/fb.png') }}"></span><a href="#" class="afacebook">sign in with facebook</a></li>
+                                <li><span class="itwitter"><img src="{{ url_for('static', filename='images/tw.png') }}"></span><a href="#" class="atwitter">sign in with twitter</a></li>
+                                <li><span class="igoogleplus"><img src="{{ url_for('static', filename='images/gg.png') }}"></span><a href="#" class="agoogleplus">sign in with google+</a></li>
+                            </ul> 
 
-                            </div>-->
-                            <div class="fb-login-button" scope="public_profile,email,user_friends" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
-                                <div id="fb-root"></div>
-                                <div id="status"></div>
                         </div>
-                        <div class="col-md-6"></div>
+                        <div class="fb-login-button" scope="public_profile,email,user_friends" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
+                        <div id="fb-root"></div>
+                        <div id="status"></div>
                     </div>
                 </div>
             </div>
