@@ -1,0 +1,39 @@
+#social_links {
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-bottom: 7px;
+
+      img {
+        width: 225px;
+      }
+    }
+  }
+}
+
+#login_info {
+  width: 250px;
+  border-left: 1px solid lightgray;
+  padding: 15px;
+
+  ul {
+   text-align: left; 
+  }
+}
+
+#toggle_special {
+  position: absolute;
+  bottom: 0;
+  background: black;
+  color: white;
+  left: 50%;
+  padding: 15px;
+  cursor:pointer;
+}
+
+#special {
+}

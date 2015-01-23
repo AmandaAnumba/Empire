@@ -2002,6 +2002,43 @@ input[type=checkbox], input[type=radio] {
   width: 250px;
 }
 
+/* line 3, ../modules/_login.scss */
+#social_links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 8, ../modules/_login.scss */
+#social_links ul li {
+  margin-bottom: 7px;
+}
+/* line 11, ../modules/_login.scss */
+#social_links ul li img {
+  width: 225px;
+}
+
+/* line 18, ../modules/_login.scss */
+#login_info {
+  width: 250px;
+  border-left: 1px solid lightgray;
+  padding: 15px;
+}
+/* line 23, ../modules/_login.scss */
+#login_info ul {
+  text-align: left;
+}
+
+/* line 28, ../modules/_login.scss */
+#toggle_special {
+  position: absolute;
+  bottom: 0;
+  background: black;
+  color: white;
+  left: 50%;
+  padding: 15px;
+  cursor: pointer;
+}
+
 /* line 1, ../third-party/_outside2.scss */
 html {
   font-family: sans-serif;

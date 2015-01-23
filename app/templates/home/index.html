@@ -57,10 +57,9 @@
 
             <div class="container">
                 <div id="splitlayout">
-                    
                     <div id="logo">
                         <img src="{{ url_for('static', filename='images/logo-blk.png') }}" alt="Empire logo" width="320" />
-                        <p class="beta" data-toggle="tooltip" data-placement="right" title="PSSST! Click Me!" style="cursor:pointer;" onclick="$('#info').modal('show');">Beta!</p>
+                        <p class="beta" data-toggle="tooltip" data-placement="right" title="PSSST! Click Me!" style="cursor:pointer;" onclick="$('#beta').modal('show');">Beta!</p>
                     </div>
                     
                     <div class="side side-left text-center" style="overflow-y:hidden;">
@@ -165,6 +164,8 @@
                         </nav>
                     </footer>
                 </div>
+
+                <!-- <a href="#special" id="toggle_special"><span class="icon-arrow-down"></span></a> -->
             </div>
         </div>
 
@@ -267,7 +268,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="info">
+        <div class="modal fade" id="beta">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body text-center">
@@ -291,26 +292,38 @@
         <div class="modal fade" id="login">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-body text-center">
+                    <div class="modal-body text-center" style="height:300px;">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
                         <!-- <h4 class="modal-title" style="font-size: 1.3em;padding: 10px 0;">We're finally here!</h4> -->
                     
-                        <div id="social-links">
-                             <ul>
-                                <li><span class="ifacebook"><img src="{{ url_for('static', filename='images/fb.png') }}"></span><a href="#" class="afacebook">sign in with facebook</a></li>
-                                <li><span class="itwitter"><img src="{{ url_for('static', filename='images/tw.png') }}"></span><a href="#" class="atwitter">sign in with twitter</a></li>
-                                <li><span class="igoogleplus"><img src="{{ url_for('static', filename='images/gg.png') }}"></span><a href="#" class="agoogleplus">sign in with google+</a></li>
+                        <div id="social_links" class="pull-left">
+                            <ul>
+                                <li><a href="#" onclick="fb_login();"><img src="{{ url_for('static', filename='images/fb.png') }}" alt="Facebook Login Button" /></a></li>
+                                <li><img src="{{ url_for('static', filename='images/tw.png') }}"></li>
+                                <li><img src="{{ url_for('static', filename='images/gg.png') }}"></li>
                             </ul> 
-
                         </div>
-                        <div class="fb-login-button" scope="public_profile,email,user_friends" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
+
+                        <div id="login_info" class="pull-right">
+                            <h2>Sign into Empire</h2>
+                            <p>By signing in or registering for an account, you will be able to enjoy the following benefits:</p>
+                            <ul>
+                                <li>Comment on articles</li>
+                                <li>Start Discussions</li>
+                            </ul>
+                        </div>
+                        
                         <div id="fb-root"></div>
                         <div id="status"></div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- <section id="special">
+            <h1>Special thanks to the following places for information and their help!</h1>
+        </section> -->
     </body>
 
     <script>
