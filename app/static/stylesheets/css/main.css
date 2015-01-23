@@ -718,7 +718,7 @@ a {
 #menu_wrapper {
   height: 100%;
   position: fixed;
-  width: 175px;
+  width: 225px;
   background: white;
   border-right: 1px solid lightgray;
   z-index: 50;
@@ -1463,10 +1463,10 @@ a {
 /* line 5, ../modules/_dashboard.scss */
 #main_wrapper #add_content {
   width: 200px;
-  height: 200px;
   border: 2px dashed black;
   margin: 0 auto;
   text-align: center;
+  padding: 4% 4% 6%;
 }
 /* line 13, ../modules/_dashboard.scss */
 #main_wrapper #add_content .icon {

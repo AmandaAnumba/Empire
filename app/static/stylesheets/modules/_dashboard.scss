@@ -4,11 +4,11 @@
 
 	#add_content {
 		width: 200px;
-		height: 200px;
+		// height: 200px;
 		border: 2px dashed black;
 		margin: 0 auto;
 		text-align: center;
-
+		padding: 4% 4% 6%;
 
 		.icon {
 			font-size: 4em;
@@ -17,7 +17,7 @@
 	}
 }
 
-
+ 
 #content_wrapper {
 	background: #f9f9f9;
 	padding-left: 85px;
