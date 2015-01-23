@@ -12,7 +12,7 @@
         <title>Empire</title>
         <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
         <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
-        <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon.png') }}">
+        <link rel="icon" type="image/png" href="http://media.empire.life/site/images/favicon.png">
         <meta name="author" content="ThreePillarMedia, LLC" />
         <script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
         <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
@@ -41,16 +41,16 @@
                 <!-- <span style="float:right;">Empire</span> -->
             </h3>
             <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('cycle') }}">Current Cycle</a>
+            <a href="{{ url_for('dashboard.cycle') }}">Current Cycle</a>
             <a style="border-bottom:none;">Categories</a>
             <ul id="cat_list">
-                <li><a class="media-body block m-b-none"href="{{ url_for('news') }}">Current Events</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('tech') }}">Technology</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('money') }}">Money</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('career') }}">Career</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('mindbody') }}">Mind, Body, and Spirit</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('culture') }}">Culture + Entertainment</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('wildcard') }}">Wildcard</a></li>
+                <li><a class="media-body block m-b-none"href="{{ url_for('dashboard.news') }}">Current Events</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.tech') }}">Technology</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.money') }}">Money</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.career') }}">Career</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.mindbody') }}">Mind, Body, and Spirit</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.culture') }}">Culture + Entertainment</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.wildcard') }}">Wildcard</a></li>
             </ul>
             <a href="{{ url_for('home.about') }}">About</a>
             <a href="{{ url_for('home.terms') }}">Terms and Privacy</a>
@@ -89,7 +89,7 @@
                         <div id="min_btn" class="text-right" hidden>
                             <a href="{{ url_for('index') }}">Home</a>
                             <span> | </span>
-                            <a href="{{ url_for('cycle') }}">Current Cycle</a>
+                            <a href="{{ url_for('dashboard.cycle') }}">Current Cycle</a>
                         </div>
                     </div>
                     
@@ -223,7 +223,7 @@
                   <ul style="margin: 0;padding: 0;list-style: none;">
                     <li>
                       <div class="col-md-3 wp5">
-                        <img width="200" src="{{ url_for('static', filename='images/frontpage/becca.jpg') }}" alt="Team Member">
+                        <img width="200" src="http://media.empire.life/site/about/becca.jpg" alt="Team Member">
                         <h2>Rebecca Abara</h2>
                         <p>Entrepreneurship has always come naturally to Rebecca. From the day she owned her first goodies-shop with snacks that her children’s church kids could purchase for good behavior, she’s run through life with a knack for using business to solve social issues.  Rebecca carries with her incredible leadership experience, from running her own not-for-profit to creating a marketing campaign with a massive reach of 14,000, 150% larger than her target audience. Her ability to envision the future, find and connect to people’s innate skills, and activate those skills around a cause enables her to lay down a path for success in Empire and make success a reality.</p>
                         <div class="social">
@@ -237,7 +237,7 @@
                       </div>
                       
                       <div class="col-md-3 wp5 delay-05s">
-                        <img width="200" src="{{ url_for('static', filename='images/frontpage/amanda.jpg') }}" alt="Team Member">
+                        <img width="200" src="http://media.empire.life/site/about/amanda.jpg" alt="Team Member">
                         <h2>Amanda Anumba</h2>
                         <p>Amanda is able to see a beauty in the world that not many others can find. Her creativity spawned from an early age when she taught herself to code in HTML and began designing layouts for her Myspace profile. The continued expansion of technology and computer programming has equipped her with the tools she needs to create stunning user interfaces and web applications. Amanda’s ability to marry her creative mind with technological innovation, as well as her tenacity and drive for incredible work, qualifies her to be the front-man on building the face of Empire’s innovations.</p>
                         <div class="social">
@@ -251,7 +251,7 @@
                       </div>
 
                       <div class="col-md-3 wp5 delay-1s">
-                        <img width="200" src="{{ url_for('static', filename='images/frontpage/omeko.jpg') }}" alt="Team Member">
+                        <img width="200" src="http://media.empire.life/site/about/omeko.jpg" alt="Team Member">
                         <h2>Omeko Eromosele</h2>
                         <p>The day will never come when Omeko is not giving to others. Whether it be food, nurture, a helping hand, or her last dollar, Omeko has never shied away from making sure those around her are cared and given the support they need. Garnering experience in a variety of youth development programs in her early career, it is during this time she developed a strong desire in pursuing a deeper commitment in helping those around her grow personally and professionally. Her genuine desire in promoting self-excellence for the people around her has motivated her career aspirations, and makes her the perfect candidate to support Empire’s HR and management needs.</p>
                         <div class="social">
@@ -264,7 +264,7 @@
                       </div>
 
                       <div class="col-md-3 wp5 delay-15s">
-                        <img width="200" src="{{ url_for('static', filename='images/frontpage/tay.jpg') }}" alt="Team Member">
+                        <img width="200" src="http://media.empire.life/site/about/tay.jpg" alt="Team Member">
                         <h2>Shantavia&Eacute; Wynn</h2>
                         <p>Shantaviaé is a natural-born operations manager. Growing up, she learned how to persevere through dysfunction and overcome her obstacles to attain her goals. She translates her background and her experiences into guiding principles when she approaches her academic and career development. Her dedication to enabling success through efficiency and timeliness allows her to be an effective operations manager, and her inclination towards technology gives Empire innovation a supportive arm. She aspires to be in a position to help others achieve their own dreams. </p>
                         <div class="social">
@@ -298,7 +298,7 @@
                     <div class="col-md-4 wp4">
                       <div class="clearfix">
                         <div class="img">
-                          <img src="{{ url_for('static', filename='images/frontpage/jessica.jpg') }}" width="200" alt="Staff Writer">
+                          <img src="http://media.empire.life/site/about/jessica.jpg" width="200" alt="Staff Writer">
                           <!-- <div class="overlay">
                             <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
                             <a class="close-overlay hidden">x</a>
@@ -322,7 +322,7 @@
                     <div class="col-md-4 wp4 delay-05s">
                       <div class="clearfix">
                         <div class="img">
-                          <img src="{{ url_for('static', filename='images/frontpage/jasmine.jpg') }}" width="200" alt="Staff Writer">
+                          <img src="http://media.empire.life/site/about/jasmine.jpg" width="200" alt="Staff Writer">
                           <!-- <div class="overlay">
                             <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
                             <a class="close-overlay hidden">x</a>
@@ -342,7 +342,7 @@
                     <div class="col-md-4 wp4 delay-1s">
                       <div class="clearfix">
                         <div class="img">
-                          <img src="{{ url_for('static', filename='images/frontpage/naakie.jpg') }}" width="200" alt="Staff Writer">
+                          <img src="http://media.empire.life/site/about/naakie.jpg" width="200" alt="Staff Writer">
                           <!-- <div class="overlay">
                             <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
                             <a class="close-overlay hidden">x</a>

@@ -2,17 +2,17 @@
 {% block content %}
 
 <section id="policy">
-	<div class="img-holder visible" data-image="{{ url_for('static', filename='images/12.jpg') }}">
+	<div class="img-holder visible" data-image="http://media.empire.life/site/about/12.jpg">
 	    <div id="parallax-overlay">
 	        <div id="top_title">
-	            <img src="{{ url_for('static', filename='images/logo-blk.png') }}" width="270"/>
+	            <img src="http://media.empire.life/site/images/logo-blk.png" width="270"/>
 	        </div>
 	    </div>
 	</div>
 
 	<nav>
 		<ul class="inline-list">
-	        <li><a href="{{ url_for('home.index') }}">Home</a></li>
+	        <li><a href="{{ url_for('index') }}">Home</a></li>
 			<li><a href="{{ url_for('home.about') }}">About</a></li>
 	        <li><a href="{{ url_for('home.contact') }}">Contact</a></li>
 	        <li><a href="{{ url_for('home.terms') }}">Terms</a></li>

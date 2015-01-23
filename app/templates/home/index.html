@@ -11,7 +11,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <meta charset="utf-8">  
-        <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon.png') }}">
+        <link rel="icon" type="image/png" href="http://media.empire.life/site/images/favicon.png">
         <title>Empire</title>
         <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
         <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
@@ -58,7 +58,7 @@
             <div class="container">
                 <div id="splitlayout">
                     <div id="logo">
-                        <img src="{{ url_for('static', filename='images/logo-blk.png') }}" alt="Empire logo" width="320" />
+                        <img src="http://media.empire.life/site/images/logo-blk.png" alt="Empire logo" width="320" />
                         <p class="beta" data-toggle="tooltip" data-placement="right" title="PSSST! Click Me!" style="cursor:pointer;" onclick="$('#beta').modal('show');">Beta!</p>
                     </div>
                     
@@ -75,23 +75,22 @@
                             <h1>What are you in the mood for?</h1> 
 
                             <ul>
-                                
-                                <li class="category" style="background:url(../static/images/categories/politics.jpg) no-repeat; background-size: cover;background-position-y: -68px;">
+                                <li class="category" style="background:url(http://media.empire.life/site/categories/politics.jpg) no-repeat; background-size: cover;background-position-y: -68px;">
                                     <a href="{{ url_for('dashboard.news') }}"><p>Current Events</p></a>
                                 </li>
                                 
                                 
-                                <li class="category" style="background:url(../static/images/categories/tech.png) no-repeat; background-size: cover;background-position-y: -27px;">
+                                <li class="category" style="background:url(http://media.empire.life/site/categories/tech.png) no-repeat; background-size: cover;background-position-y: -27px;">
                                     <a href="{{ url_for('dashboard.tech') }}"><p>Technology</p></a>
                                 </li>
                                 
                                 
-                                <li class="category" style="background:url(../static/images/categories/money2.png) no-repeat; background-size: cover;background-position-y: -64px;">
+                                <li class="category" style="background:url(http://media.empire.life/site/categories/money2.png) no-repeat; background-size: cover;background-position-y: -64px;">
                                     <a href="{{ url_for('dashboard.money') }}"><p>Money</p></a>
                                 </li>
                                 
                                 
-                                <li class="category" style="background:url(../static/images/categories/work.jpg) no-repeat; background-size: cover;background-position-y: -99px;">
+                                <li class="category" style="background:url(http://media.empire.life/site/categories/work.jpg) no-repeat; background-size: cover;background-position-y: -99px;">
 	                                <a href="{{ url_for('dashboard.career') }}"><p>Career</p></a>
 	                            </li>
                                 
@@ -106,27 +105,27 @@
                                     </li>
                                 </a> -->
                                 
-                                <li class="category" style="background:url(../static/images/categories/mind.jpg) no-repeat; background-size: cover;background-position-y: -55px;">
+                                <li class="category" style="background:url(http://media.empire.life/site/categories/mind.jpg) no-repeat; background-size: cover;background-position-y: -55px;">
 	                                <a href="{{ url_for('dashboard.mindbody') }}"><p>Mind, Body, and Spirit</p></a>
 	                            </li>
                                 
                                 <!-- <a href="">
-                                    <li class="category" style="background:url(../static/images/categories/sports2.png) no-repeat; background-size: cover;background-position-y: -80px;">
+                                    <li class="category" style="background:url(http://media.empire.life/site/categories/sports2.png) no-repeat; background-size: cover;background-position-y: -80px;">
                                         <p>Sports</p>
                                     </li>
                                 </a> -->
                                 
-                                <li class="category" style="background:url(../static/images/categories/ent.png) no-repeat; background-size: cover;background-position-y: -41px;">
+                                <li class="category" style="background:url(http://media.empire.life/site/categories/ent.png) no-repeat; background-size: cover;background-position-y: -41px;">
                                 	<a href="{{ url_for('dashboard.culture') }}"><p>Culture + Entertainment</p></a>
                                 </li>
                                 
                                 <!-- <a href="">
-                                    <li class="category" style="background:url(../static/images/categories/music.png) no-repeat; background-size: cover;background-position-y: -90px;">
+                                    <li class="category" style="background:url(http://media.empire.life/site/categories/music.png) no-repeat; background-size: cover;background-position-y: -90px;">
                                         <p>TV + Music</p>
                                     </li>
                                 </a> -->
                                 
-                                <li class="category" style="background:url(../static/images/categories/calm.jpg) no-repeat; background-size: cover;background-position-y: -68px;">
+                                <li class="category" style="background:url(http://media.empire.life/site/categories/calm.jpg) no-repeat; background-size: cover;background-position-y: -68px;">
                                     <a href="{{ url_for('dashboard.wildcard') }}"><p>Wildcard</p></a>
                                 </li>
                             
@@ -134,7 +133,7 @@
                         </div>
                     </div>
                     
-                    <div class="side side-right" style="background: url({{ url_for('static', filename='images/frontpage/mindy.png') }}) no-repeat center;background-size:cover;background-position-x:0px;">
+                    <div class="side side-right" style="background: url(http://media.empire.life/site/categories/mindy.png) no-repeat center;background-size:cover;background-position-x:0px;">
                         <a id="current_cycle" href="{{ url_for('dashboard.cycle') }}">
                             <!-- <img src="" alt="Cycle #1 Front Page image featuring Mindy Kaling" /> -->
 
@@ -210,16 +209,16 @@
                     <p class="clearfix"></p>
                 </h3>
 
-                <a href="{{ url_for('dashboard.news') }}" class="category" style="background:url(../static/images/categories/politics.jpg) no-repeat; background-size: cover;background-position-y: -10px;">Current Events</a>
+                <a href="{{ url_for('dashboard.news') }}" class="category" style="background:url(http://media.empire.life/site/categories/politics.jpg) no-repeat; background-size: cover;background-position-y: -10px;">Current Events</a>
                 
                 
-                <a href="{{ url_for('dashboard.tech') }}" class="category" style="background:url(../static/images/categories/tech.png) no-repeat; background-size: cover;">Technology</a>
+                <a href="{{ url_for('dashboard.tech') }}" class="category" style="background:url(http://media.empire.life/site/categories/tech.png) no-repeat; background-size: cover;">Technology</a>
                 
                 
-                <a href="{{ url_for('dashboard.money') }}" class="category" style="background:url(../static/images/categories/money2.png) no-repeat; background-size: cover;">Money</a>
+                <a href="{{ url_for('dashboard.money') }}" class="category" style="background:url(http://media.empire.life/site/categories/money2.png) no-repeat; background-size: cover;">Money</a>
             
                 
-                <a href="{{ url_for('dashboard.career') }}" class="category" style="background:url(../static/images/categories/work.jpg) no-repeat; background-size: cover;">Career</a>
+                <a href="{{ url_for('dashboard.career') }}" class="category" style="background:url(http://media.empire.life/site/categories/work.jpg) no-repeat; background-size: cover;">Career</a>
                 
                 <!-- <a href="">
                     <li class="category" style="background:url(../static/images/1.jpg) no-repeat; background-size: cover;background-position-y: -112px;">
@@ -232,27 +231,27 @@
                     </li>
                 </a> -->
                 
-                <a href="{{ url_for('dashboard.mindbody') }}" class="category" style="background:url(../static/images/categories/mind.jpg) no-repeat; background-size: cover;">Mind, Body, and Spirit</a>
+                <a href="{{ url_for('dashboard.mindbody') }}" class="category" style="background:url(http://media.empire.life/site/categories/mind.jpg) no-repeat; background-size: cover;">Mind, Body, and Spirit</a>
                 
                 <!-- <a href="">
-                    <li class="category" style="background:url(../static/images/categories/sports2.png) no-repeat; background-size: cover;background-position-y: -80px;">
+                    <li class="category" style="background:url(http://media.empire.life/site/categories/sports2.png) no-repeat; background-size: cover;background-position-y: -80px;">
                         <p>Sports</p>
                     </li>
                 </a> -->
                 
-                <a href="{{ url_for('dashboard.culture') }}" class="category" style="background:url(../static/images/categories/ent.png) no-repeat; background-size: cover;">Culture + Entertainment</a>
+                <a href="{{ url_for('dashboard.culture') }}" class="category" style="background:url(http://media.empire.life/site/categories/ent.png) no-repeat; background-size: cover;">Culture + Entertainment</a>
 
                 <!-- <a href="">
-                    <li class="category" style="background:url(../static/images/categories/music.png) no-repeat; background-size: cover;background-position-y: -90px;">
+                    <li class="category" style="background:url(http://media.empire.life/site/categories/music.png) no-repeat; background-size: cover;background-position-y: -90px;">
                         <p>TV + Music</p>
                     </li>
                 </a> -->
                 
-                <a href="{{ url_for('dashboard.wildcard') }}" class="category" style="background:url(../static/images/categories/calm.jpg) no-repeat; background-size: cover;">Wildcard</a>
+                <a href="{{ url_for('dashboard.wildcard') }}" class="category" style="background:url(http://media.empire.life/site/categories/calm.jpg) no-repeat; background-size: cover;">Wildcard</a>
             </nav>
 
             <header class="animated fadeInDown">
-                <img src="{{ url_for('static', filename='images/logo-blk.png') }}" alt="Empire logo"/>
+                <img src="http://media.empire.life/site/images/logo-blk.png" alt="Empire logo"/>
                 <p class="beta" data-toggle="tooltip" data-placement="left" title="PSSST! Click Me!" style="cursor:pointer;" onclick="$('#info').modal('show');">Beta!</p>
             </header>
 

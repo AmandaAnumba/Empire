@@ -1442,19 +1442,6 @@ a {
   text-align: right;
 }
 
-/* line 69, ../modules/_header.scss */
-#name {
-  margin: 0 70px 0 0px;
-  padding: 0;
-  text-transform: uppercase;
-  font-weight: 300;
-  font-size: 0.85em;
-  letter-spacing: 1px;
-  /* position: absolute; */
-  float: right;
-  line-height: 4.7;
-}
-
 /* line 1, ../modules/_dashboard.scss */
 #main_wrapper {
   margin-left: 176px;
