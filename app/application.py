@@ -1,9 +1,10 @@
-from app import app as application
+from app import app
 from flask import render_template, session, url_for, escape
 
 # set after login
 # session.permanent = True
 
+application = app 
 
 @application.route("/")
 def index():

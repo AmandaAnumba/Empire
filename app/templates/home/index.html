@@ -20,10 +20,29 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script src="{{ url_for('static', filename='plugins/pushmenu/js/modernizr.custom.js') }}"></script>
         <script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/fblogin.js') }}"></script>
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/social.css') }}" />
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '345241442325838',
+              xfbml      : true,
+              version    : 'v2.1'
+            });
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
     </head>
 
     <body id="welcome">
@@ -269,6 +288,33 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="login">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                        <!-- <h4 class="modal-title" style="font-size: 1.3em;padding: 10px 0;">We're finally here!</h4> -->
+                    
+                        <div class="col-md-6">
+                            <!--<div id="social-links">
+                                 <ul>
+                                    <li><span class="ifacebook"><img src="{{ url_for('static', filename='images/frontpage/facebook.png') }}"></span><a href="#" class="afacebook">sign in with facebook</a></li>
+                                    <li><span class="itwitter"><img src="{{ url_for('static', filename='images/frontpage/twitter.png') }}"></span><a href="#" class="atwitter">sign in with twitter</a></li>
+                                    <li><span class="igoogleplus"><img src="{{ url_for('static', filename='images/frontpage/googleplus.png') }}"></span><a href="#" class="agoogleplus">sign in with google+</a></li>
+                                </ul> 
+
+                            </div>-->
+                            <div class="fb-login-button" scope="public_profile,email,user_friends" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
+                                <div id="fb-root"></div>
+                                <div id="status"></div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 
     <script>
@@ -276,6 +322,7 @@
             $('.toggle-menu').jPushMenu();
             $('.beta').tooltip();
             setTimeout("jQuery('.beta').tooltip('show');", 1000);
+            setTimeout("jQuery('#login').modal('show');", 800);
         });
     </script>
 </html>
