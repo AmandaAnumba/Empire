@@ -1,0 +1,21 @@
+{% extends "home/blank_page.html" %}
+{% block content %}
+
+<main id="user_wrapper">
+	<header id="user_header">
+		
+		<div id="avi" class="pull-left">
+			<img class="w-sm" src="{{ user.avatar }}" alt="{{ user.fullname }}"/>
+		</div>
+
+		<div id="info" class="pull-right">
+			<h2>{{ user.fullname }}</h2>
+			<p>Entrepreneur, technologist, inventor. Founder of Primal.com and Official Community Corp. Internet technology and social media, particularly, What's Next?</p>
+			<div id="follow"></div>
+		</div>
+
+	</header>
+
+</main>
+
+{% endblock %}

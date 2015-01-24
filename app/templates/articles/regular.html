@@ -15,7 +15,7 @@
 		<meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
         <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
         <meta name="author" content="ThreePillarMedia, LLC" />
-		<link rel="icon" type="image/jpg" href="http://media.empire.life/site/images/favicon.png">
+		<link rel="icon" type="image/png" href="http://media.empire.life/site/images/favicon.png">
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54b74dc434356003" async="async"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 		<script src="{{ url_for('static', filename='js/main.js') }}"></script>
@@ -47,25 +47,25 @@
                         <div class="panel bg-white">
                             <div class="list-group">
                                 <div class="media list-group-item">
-                                    <p class="media-body block m-b-none"><a href="{{ url_for('news') }}">Current Events</a></p>
+                                    <p class="media-body block m-b-none"><a href="{{ url_for('dashboard.news') }}">Current Events</a></p>
                                 </div>
                                 <div class="media list-group-item">
-                                    <p class="media-body block m-b-none"><a href="{{ url_for('tech') }}">Technology</a></p>
+                                    <p class="media-body block m-b-none"><a href="{{ url_for('dashboard.tech') }}">Technology</a></p>
                                 </div>
                                 <div class="media list-group-item">
-                                    <p class="media-body block m-b-none"><a href="{{ url_for('money') }}">Money</a></p>
+                                    <p class="media-body block m-b-none"><a href="{{ url_for('dashboard.money') }}">Money</a></p>
                                 </div>
                                 <div class="media list-group-item">
-                                    <p class="media-body block m-b-none"><a href="{{ url_for('career') }}">Career</a></p>
+                                    <p class="media-body block m-b-none"><a href="{{ url_for('dashboard.career') }}">Career</a></p>
                                 </div>
                                 <div class="media list-group-item">
-                                    <p class="media-body block m-b-none"><a href="{{ url_for('mindbody') }}">Mind, Body, and Spirit</a></p>
+                                    <p class="media-body block m-b-none"><a href="{{ url_for('dashboard.mindbody') }}">Mind, Body, and Spirit</a></p>
                                 </div>
                                 <div class="media list-group-item">
-                                    <p class="media-body block m-b-none"><a href="{{ url_for('culture') }}">Culture + Entertainment</a></p>
+                                    <p class="media-body block m-b-none"><a href="{{ url_for('dashboard.culture') }}">Culture + Entertainment</a></p>
                                 </div>
                                 <div class="media list-group-item">
-                                    <p class="media-body block m-b-none"><a href="{{ url_for('wildcard') }}">Wildcard</a></p>
+                                    <p class="media-body block m-b-none"><a href="{{ url_for('dashboard.wildcard') }}">Wildcard</a></p>
                                 </div>
                             </div>
                         </div>
@@ -76,11 +76,11 @@
                     <li class="tab">Filters</li>
                 </a> -->
 
-                <li class="tab"><a href="{{ url_for('cycle') }}">Cycle #1</a></li> 
+                <li class="tab"><a href="{{ url_for('dashboard.cycle') }}">Cycle #1</a></li> 
                 
             </ul>
             
-            <img src="{{ url_for('static', filename='images/logo-blk.png') }}" width="100px">
+            <img src="http://media.empire.life/site/images/logo-blk.png" width="100px">
             
             <p id="menu-btn" class="pull-right toggle-menu menu-right" hidden><span class="icon-nav icon-menu"></span></p>
         </nav>
@@ -91,20 +91,20 @@
                     <!-- <span style="float:right;">Empire</span> -->
                 </h3>
                 <a href="{{ url_for('index') }}">Home</a>
-                <a href="{{ url_for('cycle') }}">Current Cycle</a>
+                <a href="{{ url_for('dashboard.cycle') }}">Current Cycle</a>
                 <a style="border-bottom:none;">Categories</a>
                 <ul id="cat_list">
-                    <li><a class="media-body block m-b-none"href="{{ url_for('news') }}">Current Events</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('tech') }}">Technology</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('money') }}">Money</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('career') }}">Career</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('mindbody') }}">Mind, Body, and Spirit</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('culture') }}">Culture + Entertainment</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('wildcard') }}">Wildcard</a></li>
+                    <li><a class="media-body block m-b-none"href="{{ url_for('dashboard.news') }}">Current Events</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.tech') }}">Technology</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.money') }}">Money</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.career') }}">Career</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.mindbody') }}">Mind, Body, and Spirit</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.culture') }}">Culture + Entertainment</a></li>
+                    <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.wildcard') }}">Wildcard</a></li>
                 </ul>
-                <a href="{{ url_for('about') }}">About</a>
-                <a href="{{ url_for('terms') }}">Terms and Privacy</a>
-                <a href="{{ url_for('contact') }}">Contact Us</a>
+                <a href="{{ url_for('home.about') }}">About</a>
+                <a href="{{ url_for('home.terms') }}">Terms and Privacy</a>
+                <a href="{{ url_for('home.contact') }}">Contact Us</a>
 
                 <!-- <div id="footer"> 
                     <p>© 2015 ThreePillarMedia, LLC</p>
@@ -120,7 +120,7 @@
 				<div class="regular">
 					<h1 style="text-align: center;">{{ article.title }}</h1>
 					<p class="subline">{{ article.description }}</p>
-					<p>by <strong>{{ article.author }}</strong> &#8212; Posted in <strong>{{ article.category }}</strong> on <strong id="date"></strong></p>
+					<p>by <strong><a href="{{ url_for('articles.user', username=article['author']) }}">{{ author.fullname }}</a></strong> &#8212; Posted in <strong>{{ article.category }}</strong> on <strong id="date"></strong></p>
 				</div>
 			</header>
 
@@ -133,9 +133,9 @@
 
 				<h3>How'd you like this article?</h3>
 				<div>
-					<span onclick="rate('likes');" class="icon smilie icon-smile-o" style="color:#6dd7a5;"></span>
-					<span onclick="rate('meh');" class="icon smilie icon-meh-o" style="color:#ffbc41;"></span>
-					<span onclick="rate('dislikes');" class="icon smilie icon-frown-o" style="color:indianred;"></span>
+					<span onclick="articles.rate('likes');" class="icon smilie icon-smile-o" style="color:#6dd7a5;"></span>
+					<span onclick="articles.rate('meh');" class="icon smilie icon-meh-o" style="color:#ffbc41;"></span>
+					<span onclick="articles.rate('dislikes');" class="icon smilie icon-frown-o" style="color:indianred;"></span>
 					<p id="message" hidden><small>Your response has been recorded. Thank you!</small></p>
 				</div>
 				<p>When we roll out the full-site, you will be able to:</p>
@@ -147,7 +147,7 @@
 					<li>bookmark and favorite an article</li>
 					<li>... and more!</li>
 				</ul>
-				<p>Is there something particular you would like to see? Suggest a feature through our <a href="{{ url_for('contact') }}">contact form</a>.</p>
+				<p>Is there something particular you would like to see? Suggest a feature through our <a href="{{ url_for('home.contact') }}">contact form</a>.</p>
 			</section>
 		</div>
 		

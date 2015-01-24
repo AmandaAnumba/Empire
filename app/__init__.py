@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask.ext.mail import Message, Mail
 from app.home.application import home as homeBP
 from app.dashboard.application import dashboard as dashBP
-from app.article.application import article as articleBP
+from app.articles.application import articles as articleBP
 
 
 # create the application
