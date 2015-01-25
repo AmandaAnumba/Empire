@@ -1,21 +1,54 @@
 {% extends "home/blank_page.html" %}
 {% block content %}
 
-<main id="user_wrapper">
-	<header id="user_header">
+<section id="info">
+	<ul>
+		{% if user.avatar %}
+			<li><img id="avi" src="{{ user.avatar }}" alt="{{ user.fullname }}"/></li>
+		{% endif %}
+
+		{% if not user.avatar %}
+			<li><img id="avi" src="http://media.empire.life/site/images/logo-blk.png" alt="Empire Logo Placeholder"/></li>
+		{% endif %}
 		
-		<div id="avi" class="pull-left">
-			<img class="w-sm" src="{{ user.avatar }}" alt="{{ user.fullname }}"/>
-		</div>
+		<li id="name">{{ user.fullname }}</li>
+		
+		<li id="role">{{ user.role }}</li>
 
-		<div id="info" class="pull-right">
-			<h2>{{ user.fullname }}</h2>
-			<p>Entrepreneur, technologist, inventor. Founder of Primal.com and Official Community Corp. Internet technology and social media, particularly, What's Next?</p>
-			<div id="follow"></div>
-		</div>
+		<li>Entrepreneur, technologist, inventor. Founder of Primal.com and Official Community Corp. Internet technology and social media, particularly, What's Next?</li>
+		
+		{% if user.website %}
+			<li class="social"><span class="icon-global"></span>{{ user.website }}</li>
+		{% endif %}
 
-	</header>
+		{% if user.facebook %}
+			<li class="social"><span class="icon-facebook"></span>{{ user.facebook }}</li>
+		{% endif %}
 
-</main>
+		{% if user.twitter %}
+			<li class="social"><span class="icon-twitter"></span>{{ user.twitter }}</li>
+		{% endif %}
+
+		{% if user.tumblr %}
+			<li class="social"><span class="icon-tumblr"></span>{{ user.tumblr }}</li>
+		{% endif %}
+
+		{% if user.pinterest %}
+			<li class="social"><span class="icon-pinterest"></span>{{ user.pinterest }}</li>
+		{% endif %}
+
+		{% if user.instagram %}
+			<li class="social"><span class="icon-instagram"></span>{{ user.instagram }}</li>
+		{% endif %}
+
+		{% if user.linkedin %}
+			<li class="social"><span class="icon-linkedin"></span>{{ user.linkedin }}</li>
+		{% endif %}
+	</ul>
+</section>
+
+<!-- <main id="user_wrapper">
+	
+</main> -->
 
 {% endblock %}

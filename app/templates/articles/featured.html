@@ -45,8 +45,8 @@
 
 				<h3>How'd you like this article?</h3>
 				<div>
-					<span onclick="rate('likes');" class="icon icon-smile-o" style="cursor:pointer; color:#6dd7a5; font-size:4em; padding:0 8px;"></span>
-					<span onclick="rate('meh');" class="icon icon-meh-o" style="cursor:pointer; color:#ffbc41; font-size:4em; padding:0 8px;"></span>
+					<span onclick="articles.rate('likes');" class="icon icon-smile-o" style="cursor:pointer; color:#6dd7a5; font-size:4em; padding:0 8px;"></span>
+					<span onclick="articles.rate('meh');" class="icon icon-meh-o" style="cursor:pointer; color:#ffbc41; font-size:4em; padding:0 8px;"></span>
 					<span onclick="rate('dislikes');" class="icon icon-frown-o" style="cursor:pointer; color:indianred; font-size:4em; padding:0 8px;"></span>
 					<p id="message" hidden><small>Your response has been recorded. Thank you!</small></p>
 				</div>
@@ -59,7 +59,7 @@
 					<li>bookmark and favorite an article</li>
 					<li>... and more!</li>
 				</ul>
-				<p>Is there something particular you would like to see? Suggest a feature through our <a href="{{ url_for('contact') }}">contact form</a>.</p>
+				<p>Is there something particular you would like to see? Suggest a feature through our <a href="{{ url_for('home.contact') }}">contact form</a>.</p>
 			</section>
 		</div>
 		</div>
