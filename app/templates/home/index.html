@@ -21,6 +21,8 @@
         <script src="{{ url_for('static', filename='plugins/pushmenu/js/modernizr.custom.js') }}"></script>
         <script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
         <script src="{{ url_for('static', filename='js/fblogin.js') }}"></script>
+        <script src="https://apis.google.com/js/client:platform.js" async defer></script>
+        <script src="{{ url_for('static', filename='js/gpluslogin.js') }}"></script>
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
@@ -300,8 +302,21 @@
                             <ul>
                                 <!-- <li><a href="#" onclick="fb_login();"><img src="{{ url_for('static', filename='images/fb.png') }}" alt="Facebook Login Button" /></a></li> -->
                                 <li><img src="{{ url_for('static', filename='images/tw.png') }}"></li>
-                                <li><img src="{{ url_for('static', filename='images/gg.png') }}"></li>
-                            </ul> 
+                                 <!-- <li><img src="{{ url_for('static', filename='images/gg.png') }}"></li> -->
+                                <li>
+                                    <span id="signinButton">
+                                      <span
+                                        class="g-signin"
+                                        data-callback="signinCallback"
+                                        data-clientid="778066252083-gupksmvg6280pc0u9cptlm1sc37v9srh.apps.googleusercontent.com"
+                                        data-cookiepolicy="single_host_origin"
+                                        data-requestvisibleactions="http://schema.org/AddAction"
+                                        data-scope="https://www.googleapis.com/auth/plus.login">
+                                      </span>
+                                    </span>
+                                </li>
+                             </ul> 
+
                         </div>
 
                         <div id="login_info" class="pull-right">
@@ -330,7 +345,7 @@
             $('.toggle-menu').jPushMenu();
             $('.beta').tooltip();
             setTimeout("jQuery('.beta').tooltip('show');", 1000);
-            // setTimeout("jQuery('#login').modal('show');", 800);
+            setTimeout("jQuery('#login').modal('show');", 800);
         });
     </script>
 </html>
