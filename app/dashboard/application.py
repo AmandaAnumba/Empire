@@ -15,7 +15,8 @@ def cycle():
     connection.connect()
     
     params = urllib.urlencode({"where":json.dumps({
-       "status": "proofed"
+       "status": "published",
+       "cycleArticle": True
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -40,7 +41,7 @@ def news():
     connection.connect()
 
     params = urllib.urlencode({"where":json.dumps({
-       "status": "proofed"
+       "status": "published"
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -82,7 +83,7 @@ def tech():
     connection.connect()
     
     params = urllib.urlencode({"where":json.dumps({
-       "status": "proofed"
+       "status": "published"
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -112,7 +113,7 @@ def money():
     connection.connect()
     
     params = urllib.urlencode({"where":json.dumps({
-       "status": "proofed"
+       "status": "published"
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -144,7 +145,7 @@ def career():
     connection.connect()
     
     params = urllib.urlencode({"where":json.dumps({
-       "status": "proofed"
+       "status": "published"
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -175,7 +176,7 @@ def mindbody():
     # get all of the articles
     connection.connect()
     params = urllib.urlencode({"where":json.dumps({
-       "status": "proofed"
+       "status": "published"
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -207,7 +208,7 @@ def culture():
     connection.connect()
     
     params = urllib.urlencode({"where":json.dumps({
-       "status": "proofed"
+       "status": "published"
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -239,7 +240,7 @@ def wildcard():
     connection.connect()
     
     params = urllib.urlencode({"where":json.dumps({
-       "status": "proofed"
+       "status": "published"
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
