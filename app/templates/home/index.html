@@ -22,8 +22,6 @@
         <script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
         <script src="{{ url_for('static', filename='js/fblogin.js') }}"></script>
         <script src="{{ url_for('static', filename='js/gpluslogin.js') }}"></script>
-        
-
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
@@ -278,7 +276,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="beta">
+        <!-- <div class="modal fade" id="beta">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body text-center">
@@ -297,7 +295,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="modal fade" id="login">
             <div class="modal-dialog">
@@ -344,8 +342,8 @@
     <script>
         jQuery(document).ready(function($) {
             $('.toggle-menu').jPushMenu();
-            $('.beta').tooltip();
-            setTimeout("jQuery('.beta').tooltip('show');", 1000);
+            // $('.beta').tooltip();
+            // setTimeout("jQuery('.beta').tooltip('show');", 1000);
             setTimeout("jQuery('#login').modal('show');", 800);
         });
     </script>

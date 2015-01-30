@@ -1664,6 +1664,144 @@ a {
   width: 250px;
 }
 
+/* line 3, ../modules/_article.scss */
+#regular {
+  background: whitesmoke;
+}
+
+/* line 6, ../modules/_article.scss */
+#topImg {
+  height: 400px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+/* line 13, ../modules/_article.scss */
+#topImg div {
+  position: absolute;
+  bottom: 100px;
+  width: 100%;
+  color: white;
+}
+/* line 20, ../modules/_article.scss */
+#topImg div h1 {
+  font-size: 3.5em;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding: 0;
+  letter-spacing: 1.2px;
+}
+/* line 30, ../modules/_article.scss */
+#topImg div p {
+  font-weight: 300;
+  font-size: 1.9em;
+  font-style: italic;
+}
+
+/* line 38, ../modules/_article.scss */
+#meta_wrapper {
+  width: 17em;
+  background: white;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  top: 65px;
+}
+/* line 46, ../modules/_article.scss */
+#meta_wrapper div {
+  text-align: center;
+}
+/* line 49, ../modules/_article.scss */
+#meta_wrapper div #avatar {
+  width: 120px;
+  height: 120px;
+  margin: 17%;
+  border: none;
+}
+/* line 58, ../modules/_article.scss */
+#meta_wrapper ul {
+  list-style-type: none;
+  font-size: 1.25em;
+  text-align: center;
+  margin: 0;
+  padding: 0 20px;
+}
+/* line 65, ../modules/_article.scss */
+#meta_wrapper ul li {
+  margin: 18px 0;
+}
+
+/* line 71, ../modules/_article.scss */
+#article_wrapper {
+  position: relative;
+  left: 17em;
+  height: 100%;
+  background: whitesmoke;
+  margin-top: 400px;
+}
+/* line 79, ../modules/_article.scss */
+#article_wrapper #social_btns {
+  height: 40px;
+  border-top: 1px solid darkgray;
+  border-bottom: 1px solid darkgray;
+}
+/* line 84, ../modules/_article.scss */
+#article_wrapper #social_btns p {
+  font-size: 0.9em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* line 92, ../modules/_article.scss */
+.content {
+  margin: 0 auto;
+  padding: 0 0 3em;
+}
+
+/* line 97, ../modules/_article.scss */
+.content > div:not(.title) {
+  margin: -80px auto 0;
+  max-width: 900px;
+  padding: 0 1.25em;
+}
+
+/* line 103, ../modules/_article.scss */
+.content > div:not(.title) p {
+  margin: 0 auto 1.5em auto;
+}
+
+/* line 107, ../modules/_article.scss */
+.content > div:not(.title) p:first-child {
+  font-size: 1.35em;
+}
+
+/* line 111, ../modules/_article.scss */
+.content h3 {
+  margin: 0;
+  font-size: 1.4em;
+}
+
+/* line 116, ../modules/_article.scss */
+.content blockquote {
+  padding: 0.25em;
+  font-style: italic;
+  font-size: 1.65em;
+  font-family: 'Lora', serif;
+  line-height: 1.4;
+}
+
+/* line 124, ../modules/_article.scss */
+.content blockquote::before {
+  content: '\201C';
+}
+
+/* line 128, ../modules/_article.scss */
+.content blockquote::after {
+  content: '\201D';
+}
+
 /* line 3, ../modules/_login.scss */
 #social_links ul {
   list-style-type: none;

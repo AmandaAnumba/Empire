@@ -39,7 +39,7 @@ def read(username, id, title):
         author = json.loads(connection.getresponse().read())
 
         # if article['doctype'] == 'regular':
-        return render_template("articles/regular.html", article=article, author=author)
+        return render_template("articles/article_regular.html", article=article, author=author)
 
     #     if article['doctype'] == 'featured':
     #         return render_template("featured.html", article=article)

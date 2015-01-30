@@ -1,0 +1,130 @@
+// regular article
+
+#regular {
+	background:whitesmoke;
+}
+#topImg {
+	height: 400px;
+	position: absolute;
+	width: 100%;
+	top: 0;
+
+
+	div {
+		position: absolute;
+		bottom: 100px;
+		width: 100%;
+		color: white;
+
+
+		h1 {
+			font-size: 3.5em;
+			font-weight: 700;
+			text-align: center;
+			text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+			margin: 0;
+			padding: 0;
+			letter-spacing: 1.2px;
+		}
+
+		p {
+			font-weight: 300;
+			font-size: 1.9em;
+			font-style: italic;
+		}
+	}
+}
+
+#meta_wrapper {
+	width: 17em;
+	background: white;
+	position: absolute;
+	left:0;
+	height:100%;
+	top:65px;
+
+	div {
+		text-align: center;
+
+		#avatar {
+			width: 120px;
+			height: 120px;
+			margin: 17%;
+			border: none;
+		}
+	}
+	
+
+	ul {
+		list-style-type: none;
+		font-size: 1.25em;
+		text-align: center;
+		margin: 0;
+		padding: 0 20px;
+
+		li {
+			margin: 18px 0;
+		}
+	}
+}
+
+#article_wrapper{
+	position: relative;
+	left: 17em;
+	height: 100%;
+	background: whitesmoke;
+	margin-top: 400px;
+	
+
+	#social_btns {
+		height: 40px;
+		border-top: 1px solid darkgray;
+		border-bottom: 1px solid darkgray;
+
+		p {
+			font-size: 0.9em;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+	}
+}
+
+.content {
+	margin: 0 auto;
+	padding: 0 0 3em;
+}
+
+.content > div:not(.title) {
+	margin: -80px auto 0;
+	max-width: 900px;
+	padding: 0 1.25em;
+}
+
+.content > div:not(.title) p {
+	margin: 0 auto 1.5em auto;
+}
+
+.content > div:not(.title) p:first-child {
+	font-size: 1.35em;
+}
+
+.content h3 {
+	margin: 0;
+	font-size: 1.4em;
+}
+
+.content blockquote {
+	padding: 0.25em;
+	font-style: italic;
+	font-size: 1.65em;
+	font-family: 'Lora', serif;
+	line-height: 1.4;
+}
+
+.content blockquote::before {
+	content: '\201C';
+}
+
+.content blockquote::after {
+	content: '\201D';
+}
