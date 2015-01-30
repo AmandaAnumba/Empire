@@ -27,7 +27,7 @@
 	</head>
 	<body class="demo-2">
 		<p id="id" hidden>{{ article['objectId'] }}</p>
-		<div id="container" class="container intro-effect-fadeout">
+		<div id="container" class="container intro-effect-fadeout modify">
 			<header class="header">
 				<div class="bg-img"><img src="{{ article.headerIMG }}" alt="Background Image" /></div>
 				<div class="title">
@@ -47,7 +47,7 @@
 				<div>
 					<span onclick="articles.rate('likes');" class="icon icon-smile-o" style="cursor:pointer; color:#6dd7a5; font-size:4em; padding:0 8px;"></span>
 					<span onclick="articles.rate('meh');" class="icon icon-meh-o" style="cursor:pointer; color:#ffbc41; font-size:4em; padding:0 8px;"></span>
-					<span onclick="rate('dislikes');" class="icon icon-frown-o" style="cursor:pointer; color:indianred; font-size:4em; padding:0 8px;"></span>
+					<span onclick="articles.rate('dislikes');" class="icon icon-frown-o" style="cursor:pointer; color:indianred; font-size:4em; padding:0 8px;"></span>
 					<p id="message" hidden><small>Your response has been recorded. Thank you!</small></p>
 				</div>
 				<p>When we roll out the full-site, you will be able to:</p>

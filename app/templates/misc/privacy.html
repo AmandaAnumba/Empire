@@ -1,0 +1,89 @@
+{% extends "home/blank_page.html" %}
+{% block content %}
+
+<section id="policy">
+	<div class="img-holder visible" data-image="http://media.empire.life/site/about/12.jpg">
+	    <div id="parallax-overlay">
+	        <div id="top_title">
+	            <img src="http://media.empire.life/site/images/logo-blk.png" width="270"/>
+	        </div>
+	    </div>
+	</div>
+
+	<nav>
+		<ul class="inline-list">
+	        <li><a href="{{ url_for('index') }}">Home</a></li>
+			<li><a href="{{ url_for('home.about') }}">About</a></li>
+	        <li><a href="{{ url_for('home.contact') }}">Contact</a></li>
+	        <li><a href="{{ url_for('home.terms') }}">Terms</a></li>
+	        <li><a href="{{ url_for('home.privacy') }}">Privacy</a></li>
+		</ul>
+	</nav>
+
+	<section style="margin: 5% 12%;">
+		<h2>Privacy Policy</h2>
+
+		<p style="padding: 30px 0 0 0;">
+			Your privacy is very important to us. Accordingly, we have developed this Policy in order for you to understand how we collect, use, communicate and disclose and make use of personal information. The following outlines our privacy policy.
+		</p>
+
+		<ul>
+			<li>
+				Before or at the time of collecting personal information, we will identify the purposes for which information is being collected.
+			</li>
+			<li>
+				We will collect and use of personal information solely with the objective of fulfilling those purposes specified by us and for other compatible purposes, unless we obtain the consent of the individual concerned or as required by law.		
+			</li>
+			<li>
+				We will only retain personal information as long as necessary for the fulfillment of those purposes. 
+			</li>
+			<li>
+				We will collect personal information by lawful and fair means and, where appropriate, with the knowledge or consent of the individual concerned. 
+			</li>
+			<li>
+				Personal data should be relevant to the purposes for which it is to be used, and, to the extent necessary for those purposes, should be accurate, complete, and up-to-date. 
+			</li>
+			<li>
+				We will protect personal information by reasonable security safeguards against loss or theft, as well as unauthorized access, disclosure, copying, use or modification.
+			</li>
+			<li>
+				We will make readily available to customers information about our policies and practices relating to the management of personal information. 
+			</li>
+		</ul>
+
+		<p style="padding: 30px 0 0 0;">
+			We are committed to conducting our business in accordance with these principles in order to ensure that the confidentiality of personal information is protected and maintained. 
+		</p>
+		<p style="padding: 30px 0 0 0;"><strong>Updated: January 6, 2015</strong></p>	
+	</section>	
+
+	<footer>
+	    <nav class="nav-footer other">
+	        <ul>
+	            <li>© 2015 ThreePillarMedia, LLC</li>
+	        </ul>
+	    </nav>
+	</footer>
+
+</section>
+
+<script src="{{ url_for('static', filename='js/parallax.min.js') }}"></script>
+<script>
+    var parallax = $(window).height() - 
+    $('.img-holder').imageScroll({
+        image: null,
+        imageAttribute: 'image',
+        container: $('body'),
+        speed: 0.2,
+        coverRatio: 0.3,
+        holderClass: 'imageHolder',
+        holderMinHeight: 200,
+        extraHeight: 0,
+        mediaWidth: 1600,
+        mediaHeight: 900,
+        parallax: true,
+        touch: false
+    });
+</script>
+{% endblock %}
+			

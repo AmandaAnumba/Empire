@@ -1664,142 +1664,149 @@ a {
   width: 250px;
 }
 
-/* line 3, ../modules/_article.scss */
+/* line 2, ../modules/_article.scss */
 #regular {
   background: whitesmoke;
+  overflow-x: hidden;
 }
-
 /* line 6, ../modules/_article.scss */
-#topImg {
-  height: 400px;
+#regular header {
   position: absolute;
+  margin: 0 auto;
   width: 100%;
   top: 0;
+  height: 400px;
 }
-/* line 13, ../modules/_article.scss */
-#topImg div {
+/* line 14, ../modules/_article.scss */
+#regular header .bg-img {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+/* line 24, ../modules/_article.scss */
+#regular header .bg-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+}
+/* line 34, ../modules/_article.scss */
+#regular header .title {
   position: absolute;
   bottom: 100px;
-  width: 100%;
   color: white;
+  margin-left: 18.3em;
+  text-align: left;
 }
-/* line 20, ../modules/_article.scss */
-#topImg div h1 {
+/* line 42, ../modules/_article.scss */
+#regular header .title h1 {
   font-size: 3.5em;
   font-weight: 700;
-  text-align: center;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   margin: 0;
   padding: 0;
   letter-spacing: 1.2px;
 }
-/* line 30, ../modules/_article.scss */
-#topImg div p {
+/* line 51, ../modules/_article.scss */
+#regular header .title p {
   font-weight: 300;
   font-size: 1.9em;
   font-style: italic;
 }
-
-/* line 38, ../modules/_article.scss */
-#meta_wrapper {
+/* line 59, ../modules/_article.scss */
+#regular nav {
   width: 17em;
   background: white;
   position: absolute;
   left: 0;
   height: 100%;
   top: 65px;
+  z-index: 100;
 }
-/* line 46, ../modules/_article.scss */
-#meta_wrapper div {
+/* line 68, ../modules/_article.scss */
+#regular nav div {
   text-align: center;
 }
-/* line 49, ../modules/_article.scss */
-#meta_wrapper div #avatar {
+/* line 71, ../modules/_article.scss */
+#regular nav div #avatar {
   width: 120px;
   height: 120px;
   margin: 17%;
   border: none;
 }
-/* line 58, ../modules/_article.scss */
-#meta_wrapper ul {
+/* line 80, ../modules/_article.scss */
+#regular nav ul {
   list-style-type: none;
-  font-size: 1.25em;
   text-align: center;
+  font-size: 1.25em;
   margin: 0;
   padding: 0 20px;
 }
-/* line 65, ../modules/_article.scss */
-#meta_wrapper ul li {
+/* line 87, ../modules/_article.scss */
+#regular nav ul li {
   margin: 18px 0;
 }
-
-/* line 71, ../modules/_article.scss */
-#article_wrapper {
+/* line 90, ../modules/_article.scss */
+#regular nav ul li p:nth-child(1) {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+/* line 97, ../modules/_article.scss */
+#regular nav ul li p:nth-child(2) {
+  font-size: 0.8em;
+}
+/* line 104, ../modules/_article.scss */
+#regular main {
   position: relative;
-  left: 17em;
+  padding-left: 17em;
   height: 100%;
   background: whitesmoke;
   margin-top: 400px;
 }
-/* line 79, ../modules/_article.scss */
-#article_wrapper #social_btns {
-  height: 40px;
-  border-top: 1px solid darkgray;
-  border-bottom: 1px solid darkgray;
+/* line 111, ../modules/_article.scss */
+#regular main #social_btns {
+  padding: 10px 2em;
+  border-top: 1px solid rgba(169, 169, 169, 0.22);
+  border-bottom: 1px solid rgba(169, 169, 169, 0.22);
 }
-/* line 84, ../modules/_article.scss */
-#article_wrapper #social_btns p {
+/* line 116, ../modules/_article.scss */
+#regular main #social_btns p {
   font-size: 0.9em;
   font-weight: 700;
   text-transform: uppercase;
 }
-
-/* line 92, ../modules/_article.scss */
-.content {
-  margin: 0 auto;
-  padding: 0 0 3em;
-}
-
-/* line 97, ../modules/_article.scss */
-.content > div:not(.title) {
-  margin: -80px auto 0;
-  max-width: 900px;
-  padding: 0 1.25em;
-}
-
-/* line 103, ../modules/_article.scss */
-.content > div:not(.title) p {
-  margin: 0 auto 1.5em auto;
-}
-
-/* line 107, ../modules/_article.scss */
-.content > div:not(.title) p:first-child {
+/* line 123, ../modules/_article.scss */
+#regular main article {
+  margin: 2em 0;
+  padding: 0 3em 0 1.3em;
+  color: #474747;
   font-size: 1.35em;
 }
-
-/* line 111, ../modules/_article.scss */
-.content h3 {
-  margin: 0;
-  font-size: 1.4em;
+/* line 130, ../modules/_article.scss */
+#regular main article a {
+  color: #f3844d !important;
 }
-
-/* line 116, ../modules/_article.scss */
-.content blockquote {
-  padding: 0.25em;
-  font-style: italic;
-  font-size: 1.65em;
-  font-family: 'Lora', serif;
-  line-height: 1.4;
+/* line 134, ../modules/_article.scss */
+#regular main article p:nth-child(1) {
+  font-size: 1.5em;
+  font-weight: 300;
 }
-
-/* line 124, ../modules/_article.scss */
-.content blockquote::before {
-  content: '\201C';
+/* line 139, ../modules/_article.scss */
+#regular main article p {
+  margin: 6px 0;
 }
-
-/* line 128, ../modules/_article.scss */
-.content blockquote::after {
-  content: '\201D';
+/* line 142, ../modules/_article.scss */
+#regular main article p, #regular main article span {
+  font-family: 'Lora', serif !important;
 }
 
 /* line 3, ../modules/_login.scss */
