@@ -9,20 +9,20 @@
     });
 
   };
-
+var user_pic;
 function fb_login(){
     FB.login(function(response) {
 
         if (response.authResponse) {
             console.log('Welcome!  Fetching your information.... ');
-            //console.log(response); // dump complete info
+            console.log(response); // dump complete info
             access_token = response.authResponse.accessToken; //get access token
             user_id = response.authResponse.userID; //get FB UID
 
             FB.api('/me', function(response) {
                 user_email = response.email; //get users email
                 user_name = response.firt_name; //get users first name
-                var user_pic = response.picture; //get users profile picture
+                user_pic = response.picture; //get users profile picture
           // you can store this data into your database             
             });
 
