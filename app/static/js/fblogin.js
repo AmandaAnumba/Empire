@@ -47,7 +47,7 @@ function fb_login(){
 
         }
     }, {
-        scope: 'publish_stream,email, public_profile'
+        scope: 'publish_stream,email,first_name,picture'
     });
 }
 (function() {
