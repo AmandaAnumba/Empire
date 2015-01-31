@@ -22,7 +22,7 @@ function fb_login(){
             FB.api('/me', function(response) {
                 user_email = response.email; //get users email
                 user_name = response.firt_name; //get users first name
-                user_pic = response.picture; //get users profile picture
+                var user_pic = response.picture; //get users profile picture
           // you can store this data into your database             
             });
 
