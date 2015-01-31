@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Lora:400,700,400italic' rel='stylesheet'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+        <meta charset="utf-8">  
+        <link rel="icon" type="image/png" href="http://media.empire.life/site/images/favicon.png">
+        <title>Empire</title>
+        <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
+        <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
+        <meta name="author" content="ThreePillarMedia, LLC" />
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/moment.js') }}"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" />
+    </head>
+
+    <body id="regular">
+	    <div id="fb-root"></div>
+		
+        <script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=345241442325838&version=v2.0";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
+        <header style="background:linear-gradient(rgba(140, 140, 140, 0.3), rgba(0, 0, 0, 0.5)), url({{ article.headerIMG }}) no-repeat center;background-size:cover;">
+            <!-- <nav>
+                <p></p>
+            </nav> -->
+
+    		<div class="title">
+	    		<h1>{{ article.title }}</h1>
+	    		<p>{{ article.description }}</p>
+	    	</div>
+    	</header>
+
+        <nav>
+        	<div>
+        		<p id="avatar" class="img-thumbnail img-circle" style="background:url({{ author.avatar }}) no-repeat center;background-size: cover;"></p>
+        	</div>
+        	
+        	<ul>
+        		<li>
+        			<p>Posted By</p>
+        			<p><a href="{{ url_for('articles.user', username=article['author']) }}">{{ author.fullname }}</a></p>
+        		</li>
+
+        		<li>
+        			<p>Date</p>
+        			<p id="article_date">{{ article.releaseDate }}</p>
+        		</li>
+
+        		<li>
+        			<p>Category</p>
+        			<p>{{ article.category }}</p>
+        		</li>
+        	</ul>
+        </nav>
+
+        <main>
+        	<div id="social_btns">
+        		<p>Share</p>
+        		<a href="https://twitter.com/share" class="twitter-share-button" data-via="_thisisempire" data-hashtags="ThisIsEmpire">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+				<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
+        	</div>
+
+        	<article class="content">
+				<div id="commentable-container" class="commentable-container">{{ article.content }}</div>
+			</article>	
+        </main>
+    </body>
+
+    <script>
+    	$(function() {
+		    var dateStr = $('#article_date').text().split(','),
+				date = moment(dateStr).format("ddd, MMM Do YY"),
+				text = $('#commentable-container').text();
+			
+			$('#article_date').empty().append(date);
+			$('#commentable-container').empty().html(text);
+		});
+    </script>
+</html>

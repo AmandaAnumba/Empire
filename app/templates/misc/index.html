@@ -22,15 +22,28 @@
         <script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
         <script src="{{ url_for('static', filename='js/fblogin.js') }}"></script>
         <script src="{{ url_for('static', filename='js/gpluslogin.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/empirelogin.js') }}"></script>
+        <meta name="google-signin-clientid" content="778066252083-gupksmvg6280pc0u9cptlm1sc37v9srh.apps.googleusercontent.com" />
+        <meta name="google-signin-scope" content="https://www.googleapis.com/auth/plus.login" />
+        <meta name="google-signin-requestvisibleactions" content="http://schema.org/AddAction" />
+        <meta name="google-signin-cookiepolicy" content="single_host_origin" />
+        <meta name="google-signin-callback" content="signinCallback" />
+        <script src="https://apis.google.com/js/client:platform.js?onload=render" async defer>
+        /* Executed when the APIs finish loading */
+        function render() {
+
+          // Additional params
+          var additionalParams = {
+            'theme' : 'dark'
+          };
+
+          gapi.signin.render('gplusButton', additionalParams);
+        }
+        </script>
 
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/login.css') }}" />
-        <!--For login modal -->
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
         <script>
           window.fbAsyncInit = function() {
             FB.init({
@@ -48,13 +61,6 @@
              fjs.parentNode.insertBefore(js, fjs);
            }(document, 'script', 'facebook-jssdk'));
         </script>
-        <script type="text/javascript">
-            (function() {
-               var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-               po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
-               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-            })();
-        </script>
     </head>
 
     <body id="welcome">
@@ -70,13 +76,6 @@
 
             <div class="container">
                 <div id="splitlayout">
-                    <div id="mainlogin">
-                        <div style="float:right;">
-                            <p id="mainloginbtn" onclick="jQuery('#login').modal('show');" class='btn' value='Login' style="margin:10px 2px 0px 0px;">Login</p>
-                            <p id="mainregisterbtn" onclick="jQuery('#register').modal('show');" class='btn' value='Register' style="margin:10px 0px 0px 2px;">Register</p>
-                            <p id="mainusername" style="display:none; margin-top:10px;"> Welcome </p>
-                        </div>
-                    </div>
                     <div id="logo">
                         <img src="http://media.empire.life/site/images/logo-blk.png" alt="Empire logo" width="320" />
                         <p class="beta" data-toggle="tooltip" data-placement="right" title="PSSST! Click Me!" style="cursor:pointer;" onclick="$('#beta').modal('show');">Beta!</p>
@@ -287,7 +286,7 @@
             </div>
         </div>
 
-        <!-- <div class="modal fade" id="beta">
+        <div class="modal fade" id="beta">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body text-center">
@@ -306,56 +305,9 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <div class="modal fade" id="login">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body text-center" style="height:250px; background:#f2f2f2">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-                        <!-- <h4 class="modal-title" style="font-size: 1.3em;padding: 10px 0;">We're finally here!</h4> -->
-                    
-                        <div class="pull-left">
-                            <img src="http://media.empire.life/site/images/logo-blk.png" alt="Empire logo" width="100" style="margin-top:5px;"/>
-                            <form class="pure-form pure-form-stacked" >
-                                <fieldset>
-                                    <input id="username" type="text" placeholder="Username" style="margin:15px;">
-                                    <input id="password" type="password" placeholder="Password" style="margin:15px;">
-                                    <label for="remember">
-                                        <input id="remember" type="checkbox"> Remember me
-                                    </label>
-
-                                    <button type="submit" class="btn">Sign In</button>
-                                </fieldset>
-                        </form>
-                        </div>
-
-                        <div id="login_info" class="pull-right">
-                            <p style="margin:10px 0px;">As a member of Empire online you can enjoy the following benefits:</p>
-                            <ul>
-                                <li>Comment on articles</li>
-                                <li>Start discussions</li>
-                                <li>Write your own articles</li>
-                            </ul>
-                            <p style="margin:20px 0px; 10px;">Don't have an account?</p>
-                            <p onclick="jQuery('#login').modal('hide');jQuery('#register').modal('show');" class='btn' value='Register' style="margin:10px 0px 0px 2px;">Register with Empire</p>
-                        </div>
-                        
-                        <div id="fb-root"></div>
-                        <div id="status"></div>
-                    </div>
-                    <div id="login_footer">
-                            <p class="content">SIGN IN WITH
-                                <a href="#" onclick="fb_login();"><span class="icon icon-facebook loginicon"></span></a>
-                                <a href="#" onclick="gpluslogin();"><span class="loginicon">G+</span></a>
-                                <a href="#" onclick="twitterlogin();"><span class="icon icon-twitter loginicon"></span></a>
-                            </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="register">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body text-center" style="height:300px;">
@@ -365,13 +317,15 @@
                     
                         <div id="social_links" class="pull-left">
                             <ul>
-                                <li><a href="#" onclick="fb_login();"><img src="{{ url_for('static', filename='images/fb.png') }}" alt="Facebook Login Button" /></a></li>
+                                <!-- <li><a href="#" onclick="fb_login();"><img src="{{ url_for('static', filename='images/fb.png') }}" alt="Facebook Login Button" /></a></li> -->
                                 <li><img src="{{ url_for('static', filename='images/tw.png') }}"></li>
-
-                                <li><input type="image"  id="gplusloginbtn" src="{{ url_for('static', filename='images/gg.png') }}" width="225px" value="" onclick="gpluslogin()" /></li>
-                                <li><input type="button"  id="gpluslogoutbtn" value="Logout" onclick="gpluslogout()" style="display:none"/></li>
-                                <li><div id="profile"></div></li>
-
+                                <li>
+                                    <div id="gSignInWrapper">
+                                      <div id="gplusButton" class="classesToStyleWith">
+                                        <img src="{{ url_for('static', filename='images/gg.png') }}">
+                                      </div>
+                                    </div>
+                                </li>
                              </ul> 
 
                         </div>
@@ -383,10 +337,6 @@
                                 <li>Comment on articles</li>
                                 <li>Start Discussions</li>
                             </ul>
-                            <ul>
-                                <li></li
-
-                            </ul>
                         </div>
                         
                         <div id="fb-root"></div>
@@ -396,7 +346,6 @@
             </div>
         </div>
 
-
         <!-- <section id="special">
             <h1>Special thanks to the following places for information and their help!</h1>
         </section> -->
@@ -405,9 +354,9 @@
     <script>
         jQuery(document).ready(function($) {
             $('.toggle-menu').jPushMenu();
-            // $('.beta').tooltip();
-            // setTimeout("jQuery('.beta').tooltip('show');", 1000);
-            //setTimeout("jQuery('#login').modal('show');", 800);
+            $('.beta').tooltip();
+            setTimeout("jQuery('.beta').tooltip('show');", 1000);
+            setTimeout("jQuery('#login').modal('show');", 800);
         });
     </script>
 </html>
