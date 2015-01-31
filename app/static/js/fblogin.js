@@ -20,7 +20,9 @@ function fb_login(){
             user_id = response.authResponse.userID; //get FB UID
 
             FB.api('/me', function(response) {
-                user_email = response.email; //get user email
+                user_email = response.email; //get users email
+                user_name = response.firt_name; //get users first name
+                user_pic = response.picture; //get users profile picture
           // you can store this data into your database             
             });
 
@@ -30,16 +32,33 @@ function fb_login(){
 
         }
     }, {
-        scope: 'publish_stream,email'
+        scope: 'publish_stream,email, public_profile'
     });
 }
 (function() {
     var e = document.createElement('script');
     e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
     e.async = true;
-    document.getElementById('fb-root').appendChild(e);
+    //document.getElementById('fb-root').appendChild(e);
+
+    var str2 = "<img style='width:50px;height:50px;margin-right:10px;' src='" + user_pic + "' /> ";
+    str2+= document.getElementById("mainusername").innerHTML;
+    str2+="<span style='color:#e64c65'>" + user_name + "</span>";
+    str2+="<p id='fblogoutbtn' onclick='fblogout()' value='Logout' class='btn logout_btn'>Logout</p>";
+    document.getElementById("mainusername").innerHTML = str2
+
+    document.getElementById("fblogoutbtn").style.display = "block";
+    jQuery('#login').modal('hide');
+    document.getElementById("mainusername").style.display = "block";
+    document.getElementById("mainloginbtn").style.display = "none";
+    document.getElementById("mainregisterbtn").style.display = "none";
 }());
 
+function fblogout(){
+  FB.logout(function(response) {
+    location.reload();
+  });    
+}
 
 // // This is called with the results from FB.getLoginStatus().
   // function statusChangeCallback(response) {
