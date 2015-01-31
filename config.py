@@ -34,7 +34,9 @@ MAIL_USE_TLS = True
 MAIL_USERNAME = 'help@empire.life'
 MAIL_PASSWORD = '923emp1r3'
 
-
-
-
+#twitter tweepy API configurations
+CONSUMER_ID = "QL0ri4GajCrdnMIWMhj0VJylv"
+CONSUMER_SECRET = "OCo7uy7v7UlkYlhikZGkR8cBdDPfPK9uDZHDdqwEmbgvZk86LQ"
+ACCESS_KEY = "2849155505-sFDl8AYlYFF00SXvRc04vIjwszlkGU43fBbThd4"
+ACCESS_SECRET = "MeYnD2mPNNd0AuFfMqsto5RK4lQowf2PQxtKGkBuVmFdR"
 

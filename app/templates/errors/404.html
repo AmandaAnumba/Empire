@@ -11,8 +11,9 @@
         <meta name="author" content="ThreePillarMedia, LLC" />
 		<link rel="icon" type="image/jpg" href="http://media.empire.life/site/images/favicon.png">
 		
-        <link rel="stylesheet" href="css/error_style.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/error_style.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
 		
 		<style>
 			a:hover,
@@ -20,18 +21,17 @@
 				color: #333;
 			}
 		</style>
-		<script src="js/modernizr.custom.js"></script>
 
     </head>
 
     <body>
 		<div class="homepage">
-			<img alt="404 Error: Page cannot be found" src="img/404v3.png"/>
+			<img alt="404 Error: Page cannot be found" src="{{ url_for('static', filename='images/404v3.png') }}"/>
 			<div style="text-transform:uppercase; letter-spacing: 1px; font-size: 18pt; margin-top:20px; font-family: Lato;">
 				We are sorry. This page cannot be found.
 			</div>
 			<div style="font-size: 16pt; margin-top:20px; font-family: Lato;">
-				<button class="btn btn-6 btn-6j" onClick="location.href='index.html'">Return to my dashboard.</button>
+				<button class="btn btn-6 btn-6j" onClick="location.href='current'">Return to my dashboard.</button>
 			</div>
 		</div>
 

@@ -1,0 +1,80 @@
+@font-face {
+    font-family: flipClockFont;
+    src: url("../fonts/BebasNeue_Regular.otf") format("opentype");
+}
+
+@font-face {
+			font-family: LogoFont;
+			src: url("../fonts/XtreemMedium_Demo.ttf") format("truetype");
+}
+
+		
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #FFF; 
+  font-family: Lato;
+  color: #000;
+  }
+
+h1, h2, h3, h4, h5, p {
+  padding: 0;
+  margin: 0; }
+
+.homepage {
+	font-size: 16pt; 
+	font-family: Lato, 'Arial Narrow'; 
+	color:#000;
+	text-align:center;
+	margin-top: 1%;
+	margin-bottom: 2%;
+}
+
+.logo {
+	width: 100%;
+	/*height: 25%;*/
+	font-size: 60pt;
+	text-align:center;
+	margin-top: 1%;
+	font-family: LogoFont;
+	color: #000;
+}
+
+a.socialmedia{
+	color: #000;
+	text-decoration: none;
+}
+
+.button {
+   border-top: 1px solid #9c3e3e;
+   background: #9c3e3e;
+   background: -webkit-gradient(linear, left top, left bottom, from(#9c3e3e), to(#9c3e3e));
+   background: -webkit-linear-gradient(top, #9c3e3e, #9c3e3e);
+   background: -moz-linear-gradient(top, #9c3e3e, #9c3e3e);
+   background: -ms-linear-gradient(top, #9c3e3e, #9c3e3e);
+   background: -o-linear-gradient(top, #9c3e3e, #9c3e3e);
+   padding: 16px 32px;
+   -webkit-border-radius: 0px;
+   -moz-border-radius: 0px;
+   border-radius: 0px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 24px;
+   font-family: Georgia, Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+   }
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }

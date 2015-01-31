@@ -6,6 +6,27 @@
   font-weight: normal;
   font-style: normal;
 }
+
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-googleplus:before {
+  content: "\e606";
+}
+
+
 /* line 15, ../partials/_icomoon.scss */
 [class^="icon-"], [class*=" icon-"] {
   font-family: "icomoon";
@@ -19,6 +40,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-facebook2:before {
+  content: "\e05d";
+}
+.icon-twitter2:before {
+  content: "\e05e";
+}
+.icon-googleplus:before {
+  content: "\e05f";
+}
+.icon-tumblr2:before {
+  content: "\e061";
+}
+.icon-linkedin2:before {
+  content: "\e062";
+}
 /* line 27, ../partials/_icomoon.scss */
 .icon-heart2:before {
   content: "\e9da";
@@ -284,6 +320,14 @@ a {
   position: absolute;
   left: 37%;
   text-align: center;
+}
+
+/* line 12, ../modules/_welcome.scss */
+#splitlayout #mainlogin {
+  z-index: 1002;
+  width: 100%;
+  position: relative;
+
 }
 
 /* line 36, ../modules/_welcome.scss */

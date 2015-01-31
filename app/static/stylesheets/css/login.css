@@ -1,9 +1,38 @@
-#gpluslogoutbtn {
-	width:150px;
-	height:40px;	
-}
-
 #profile {
 	width: 250px;
 	font-size: 10pt;
+}
+#login_footer {
+	width: 100%
+	float: bottom;
+	background: #298AB3;
+	height: 50px;
+	text-align: center;
+
+}
+
+#login_footer .content{
+	position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color:#fff; 
+  font-size:16pt;
+  letter-spacing: 1.5pt
+}
+
+.loginicon{
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+
+.logout_btn{
+	margin-left:15px;
+	float:right;
+}
+
+span.loginicon:hover{
+	color: #e64c65;
 }
