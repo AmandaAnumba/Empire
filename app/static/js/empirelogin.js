@@ -1,26 +1,42 @@
+function empirelogin2() {
+    console.log('get here');
+}
+
 function empirelogin() {
-    $('#login-form').hide();
-    $('#loader').show();
-    
+   
     $.post('/login', {
-    	username: $('#login-form input[name=username]').val(),
-        password: $('#login-form input[name=password]').val()
+    	username: $('#main_login_form input[id=username]').val(),
+        password: $('#main_login_form input[id=password]').val(),
+        remember: $('#main_login_form input[id=remember]').val()
     }).done(function(message) {
-    	$('#loader').hide();
 
     	if (message['error']) {
+            console.log('error');
         	$('#login_error #message').empty().append(message['error']);
-        	$('#login_error, #login-form').show();
+        	$('#login_error, #main_login_form').show();
     	}
 
     	if (message['login']) {
+            console.log('error2');
         	$('#login_error #message').empty().append(message['login']);
-        	$('#login_error, #login-form').show();
+        	$('#login_error, #main_login_form').show();
     	}
 
     	if (message['success']) {
     		console.log('success');
-    		window.location = "/dashboard";
+            
+    		//var str2 = "<img style='width:50px;height:50px;margin-right:10px;' src='" + resp['image']['url'] + "' /> ";
+            //str2+= document.getElementById("mainusername").innerHTML;
+            var str2 = "Welcome ";
+            //str2+="<span style='color:#e64c65'>" + session['username'] + "</span>";
+            str2+="<a id='empirelogoutbtn' class='btn logout_btn' href='{{ url_for('logout') }}'>Logout</a>";
+            document.getElementById("mainusername").innerHTML = str2;
+
+            document.getElementById("empirelogoutbtn").style.display = "block";
+            jQuery('#login').modal('hide');
+            document.getElementById("mainusername").style.display = "block";
+            document.getElementById("mainloginbtn").style.display = "none";
+            document.getElementById("mainregisterbtn").style.display = "none";
     	}
 
     }).fail(function() {
@@ -29,7 +45,6 @@ function empirelogin() {
         $('#login_error').show();
     });
 }
-
 
 function empireregister() {
     $('#register-form').hide();

@@ -59,6 +59,7 @@ function fb_login(){
 
 function fblogout(){
   FB.logout(function(response) {
+    console.log(response);
     location.reload();
   });    
 }

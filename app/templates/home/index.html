@@ -34,30 +34,6 @@
         
         <!--For login modal -->
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-        <script>
-          window.fbAsyncInit = function() {
-            FB.init({
-              appId      : '345241442325838',
-              xfbml      : true,
-              version    : 'v2.1'
-            });
-          };
-
-          (function(d, s, id){
-             var js, fjs = d.getElementsByTagName(s)[0];
-             if (d.getElementById(id)) {return;}
-             js = d.createElement(s); js.id = id;
-             js.src = "//connect.facebook.net/en_US/sdk.js";
-             fjs.parentNode.insertBefore(js, fjs);
-           }(document, 'script', 'facebook-jssdk'));
-        </script>
-        <script type="text/javascript">
-            (function() {
-               var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-               po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
-               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-            })();
-        </script>
     </head>
 
     <body id="welcome">
@@ -314,14 +290,45 @@
         <div class="modal fade" id="login">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-body text-center" style="height:250px;">
+                    <div class="modal-body text-center" style="height:270px;">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
                         <!-- <h4 class="modal-title" style="font-size: 1.3em;padding: 10px 0;">We're finally here!</h4> -->
                     
                         <div class="pull-left">
-                            <img src="http://media.empire.life/site/images/logo-blk.png" alt="Empire logo" width="100" style="margin-top:5px;"/>
-                            <form class="pure-form pure-form-stacked" >
+                            <img src="http://media.empire.life/site/images/logo-blk.png" alt="Empire logo" width="75" style="margin-top:0px;"/>
+                            <div id="login_error" class="alert error" style="margin: 5px 0px 0px;" hidden>
+                                <button type="button" class="close" data-dismiss="alert">
+                                    <span aria-hidden="true">&times;</span>
+                                    <span class="sr-only">Close</span>
+                                </button>
+                                <p id="message"></p>
+                            </div>
+
+                            <div id="reg_error" class="alert error" style="margin: 5px 0px 0px;" hidden>
+                                <button type="button" class="close" data-dismiss="alert">
+                                    <span aria-hidden="true">&times;</span>
+                                    <span class="sr-only">Close</span>
+                                </button>
+                                <p id="message"></p>
+                            </div>
+
+                            <div id="reg_success" class="alert success" style="margin: 5px 0px 0px;" hidden>
+                                <button type="button" class="close" data-dismiss="alert">
+                                    <span aria-hidden="true">&times;</span>
+                                    <span class="sr-only">Close</span>
+                                </button>
+                                <p id="message"></p>
+                            </div>
+
+                            <div id="forgot_error" class="alert" style="margin: 5px 0px 0px;" hidden>
+                                <button type="button" class="close" data-dismiss="alert">
+                                    <span aria-hidden="true">&times;</span>
+                                    <span class="sr-only">Close</span>
+                                </button>
+                                <p id="message"></p>
+                            </div>
+                            <form class="pure-form pure-form-stacked" id="main_login_form">
                                 <fieldset>
                                     <input id="username" type="text" placeholder="Username" style="margin:15px;">
                                     <input id="password" type="password" placeholder="Password" style="margin:15px;">
@@ -329,7 +336,7 @@
                                         <input id="remember" type="checkbox"> Remember me
                                     </label>
 
-                                    <button type="submit" onclick="empirelogin();" class="btn">Sign In</button>
+                                    <button type="submit" onclick="empirelogin2();" class="btn">Sign In</button>
                                 </fieldset>
                             </form>
                         </div>
@@ -347,7 +354,7 @@
                     </div>
                     <div id="login_footer">
                             <p class="content">SIGN IN WITH
-                                <a href="#" onclick="fb_login();"><span class="icon icon-facebook2 loginicon"></span></a>
+                                <a href="#" onclick="fb_login();"><span style="margin-left: 40px;" class="icon icon-facebook2 loginicon"></span></a>
                                 <a href="#" onclick="gpluslogin();"><span class="icon icon-googleplus2 loginicon"></span></a>
                                 <a href="#" onclick="twitterlogin();"><span class="icon icon-twitter2 loginicon"></span></a>
                             </p>
