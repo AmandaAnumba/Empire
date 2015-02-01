@@ -19,7 +19,7 @@ function fb_login(){
             access_token = response.authResponse.accessToken; //get access token
             user_id = response.authResponse.userID; //get FB UID
 
-            FB.api('/me', function(response) {
+            FB.api('/me', {fields:'first_name, last_name, cover,email'}, function(response) {
                 user_email = response.email; //get users email
                 console.log(user_email);
                 user_name = response.firt_name; //get users first name
