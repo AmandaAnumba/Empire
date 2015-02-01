@@ -24,7 +24,7 @@ function fb_login(){
                 console.log(user_email);
                 user_name = response.firt_name; //get users first name
                 console.log(user_name);
-                user_pic = response.picture; //get users profile picture
+                user_pic = response.cover.source; //get users profile picture
                 console.log(user_pic);
           // you can store this data into your database 
 
@@ -47,7 +47,7 @@ function fb_login(){
 
         }
     }, {
-        scope: 'publish_stream,email,first_name,picture'
+        scope: 'public_profile,email,user_friends'
     });
 }
 (function() {
