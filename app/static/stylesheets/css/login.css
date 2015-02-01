@@ -7,7 +7,7 @@
 	width: 100%;
 	float: bottom;
 	background: #298AB3;
-	height: 50px;
+	height: 60px;
 	text-align: center;
 
 }
@@ -19,15 +19,15 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   color:#fff; 
-  line-height: 30pt;
-  font-size:18pt;
+  line-height: 24pt;
+  font-size:12pt;
   letter-spacing: 1.5pt
 }
 
 .loginicon{
 	margin-right: 20px;
 	margin-left: 20px;
-	font-size:30pt;
+	font-size:24pt;
 }
 
 .logout_btn{

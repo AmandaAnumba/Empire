@@ -21,16 +21,16 @@ function fb_login(){
 
             FB.api('/me', {fields:'first_name, last_name, cover,email'}, function(response) {
                 user_email = response.email; //get users email
-                console.log(user_email);
-                user_name = response.first_name; //get users first name
-                console.log(user_name);
+                //console.log(user_email);
+                user_firstname = response.first_name; //get users first name
+                user_lastname = response.last_name; //get users first name
                 user_pic = response.cover.source; //get users profile picture
-                console.log(user_pic);
+                //console.log(user_pic);
           // you can store this data into your database 
 
-          /**var str2 = "<img style='width:50px;height:50px;margin-right:10px;' src='" + user_pic + "' /> ";
+          var str2 = "<img style='width:50px;height:50px;margin-right:10px;' src='" + user_pic + "' /> ";
           str2+= document.getElementById("mainusername").innerHTML;
-          str2+="<span style='color:#e64c65'>" + user_name + "</span>";
+          str2+="<span style='color:#e64c65'>" + user_firstname + " " + user_lastname + "</span>";
           str2+="<p id='fblogoutbtn' onclick='fblogout()' value='Logout' class='btn logout_btn'>Logout</p>";
           document.getElementById("mainusername").innerHTML = str2
 
@@ -38,7 +38,7 @@ function fb_login(){
           jQuery('#login').modal('hide');
           document.getElementById("mainusername").style.display = "block";
           document.getElementById("mainloginbtn").style.display = "none";
-          document.getElementById("mainregisterbtn").style.display = "none";**/            
+          document.getElementById("mainregisterbtn").style.display = "none";           
             });
 
         } else {
