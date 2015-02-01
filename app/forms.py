@@ -10,8 +10,8 @@ images = UploadSet('images', IMAGES)
 
 
 class LoginForm(Form):
-    username = TextField()  
-    password = PasswordField()
+    username = TextField('Username')  
+    password = PasswordField('Password')
 
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)

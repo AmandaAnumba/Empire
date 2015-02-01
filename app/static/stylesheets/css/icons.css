@@ -20,7 +20,21 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
+.icon-facebook2:before {
+  content: "\e05d";
+}
+.icon-twitter2:before {
+  content: "\e05e";
+}
+.icon-googleplus:before {
+  content: "\e05f";
+}
+.icon-tumblr2:before {
+  content: "\e061";
+}
+.icon-linkedin2:before {
+  content: "\e062";
+}
 .icon-heart2:before {
 	content: "\e9da";
 }

@@ -12,6 +12,22 @@
 	font-style: normal;
 }
 
+.icon-facebook2:before {
+  content: "\e05d";
+}
+.icon-twitter2:before {
+  content: "\e05e";
+}
+.icon-googleplus:before {
+  content: "\e05f";
+}
+.icon-tumblr2:before {
+  content: "\e061";
+}
+.icon-linkedin2:before {
+  content: "\e062";
+}
+
 [class^="icon-"], [class*=" icon-"] {
 	font-family: "icomoon";
 	speak: none;

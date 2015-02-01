@@ -2,8 +2,9 @@
 	width: 250px;
 	font-size: 10pt;
 }
+
 #login_footer {
-	width: 100%
+	width: 100%;
 	float: bottom;
 	background: #298AB3;
 	height: 50px;
@@ -27,7 +28,6 @@
 	margin-left: 20px;
 }
 
-
 .logout_btn{
 	margin-left:15px;
 	float:right;
@@ -35,4 +35,13 @@
 
 span.loginicon:hover{
 	color: #e64c65;
+}
+
+
+/* line 12, ../modules/_welcome.scss */
+#splitlayout #mainlogin {
+  z-index: 1002;
+  width: 100%;
+  position: relative;
+
 }

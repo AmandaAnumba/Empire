@@ -16,6 +16,7 @@
         <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
         <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
         <meta name="author" content="ThreePillarMedia, LLC" />
+
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script src="{{ url_for('static', filename='plugins/pushmenu/js/modernizr.custom.js') }}"></script>
@@ -24,11 +25,13 @@
         <script src="{{ url_for('static', filename='js/gpluslogin.js') }}"></script>
         <script src="{{ url_for('static', filename='js/empirelogin.js') }}"></script>
 
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/icomoon/style.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/login.css') }}" />
+        
         <!--For login modal -->
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
         <script>
@@ -311,7 +314,7 @@
         <div class="modal fade" id="login">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-body text-center" style="height:250px; background:#f2f2f2">
+                    <div class="modal-body text-center" style="height:250px;">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
                         <!-- <h4 class="modal-title" style="font-size: 1.3em;padding: 10px 0;">We're finally here!</h4> -->
@@ -326,9 +329,9 @@
                                         <input id="remember" type="checkbox"> Remember me
                                     </label>
 
-                                    <button type="submit" class="btn">Sign In</button>
+                                    <button type="submit" onclick="empirelogin(); class="btn">Sign In</button>
                                 </fieldset>
-                        </form>
+                            </form>
                         </div>
 
                         <div id="login_info" class="pull-right">
@@ -341,15 +344,12 @@
                             <p style="margin:20px 0px; 10px;">Don't have an account?</p>
                             <p onclick="jQuery('#login').modal('hide');jQuery('#register').modal('show');" class='btn' value='Register' style="margin:10px 0px 0px 2px;">Register with Empire</p>
                         </div>
-                        
-                        <div id="fb-root"></div>
-                        <div id="status"></div>
                     </div>
                     <div id="login_footer">
                             <p class="content">SIGN IN WITH
-                                <a href="#" onclick="fb_login();"><span class="icon icon-facebook loginicon"></span></a>
-                                <a href="#" onclick="gpluslogin();"><span class="loginicon">G+</span></a>
-                                <a href="#" onclick="twitterlogin();"><span class="icon icon-twitter loginicon"></span></a>
+                                <a href="#" onclick="fb_login();"><span class="icon icon-facebook2 loginicon"></span></a>
+                                <a href="#" onclick="gpluslogin();"><span class="icon icon-googleplus2 loginicon"></span></a>
+                                <a href="#" onclick="twitterlogin();"><span class="icon icon-twitter2 loginicon"></span></a>
                             </p>
                     </div>
                 </div>

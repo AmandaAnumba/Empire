@@ -322,14 +322,6 @@ a {
   text-align: center;
 }
 
-/* line 12, ../modules/_welcome.scss */
-#splitlayout #mainlogin {
-  z-index: 1002;
-  width: 100%;
-  position: relative;
-
-}
-
 /* line 36, ../modules/_welcome.scss */
 .side {
   position: fixed;
