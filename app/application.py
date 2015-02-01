@@ -28,11 +28,11 @@ RESTapiKEY = "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
 
 @application.route("/")
 def index():
-    if session.get('username'):
+    if session.get('username') and session.get('sessionToken') and session.get('uID') :
        	username = escape(session['username'])
-       	return render_template('home/index.html', username=username)
+       	return render_template('home/index.html', username=username, loggedin=True)
     else:
-    	return render_template('home/index.html')
+    	return render_template('home/index.html', username=None, loggedin=False)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -69,7 +69,16 @@ def login():
             else:
             	session.permanent = False
 
-            return jsonify({ 'success': "success" })
+            return jsonify({ 'username': username })
 
     elif request.method == 'GET':
         return redirect(url_for('index'))
+
+
+@app.route('/logout')
+def logout():
+    # remove the username from the session if it's there
+    session.pop('username', None)
+    session.pop('sessionToken', None)
+    session.pop('uID', None)
+    return redirect(url_for('index'))

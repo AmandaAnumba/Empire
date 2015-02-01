@@ -22,13 +22,13 @@ function empirelogin() {
         	$('#login_error, #main_login_form').show();
     	}
 
-    	if (message['success']) {
-    		console.log('success');
+    	if (message['username']) {
+    		console.log('username');
             
     		//var str2 = "<img style='width:50px;height:50px;margin-right:10px;' src='" + resp['image']['url'] + "' /> ";
             //str2+= document.getElementById("mainusername").innerHTML;
             var str2 = "Welcome ";
-            //str2+="<span style='color:#e64c65'>" + session['username'] + "</span>";
+            str2+="<span style='color:#e64c65'>" + message['username'] + "</span>";
             str2+="<a id='empirelogoutbtn' class='btn logout_btn' href='{{ url_for('logout') }}'>Logout</a>";
             document.getElementById("mainusername").innerHTML = str2;
 

@@ -34,6 +34,30 @@
         
         <!--For login modal -->
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '345241442325838',
+              xfbml      : true,
+              version    : 'v2.1'
+            });
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <script type="text/javascript">
+            (function() {
+               var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+               po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
+               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+            })();
+        </script>
     </head>
 
     <body id="welcome">
@@ -51,9 +75,16 @@
                 <div id="splitlayout">
                     <div id="mainlogin">
                         <div style="float:right;">
-                            <p id="mainloginbtn" onclick="jQuery('#login').modal('show');" class='btn' value='Login' style="margin:10px 2px 0px 0px;">Login</p>
-                            <p id="mainregisterbtn" onclick="jQuery('#register').modal('show');" class='btn' value='Register' style="margin:10px 0px 0px 2px;">Register</p>
-                            <p id="mainusername" style="display:none; margin-top:10px;"> Welcome </p>
+                            {% if loggedin %}
+                                <p id ="mainusername" style="margin-top:10px;">
+                                    Welcome <span style='color:#e64c65'>{{ username }}<span>
+                                </p>
+                                <a class="btn logout_btn" href="{{ url_for('logout') }}">Logout</a>
+                            {% else %}
+                                 <p id ="mainusername" style="margin-top:10px;" hidden> Welcome </p>
+                                <p id="mainloginbtn" onclick="jQuery('#login').modal('show');" class='btn' value='Login' style="margin:10px 2px 0px 0px;">Login</p>
+                                <p id="mainregisterbtn" onclick="jQuery('#register').modal('show');" class='btn' value='Register' style="margin:10px 0px 0px 2px;">Register</p>
+                            {% endif %}
                         </div>
                     </div>
                     <div id="logo">
@@ -336,7 +367,7 @@
                                         <input id="remember" type="checkbox"> Remember me
                                     </label>
 
-                                    <button type="submit" onclick="empirelogin2();" class="btn">Sign In</button>
+                                    <p onclick="empirelogin();" class="btn">Sign In</p>
                                 </fieldset>
                             </form>
                         </div>
