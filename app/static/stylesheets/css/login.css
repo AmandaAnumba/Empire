@@ -19,13 +19,15 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   color:#fff; 
-  font-size:16pt;
+  line-height: 30pt;
+  font-size:18pt;
   letter-spacing: 1.5pt
 }
 
 .loginicon{
 	margin-right: 20px;
 	margin-left: 20px;
+	font-size:30pt;
 }
 
 .logout_btn{
