@@ -1,5 +1,96 @@
 // user information header for dashboard
 // base_dash.html
+#navbar_top {
+    /*height: 60px;*/
+    border-bottom: 2px solid rgba(169, 169, 169, 0.35);
+    margin: 10px 10% 0;
+    text-align: center;
+}
+
+#center_menu {
+    list-style-type: none;
+    text-align: center;
+    line-height: 3;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 40%;
+}
+
+#center_menu li {
+    display: inline-block;
+    font-size: 0.65em;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 0 8px;
+    font-weight: 300;
+}
+
+#center_menu li:hover,
+#center_menu li:active,{
+    background: rgba(0,0,0,0.9);
+}
+
+#center_menu a {
+    color: rgb(102, 102, 102);
+}
+
+#center_menu a:hover {
+    color: black;
+    font-weight: 700;
+}
+#right_menu {
+    list-style-type: none;
+    text-align: center;
+    /* height: 100%; */
+    /* line-height: 3.5; */
+    /* margin: 0; */
+    position: absolute;
+    right: 112px;
+    top: 30px;
+}
+
+#right_menu li {
+    display: inline-block;
+    /*font-size: 0.65em;*/
+    /*text-transform: uppercase;*/
+    cursor: pointer;
+    /*letter-spacing: 1px;*/
+    padding: 0 8px;
+    font-weight: 300;
+}
+.media p {
+    padding: 0;
+    margin: 0;
+}
+
+.list-group-item {
+    padding: 0;
+    margin: 0;
+}
+
+.list-group-item > .media-body {
+   padding: 10px 20px;
+    text-transform: capitalize;
+    font-size: 0.9em;
+    color: black;
+}
+
+.smilie {
+    cursor:pointer; 
+    font-size:4em; 
+    padding:0 8px;
+}
+
+#list_stuff {
+    text-align: left;
+    margin-left: 20%;
+    font-size: 0.8em;
+}
+
+
+
 #header_wrapper {
     border-radius: 0 0 10px 10px;
     background: whitesmoke;

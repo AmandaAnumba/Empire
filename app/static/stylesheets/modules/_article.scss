@@ -3,12 +3,16 @@
 	background:whitesmoke;
 	overflow-x: hidden;
 
+	a {
+		color: $orange !important;
+	}
+
 	header {
 		position: absolute;
 		margin: 0 auto;
 		width: 100%;
 		top: 0;
-		height: 400px;
+		height: 420px;
 		// background:linear-gradient(rgba(140, 140, 140, 0.5), rgba(0, 0, 0, 0.5));
 
 		.bg-img {
@@ -33,10 +37,10 @@
 
 		.title {
 			position: absolute;
-			bottom: 100px;
+			bottom: 60px;
 			// width: 100%;
 			color: white;
-			margin-left:18.3em;
+			margin-left:17.3em;
 			text-align: left;
 
 			h1 {
@@ -57,7 +61,7 @@
 	}
 
 	nav {
-		width: 17em;
+		width: 15.5em;
 		background: white;
 		position: absolute;
 		left:0;
@@ -91,11 +95,12 @@
 					text-transform: uppercase;
 					font-size: 0.7em;
 					font-weight: 700;
-					letter-spacing: 0.5px;
+					letter-spacing: 1px;
+					color: rgba(0, 0, 0, 0.54);
 				}
 
 				p:nth-child(2) {
-					font-size: 0.8em;
+					font-size: 0.95em;
 				}
 			}
 		}
@@ -103,10 +108,10 @@
 
 	main {
 		position: relative;
-		padding-left: 17em;
+		padding-left: 15.5em;
 		height: 100%;
 		background: whitesmoke;
-		margin-top: 400px;
+		margin-top: 420px;
 
 		#social_btns {
 			padding: 10px 2em;
@@ -117,6 +122,7 @@
 				font-size: 0.9em;
 				font-weight: 700;
 				text-transform: uppercase;
+				color: rgba(0, 0, 0, 0.54);
 			}
 		}
 
@@ -127,17 +133,13 @@
 			font-size: 1.35em;
 			
 
-			a {
-				color: $orange !important;
-			}
-
 			p:nth-child(1) {
 				font-size: 1.5em;
 				font-weight: 300;
 			}
 
 			p {
-				margin: 6px 0;
+				margin: 1.3em 0;
 			}
 			p,span {
 				font-family: 'Lora', serif !important;

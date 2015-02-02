@@ -87,7 +87,7 @@ def rate():
             
 
 
-@articles.route('/users/<username>')
+@articles.route('/_<username>')
 def user(username):
     connection.connect()
     

@@ -31,7 +31,7 @@
 
     <body id="content">
         <nav id='navbar_top'>
-            <ul id="center_menu">
+           <!--  <ul id="center_menu">
                 <li class="tab"><a href="{{ url_for('index') }}">Home </a></li>
                
                 <li class="dropdown">
@@ -66,11 +66,11 @@
                 </li>
 
                 <li class="tab"><a href="{{ url_for('dashboard.cycle') }}">Cycle #1</a></li> 
-            </ul>
+            </ul> -->
 
             <img src="http://media.empire.life/site/images/logo-blk.png" width="100px">
             
-            <ul id="right_menu">
+            <!-- <ul id="right_menu">
                 <a href="https://www.facebook.com/InspireRiseReign" target="_blank">
                     <li><span class="icon icon-facebook"></span></li>
                 </a>
@@ -86,7 +86,7 @@
                 <a href="http://thisisempire.tumblr.com" target="_blank">
                     <li><span class="icon icon-tumblr"></span></li>
                 </a>
-            </ul>
+            </ul> -->
 
             <p id="menu-btn" class="pull-right toggle-menu menu-right" hidden><span class="icon-nav icon-menu"></span></p>
         </nav>
@@ -156,95 +156,6 @@
                 // };
             });
         </script>
-        <style>
-            #navbar_top {
-                /*height: 60px;*/
-                border-bottom: 2px solid rgba(169, 169, 169, 0.35);
-                margin: 10px 10% 0;
-            }
-
-            #center_menu {
-                list-style-type: none;
-                text-align: center;
-                line-height: 3;
-                margin: 0;
-                padding: 0;
-                position: absolute;
-                left: 40%;
-            }
-
-            #center_menu li {
-                display: inline-block;
-                font-size: 0.65em;
-                text-transform: uppercase;
-                cursor: pointer;
-                letter-spacing: 1px;
-                padding: 0 8px;
-                font-weight: 300;
-            }
-
-            #center_menu li:hover,
-            #center_menu li:active,{
-                background: rgba(0,0,0,0.9);
-            }
-
-            #center_menu a {
-                color: rgb(102, 102, 102);
-            }
-
-            #center_menu a:hover {
-                color: black;
-                font-weight: 700;
-            }
-            #right_menu {
-                list-style-type: none;
-                text-align: center;
-                /* height: 100%; */
-                /* line-height: 3.5; */
-                /* margin: 0; */
-                position: absolute;
-                right: 112px;
-                top: 30px;
-            }
-
-            #right_menu li {
-                display: inline-block;
-                /*font-size: 0.65em;*/
-                /*text-transform: uppercase;*/
-                cursor: pointer;
-                /*letter-spacing: 1px;*/
-                padding: 0 8px;
-                font-weight: 300;
-            }
-            .media p {
-                padding: 0;
-                margin: 0;
-            }
-
-            .list-group-item {
-                padding: 0;
-                margin: 0;
-            }
-
-            .list-group-item > .media-body {
-               padding: 10px 20px;
-                text-transform: capitalize;
-                font-size: 0.9em;
-                color: black;
-            }
-
-            .smilie {
-                cursor:pointer; 
-                font-size:4em; 
-                padding:0 8px;
-            }
-
-            #list_stuff {
-                text-align: left;
-                margin-left: 20%;
-                font-size: 0.8em;
-            }
-        </style>
     </body> 
 </html>
 
