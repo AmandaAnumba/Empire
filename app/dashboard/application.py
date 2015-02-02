@@ -31,7 +31,131 @@ def cycle():
    
     return render_template("dashboard/cycle.html", articles=articles, category='Cycle #1')
 
+
 # ##### categories ##### #
+# @dashboard.route('/beauty')
+@dashboard.route('/beauty/<sub_category>', defaults={'None'})
+def beauty(sub_category):
+    # get all of the articles
+    connection.connect()
+    params = urllib.urlencode({"where":json.dumps({
+       "status": "published",
+       "category1": "Beauty"
+    })})
+    
+    connection.request('GET', '/1/classes/Articles?%s' % params, '', {
+        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
+        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
+    })
+
+
+    result = json.loads(connection.getresponse().read())
+    print sub_category
+
+    articles = result['results']
+
+    return render_template("dashboard/beauty.html", articles=articles)
+
+
+@dashboard.route('/career')
+def career():
+    # get all of the articles
+    connection.connect()
+    
+    params = urllib.urlencode({"where":json.dumps({
+       "status": "published"
+    })})
+    
+    connection.request('GET', '/1/classes/Articles?%s' % params, '', {
+        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
+        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
+    })
+
+
+    result = json.loads(connection.getresponse().read())
+    print result
+
+    articles = result['results']
+    a = []
+
+    # articles = Articles.query.all()
+    # a = []
+
+    for i in articles:
+        cat = [x.strip() for x in (i['category']).split(',')]
+
+        if 'Career' in cat:
+            a.append(i)
+
+    return render_template("dashboard/cycle.html", articles=a, category='Career')
+
+
+@dashboard.route('/money')
+def money():
+    # get all of the articles
+    connection.connect()
+    
+    params = urllib.urlencode({"where":json.dumps({
+       "status": "published"
+    })})
+    
+    connection.request('GET', '/1/classes/Articles?%s' % params, '', {
+        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
+        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
+    })
+
+
+    result = json.loads(connection.getresponse().read())
+    print result
+
+    articles = result['results']
+    a = []
+
+    # articles = Articles.query.all()
+    # a = []
+
+    for i in articles:
+        cat = [x.strip() for x in (i['category']).split(',')]
+
+        if 'Money' in cat:
+            a.append(i)
+
+    return render_template("dashboard/cycle.html", articles=a, category='Money')
+
+
+@dashboard.route('/wildcard')
+def wildcard():
+    # get all of the articles
+    connection.connect()
+    
+    params = urllib.urlencode({"where":json.dumps({
+       "status": "published"
+    })})
+    
+    connection.request('GET', '/1/classes/Articles?%s' % params, '', {
+        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
+        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
+    })
+
+
+    result = json.loads(connection.getresponse().read())
+    print result
+
+    articles = result['results']
+    a = []
+
+    # articles = Articles.query.all()
+    # a = []
+
+    for i in articles:
+        cat = [x.strip() for x in (i['category']).split(',')]
+
+        if 'Wildcard' in cat:
+            a.append(i)
+
+    return render_template("dashboard/cycle.html", articles=a, category='Wildcard')
+
+
 @dashboard.route('/current-events')
 def news():
     # get all of the articles
@@ -107,69 +231,7 @@ def tech():
 
     return render_template("dashboard/cycle.html", articles=a, category='Technology')
 
-@dashboard.route('/money')
-def money():
-    # get all of the articles
-    connection.connect()
-    
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published"
-    })})
-    
-    connection.request('GET', '/1/classes/Articles?%s' % params, '', {
-        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
-        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
-    })
 
-
-    result = json.loads(connection.getresponse().read())
-    print result
-
-    articles = result['results']
-    a = []
-
-    # articles = Articles.query.all()
-    # a = []
-
-    for i in articles:
-        cat = [x.strip() for x in (i['category']).split(',')]
-
-        if 'Money' in cat:
-            a.append(i)
-
-    return render_template("dashboard/cycle.html", articles=a, category='Money')
-
-@dashboard.route('/career')
-def career():
-    # get all of the articles
-    connection.connect()
-    
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published"
-    })})
-    
-    connection.request('GET', '/1/classes/Articles?%s' % params, '', {
-        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
-        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
-    })
-
-
-    result = json.loads(connection.getresponse().read())
-    print result
-
-    articles = result['results']
-    a = []
-
-    # articles = Articles.query.all()
-    # a = []
-
-    for i in articles:
-        cat = [x.strip() for x in (i['category']).split(',')]
-
-        if 'Career' in cat:
-            a.append(i)
-
-    return render_template("dashboard/cycle.html", articles=a, category='Career')
 
 @dashboard.route('/mindbody')
 def mindbody():
@@ -234,34 +296,3 @@ def culture():
 
     return render_template("dashboard/cycle.html", articles=a, category='Culture')
 
-@dashboard.route('/wildcard')
-def wildcard():
-    # get all of the articles
-    connection.connect()
-    
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published"
-    })})
-    
-    connection.request('GET', '/1/classes/Articles?%s' % params, '', {
-        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
-        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
-    })
-
-
-    result = json.loads(connection.getresponse().read())
-    print result
-
-    articles = result['results']
-    a = []
-
-    # articles = Articles.query.all()
-    # a = []
-
-    for i in articles:
-        cat = [x.strip() for x in (i['category']).split(',')]
-
-        if 'Wildcard' in cat:
-            a.append(i)
-
-    return render_template("dashboard/cycle.html", articles=a, category='Wildcard')

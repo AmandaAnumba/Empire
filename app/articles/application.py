@@ -86,7 +86,6 @@ def rate():
             return jsonify({ 'success': "success" })
             
 
-
 @articles.route('/_<username>')
 def user(username):
     connection.connect()

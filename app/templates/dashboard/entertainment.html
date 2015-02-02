@@ -1,0 +1,43 @@
+{% extends "dashboard/base_articles_home.html" %}
+{% block content %}
+
+<!-- main content -->
+<main id="content_wrapper">
+	<div id="grid" class="grid">
+		{% if articles %}
+			{%- for i in articles %}
+
+			<figure class="article effect-zoe">
+				<img src="{{ i.featureIMG }}" alt="{{ i.title }}"/>
+				<figcaption>
+					<h2>{{ i.title }}</h2>
+					<p class="drscpt">{{ i.description }}</p>
+					<a href="{{ url_for('articles.read', username=i.author, id=i.objectId, title='-'.join((i.title).lower().split())) }}">View more</a>
+				</figcaption>			
+			</figure>
+
+			{% endfor -%}
+		{% endif %}
+	</div>
+</main>
+
+<script>
+	var $container = $('#grid');
+	
+	// initialize
+	$container.imagesLoaded( function() {
+		$container.masonry({
+			// columnWidth: 50,
+			itemSelector: '.article',
+			margin: '0 auto',
+		});
+	});
+	
+	// horizontal scroll
+    // $('html, body, *').mousewheel(function(e, delta) {
+    //     this.scrollLeft -= (delta * 40);
+    //     e.preventDefault();
+    // });
+
+</script>
+{% endblock %}

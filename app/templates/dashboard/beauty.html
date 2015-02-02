@@ -1,0 +1,94 @@
+{% extends "dashboard/base_articles_home.html" %}
+{% block content %}
+<!-- subcategories -->
+<nav id='navbar_top'>
+   <!--  <ul id="center_menu">
+        <li class="tab"><a href="{{ url_for('index') }}">Home </a></li>
+       
+        <li class="dropdown">
+            <div class="dropdown-toggle" dropdown-toggle="categories" style="cursor: pointer;">Categories <span class="icon-arrow-down"></span></div>
+            <div class="dropdown-menu w-sm animated fadeInUp" id="categories">
+                <div class="panel bg-white">
+                    <div class="list-group">
+                        <div class="media list-group-item">
+                            <a class="media-body block m-b-none"href="{{ url_for('dashboard.news') }}">Current Events</a>
+                        </div>
+                        <div class="media list-group-item">
+                            <a class="media-body block m-b-none" href="{{ url_for('dashboard.tech') }}">Technology</a>
+                        </div>
+                        <div class="media list-group-item">
+                            <a class="media-body block m-b-none" href="{{ url_for('dashboard.money') }}">Money</a>
+                        </div>
+                        <div class="media list-group-item">
+                            <a class="media-body block m-b-none" href="{{ url_for('dashboard.career') }}">Career</a>
+                        </div>
+                        <div class="media list-group-item">
+                            <a class="media-body block m-b-none" href="{{ url_for('dashboard.mindbody') }}">Mind, Body, and Spirit</a>
+                        </div>
+                        <div class="media list-group-item">
+                            <a class="media-body block m-b-none" href="{{ url_for('dashboard.culture') }}">Culture + Entertainment</a>
+                        </div>
+                        <div class="media list-group-item">
+                            <a class="media-body block m-b-none" href="{{ url_for('dashboard.wildcard') }}">Wildcard</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="tab"><a href="{{ url_for('dashboard.cycle') }}">Cycle #1</a></li> 
+    </ul> -->
+
+    <img src="http://media.empire.life/site/images/logo-blk.png" width="100px">
+
+    <p id="menu-btn" class="pull-right toggle-menu menu-right" hidden><span class="icon-nav icon-menu"></span></p>
+
+</nav>
+<section id="subcategories">
+	<ul>
+		<li>Fashion</li>
+		<li>Hair</li>
+		<li>Body</li>
+	</ul>
+</section>
+
+<!-- main content -->
+<main id="content_wrapper">
+	<div id="grid" class="grid">
+		{% if articles %}
+			{%- for i in articles %}
+
+			<figure class="article effect-zoe">
+				<img src="{{ i.featureIMG }}" alt="{{ i.title }}"/>
+				<figcaption>
+					<h2>{{ i.title }}</h2>
+					<p class="drscpt">{{ i.description }}</p>
+					<a href="{{ url_for('articles.read', username=i.author, id=i.objectId, title='-'.join((i.title).lower().split())) }}">View more</a>
+				</figcaption>			
+			</figure>
+
+			{% endfor -%}
+		{% endif %}
+	</div>
+</main>
+
+<script>
+	var $container = $('#grid');
+	
+	// initialize
+	$container.imagesLoaded( function() {
+		$container.masonry({
+			// columnWidth: 50,
+			itemSelector: '.article',
+			margin: '0 auto',
+		});
+	});
+	
+	// horizontal scroll
+    // $('html, body, *').mousewheel(function(e, delta) {
+    //     this.scrollLeft -= (delta * 40);
+    //     e.preventDefault();
+    // });
+
+</script>
+{% endblock %}
