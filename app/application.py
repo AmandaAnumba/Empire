@@ -35,7 +35,7 @@ def index():
     	return render_template('home/index.html', username=None, loggedin=False)
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@application.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
@@ -75,10 +75,13 @@ def login():
         return redirect(url_for('index'))
 
 
-@app.route('/logout')
+@application.route('/logout')
 def logout():
     # remove the username from the session if it's there
     session.pop('username', None)
     session.pop('sessionToken', None)
     session.pop('uID', None)
     return redirect(url_for('index'))
+
+
+    

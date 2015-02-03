@@ -34,7 +34,7 @@ def cycle():
 
 # ##### categories ##### #
 # @dashboard.route('/beauty')
-@dashboard.route('/beauty/<sub_category>', defaults={'None'})
+@dashboard.route('/beauty/<sub_category>')
 def beauty(sub_category):
     # get all of the articles
     connection.connect()
