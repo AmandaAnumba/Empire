@@ -6,6 +6,8 @@ dashboard = Blueprint('dashboard', __name__)
 
 # Parse.com RESTful API
 connection = httplib.HTTPSConnection('api.parse.com', 443)
+PARSEappID = "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs"
+RESTapiKEY = "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf" 
 
 
 @dashboard.route('/current')
@@ -32,11 +34,8 @@ def cycle():
     return render_template("dashboard/cycle.html", articles=articles, category='Cycle #1')
 
 
-# ##### categories ##### #
-# @dashboard.route('/beauty')
-@dashboard.route('/beauty/<sub_category>')
-def beauty(sub_category):
-    # get all of the articles
+@dashboard.route('/beauty')
+def beauty():
     connection.connect()
     params = urllib.urlencode({"where":json.dumps({
        "status": "published",
@@ -44,13 +43,31 @@ def beauty(sub_category):
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
-        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
-        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
     })
 
+    result = json.loads(connection.getresponse().read())
+
+    articles = result['results']
+
+    return render_template("dashboard/beauty.html", articles=articles)
+
+
+@dashboard.route('/beauty/<sub_category>')
+def sub_beauty(sub_category):
+    connection.connect()
+    params = urllib.urlencode({"where":json.dumps({
+       "status": "published",
+       "category1": sub_category.capitalize()
+    })})
+    
+    connection.request('GET', '/1/classes/Articles?%s' % params, '', {
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
+    })
 
     result = json.loads(connection.getresponse().read())
-    print sub_category
 
     articles = result['results']
 
@@ -67,8 +84,8 @@ def career():
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
-        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
-        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
     })
 
 
@@ -100,8 +117,8 @@ def money():
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
-        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
-        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
     })
 
 
@@ -133,8 +150,8 @@ def wildcard():
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
-        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
-        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
     })
 
 
@@ -169,8 +186,8 @@ def news():
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
-        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
-        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
     })
 
     result = json.loads(connection.getresponse().read())
@@ -211,8 +228,8 @@ def tech():
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
-        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
-        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
     })
 
     result = json.loads(connection.getresponse().read())
@@ -242,8 +259,8 @@ def mindbody():
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
-        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
-        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
     })
 
 
@@ -274,8 +291,8 @@ def culture():
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
-        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
-        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
     })
 
 

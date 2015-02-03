@@ -7,6 +7,31 @@
   font-style: normal;
 }
 /* line 15, ../partials/_icomoon.scss */
+.icon-facebook2:before {
+  content: "\e05d";
+}
+
+/* line 18, ../partials/_icomoon.scss */
+.icon-twitter2:before {
+  content: "\e05e";
+}
+
+/* line 21, ../partials/_icomoon.scss */
+.icon-googleplus:before {
+  content: "\e05f";
+}
+
+/* line 24, ../partials/_icomoon.scss */
+.icon-tumblr2:before {
+  content: "\e061";
+}
+
+/* line 27, ../partials/_icomoon.scss */
+.icon-linkedin2:before {
+  content: "\e062";
+}
+
+/* line 31, ../partials/_icomoon.scss */
 [class^="icon-"], [class*=" icon-"] {
   font-family: "icomoon";
   speak: none;
@@ -19,217 +44,217 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 27, ../partials/_icomoon.scss */
+/* line 43, ../partials/_icomoon.scss */
 .icon-heart2:before {
   content: "\e9da";
 }
 
-/* line 31, ../partials/_icomoon.scss */
+/* line 47, ../partials/_icomoon.scss */
 .icon-heart-broken:before {
   content: "\e9db";
 }
 
-/* line 35, ../partials/_icomoon.scss */
+/* line 51, ../partials/_icomoon.scss */
 .icon-fire:before {
   content: "\e9a9";
 }
 
-/* line 39, ../partials/_icomoon.scss */
+/* line 55, ../partials/_icomoon.scss */
 .icon-smile-o:before {
   content: "\f118";
 }
 
-/* line 43, ../partials/_icomoon.scss */
+/* line 59, ../partials/_icomoon.scss */
 .icon-frown-o:before {
   content: "\f119";
 }
 
-/* line 47, ../partials/_icomoon.scss */
+/* line 63, ../partials/_icomoon.scss */
 .icon-meh-o:before {
   content: "\f11a";
 }
 
-/* line 51, ../partials/_icomoon.scss */
+/* line 67, ../partials/_icomoon.scss */
 .icon-mail:before {
   content: "\e60b";
 }
 
-/* line 55, ../partials/_icomoon.scss */
+/* line 71, ../partials/_icomoon.scss */
 .icon-user:before {
   content: "\e609";
 }
 
-/* line 59, ../partials/_icomoon.scss */
+/* line 75, ../partials/_icomoon.scss */
 .icon-quote:before {
   content: "\e60a";
 }
 
-/* line 63, ../partials/_icomoon.scss */
+/* line 79, ../partials/_icomoon.scss */
 .icon-megaphone:before {
   content: "\e602";
 }
 
-/* line 67, ../partials/_icomoon.scss */
+/* line 83, ../partials/_icomoon.scss */
 .icon-arrow-down:before {
   content: "\e606";
 }
 
-/* line 71, ../partials/_icomoon.scss */
+/* line 87, ../partials/_icomoon.scss */
 .icon-arrow-up:before {
   content: "\e607";
 }
 
-/* line 75, ../partials/_icomoon.scss */
+/* line 91, ../partials/_icomoon.scss */
 .icon-arrow-left:before {
   content: "\e604";
 }
 
-/* line 79, ../partials/_icomoon.scss */
+/* line 95, ../partials/_icomoon.scss */
 .icon-twitter:before {
   content: "\e600";
 }
 
-/* line 83, ../partials/_icomoon.scss */
+/* line 99, ../partials/_icomoon.scss */
 .icon-facebook:before {
   content: "\e601";
 }
 
-/* line 87, ../partials/_icomoon.scss */
+/* line 103, ../partials/_icomoon.scss */
 .icon-pinterest:before {
   content: "\e603";
 }
 
-/* line 91, ../partials/_icomoon.scss */
+/* line 107, ../partials/_icomoon.scss */
 .icon-tumblr:before {
   content: "\e605";
 }
 
-/* line 95, ../partials/_icomoon.scss */
+/* line 111, ../partials/_icomoon.scss */
 .icon-instagram:before {
   content: "\e608";
 }
 
-/* line 99, ../partials/_icomoon.scss */
+/* line 115, ../partials/_icomoon.scss */
 .icon-number:before {
   content: "\e610";
 }
 
-/* line 103, ../partials/_icomoon.scss */
+/* line 119, ../partials/_icomoon.scss */
 .icon-lamp:before {
   content: "\e60e";
 }
 
-/* line 107, ../partials/_icomoon.scss */
+/* line 123, ../partials/_icomoon.scss */
 .icon-stats:before {
   content: "\e60f";
 }
 
-/* line 111, ../partials/_icomoon.scss */
+/* line 127, ../partials/_icomoon.scss */
 .icon-trophy:before {
   content: "\e023";
 }
 
-/* line 115, ../partials/_icomoon.scss */
+/* line 131, ../partials/_icomoon.scss */
 .icon-lightbulb:before {
   content: "\e030";
 }
 
-/* line 119, ../partials/_icomoon.scss */
+/* line 135, ../partials/_icomoon.scss */
 .icon-eye:before {
   content: "\e000";
 }
 
-/* line 123, ../partials/_icomoon.scss */
+/* line 139, ../partials/_icomoon.scss */
 .icon-video:before {
   content: "\e018";
 }
 
-/* line 127, ../partials/_icomoon.scss */
+/* line 143, ../partials/_icomoon.scss */
 .icon-heart:before {
   content: "\e024";
 }
 
-/* line 131, ../partials/_icomoon.scss */
+/* line 147, ../partials/_icomoon.scss */
 .icon-search:before {
   content: "\e036";
 }
 
-/* line 135, ../partials/_icomoon.scss */
+/* line 151, ../partials/_icomoon.scss */
 .icon-circle-plus:before {
   content: "\e040";
 }
 
-/* line 139, ../partials/_icomoon.scss */
+/* line 155, ../partials/_icomoon.scss */
 .icon-circle-minus:before {
   content: "\e041";
 }
 
-/* line 143, ../partials/_icomoon.scss */
+/* line 159, ../partials/_icomoon.scss */
 .icon-circle-check:before {
   content: "\e042";
 }
 
-/* line 147, ../partials/_icomoon.scss */
+/* line 163, ../partials/_icomoon.scss */
 .icon-circle-cross:before {
   content: "\e043";
 }
 
-/* line 151, ../partials/_icomoon.scss */
+/* line 167, ../partials/_icomoon.scss */
 .icon-rewind:before {
   content: "\e051";
 }
 
-/* line 155, ../partials/_icomoon.scss */
+/* line 171, ../partials/_icomoon.scss */
 .icon-fast-forward:before {
   content: "\e055";
 }
 
-/* line 159, ../partials/_icomoon.scss */
+/* line 175, ../partials/_icomoon.scss */
 .icon-head:before {
   content: "\e074";
 }
 
-/* line 163, ../partials/_icomoon.scss */
+/* line 179, ../partials/_icomoon.scss */
 .icon-speech-bubble:before {
   content: "\e076";
 }
 
-/* line 167, ../partials/_icomoon.scss */
+/* line 183, ../partials/_icomoon.scss */
 .icon-share:before {
   content: "\e081";
 }
 
-/* line 171, ../partials/_icomoon.scss */
+/* line 187, ../partials/_icomoon.scss */
 .icon-arrow-left2:before {
   content: "\e094";
 }
 
-/* line 175, ../partials/_icomoon.scss */
+/* line 191, ../partials/_icomoon.scss */
 .icon-arrow-right:before {
   content: "\e095";
 }
 
-/* line 179, ../partials/_icomoon.scss */
+/* line 195, ../partials/_icomoon.scss */
 .icon-plus:before {
   content: "\e114";
 }
 
-/* line 183, ../partials/_icomoon.scss */
+/* line 199, ../partials/_icomoon.scss */
 .icon-minus:before {
   content: "\e115";
 }
 
-/* line 187, ../partials/_icomoon.scss */
+/* line 203, ../partials/_icomoon.scss */
 .icon-check:before {
   content: "\e116";
 }
 
-/* line 191, ../partials/_icomoon.scss */
+/* line 207, ../partials/_icomoon.scss */
 .icon-cross:before {
   content: "\e117";
 }
 
-/* line 195, ../partials/_icomoon.scss */
+/* line 211, ../partials/_icomoon.scss */
 .icon-menu:before {
   content: "\e120";
 }
@@ -1385,12 +1410,41 @@ a {
 /* line 3, ../modules/_header.scss */
 #navbar_top {
   /*height: 60px;*/
-  border-bottom: 2px solid rgba(169, 169, 169, 0.35);
-  margin: 10px 10% 0;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.2);
+}
+/* line 8, ../modules/_header.scss */
+#navbar_top #section_title {
+  font-size: 5em;
+  font-weight: 700;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+}
+/* line 19, ../modules/_header.scss */
+#navbar_top section ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
+/* line 25, ../modules/_header.scss */
+#navbar_top section ul li {
+  display: inline-block;
+  padding: 20px 0;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+/* line 37, ../modules/_header.scss */
+#navbar_top .beauty li {
+  width: 12.5%;
+}
 
-/* line 10, ../modules/_header.scss */
+/* line 43, ../modules/_header.scss */
 #center_menu {
   list-style-type: none;
   text-align: center;
@@ -1401,7 +1455,7 @@ a {
   left: 40%;
 }
 
-/* line 20, ../modules/_header.scss */
+/* line 53, ../modules/_header.scss */
 #center_menu li {
   display: inline-block;
   font-size: 0.65em;
@@ -1412,24 +1466,24 @@ a {
   font-weight: 300;
 }
 
-/* line 30, ../modules/_header.scss */
+/* line 63, ../modules/_header.scss */
 #center_menu li:hover,
 #center_menu li:active {
   background: rgba(0, 0, 0, 0.9);
 }
 
-/* line 35, ../modules/_header.scss */
+/* line 68, ../modules/_header.scss */
 #center_menu a {
   color: #666666;
 }
 
-/* line 39, ../modules/_header.scss */
+/* line 72, ../modules/_header.scss */
 #center_menu a:hover {
   color: black;
   font-weight: 700;
 }
 
-/* line 43, ../modules/_header.scss */
+/* line 76, ../modules/_header.scss */
 #right_menu {
   list-style-type: none;
   text-align: center;
@@ -1441,7 +1495,7 @@ a {
   top: 30px;
 }
 
-/* line 54, ../modules/_header.scss */
+/* line 87, ../modules/_header.scss */
 #right_menu li {
   display: inline-block;
   /*font-size: 0.65em;*/
@@ -1452,19 +1506,19 @@ a {
   font-weight: 300;
 }
 
-/* line 63, ../modules/_header.scss */
+/* line 96, ../modules/_header.scss */
 .media p {
   padding: 0;
   margin: 0;
 }
 
-/* line 68, ../modules/_header.scss */
+/* line 101, ../modules/_header.scss */
 .list-group-item {
   padding: 0;
   margin: 0;
 }
 
-/* line 73, ../modules/_header.scss */
+/* line 106, ../modules/_header.scss */
 .list-group-item > .media-body {
   padding: 10px 20px;
   text-transform: capitalize;
@@ -1472,21 +1526,21 @@ a {
   color: black;
 }
 
-/* line 80, ../modules/_header.scss */
+/* line 113, ../modules/_header.scss */
 .smilie {
   cursor: pointer;
   font-size: 4em;
   padding: 0 8px;
 }
 
-/* line 86, ../modules/_header.scss */
+/* line 119, ../modules/_header.scss */
 #list_stuff {
   text-align: left;
   margin-left: 20%;
   font-size: 0.8em;
 }
 
-/* line 94, ../modules/_header.scss */
+/* line 127, ../modules/_header.scss */
 #header_wrapper {
   border-radius: 0 0 10px 10px;
   background: whitesmoke;
@@ -1495,14 +1549,14 @@ a {
   right: 20px;
   padding: 5px 10px;
 }
-/* line 102, ../modules/_header.scss */
+/* line 135, ../modules/_header.scss */
 #header_wrapper div {
   width: 30px;
   height: 30px;
   background: black;
   float: left;
 }
-/* line 109, ../modules/_header.scss */
+/* line 142, ../modules/_header.scss */
 #header_wrapper p {
   float: right;
   font-size: 0.6em;
@@ -1511,25 +1565,25 @@ a {
   text-transform: uppercase;
 }
 
-/* line 118, ../modules/_header.scss */
+/* line 151, ../modules/_header.scss */
 .navibar {
   list-style: none;
   float: right;
   margin-top: 19px;
 }
 
-/* line 126, ../modules/_header.scss */
+/* line 159, ../modules/_header.scss */
 .dropdown {
   padding: 0 14px;
   display: inline-block;
 }
 
-/* line 131, ../modules/_header.scss */
+/* line 164, ../modules/_header.scss */
 .icon-nav {
   font-size: 1.4em;
 }
 
-/* line 135, ../modules/_header.scss */
+/* line 168, ../modules/_header.scss */
 #header_title {
   font-weight: 600;
   /*color: #cfccc7;*/
@@ -1541,7 +1595,7 @@ a {
   letter-spacing: 1px;
 }
 
-/* line 146, ../modules/_header.scss */
+/* line 179, ../modules/_header.scss */
 #header_actions {
   text-align: right;
 }
@@ -1563,6 +1617,16 @@ a {
 #main_wrapper #add_content .icon {
   font-size: 4em;
   font-weight: 300;
+}
+
+/* line 3, ../modules/_grid.scss */
+.article.regular img {
+  width: 200px;
+}
+
+/* line 10, ../modules/_grid.scss */
+.article.feature img {
+  width: 325px;
 }
 
 /* line 1, ../modules/_about.scss */

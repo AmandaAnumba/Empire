@@ -57,6 +57,14 @@
 }
 
 
+
+#top_wrapper {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    color: white;
+}
+
 $gutter: em(layout, 240px, $target);
 #navbar_top_wrapper {
     @include transition-property(all);
@@ -170,6 +178,8 @@ $gutter: em(layout, 240px, $target);
         }
     }
 }
+
+
 
 // dropdowns
 .dropdown {
