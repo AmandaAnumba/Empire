@@ -81,7 +81,7 @@
                                 </p>
                                 <a class="btn logout_btn" href="{{ url_for('logout') }}">Logout</a>
                             {% else %}
-                                 <p id ="mainusername" style="margin-top:10px;" hidden> Welcome </p>
+                                <p id ="mainusername2" style="margin-top:10px;" hidden> Welcome </p>
                                 <p id="mainloginbtn" onclick="jQuery('#login').modal('show');" class='btn' value='Login' style="margin:10px 2px 0px 0px;">Login</p>
                                 <p id="mainregisterbtn" onclick="jQuery('#register').modal('show');" class='btn' value='Register' style="margin:10px 0px 0px 2px;">Register</p>
                             {% endif %}
@@ -395,40 +395,45 @@
         </div>
         <div class="modal fade" id="register">
             <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body text-center" style="height:300px;">
+                <div class="modal-content" style="height: 400px;">
+                    <div class="modal-body text-center" style="height:300px; text-align:center;">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3>Register an Empire Account</h3>
+                        <form class="pure-form pure-form-stacked" id="main_register_form">
+                            <fieldset>
+                                <input type="text" class="form-input" placeholder="Username" help-text="us_help" id="username" name="username">
+                                <p class="help-block" id="us_help"><small>Must be at least 4 characters long and contain no spaces</small></p>
+                                
+                                <input type="email" class="form-input" placeholder="Email Address" id="email" name="email">
 
-                        <!-- <h4 class="modal-title" style="font-size: 1.3em;padding: 10px 0;">We're finally here!</h4> -->
-                    
-                        <div id="social_links" class="pull-left">
-                            <ul>
-                                <li><a href="#" onclick="fb_login();"><img src="{{ url_for('static', filename='images/fb.png') }}" alt="Facebook Login Button" /></a></li>
-                                <li><img src="{{ url_for('static', filename='images/tw.png') }}"></li>
+                                <input type="password" class="form-input" placeholder="Password" help-text="pw_help" id="password" name="password">
+                                <!-- <p class="help-block" id="pw_help"><small>Must be at least 6 characters long and contain both numbers and letters</small></p> -->
 
-                                <li><input type="image"  id="gplusloginbtn" src="{{ url_for('static', filename='images/gg.png') }}" width="225px" value="" onclick="gpluslogin()" /></li>
-                                <li><input type="button"  id="gpluslogoutbtn" value="Logout" onclick="gpluslogout()" style="display:none"/></li>
-                                <li><div id="profile"></div></li>
+                                <input type="password" class="form-input" placeholder="Confirm Password" id="confirm" name="confirm">
 
-                             </ul> 
-
-                        </div>
-
-                        <div id="login_info" class="pull-right">
-                            <h2>Sign into Empire</h2>
-                            <p>By signing in or registering for an account, you will be able to enjoy the following benefits:</p>
-                            <ul>
-                                <li>Comment on articles</li>
-                                <li>Start Discussions</li>
-                            </ul>
-                            <ul>
-                                <li></li
-
-                            </ul>
-                        </div>
-                        
-                        <div id="fb-root"></div>
-                        <div id="status"></div>
+                                <div id="tt_pw" class="tooltip2 fade right" style="top: 158px; right: -126px;" hidden>
+                                    <div class="tooltip2-arrow"></div>
+                                    <div class="tooltip2-inner">Passwords must match</div>
+                                </div>
+                                <div id="tt_pw2" class="tooltip2 fade right" style="top: 119px; right: -202px;" hidden>
+                                    <div class="tooltip2-arrow"></div>
+                                    <div class="tooltip2-inner"></div>
+                                </div>
+                                <div id="tt_em1" class="tooltip2 fade right" style="top: 71px; right: -174px;" hidden>
+                                    <div class="tooltip2-arrow"></div>
+                                    <div class="tooltip2-inner">This email address is already in use</div>
+                                </div>
+                                <div id="tt_em2" class="tooltip2 fade right" style="top: 71px; right: -177px;" hidden>
+                                    <div class="tooltip2-arrow"></div>
+                                    <div class="tooltip2-inner">Please enter a valid email address</div>
+                                </div>
+                                <div id="tt_us" class="tooltip2 fade right" style="top: 16px; right: -154px;" hidden>
+                                    <div class="tooltip2-arrow"></div>
+                                    <div class="tooltip2-inner">This username already exists</div>
+                                </div>
+                                <p onclick="empireregister();" class="btn">Sign Up</p>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
             </div>

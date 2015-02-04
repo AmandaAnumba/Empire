@@ -48,3 +48,9 @@ span.loginicon:hover{
   position: relative;
 
 }
+
+#main_register_form{
+	text-align:center;
+	width:400px;
+	margin: 0 auto;
+}

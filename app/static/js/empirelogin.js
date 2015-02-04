@@ -1,7 +1,3 @@
-function empirelogin2() {
-    console.log('get here');
-}
-
 function empirelogin() {
    
     $.post('/login', {
@@ -30,11 +26,12 @@ function empirelogin() {
             var str2 = "Welcome ";
             str2+="<span style='color:#e64c65'>" + message['username'] + "</span>";
             str2+="<a id='empirelogoutbtn' class='btn logout_btn' href='{{ url_for('logout') }}'>Logout</a>";
-            document.getElementById("mainusername").innerHTML = str2;
+            document.getElementById("mainusername2").innerHTML = str2;
 
-            document.getElementById("empirelogoutbtn").style.display = "block";
             jQuery('#login').modal('hide');
-            document.getElementById("mainusername").style.display = "block";
+            jQuery('#mainusername2').show();
+            jQuery('empirelogoutbtn').show();
+            document.getElementById("mainusername2").style.display = "block";
             document.getElementById("mainloginbtn").style.display = "none";
             document.getElementById("mainregisterbtn").style.display = "none";
     	}

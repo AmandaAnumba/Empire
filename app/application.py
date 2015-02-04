@@ -83,5 +83,76 @@ def logout():
     session.pop('uID', None)
     return redirect(url_for('index'))
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form.get('username', None)
+        email = request.form.get('email', None).lower()
+        password = request.form.get('password', None)
+        confirm = request.form.get('confirm', None)
 
-    
+        if not re.match(r"^[A-Za-z0-9\.\+_-]+@[A-Za-z0-9\._-]+\.[a-zA-Z]*$", email): 
+            print 'email invalid'
+            return jsonify({ 'email': "invalid" })
+
+        if password != confirm: 
+            print 'password no match'
+            return jsonify({ 'password-invalid': "invalid" })
+
+        else:
+            connection.connect()
+            connection.request('POST', '/1/users', json.dumps({
+                "username": username,
+                "password": password,
+                "email": email
+            }), {
+                "X-Parse-Application-Id": PARSEappID,
+                "X-Parse-REST-API-Key": RESTapiKEY,
+                "Content-Type": "application/json"
+            })
+            
+            result = json.loads(connection.getresponse().read())
+
+            if 'error' in result.keys():
+                print "error while registering"
+                return jsonify({ 'error': "There was a problem while creating your account. Please try again." })
+
+            else:
+                print 'successful registration'
+                session['username'] = username
+            
+                # stay logged in longer
+                session.permanent = True
+
+                return jsonify({ 'success': "Registration successful. You are now logged in." })
+
+    elif request.method == 'GET':
+        return redirect(url_for('index'))
+
+
+@app.route('/forgot', methods=['GET', 'POST'])
+def forgot():
+    if request.method == 'POST':
+        email = request.form.get('email', None).lower()
+
+        connection.connect()
+        connection.request('POST', '/1/requestPasswordReset', json.dumps({
+            "email": email
+        }), {
+            "X-Parse-Application-Id": PARSEappID,
+            "X-Parse-REST-API-Key": RESTapiKEY,
+            "Content-Type": "application/json"
+        })
+
+        result = json.loads(connection.getresponse().read())
+
+        if 'error' in result.keys():
+            print "error"
+            return jsonify({ 'error': "We cannot find the account associated with this email address. Please enter the email address used to register your account." })
+
+        else:
+            print 'success'
+            return jsonify({ 'success': "An email has been sent to you. Please follow the link to reset your password." })
+
+    elif request.method == 'GET':
+        return redirect(url_for('index'))
