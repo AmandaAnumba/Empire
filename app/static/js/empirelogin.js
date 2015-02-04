@@ -47,11 +47,13 @@ function empireregister() {
     $('#register-form').hide();
     $('#loader').show();
     
-    var user = $('#register-form input[name=username]').val(),
-    	pw = $('#register-form input[name=password]').val(),
-    	confirm = $('#register-form input[name=confirm]').val(),
-    	em = $('#register-form input[name=email]').val();
+    var user = $('#main_register_form input[name=username]').val(),
+    	pw = $('#main_register_form input[name=password]').val(),
+    	confirm = $('#main_register_form input[name=confirm]').val(),
+    	em = $('#main_register_form input[name=email]').val();
 
+    console.log(em);
+    
 	$.post('/register', {
     	username: user,
         email: em,
