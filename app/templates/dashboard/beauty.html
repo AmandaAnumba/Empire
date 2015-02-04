@@ -32,9 +32,9 @@
         			<p><em>by</em><span class="article_author">{{ i.author }}</span></p>
                     
                     {% if sub == None %}
-                    <a href="{{ url_for('articles.read', category='beauty', sub='', id=i.objectId, title='-'.join((i.title).lower().split())) }}">View more</a>
+                    <a href="/beauty/{{'-'.join((i.title).lower().split())}}/{{i.objectId}}">View more</a>
                     {% else %}
-                    <a href="{{ url_for('articles.read', category='beauty', sub='', id=i.objectId, title='-'.join((i.title).lower().split())) }}">View more</a>
+                    <a href="/beauty/{{sub}}/{{'-'.join((i.title).lower().split())}}/{{i.objectId}}">View more</a>
                     {% endif %}
         		</figcaption>			
         	</figure>
@@ -47,7 +47,12 @@
                     <h2>{{ i.title }}</h2>
                     <p class="a-dscrpt">{{ i.description }}</p>
                     <p><em>by</em><span class="a-author">{{ i.author }}</span></p>
-                    <a href="{{ url_for('articles.read', category='beauty', sub='', id=i.objectId, title='-'.join((i.title).lower().split())) }}">View more</a>
+                    
+                    {% if sub == None %}
+                    <a href="/beauty/{{'-'.join((i.title).lower().split())}}/{{i.objectId}}">View more</a>
+                    {% else %}
+                    <a href="/beauty/{{sub}}/{{'-'.join((i.title).lower().split())}}/{{i.objectId}}">View more</a>
+                    {% endif %}
                 </figcaption>           
             </figure>
             {% endif %}

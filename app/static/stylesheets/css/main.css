@@ -2091,61 +2091,58 @@ a {
 }
 
 /* line 1, ../modules/_profile.scss */
-#info {
-  border-right: 1px solid lightgray;
-  position: fixed;
-  left: 0;
-  width: 23em;
-  height: 100%;
-}
-/* line 8, ../modules/_profile.scss */
-#info ul {
-  list-style-type: none;
-  margin: 1em 0 0 0;
-  padding: 1em;
-  text-align: center;
-}
-/* line 14, ../modules/_profile.scss */
-#info ul #avi {
-  width: 19em;
-  height: auto;
-  margin-bottom: 2em;
-}
-/* line 20, ../modules/_profile.scss */
-#info ul #name {
-  font-size: 2.3em;
-}
-/* line 24, ../modules/_profile.scss */
-#info ul #role {
-  font-style: italic;
-}
-/* line 28, ../modules/_profile.scss */
-#info ul li {
-  font-size: 1em;
-}
-/* line 32, ../modules/_profile.scss */
-#info ul .social {
-  text-align: left;
-  margin: 1em 0;
-}
-/* line 36, ../modules/_profile.scss */
-#info ul .social span {
-  font-size: 1.8em;
-  padding: 0 5px;
-}
-
-/* line 44, ../modules/_profile.scss */
 #user_wrapper {
   padding: 4% 17%;
   background: whitesmoke;
 }
-/* line 48, ../modules/_profile.scss */
-#user_wrapper header {
+/* line 5, ../modules/_profile.scss */
+#user_wrapper #profile_header {
   background: white;
   -webkit-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.06);
   -moz-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.06);
   box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.06);
   padding: 2em;
+  position: relative;
+  min-height: 200px;
+}
+/* line 15, ../modules/_profile.scss */
+#user_wrapper #profile_header #avatar {
+  position: absolute;
+}
+/* line 19, ../modules/_profile.scss */
+#user_wrapper #profile_header #info {
+  position: absolute;
+  left: 200px;
+}
+/* line 24, ../modules/_profile.scss */
+#user_wrapper #profile_header #info #name {
+  font-size: 2.3em;
+}
+/* line 28, ../modules/_profile.scss */
+#user_wrapper #profile_header #info #role {
+  font-style: italic;
+}
+/* line 32, ../modules/_profile.scss */
+#user_wrapper #profile_header #info ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+/* line 38, ../modules/_profile.scss */
+#user_wrapper #profile_header #info ul li {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+/* line 44, ../modules/_profile.scss */
+#user_wrapper #profile_header #info ul .social {
+  text-align: left;
+}
+/* line 48, ../modules/_profile.scss */
+#user_wrapper #profile_header #info ul .social span {
+  font-size: 1.8em;
+  padding: 0 5px;
 }
 /* line 57, ../modules/_profile.scss */
 #user_wrapper #social_section {
@@ -2177,12 +2174,8 @@ a {
 /* line 81, ../modules/_profile.scss */
 #user_wrapper #social_section ul li p:nth-child(2) {
   color: #f3844d;
-  font-size: 2.5em;
+  font-size: 1.8em;
   font-weight: 300;
-}
-/* line 87, ../modules/_profile.scss */
-#user_wrapper #social_section ul li:hover {
-  border-bottom: 3px solid black;
 }
 /* line 92, ../modules/_profile.scss */
 #user_wrapper #social_section ul li:nth-child(3) {

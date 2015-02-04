@@ -1,57 +1,57 @@
-#info {
-	border-right: 1px solid lightgray;
-	position: fixed;
-	left:0;
-	width: 23em;
-	height: 100%;
-
-	ul {
-		list-style-type: none;
-		margin: 1em 0 0 0;
-		padding: 1em;
-		text-align: center;
-
-		#avi {
-			width: 19em;
-			height:auto;
-			margin-bottom: 2em;
-		}
-
-		#name {
-			font-size: 2.3em;
-		}
-
-		#role {
-			font-style: italic;
-		}
-		
-		li {
-			font-size: 1em;
-		}
-
-		.social {
-			text-align: left;
-			margin: 1em 0;
-
-			span {
-				font-size: 1.8em;
-				padding: 0 5px;
-			}
-		}
-	}
-}
-
 #user_wrapper {
 	padding: 4% 17%;
 	background: whitesmoke;
 
-	header {
+	#profile_header {
 		background: white;
 		// margin: 0 17%;
 		-webkit-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.06);
 		-moz-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.06);
 		box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.06);
 		padding: 2em;
+		position: relative;
+		min-height: 200px;
+
+		#avatar {
+			position: absolute;
+		}
+
+		#info {
+			// border-right: 1px solid lightgray;
+			position: absolute;
+			left:200px;
+
+			#name {
+				font-size: 2.3em;
+			}
+
+			#role {
+				font-style: italic;
+			}
+
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				text-align: center;
+
+				li {
+					font-size: 1em;
+					padding:0;
+					margin:0;
+				}
+
+				.social {
+					text-align: left;
+					// margin: 1em 0;
+
+					span {
+						font-size: 1.8em;
+						padding: 0 5px;
+					}
+				}
+			}
+		}
 	}
 
 	#social_section {
@@ -80,13 +80,13 @@
 
 				p:nth-child(2) {
 					color: $orange;
-					font-size: 2.5em;
+					font-size: 1.8em;
 					font-weight: 300;
 				}
 
-				&:hover {
-					border-bottom: 3px solid black;
-				}
+				// &:hover {
+				// 	border-bottom: 3px solid black;
+				// }
 			}
 
 			li:nth-child(3) {

@@ -1,70 +1,14 @@
 {% extends "home/blank_page.html" %}
 {% block content %}
-
-<!-- <section id="info">
-	<ul>
-		{% if user.avatar %}
-			<li><img id="avi" src="{{ user.avatar }}" alt="{{ user.fullname }}"/></li>
-		{% endif %}
-
-		{% if not user.avatar %}
-			<li><img id="avi" src="http://media.empire.life/site/images/logo-blk.png" alt="Empire Logo Placeholder"/></li>
-		{% endif %}
-		
-		<li id="name">{{ user.fullname }}</li>
-		
-		<li id="role">{{ user.role }}</li>
-
-		<li>Entrepreneur, technologist, inventor. Founder of Primal.com and Official Community Corp. Internet technology and social media, particularly, What's Next?</li>
-		
-		{% if user.website %}
-			<li class="social"><span class="icon-global"></span><a href="{{ user.website }}">{{ user.website }}</a></li>
-		{% endif %}
-
-		{% if user.linkedin %}
-			<li class="social"><span class="icon-linkedin"><a href="{{ user.linkedin }}"></span>{{ user.linkedin }}</a></li>
-		{% endif %}
-
-		{% if user.facebook %}
-			<li class="social"><span class="icon-facebook"></span><a href="https://www.facebook.com/{{ user.facebook }}">@{{ user.facebook }}</a></li>
-		{% endif %}
-
-		{% if user.twitter %}
-			<li class="social"><span class="icon-twitter"><a href="https://twitter.com/{{ user.twitter }}"></span>@{{ user.twitter }}</a></li>
-		{% endif %}
-
-		{% if user.tumblr %}
-			<li class="social"><span class="icon-tumblr"><a href="{{ user.tumblr }}.tumblr.com"></span>@{{ user.tumblr }}</a></li>
-		{% endif %}
-
-		{% if user.pinterest %}
-			<li class="social"><span class="icon-pinterest"><a href="https://www.pinterest.com/{{ user.pinterest }}"></span>{{ user.pinterest }}</a></li>
-		{% endif %}
-
-		{% if user.instagram %}
-			<li class="social"><span class="icon-instagram"><a href="http://instagram.com/{{ user.instagram }}"></span>@{{ user.instagram }}</a></li>
-		{% endif %}
-	</ul>
-</section> -->
-
 <main id="user_wrapper">
-	<header>
+	<header id="profile_header">
 		<p id="avatar" class="img-thumbnail img-circle" style="background:url({{ user.avatar }}) no-repeat center;background-size: cover;width: 150px;height: 150px;border: none;text-align:left;"></p>
 
-		<div class="pull-right">
-			<p style="text-transform: uppercase;font-size: 1.3em;letter-spacing: 2px;font-weight: 700;">{{ user.fullname }}</p>
-
-			<p>Entrepreneur, technologist, inventor. Founder of Primal.com and Official Community Corp. Internet technology and social media, particularly, What's Next?</p>
-			
-			<!-- <p>{{ user.role }}</p> -->
-			
-			<p>{{ user.bio }}</p>
-		</div>
-
-		<div class="pull-right">
+		<div id="info" class="pull-right">
+			<p id="name" style="text-transform: uppercase;font-size: 1.3em;letter-spacing: 2px;font-weight: 700;">{{ user.fullname }}</p>
+			<p id="role">{{ user.role }}</p>
+			<p id="bio">Entrepreneur, technologist, inventor. Founder of Primal.com and Official Community Corp. Internet technology and social media, particularly, What's Next?</p>
 			<ul>
-				<li>Entrepreneur, technologist, inventor. Founder of Primal.com and Official Community Corp. Internet technology and social media, particularly, What's Next?</li>
-				
 				{% if user.website %}
 					<li class="social"><span class="icon-global"></span><a href="{{ user.website }}">{{ user.website }}</a></li>
 				{% endif %}
@@ -94,25 +38,24 @@
 				{% endif %}
 			</ul>
 		</div>
+		<div class="clearfix"></div>
 	</header>
 	
-	<div class="clearfix"></div>
-
 	<div id="social_section">
 		<ul>
-			<li>
+			<li class="toggle-div" data-toggle="articles">
 				<p>Articles</p>
 				<p>0</p>
 				<!-- <p>{{ articlesCount }}</p> -->
 			</li>
 
-			<li>
+			<li class="toggle-div" data-toggle="followers">
 				<p>Followers</p>
 				<p>0</p>
 				<!-- <p>{{ user.followers }}</p> -->
 			</li>
 
-			<li>
+			<li class="toggle-div" data-toggle="following">
 				<p>Following</p>
 				<p>0</p>
 				<!-- <p>{{ user.following }}</p> -->
@@ -120,7 +63,14 @@
 		</ul>
 	</div>
 
-	
+	<section id="articles" class="active"></section>
+
+	<section id="followers"></section>
+
+	<section id="following"></section>
 </main>
 
+<script>
+	
+</script>
 {% endblock %}

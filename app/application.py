@@ -8,9 +8,6 @@ from flask import flash, Flask, render_template, session, request, redirect, url
 from werkzeug import secure_filename, check_password_hash, generate_password_hash
 from werkzeug.exceptions import default_exceptions, HTTPException
 
-# set after login
-# session.permanent = True
-
 application = app
 
 reload(sys)
@@ -28,7 +25,7 @@ RESTapiKEY = "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
 
 @application.route("/")
 def index():
-    if session.get('username') and session.get('sessionToken') and session.get('uID') :
+    if session.get('username') and session.get('sessionToken') and session.get('uID'):
        	username = escape(session['username'])
        	return render_template('home/index.html', username=username, loggedin=True)
     else:
@@ -82,6 +79,7 @@ def logout():
     session.pop('sessionToken', None)
     session.pop('uID', None)
     return redirect(url_for('index'))
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -156,3 +154,4 @@ def forgot():
 
     elif request.method == 'GET':
         return redirect(url_for('index'))
+

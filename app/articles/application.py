@@ -9,49 +9,6 @@ ParseAppID = "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs"
 ParseRESTKey = "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
 
 
-@articles.route('/r/<category>/<sub>/<title>/<id>')
-def read(category,sub,title,id):
-    connection.connect()
-    
-    params = urllib.urlencode({"where":json.dumps({
-       "objectId": id
-    })})
-    
-    connection.request('GET', '/1/classes/Articles?%s' % params, '', {
-        "X-Parse-Application-Id": ParseAppID,
-        "X-Parse-REST-API-Key": ParseRESTKey
-    })
-
-    result = json.loads(connection.getresponse().read())
-
-    # print '\n', result, '\n'
-
-    article = result['results'][0]
-
-    # print article
-
-    if 'error' not in article.keys():
-        uID = article['authorFull']['objectId']
-
-        connection.connect()
-        connection.request('GET', '/1/users/'+uID, '', {
-            "X-Parse-Application-Id": ParseAppID,
-            "X-Parse-REST-API-Key": ParseRESTKey
-        })
-        
-        author = json.loads(connection.getresponse().read())
-
-        if article['doctype'] == 'regular':
-            return render_template("articles/article_regular.html", article=article, author=author)
-
-        elif article['doctype'] == 'feature':
-            return render_template("articles/featured.html", article=article, author=author)
-
-    else:
-        print 'error'
-        return render_template("articles/featured.html", article=article, author=author)
-
-
 @articles.route('/rate', methods=['GET', 'POST'])
 def rate():
     if request.method == 'GET':
