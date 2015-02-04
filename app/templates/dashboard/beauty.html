@@ -22,23 +22,32 @@
     {% if articles %}
     	{%- for i in articles %}
 
-            {% if i.doctype == 'regular' %}
-        	<figure class="article regular">
-        		<img src="{{ i.featureIMG }}" alt="{{ i.title }}"/>
+            {% if i.doctype == 'feature' %}
+        	<figure class="article feature">
+        		<p id="article_img" style="background:url({{ i.featureIMG }}) center;background-size: cover;"></p>
+
         		<figcaption>
         			<h2>{{ i.title }}</h2>
-        			<p class="drscpt">{{ i.description }}</p>
-        			<a href="{{ url_for('articles.read', username=i.author, id=i.objectId, title='-'.join((i.title).lower().split())) }}">View more</a>
+        			<p class="a-dscrpt">{{ i.description }}</p>
+        			<p><em>by</em><span class="article_author">{{ i.author }}</span></p>
+                    
+                    {% if sub == None %}
+                    <a href="{{ url_for('articles.read', category='beauty', sub='', id=i.objectId, title='-'.join((i.title).lower().split())) }}">View more</a>
+                    {% else %}
+                    <a href="{{ url_for('articles.read', category='beauty', sub='', id=i.objectId, title='-'.join((i.title).lower().split())) }}">View more</a>
+                    {% endif %}
         		</figcaption>			
         	</figure>
 
-            {% elif i.doctype == 'feature' %}
-            <figure class="article feature">
-                <img src="{{ i.featureIMG }}" alt="{{ i.title }}"/>
+            {% elif i.doctype == 'regular' %}
+            <figure class="article regular">
+                <p id="article_img" style="background:url({{ i.featureIMG }}) center;background-size: cover;"></p>
+
                 <figcaption>
                     <h2>{{ i.title }}</h2>
-                    <p class="drscpt">{{ i.description }}</p>
-                    <a href="{{ url_for('articles.read', username=i.author, id=i.objectId, title='-'.join((i.title).lower().split())) }}">View more</a>
+                    <p class="a-dscrpt">{{ i.description }}</p>
+                    <p><em>by</em><span class="a-author">{{ i.author }}</span></p>
+                    <a href="{{ url_for('articles.read', category='beauty', sub='', id=i.objectId, title='-'.join((i.title).lower().split())) }}">View more</a>
                 </figcaption>           
             </figure>
             {% endif %}

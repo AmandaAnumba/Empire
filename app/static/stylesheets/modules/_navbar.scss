@@ -57,12 +57,24 @@
 }
 
 
-
 #top_wrapper {
     position: absolute;
-    width: 100%;
+    width: 95%;
     z-index: 100;
     color: white;
+    height: 30px;
+    padding: 1em;
+    font-size: 1.4em;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.28);
+
+    #login,#search {
+        padding: 0 13px;
+    }
+
+    #search {
+        cursor:pointer;
+    }
 }
 
 $gutter: em(layout, 240px, $target);

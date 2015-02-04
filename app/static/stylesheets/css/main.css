@@ -792,7 +792,28 @@ a {
   margin-top: 24px;
 }
 
-/* line 61, ../modules/_navbar.scss */
+/* line 60, ../modules/_navbar.scss */
+#top_wrapper {
+  position: absolute;
+  width: 95%;
+  z-index: 100;
+  color: white;
+  height: 30px;
+  padding: 1em;
+  font-size: 1.4em;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.28);
+}
+/* line 71, ../modules/_navbar.scss */
+#top_wrapper #login, #top_wrapper #search {
+  padding: 0 13px;
+}
+/* line 75, ../modules/_navbar.scss */
+#top_wrapper #search {
+  cursor: pointer;
+}
+
+/* line 81, ../modules/_navbar.scss */
 #navbar_top_wrapper {
   -moz-transition-property: all;
   -o-transition-property: all;
@@ -812,17 +833,17 @@ a {
   top: 0;
   color: white;
 }
-/* line 72, ../modules/_navbar.scss */
+/* line 92, ../modules/_navbar.scss */
 #navbar_top_wrapper #letter {
   margin-top: 8px;
   float: left;
   margin-left: 20px;
 }
-/* line 77, ../modules/_navbar.scss */
+/* line 97, ../modules/_navbar.scss */
 #navbar_top_wrapper #letter img {
   width: 50px;
 }
-/* line 82, ../modules/_navbar.scss */
+/* line 102, ../modules/_navbar.scss */
 #navbar_top_wrapper #center_menu {
   list-style-type: none;
   text-align: center;
@@ -833,7 +854,7 @@ a {
   position: absolute;
   left: 43%;
 }
-/* line 92, ../modules/_navbar.scss */
+/* line 112, ../modules/_navbar.scss */
 #navbar_top_wrapper #center_menu li {
   display: inline-block;
   font-size: 0.65em;
@@ -843,11 +864,11 @@ a {
   padding: 0 8px;
   font-weight: 300;
 }
-/* line 101, ../modules/_navbar.scss */
+/* line 121, ../modules/_navbar.scss */
 #navbar_top_wrapper #center_menu li:hover, #navbar_top_wrapper #center_menu li.active {
   background: rgba(0, 0, 0, 0.9);
 }
-/* line 108, ../modules/_navbar.scss */
+/* line 128, ../modules/_navbar.scss */
 #navbar_top_wrapper #right_menu {
   list-style-type: none;
   text-align: center;
@@ -857,18 +878,18 @@ a {
   position: absolute;
   right: 6%;
 }
-/* line 117, ../modules/_navbar.scss */
+/* line 137, ../modules/_navbar.scss */
 #navbar_top_wrapper #right_menu li {
   display: inline-block;
   cursor: pointer;
   padding: 0 8px;
   font-weight: 300;
 }
-/* line 129, ../modules/_navbar.scss */
+/* line 149, ../modules/_navbar.scss */
 #navbar_top_wrapper #right_menu li:hover .icon-nav, #navbar_top_wrapper #right_menu li.active .icon-nav {
   opacity: 0.4;
 }
-/* line 136, ../modules/_navbar.scss */
+/* line 156, ../modules/_navbar.scss */
 #navbar_top_wrapper #back {
   text-align: center;
   font-weight: 300;
@@ -879,7 +900,7 @@ a {
   position: absolute;
   left: 0;
 }
-/* line 147, ../modules/_navbar.scss */
+/* line 167, ../modules/_navbar.scss */
 #navbar_top_wrapper #menu-toggle {
   width: 50px;
   position: absolute;
@@ -889,16 +910,16 @@ a {
   text-align: center;
   margin-top: 15px;
 }
-/* line 156, ../modules/_navbar.scss */
+/* line 176, ../modules/_navbar.scss */
 #navbar_top_wrapper #menu-toggle .icon {
   cursor: pointer;
 }
-/* line 160, ../modules/_navbar.scss */
+/* line 180, ../modules/_navbar.scss */
 #navbar_top_wrapper #menu-toggle.closed {
   background: #26272b;
   height: 100%;
 }
-/* line 165, ../modules/_navbar.scss */
+/* line 185, ../modules/_navbar.scss */
 #navbar_top_wrapper #menu-toggle small {
   letter-spacing: 0.8px;
   font-weight: 300;
@@ -906,11 +927,11 @@ a {
   margin-left: 6px;
 }
 
-/* line 176, ../modules/_navbar.scss */
+/* line 198, ../modules/_navbar.scss */
 .dropdown .dropdown-menu {
   right: -18px;
 }
-/* line 180, ../modules/_navbar.scss */
+/* line 202, ../modules/_navbar.scss */
 .dropdown .dropdown-menu:after {
   bottom: 100%;
   left: 90%;
@@ -925,41 +946,41 @@ a {
   border-width: 11px;
   margin-left: -11px;
 }
-/* line 195, ../modules/_navbar.scss */
+/* line 217, ../modules/_navbar.scss */
 .dropdown .dropdown-menu .panel-heading, .dropdown .dropdown-menu .media {
   line-height: 1;
   font-weight: normal;
 }
-/* line 199, ../modules/_navbar.scss */
+/* line 221, ../modules/_navbar.scss */
 .dropdown .dropdown-menu .panel-body {
   padding: 0 15px;
 }
-/* line 202, ../modules/_navbar.scss */
+/* line 224, ../modules/_navbar.scss */
 .dropdown .dropdown-menu .panel-body .description {
   line-height: 1;
   text-align: center;
   margin-top: 13px;
 }
-/* line 207, ../modules/_navbar.scss */
+/* line 229, ../modules/_navbar.scss */
 .dropdown .dropdown-menu .panel-body .help-block {
   line-height: 1;
   font-size: 0.8em;
   letter-spacing: 0.5px;
 }
-/* line 212, ../modules/_navbar.scss */
+/* line 234, ../modules/_navbar.scss */
 .dropdown .dropdown-menu .panel-body .additional-info {
   line-height: 2;
   font-size: 0.85em;
   letter-spacing: 0.5px;
 }
-/* line 221, ../modules/_navbar.scss */
+/* line 243, ../modules/_navbar.scss */
 .dropdown .dropdown-menu.small-menu:after {
   left: 50%;
   border-color: rgba(255, 255, 255, 0);
   border-bottom-color: white;
 }
 
-/* line 232, ../modules/_navbar.scss */
+/* line 254, ../modules/_navbar.scss */
 .menu_lg_wrapper {
   -moz-transition-property: all;
   -o-transition-property: all;
@@ -984,20 +1005,20 @@ a {
   padding: 2em;
   transition: all 0.3s;
 }
-/* line 248, ../modules/_navbar.scss */
+/* line 270, ../modules/_navbar.scss */
 .menu_lg_wrapper.open {
   left: 0px;
 }
-/* line 251, ../modules/_navbar.scss */
+/* line 273, ../modules/_navbar.scss */
 .menu_lg_wrapper.open #menu-toggle {
   right: 0;
 }
-/* line 256, ../modules/_navbar.scss */
+/* line 278, ../modules/_navbar.scss */
 .menu_lg_wrapper #inner_wrapper {
   height: 91%;
   overflow-y: scroll;
 }
-/* line 261, ../modules/_navbar.scss */
+/* line 283, ../modules/_navbar.scss */
 .menu_lg_wrapper #back {
   text-align: center;
   color: #c0c9cb;
@@ -1007,7 +1028,7 @@ a {
   margin: 0 0 2em 0;
   cursor: pointer;
 }
-/* line 271, ../modules/_navbar.scss */
+/* line 293, ../modules/_navbar.scss */
 .menu_lg_wrapper #menu-toggle {
   width: 50px;
   position: absolute;
@@ -1018,17 +1039,17 @@ a {
   transition: all 0.3s;
   text-align: center;
 }
-/* line 281, ../modules/_navbar.scss */
+/* line 303, ../modules/_navbar.scss */
 .menu_lg_wrapper #menu-toggle .icon {
   cursor: pointer;
 }
-/* line 285, ../modules/_navbar.scss */
+/* line 307, ../modules/_navbar.scss */
 .menu_lg_wrapper #menu-toggle.closed {
   background: #26272b;
   height: 100%;
 }
 
-/* line 292, ../modules/_navbar.scss */
+/* line 314, ../modules/_navbar.scss */
 .menu_top_wrapper {
   -moz-transition-property: all;
   -o-transition-property: all;
@@ -1051,11 +1072,11 @@ a {
   top: 0;
   color: white;
 }
-/* line 306, ../modules/_navbar.scss */
+/* line 328, ../modules/_navbar.scss */
 .menu_top_wrapper.open {
   height: 135px !important;
 }
-/* line 310, ../modules/_navbar.scss */
+/* line 332, ../modules/_navbar.scss */
 .menu_top_wrapper #back {
   text-align: center;
   font-weight: 300;
@@ -1066,12 +1087,12 @@ a {
   position: absolute;
   left: 0;
 }
-/* line 321, ../modules/_navbar.scss */
+/* line 343, ../modules/_navbar.scss */
 .menu_top_wrapper #inner_wrapper {
   height: 91%;
   overflow-y: scroll;
 }
-/* line 325, ../modules/_navbar.scss */
+/* line 347, ../modules/_navbar.scss */
 .menu_top_wrapper #inner_wrapper #metadata {
   list-style-type: none;
   text-align: center;
@@ -1079,7 +1100,7 @@ a {
   line-height: 3;
   margin: 0;
 }
-/* line 332, ../modules/_navbar.scss */
+/* line 354, ../modules/_navbar.scss */
 .menu_top_wrapper #inner_wrapper #metadata li {
   display: inline-block;
   font-size: 0.65em;
@@ -1088,11 +1109,11 @@ a {
   letter-spacing: 1px;
   padding: 0 8px;
 }
-/* line 340, ../modules/_navbar.scss */
+/* line 362, ../modules/_navbar.scss */
 .menu_top_wrapper #inner_wrapper #metadata li:hover, .menu_top_wrapper #inner_wrapper #metadata li.active {
   background: rgba(0, 0, 0, 0.9);
 }
-/* line 348, ../modules/_navbar.scss */
+/* line 370, ../modules/_navbar.scss */
 .menu_top_wrapper #menu-toggle {
   width: 50px;
   position: absolute;
@@ -1102,16 +1123,16 @@ a {
   text-align: center;
   margin-top: 15px;
 }
-/* line 357, ../modules/_navbar.scss */
+/* line 379, ../modules/_navbar.scss */
 .menu_top_wrapper #menu-toggle .icon {
   cursor: pointer;
 }
-/* line 361, ../modules/_navbar.scss */
+/* line 383, ../modules/_navbar.scss */
 .menu_top_wrapper #menu-toggle.closed {
   background: #26272b;
   height: 100%;
 }
-/* line 366, ../modules/_navbar.scss */
+/* line 388, ../modules/_navbar.scss */
 .menu_top_wrapper #menu-toggle small {
   letter-spacing: 0.8px;
   font-weight: 300;
@@ -1619,14 +1640,67 @@ a {
   font-weight: 300;
 }
 
-/* line 3, ../modules/_grid.scss */
-.article.regular img {
-  width: 200px;
+/* line 1, ../modules/_grid.scss */
+#articles_side {
+  width: 55%;
+  padding: 2em;
 }
-
-/* line 10, ../modules/_grid.scss */
-.article.feature img {
-  width: 325px;
+/* line 5, ../modules/_grid.scss */
+#articles_side .article.regular {
+  position: relative;
+  height: 140px;
+  margin: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(98, 98, 98, 0.11);
+}
+/* line 12, ../modules/_grid.scss */
+#articles_side .article.regular #article_img {
+  width: 200px;
+  height: 130px;
+  position: absolute;
+}
+/* line 18, ../modules/_grid.scss */
+#articles_side .article.regular figcaption {
+  position: absolute;
+  left: 250px;
+  text-align: left;
+}
+/* line 23, ../modules/_grid.scss */
+#articles_side .article.regular figcaption .a-author {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  padding-left: 8px;
+}
+/* line 32, ../modules/_grid.scss */
+#articles_side .article.feature {
+  position: relative;
+  height: 345px;
+  margin: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(98, 98, 98, 0.11);
+  text-align: center;
+}
+/* line 40, ../modules/_grid.scss */
+#articles_side .article.feature #article_img {
+  width: 100%;
+  height: 235px;
+}
+/* line 47, ../modules/_grid.scss */
+#articles_side .article.feature figcaption h2 {
+  font-size: 2.1em;
+}
+/* line 51, ../modules/_grid.scss */
+#articles_side .article.feature figcaption .a-dscrpt {
+  font-weight: 300;
+  font-size: 1.1em;
+}
+/* line 56, ../modules/_grid.scss */
+#articles_side .article.feature figcaption .a-author {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  padding-left: 8px;
 }
 
 /* line 1, ../modules/_about.scss */

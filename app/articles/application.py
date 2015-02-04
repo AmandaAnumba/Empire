@@ -9,8 +9,8 @@ ParseAppID = "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs"
 ParseRESTKey = "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
 
 
-@articles.route('/r/<username>/<id>/<title>')
-def read(username, id, title):
+@articles.route('/r/<category>/<sub>/<title>/<id>')
+def read(category,sub,title,id):
     connection.connect()
     
     params = urllib.urlencode({"where":json.dumps({

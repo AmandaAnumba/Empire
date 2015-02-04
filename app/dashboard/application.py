@@ -51,7 +51,7 @@ def beauty():
 
     articles = result['results']
 
-    return render_template("dashboard/beauty.html", articles=articles)
+    return render_template("dashboard/beauty.html", articles=articles, sub=None)
 
 
 @dashboard.route('/beauty/<sub_category>')
@@ -71,7 +71,7 @@ def sub_beauty(sub_category):
 
     articles = result['results']
 
-    return render_template("dashboard/beauty.html", articles=articles)
+    return render_template("dashboard/beauty.html", articles=articles, sub=sub_category)
 
 
 @dashboard.route('/career')
@@ -140,6 +140,70 @@ def money():
     return render_template("dashboard/cycle.html", articles=a, category='Money')
 
 
+@dashboard.route('/news')
+def news():
+    # get all of the articles
+    connection.connect()
+    
+    params = urllib.urlencode({"where":json.dumps({
+       "status": "published"
+    })})
+    
+    connection.request('GET', '/1/classes/Articles?%s' % params, '', {
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
+    })
+
+
+    result = json.loads(connection.getresponse().read())
+    print result
+
+    articles = result['results']
+    a = []
+
+    # articles = Articles.query.all()
+    # a = []
+
+    for i in articles:
+        cat = [x.strip() for x in (i['category']).split(',')]
+
+        if 'Money' in cat:
+            a.append(i)
+
+    return render_template("dashboard/cycle.html", articles=a, category='Money')
+
+
+@dashboard.route('/tech')
+def tech():
+    # get all of the articles
+    connection.connect()
+    
+    params = urllib.urlencode({"where":json.dumps({
+       "status": "published"
+    })})
+    
+    connection.request('GET', '/1/classes/Articles?%s' % params, '', {
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
+    })
+
+
+    result = json.loads(connection.getresponse().read())
+    print result
+
+    articles = result['results']
+    a = []
+
+    # articles = Articles.query.all()
+    # a = []
+
+    for i in articles:
+        cat = [x.strip() for x in (i['category']).split(',')]
+
+        if 'Money' in cat:
+            a.append(i)
+
+    return render_template("dashboard/cycle.html", articles=a, category='Money')
 @dashboard.route('/wildcard')
 def wildcard():
     # get all of the articles
@@ -173,8 +237,8 @@ def wildcard():
     return render_template("dashboard/cycle.html", articles=a, category='Wildcard')
 
 
-@dashboard.route('/current-events')
-def news():
+@dashboard.route('/entertainment')
+def entertainment():
     # get all of the articles
     # save to json with date and category
     # on load, check the time stamps, if more than
@@ -218,8 +282,9 @@ def news():
 
     # return render_template("dashboard/cycle.html", articles=a)
 
-@dashboard.route('/technology')
-def tech():
+
+@dashboard.route('/lifestyle')
+def lifestyle():
     # get all of the articles
     connection.connect()
     
