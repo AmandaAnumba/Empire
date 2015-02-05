@@ -2103,67 +2103,89 @@ a {
   box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.06);
   padding: 2em;
   position: relative;
-  min-height: 200px;
 }
 /* line 15, ../modules/_profile.scss */
 #user_wrapper #profile_header #avatar {
-  position: absolute;
+  float: left;
 }
 /* line 19, ../modules/_profile.scss */
 #user_wrapper #profile_header #info {
-  position: absolute;
-  left: 200px;
+  margin-left: 185px;
 }
-/* line 24, ../modules/_profile.scss */
+/* line 25, ../modules/_profile.scss */
 #user_wrapper #profile_header #info #name {
   font-size: 2.3em;
 }
-/* line 28, ../modules/_profile.scss */
+/* line 29, ../modules/_profile.scss */
 #user_wrapper #profile_header #info #role {
   font-style: italic;
 }
-/* line 32, ../modules/_profile.scss */
+/* line 33, ../modules/_profile.scss */
 #user_wrapper #profile_header #info ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   text-align: center;
 }
-/* line 38, ../modules/_profile.scss */
+/* line 39, ../modules/_profile.scss */
 #user_wrapper #profile_header #info ul li {
   font-size: 1em;
   padding: 0;
-  margin: 0;
+  margin: 6px 0;
 }
-/* line 44, ../modules/_profile.scss */
+/* line 45, ../modules/_profile.scss */
 #user_wrapper #profile_header #info ul .social {
   text-align: left;
 }
-/* line 48, ../modules/_profile.scss */
+/* line 49, ../modules/_profile.scss */
 #user_wrapper #profile_header #info ul .social span {
-  font-size: 1.8em;
+  font-size: 1.3em;
   padding: 0 5px;
 }
-/* line 57, ../modules/_profile.scss */
+/* line 53, ../modules/_profile.scss */
+#user_wrapper #profile_header #info ul .social span.icon-facebook {
+  color: #2c4fa1;
+}
+/* line 56, ../modules/_profile.scss */
+#user_wrapper #profile_header #info ul .social span.icon-linkedin {
+  color: #007bb6;
+}
+/* line 59, ../modules/_profile.scss */
+#user_wrapper #profile_header #info ul .social span.icon-twitter {
+  color: #01afec;
+}
+/* line 62, ../modules/_profile.scss */
+#user_wrapper #profile_header #info ul .social span.icon-tumblr {
+  color: #2b4867;
+}
+/* line 65, ../modules/_profile.scss */
+#user_wrapper #profile_header #info ul .social span.icon-pinterest {
+  color: #cb2027;
+}
+/* line 68, ../modules/_profile.scss */
+#user_wrapper #profile_header #info ul .social span.icon-instagram {
+  color: #46769e;
+}
+/* line 77, ../modules/_profile.scss */
 #user_wrapper #social_section {
   background: white;
   border-top: 1px solid lightgray;
 }
-/* line 61, ../modules/_profile.scss */
+/* line 81, ../modules/_profile.scss */
 #user_wrapper #social_section ul {
   list-style-type: none;
   text-align: center;
   margin: 0;
   padding: 0;
 }
-/* line 67, ../modules/_profile.scss */
+/* line 87, ../modules/_profile.scss */
 #user_wrapper #social_section ul li {
   display: inline-block;
   width: 33%;
   padding-top: 12px;
   border-right: 1px solid whitesmoke;
 }
-/* line 73, ../modules/_profile.scss */
+/* line 93, ../modules/_profile.scss */
 #user_wrapper #social_section ul li p:nth-child(1) {
   color: black;
   text-transform: uppercase;
@@ -2171,13 +2193,13 @@ a {
   font-size: 0.7em;
   font-weight: 700;
 }
-/* line 81, ../modules/_profile.scss */
+/* line 101, ../modules/_profile.scss */
 #user_wrapper #social_section ul li p:nth-child(2) {
   color: #f3844d;
   font-size: 1.8em;
   font-weight: 300;
 }
-/* line 92, ../modules/_profile.scss */
+/* line 112, ../modules/_profile.scss */
 #user_wrapper #social_section ul li:nth-child(3) {
   border-right: none;
 }

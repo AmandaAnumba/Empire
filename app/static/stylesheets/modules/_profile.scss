@@ -10,16 +10,17 @@
 		box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.06);
 		padding: 2em;
 		position: relative;
-		min-height: 200px;
+		// min-height: 200px;
 
 		#avatar {
-			position: absolute;
+			float: left;
 		}
 
 		#info {
 			// border-right: 1px solid lightgray;
-			position: absolute;
-			left:200px;
+			// position: absolute;
+			// left:200px;
+			margin-left: 185px;
 
 			#name {
 				font-size: 2.3em;
@@ -38,7 +39,7 @@
 				li {
 					font-size: 1em;
 					padding:0;
-					margin:0;
+					margin: 6px 0;
 				}
 
 				.social {
@@ -46,8 +47,27 @@
 					// margin: 1em 0;
 
 					span {
-						font-size: 1.8em;
+						font-size: 1.3em;
 						padding: 0 5px;
+
+						&.icon-facebook {
+							color:#2c4fa1;
+						}
+						&.icon-linkedin {
+							color:#007bb6;
+						}
+						&.icon-twitter {
+							color:#01afec;
+						}
+						&.icon-tumblr {
+							color:#2b4867;
+						}
+						&.icon-pinterest {
+							color:#cb2027;
+						}
+						&.icon-instagram {
+							color:#46769e;
+						}
 					}
 				}
 			}
