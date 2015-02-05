@@ -24,18 +24,19 @@ def cycle():
     
     params = urllib.urlencode({"where":json.dumps({
        "status": "published",
-       "cycleArticle": True
+       "cycleArticle": True,
+       "cycle": 1
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
-        "X-Parse-Application-Id": "ijqxeiardpj4GzolLOo2lhzegVopVBnn9bcHyIOs",
-        "X-Parse-REST-API-Key": "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
     })
     
     result = json.loads(connection.getresponse().read())
 
     articles = result['results']
-    print len(articles)
+    # print len(articles)
    
     return render_template("dashboard/cycle.html", articles=articles, cycle='Cycle #'+str(CURRCYCLE))
 
