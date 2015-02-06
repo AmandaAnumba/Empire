@@ -30,12 +30,12 @@
         		<figcaption>
         			<h2>{{ i.title }}</h2>
         			<p class="a-dscrpt">{{ i.description }}</p>
-        			<p><em>by</em><span class="article_author">{{ i.author }}</span></p>
+        			<p><em>by </em><span class="article_author"> {{ i.author }}</span></p>
                     
                     {% if sub == None %}
-                    <a href="/entertainment/{{'-'.join((i.title).lower().split())}}/{{i.objectId}}">View more</a>
+                    <a href="/entertainment/{{ i.slug }}">View more</a>
                     {% else %}
-                    <a href="/entertainment/{{sub}}/{{'-'.join((i.title).lower().split())}}/{{i.objectId}}">View more</a>
+                    <a href="/entertainment/{{sub}}/{{ i.slug }}">View more</a>
                     {% endif %}
         		</figcaption>			
         	</figure>
@@ -47,12 +47,12 @@
                 <figcaption>
                     <h2>{{ i.title }}</h2>
                     <p class="a-dscrpt">{{ i.description }}</p>
-                    <p><em>by</em><span class="a-author">{{ i.author }}</span></p>
+                    <p><em>by </em><span class="a-author"> {{ i.author }}</span></p>
                     
                     {% if sub == None %}
-                    <a href="/entertainment/{{'-'.join((i.title).lower().split())}}/{{i.objectId}}">View more</a>
+                    <a href="/entertainment/{{ i.slug }}">View more</a>
                     {% else %}
-                    <a href="/entertainment/{{sub}}/{{'-'.join((i.title).lower().split())}}/{{i.objectId}}">View more</a>
+                    <a href="/entertainment/{{sub}}/{{ i.slug }}">View more</a>
                     {% endif %}
                 </figcaption>           
             </figure>

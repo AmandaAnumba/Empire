@@ -20,8 +20,8 @@
         		<figcaption>
         			<h2>{{ i.title }}</h2>
         			<p class="a-dscrpt">{{ i.description }}</p>
-        			<p><em>by</em><span class="article_author">{{ i.author }}</span></p>
-                    <a href="/cycle/{{'-'.join((i.title).lower().split())}}/{{i.objectId}}">View more</a>
+        			<p><em>by </em><span class="article_author"> {{ i.author }}</span></p>
+                    <a href="{{ url_for('dashboard.read_cycle', slug=i.slug) }}">View more</a>
         		</figcaption>			
         	</figure>
 
@@ -32,8 +32,8 @@
                 <figcaption>
                     <h2>{{ i.title }}</h2>
                     <p class="a-dscrpt">{{ i.description }}</p>
-                    <p><em>by</em><span class="a-author">{{ i.author }}</span></p>
-                    <a href="/cycle/{{'-'.join((i.title).lower().split())}}/{{i.objectId}}">View more</a>
+                    <p><em>by </em><span class="a-author"> {{ i.author }}</span></p>
+                    <a href="{{ url_for('dashboard.read_cycle', slug=i.slug) }}">View more</a>
                 </figcaption>           
             </figure>
             {% endif %}

@@ -22,11 +22,14 @@ RESTapiKEY = "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
 def cycle():
     connection.connect()
     
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published",
-       "cycleArticle": True,
-       "cycle": 1
-    })})
+    params = urllib.urlencode({
+        "order":"-createdAt",
+        "limit": 12,
+        "where":json.dumps({
+           "cycleArticle": True,
+           "cycle": 1
+        })
+    })
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
         "X-Parse-Application-Id": PARSEappID,
@@ -40,12 +43,12 @@ def cycle():
    
     return render_template("dashboard/cycle.html", articles=articles, cycle='Cycle #'+str(CURRCYCLE))
 
-@dashboard.route('/current/<title>/<id>')
-def read_cycle(title,id):
+@dashboard.route('/current/<slug>')
+def read_cycle(slug):
     connection.connect()
     
     params = urllib.urlencode({"where":json.dumps({
-       "objectId": id
+       "slug": slug
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -72,11 +75,11 @@ def read_cycle(title,id):
             return render_template("articles/article_regular.html", article=article, author=author)
 
         elif article['doctype'] == 'feature':
-            return render_template("articles/featured.html", article=article, author=author)
+            return render_template("articles/article_feature.html", article=article, author=author)
 
     else:
         print 'error'
-        return render_template("articles/featured.html", article=article, author=author)
+        return redirect(url_for('cycle'))
 
 
 # --------------------------------------------------------------------------------
@@ -85,15 +88,18 @@ def read_cycle(title,id):
 @dashboard.route('/beauty')
 def beauty():
     connection.connect()
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published",
-       "$or": [
-            {"category1": "Fashion"},
-            {"category1": "Hair"},
-            {"category1": "Body"},
-            {"category1": "Beauty"}
-        ]
-    })})
+    params = urllib.urlencode({
+        "order":"-createdAt",
+        "limit": 12,
+        "where":json.dumps({
+           "$or": [
+                {"category": "Fashion"},
+                {"category": "Hair"},
+                {"category": "Body"},
+                {"category": "Beauty"}
+            ]
+        })
+    })
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
         "X-Parse-Application-Id": PARSEappID,
@@ -106,13 +112,23 @@ def beauty():
 
     return render_template("dashboard/beauty.html", articles=articles, sub=None)
 
-@dashboard.route('/beauty/<sub_category>')
-def sub_beauty(sub_category):
+@dashboard.route('/beauty/fashion')
+@dashboard.route('/beauty/hair')
+@dashboard.route('/beauty/body')
+def sub_beauty():
+    path = request.path
+    sub_category = path.split('/')[2]
+
+    # print sub_category
+
     connection.connect()
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published",
-       "category1": sub_category.capitalize()
-    })})
+    params = urllib.urlencode({
+        "order":"-createdAt",
+        "limit": 12,
+        "where": json.dumps({
+            "category": sub_category.capitalize()
+        })
+    })
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
         "X-Parse-Application-Id": PARSEappID,
@@ -125,15 +141,15 @@ def sub_beauty(sub_category):
 
     return render_template("dashboard/beauty.html", articles=articles, sub=sub_category)
 
-@dashboard.route('/beauty/<title>/<id>')
-@dashboard.route('/beauty/fashion/<title>/<id>')
-@dashboard.route('/beauty/hair/<title>/<id>')
-@dashboard.route('/beauty/body/<title>/<id>')
-def read_beauty(title,id):
+@dashboard.route('/beauty/<slug>')
+@dashboard.route('/beauty/fashion/<slug>')
+@dashboard.route('/beauty/hair/<slug>')
+@dashboard.route('/beauty/body/<slug>')
+def read_beauty(slug):
     connection.connect()
     
     params = urllib.urlencode({"where":json.dumps({
-       "objectId": id
+       "slug": slug
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -160,11 +176,11 @@ def read_beauty(title,id):
             return render_template("articles/article_regular.html", article=article, author=author)
 
         elif article['doctype'] == 'feature':
-            return render_template("articles/featured.html", article=article, author=author)
+            return render_template("articles/article_feature.html", article=article, author=author)
 
     else:
         print 'error'
-        return render_template("articles/featured.html", article=article, author=author)
+        return redirect(url_for('beauty'))
 
 
 # --------------------------------------------------------------------------------
@@ -173,10 +189,13 @@ def read_beauty(title,id):
 @dashboard.route('/career')
 def career():
     connection.connect()
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published",
-       "category1": "Career"
-    })})
+    params = urllib.urlencode({
+        "order":"-createdAt",
+        "limit": 12,
+        "where":json.dumps({
+           "category": "Career"
+        })
+    })
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
         "X-Parse-Application-Id": PARSEappID,
@@ -189,12 +208,12 @@ def career():
 
     return render_template("dashboard/career.html", articles=articles, sub=None)
 
-@dashboard.route('/career/<title>/<id>')
-def read_career(title,id):
+@dashboard.route('/career/<slug>')
+def read_career(slug):
     connection.connect()
     
     params = urllib.urlencode({"where":json.dumps({
-       "objectId": id
+       "slug": slug
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -221,11 +240,11 @@ def read_career(title,id):
             return render_template("articles/article_regular.html", article=article, author=author)
 
         elif article['doctype'] == 'feature':
-            return render_template("articles/featured.html", article=article, author=author)
+            return render_template("articles/article_feature.html", article=article, author=author)
 
     else:
         print 'error'
-        return render_template("articles/featured.html", article=article, author=author)
+        return redirect(url_for('career'))
 
 
 # --------------------------------------------------------------------------------
@@ -234,16 +253,19 @@ def read_career(title,id):
 @dashboard.route('/entertainment')
 def entertainment():
     connection.connect()
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published",
-       "$or": [
-            {"category1": "Entertainment"},
-            {"category1": "TV"},
-            {"category1": "Music"},
-            {"category1": "Theater"},
-            {"category1": "Film"}
-        ]
-    })})
+    params = urllib.urlencode({
+        "order":"-createdAt",
+        "limit": 12,
+        "where":json.dumps({
+           "$or": [
+                {"category": "Entertainment"},
+                {"category": "TV"},
+                {"category": "Music"},
+                {"category": "Theater"},
+                {"category": "Film"}
+            ]
+        })
+    })
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
         "X-Parse-Application-Id": PARSEappID,
@@ -256,13 +278,22 @@ def entertainment():
 
     return render_template("dashboard/entertainment.html", articles=articles, sub=None)
 
-@dashboard.route('/entertainment/<sub_category>')
-def sub_entertainment(sub_category):
+@dashboard.route('/entertainment/tv')
+@dashboard.route('/entertainment/music')
+@dashboard.route('/entertainment/film')
+@dashboard.route('/entertainment/theater')
+def sub_entertainment():
+    path = request.path
+    sub_category = path.split('/')[2]
+
     connection.connect()
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published",
-       "category1": sub_category.capitalize()
-    })})
+    params = urllib.urlencode({
+        "order":"-createdAt",
+        "limit": 12,
+        "where":json.dumps({
+            "category": sub_category.capitalize()
+        })
+    })
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
         "X-Parse-Application-Id": PARSEappID,
@@ -275,16 +306,16 @@ def sub_entertainment(sub_category):
 
     return render_template("dashboard/entertainment.html", articles=articles, sub=sub_category)
 
-@dashboard.route('/entertainment/<title>/<id>')
-@dashboard.route('/entertainment/tv/<title>/<id>')
-@dashboard.route('/entertainment/music/<title>/<id>')
-@dashboard.route('/entertainment/film/<title>/<id>')
-@dashboard.route('/entertainment/theater/<title>/<id>')
-def read_entertainment(title,id):
+@dashboard.route('/entertainment/<slug>')
+@dashboard.route('/entertainment/tv/<slug>')
+@dashboard.route('/entertainment/music/<slug>')
+@dashboard.route('/entertainment/film/<slug>')
+@dashboard.route('/entertainment/theater/<slug>')
+def read_entertainment(slug):
     connection.connect()
     
     params = urllib.urlencode({"where":json.dumps({
-       "objectId": id
+       "slug": slug
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -311,11 +342,11 @@ def read_entertainment(title,id):
             return render_template("articles/article_regular.html", article=article, author=author)
 
         elif article['doctype'] == 'feature':
-            return render_template("articles/featured.html", article=article, author=author)
+            return render_template("articles/article_feature.html", article=article, author=author)
 
     else:
         print 'error'
-        return render_template("articles/featured.html", article=article, author=author)
+        return redirect(url_for('entertainment'))
 
 
 # --------------------------------------------------------------------------------
@@ -324,19 +355,21 @@ def read_entertainment(title,id):
 @dashboard.route('/lifestyle')
 def lifestyle():
     connection.connect()
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published",
-       "$or": [
-            {"category1": "Lifestyle"},
-            {"category1": "Food"},
-            {"category1": "Drink"},
-            {"category1": "Travel"},
-            {"category1": "Spirit"},
-            {"category1": "Mind"},
-            {"category1": "Body"},
-        ]
-       
-    })})
+    params = urllib.urlencode({
+        "order":"-createdAt",
+        "limit": 12,
+        "where":json.dumps({
+           "$or": [
+                {"category": "Lifestyle"},
+                {"category": "Food"},
+                {"category": "Drink"},
+                {"category": "Travel"},
+                {"category": "Spirit"},
+                {"category": "Mind"},
+                {"category": "Body"},
+            ]
+        })
+    })
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
         "X-Parse-Application-Id": PARSEappID,
@@ -349,13 +382,23 @@ def lifestyle():
 
     return render_template("dashboard/lifestyle.html", articles=articles, sub=None)
 
-@dashboard.route('/lifestyle/<sub_category>')
-def sub_lifestyle(sub_category):
+@dashboard.route('/lifestyle/mind')
+@dashboard.route('/lifestyle/body')
+@dashboard.route('/lifestyle/spirit')
+@dashboard.route('/lifestyle/fooddrink')
+@dashboard.route('/lifestyle/travel')
+def sub_lifestyle():
+    path = request.path
+    sub_category = path.split('/')[2]
+
     connection.connect()
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published",
-       "category1": sub_category.capitalize()
-    })})
+    params = urllib.urlencode({
+        "order":"-createdAt",
+        "limit": 12,
+        "where":json.dumps({
+            "category": sub_category.capitalize()
+        })
+    })
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
         "X-Parse-Application-Id": PARSEappID,
@@ -368,16 +411,17 @@ def sub_lifestyle(sub_category):
 
     return render_template("dashboard/lifestyle.html", articles=articles, sub=sub_category)
 
-@dashboard.route('/lifestyle/<title>/<id>')
-@dashboard.route('/lifestyle/tv/<title>/<id>')
-@dashboard.route('/lifestyle/music/<title>/<id>')
-@dashboard.route('/lifestyle/film/<title>/<id>')
-@dashboard.route('/lifestyle/theater/<title>/<id>')
-def read_lifestyle(title,id):
+@dashboard.route('/lifestyle/<slug>')
+@dashboard.route('/lifestyle/mind/<slug>')
+@dashboard.route('/lifestyle/body/<slug>')
+@dashboard.route('/lifestyle/spirit/<slug>')
+@dashboard.route('/lifestyle/fooddrink/<slug>')
+@dashboard.route('/lifestyle/travel/<slug>')
+def read_lifestyle(slug):
     connection.connect()
     
     params = urllib.urlencode({"where":json.dumps({
-       "objectId": id
+       "slug": slug
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -404,11 +448,11 @@ def read_lifestyle(title,id):
             return render_template("articles/article_regular.html", article=article, author=author)
 
         elif article['doctype'] == 'feature':
-            return render_template("articles/featured.html", article=article, author=author)
+            return render_template("articles/article_feature.html", article=article, author=author)
 
     else:
         print 'error'
-        return render_template("articles/featured.html", article=article, author=author)
+        return redirect(url_for('lifestyle'))
 
 
 # --------------------------------------------------------------------------------
@@ -417,10 +461,13 @@ def read_lifestyle(title,id):
 @dashboard.route('/money')
 def money():
     connection.connect()
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published",
-       "category1": "Money"
-    })})
+    params = urllib.urlencode({
+        "order":"-createdAt",
+        "limit": 12,
+        "where":json.dumps({
+            "category": "Money"
+        })
+    })
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
         "X-Parse-Application-Id": PARSEappID,
@@ -433,13 +480,21 @@ def money():
 
     return render_template("dashboard/money.html", articles=articles, sub=None)
 
-@dashboard.route('/money/<sub_category>')
-def sub_money(sub_category):
+@dashboard.route('/money/saving')
+@dashboard.route('/money/spending')
+@dashboard.route('/money/investing')
+def sub_money():
+    path = request.path
+    sub_category = path.split('/')[2]
+
     connection.connect()
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published",
-       "category1": sub_category.capitalize()
-    })})
+    params = urllib.urlencode({
+        "order":"-createdAt",
+        "limit": 12,
+        "where":json.dumps({
+            "category": sub_category.capitalize()
+        })
+    })
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
         "X-Parse-Application-Id": PARSEappID,
@@ -452,15 +507,15 @@ def sub_money(sub_category):
 
     return render_template("dashboard/money.html", articles=articles, sub=sub_category)
 
-@dashboard.route('/money/<title>/<id>')
-@dashboard.route('/money/saving/<title>/<id>')
-@dashboard.route('/money/spending/<title>/<id>')
-@dashboard.route('/money/investing/<title>/<id>')
-def read_money(title,id):
+@dashboard.route('/money/<slug>')
+@dashboard.route('/money/saving/<slug>')
+@dashboard.route('/money/spending/<slug>')
+@dashboard.route('/money/investing/<slug>')
+def read_money(slug):
     connection.connect()
     
     params = urllib.urlencode({"where":json.dumps({
-       "objectId": id
+       "slug": slug
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -487,12 +542,11 @@ def read_money(title,id):
             return render_template("articles/article_regular.html", article=article, author=author)
 
         elif article['doctype'] == 'feature':
-            return render_template("articles/featured.html", article=article, author=author)
+            return render_template("articles/article_feature.html", article=article, author=author)
 
     else:
         print 'error'
-        return render_template("articles/featured.html", article=article, author=author)
-
+        return redirect(url_for('dashboard.money'))
 
 # --------------------------------------------------------------------------------
 # Wildcard
@@ -500,10 +554,13 @@ def read_money(title,id):
 @dashboard.route('/wildcard')
 def wildcard():
     connection.connect()
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published",
-       "category1": "Wildcard"
-    })})
+    params = urllib.urlencode({
+        "order":"-createdAt",
+        "limit": 12,
+        "where":json.dumps({
+            "category": "Wildcard"
+        })
+    })
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
         "X-Parse-Application-Id": PARSEappID,
@@ -516,13 +573,20 @@ def wildcard():
 
     return render_template("dashboard/wildcard.html", articles=articles, sub=None)
 
-@dashboard.route('/wildcard/<sub_category>')
-def sub_wildcard(sub_category):
+@dashboard.route('/wildcard/giggles')
+@dashboard.route('/wildcard/opinions')
+def sub_wildcard():
+    path = request.path
+    sub_category = path.split('/')[2]
+
     connection.connect()
-    params = urllib.urlencode({"where":json.dumps({
-       "status": "published",
-       "category1": sub_category.capitalize()
-    })})
+    params = urllib.urlencode({
+        "order":"-createdAt",
+        "limit": 12,
+        "where":json.dumps({
+            "category": sub_category.capitalize()
+        })
+    })
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
         "X-Parse-Application-Id": PARSEappID,
@@ -535,14 +599,14 @@ def sub_wildcard(sub_category):
 
     return render_template("dashboard/wildcard.html", articles=articles, sub=sub_category)
 
-@dashboard.route('/wildcard/<title>/<id>')
-@dashboard.route('/wildcard/giggles/<title>/<id>')
-@dashboard.route('/wildcard/opinions/<title>/<id>')
-def read_wildcard(title,id):
+@dashboard.route('/wildcard/<slug>')
+@dashboard.route('/wildcard/giggles/<slug>')
+@dashboard.route('/wildcard/opinions/<slug>')
+def read_wildcard(slug):
     connection.connect()
     
     params = urllib.urlencode({"where":json.dumps({
-       "objectId": id
+       "slug": slug
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -569,11 +633,11 @@ def read_wildcard(title,id):
             return render_template("articles/article_regular.html", article=article, author=author)
 
         elif article['doctype'] == 'feature':
-            return render_template("articles/featured.html", article=article, author=author)
+            return render_template("articles/article_feature.html", article=article, author=author)
 
     else:
         print 'error'
-        return render_template("articles/featured.html", article=article, author=author)
+        return redirect(url_for('dashboard.wildcard'))
 
 
 # --------------------------------------------------------------------------------
@@ -705,3 +769,4 @@ def culture():
             a.append(i)
 
     return render_template("dashboard/cycle.html", articles=a, category='Culture')
+

@@ -1,36 +1,80 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
+		<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+        <script src="{{ url_for('static', filename='js/moment.js') }}"></script>
 		<meta charset="UTF-8" />
-		<title>Inspiration for Article Intro Effects | Demo 2</title>
-		<link rel="stylesheet" type="text/css" href="stylesheets/third-party/component.css" />
-	</head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>{{ article['title'] }} - Empire</title>
+		<meta name="description" content="Inspire, Rise, Reign" />
+        <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
+        <meta name="author" content="ThreePillarMedia, LLC" />
+		<link rel="icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon.png') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/intro/css/normalize.css') }}" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/intro/css/demo.css') }}" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/intro/css/component.css') }}" />
+		<!-- <link rel="stylesheet" href="{{ url_for('static', filename='plugins/sc/release/side-comments.css') }}" /> -->
+		<!-- <link rel="stylesheet" href="{{ url_for('static', filename='plugins/sc/release/themes/default-theme.css') }}" /> -->
+		<!-- <link rel="stylesheet" href="{{ url_for('static', filename='plugins/sc/support/css/basics.css') }}" /> -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/icons.css') }}" />
+		<!--[if IE]>
+  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
+	</head>
 	<body class="demo-2">
-		<div id="container" class="container intro-effect-fadeout">
+		<p id="id" hidden>{{ article['objectId'] }}</p>
+		<div id="container" class="container intro-effect-fadeout modify">
 			<header class="header">
-				<div class="bg-img"><img src="images/10.jpg" alt="Background Image" /></div>
+				<div class="bg-img"><img src="{{ article.headerIMG }}" alt="Background Image" /></div>
 				<div class="title">
-					<h1>Unconditional Love &amp; Cookies</h1>
-					<p class="subline">Inspiration for Article Intro Effects</p>
-					<p>by <strong>Mark Satorini</strong> &#8212; Posted in <strong>Animals</strong> on <strong>May 21, 2014</strong></p>
+					<h1 style="text-align: center;">{{ article.title }}</h1>
+					<p class="subline">{{ article.description }}</p>
+					<p>by <strong>{{ article.author }}</strong> &#8212; Posted in <strong>{{ ', '.join(article.category) }}</strong> on <strong id="date"></strong></p>
 				</div>
 			</header>
 			<article class="content">
-				<div>
-					<p>We may define a food to be any substance which will repair the functional waste of the body, increase its growth, or maintain the heat, muscular, and nervous energy. </p>
-					<p>In its most comprehensive sense, the oxygen of the air is a food; as although it is admitted by the lungs, it passes into the blood, and there re-acts upon the other food which has passed through the stomach. It is usual, however, to restrict the term food to such nutriment as enters the body by the intestinal canal. Water is often spoken of as being distinct from food, but for this there is no sufficient reason.</p>
-					<p>Many popular writers have divided foods into flesh-formers, heat-givers, and bone-formers. Although attractive from its simplicity, this classification will not bear criticism. Flesh-formers are also heat-givers. Only a portion of the mineral matter goes to form bone.</p>
-					<p>These last are not strictly foods, if we keep to the definition already given; but they are consumed with the true foods or nutrients, comprised in the other two classes, and cannot well be excluded from consideration.</p>
-					<p>Water forms an essential part of all the tissues of the body. It is the solvent and carrier of other substances.</p>
-					<p>Mineral Matter or Salts, is left as an ash when food is thoroughly burnt. The most important salts are calcium phosphate, carbonate and fluoride, sodium chloride, potassium phosphate and chloride, and compounds of magnesium, iron and silicon.</p>
-					<h3>Flesh-formers, heat-givers, and bone-formers</h3>
-					<p>Mineral matter is quite as necessary for plant as for animal life, and is therefore present in all food, except in the case of some highly-prepared ones, such as sugar, starch and oil. Children require a good proportion of calcium phosphate for the growth of their bones, whilst adults require less. The outer part of the grain of cereals is the richest in mineral constituents, white flour and rice are deficient. Wheatmeal and oatmeal are especially recommended for the quantity of phosphates and other salts contained in them. Mineral matter is necessary not only for the bones but for every tissue of the body.</p>
-					<p>When haricots are cooked, the liquid is often thrown away, and the beans served nearly dry, or with parsley or other sauce. Not only is the food less tasty but important saline constituents are lost. The author has made the following experiments:—German whole lentils, Egyptian split red lentils and medium haricot beans were soaked all night (16 hours) in just sufficient cold water to keep them covered. The water was poured off and evaporated, the residue heated in the steam-oven to perfect dryness and weighed. After pouring off the water, the haricots were boiled in more water until thoroughly cooked, the liquid being kept as low as possible. The liquid was poured off as clear as possible, from the haricots, evaporated and dried. The ash was taken in each case, and the alkalinity of the water-soluble ash was calculated as potash (K2O). The quantity of water which could be poured off was with the German lentils, half as much more than the original weight of the pulse; not quite as much could be poured off the others.</p>
-				</div>
+				<div id="commentable-container" class="container commentable-container"></div>
 			</article>
-		</div><!-- /container -->
-		<script src="js/classie.js"></script>
+
+			<section id="beta_msg" style="text-align: center;margin: 0 15%;padding-bottom: 40px;">
+				<hr>
+
+				<h3>How'd you like this article?</h3>
+				<div>
+					<span onclick="articles.rate('likes');" class="icon icon-smile-o" style="cursor:pointer; color:#6dd7a5; font-size:4em; padding:0 8px;"></span>
+					<span onclick="articles.rate('meh');" class="icon icon-meh-o" style="cursor:pointer; color:#ffbc41; font-size:4em; padding:0 8px;"></span>
+					<span onclick="articles.rate('dislikes');" class="icon icon-frown-o" style="cursor:pointer; color:indianred; font-size:4em; padding:0 8px;"></span>
+					<p id="message" hidden><small>Your response has been recorded. Thank you!</small></p>
+				</div>
+				<p>When we roll out the full-site, you will be able to:</p>
+				<ul style="text-align: left;margin-left: 20%;font-size: 0.8em;">
+					<li>create an account and log in</li>
+					<li>comment on article <a href="https://medium.com/about/why-medium-notes-are-different-and-how-to-use-them-well-5972c72b18f2" target="_blank">Medium.com style</a></li>
+					<li>contribute your own thoughts to an article</li>
+					<li>start a dialog with the Empire community</li>
+					<li>bookmark and favorite an article</li>
+					<li>... and more!</li>
+				</ul>
+				<p>Is there something particular you would like to see? Suggest a feature through our <a href="{{ url_for('home.contact') }}">contact form</a>.</p>
+			</section>
+		</div>
+		</div>
+		
+		
+
+		<div id="article_content" hidden>{{ article.content }}</div>
+		<div id="article_date" hidden>{{ article.releaseDate }}</div>
+		
+		<script src="{{ url_for('static', filename='plugins/intro/js/classie.js') }}"></script>
+		
+		<!--<script src="{{ url_for('static', filename='plugins/sc/release/side-comments.js') }}"></script>
+		<script src="{{ url_for('static', filename='plugins/sc/support/js/jquery.js') }}"></script>
+		 <script src="{{ url_for('static', filename='plugins/sc/support/test_data.js') }}"></script> -->
+		
 		<script>
 			(function() {
 
@@ -170,8 +214,59 @@
 				}
 				
 				window.addEventListener( 'scroll', scrollPage );
-				trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+				// trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
 			})();
+
+			$(function() {
+				var text = $('#article_content').text(),
+					dateStr = $('#article_date').text().split(','),
+					date = moment(dateStr).format("ddd, MMMM Do YYYY");
+
+				$('.content > div').html(text);
+				$('#date').append(date);
+
+				// $('p.fr-tag').each(function(i) {
+				// 	$(this).addClass('commentable-section').attr('data-section-id', i+1);
+				// });
+
+				// var SideComments = require('side-comments');
+				// window.sideComments = new SideComments('#commentable-container', currentUser, existingComments);
+				
+				// window.sideComments.on('commentPosted', function( comment ) {
+				// 	comment.id = parseInt(Math.random() * (100000 - 1) + 1);
+				// 	sideComments.insertComment(comment);
+				// });
+				
+				// window.sideComments.on('commentDeleted', function( comment ) {
+				// 	sideComments.removeComment(comment.sectionId, comment.id);
+				// });
+
+				// Listen to "commentPosted", and send a request to your backend to save the comment.
+				// More about this event in the "docs" section.
+				// sideComments.on('commentPosted', function( comment ) {
+				//     $.ajax({
+				//         url: '/comments',
+				//         type: 'POST'
+				//         data: comment,
+				//         success: function( savedComment ) {
+				//             // Once the comment is saved, you can insert the comment into the comment stream with "insertComment(comment)".
+				//             sideComments.insertComment(comment);
+				//         }
+				//     });
+				// });
+				 
+				// // Listen to "commentDeleted" and send a request to your backend to delete the comment.
+				// // More about this event in the "docs" section.
+				// sideComments.on('commentDeleted', function( commentId ) {
+				//     $.ajax({
+				//         url: '/comments/' + commentId,
+				//         type: 'DELETE',
+				//         success: function( success ) {
+				//             // Do something.
+				//         }
+				//     });
+				// });
+			});
 		</script>
 	</body>
 </html>

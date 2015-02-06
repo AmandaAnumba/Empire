@@ -44,7 +44,7 @@
         	<ul>
         		<li>
         			<p>Written By</p>
-        			<p><a href="{{ url_for('articles.user', username=article['author']) }}">{{ author.fullname }}</a></p>
+        			<p><a href="{{ url_for('user.viewProfile', username=article['author']) }}">{{ author.fullname }}</a></p>
         		</li>
 
         		<li>
@@ -54,7 +54,7 @@
 
         		<li>
         			<p>Category</p>
-        			<p>{{ article.category }}</p>
+        			<p>{{ ', '.join(article.category) }}</p>
         		</li>
         	</ul>
         </nav>

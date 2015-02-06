@@ -41,27 +41,39 @@ def rate():
 
         else:
             return jsonify({ 'success': "success" })
+   
             
+# search for an article
+@articles.route('/search', methods=['POST'])
+def search():
+    searchTerm = request.form.get('searchTerm', None)
+    search = searchTerm.split()
 
-@articles.route('/_<username>')
-def user(username):
     connection.connect()
-    
     params = urllib.urlencode({"where":json.dumps({
-       "username": username
+       "$or": [
+            {"category": "Entertainment"},
+            {"category": "TV"},
+            {"category": "Music"},
+            {"category": "Theater"},
+            {"category": "Film"}
+        ]
     })})
     
-    connection.request('GET', '/1/users?%s' % params, '', {
-        "X-Parse-Application-Id": ParseAppID,
-        "X-Parse-REST-API-Key": ParseRESTKey
+    connection.request('GET', '/1/classes/Articles?%s' % params, '', {
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
     })
-    
+
     result = json.loads(connection.getresponse().read())
 
-    user = result['results'][0]
+    articles = result['results']
 
-    return render_template("articles/profile.html", user=user)
+    return render_template("dashboard/entertainment.html", articles=articles, sub=None)
 
+    if 'error' in result.keys():
+        return jsonify({ 'error': "error" })
 
-
+    else:
+        return jsonify({ 'success': "success" })
 

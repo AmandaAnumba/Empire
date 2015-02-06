@@ -10,9 +10,9 @@
     <section id="subcategories" class="beauty">
         <ul>
             <a href="{{ url_for('dashboard.beauty') }}"><li>View All</li></a>
-            <a href="{{ url_for('dashboard.sub_beauty', sub_category='fashion') }}"><li>Fashion</li></a>
-            <a href="{{ url_for('dashboard.sub_beauty', sub_category='hair') }}"><li>Hair</li></a>
-            <a href="{{ url_for('dashboard.sub_beauty', sub_category='body') }}"><li>Body</li></a>
+            <a href="/beauty/fashion"><li>Fashion</li></a>
+            <a href="/beauty/hair"><li>Hair</li></a>
+            <a href="/beauty/body"><li>Body</li></a>
         </ul>
     </section>
 </header>
@@ -29,12 +29,12 @@
         		<figcaption>
         			<h2>{{ i.title }}</h2>
         			<p class="a-dscrpt">{{ i.description }}</p>
-        			<p><em>by</em><span class="article_author">{{ i.author }}</span></p>
-                    
+        			<p><em>by </em><span class="article_author"> {{ i.author }}</span></p>
+                     
                     {% if sub == None %}
-                    <a href="/beauty/{{'-'.join((i.title).lower().split())}}/{{i.objectId}}">View more</a>
+                    <a href="/beauty/{{i.slug}}">View more</a>
                     {% else %}
-                    <a href="/beauty/{{sub}}/{{'-'.join((i.title).lower().split())}}/{{i.objectId}}">View more</a>
+                    <a href="/beauty/{{sub}}/{{i.slug}}">View more</a>
                     {% endif %}
         		</figcaption>			
         	</figure>
@@ -46,12 +46,12 @@
                 <figcaption>
                     <h2>{{ i.title }}</h2>
                     <p class="a-dscrpt">{{ i.description }}</p>
-                    <p><em>by</em><span class="a-author">{{ i.author }}</span></p>
+                    <p><em>by </em><span class="a-author"> {{ i.author }}</span></p>
                     
                     {% if sub == None %}
-                    <a href="/beauty/{{'-'.join((i.title).lower().split())}}/{{i.objectId}}">View more</a>
+                    <a href="/beauty/{{i.slug}}">View more</a>
                     {% else %}
-                    <a href="/beauty/{{sub}}/{{'-'.join((i.title).lower().split())}}/{{i.objectId}}">View more</a>
+                    <a href="/beauty/{{sub}}/{{i.slug}}">View more</a>
                     {% endif %}
                 </figcaption>           
             </figure>
