@@ -22,10 +22,25 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" />
 		<link rel="stylesheet" href="{{ url_for('static', filename='plugins/froala/css/froala_content.min.css') }}" />
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/sc/release/side-comments.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/sc/release/themes/default-theme.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/sc/support/css/basics.css') }}" />
+        <!-- share -->
+        <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=345241442325838&version=v2.0";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
     </head>
 
     <body id="regular">
-        <header style="background:linear-gradient(rgba(140, 140, 140, 0.3), rgba(0, 0, 0, 0.5)), url({{ article.headerIMG }}) no-repeat center;background-size:cover;">
+        <header id="article-header" style="background:linear-gradient(rgba(140, 140, 140, 0.3), rgba(0, 0, 0, 0.5)), url({{ article.headerIMG }}) no-repeat center;background-size:cover;">
             <!-- <nav>
                 <p></p>
             </nav> -->
@@ -36,7 +51,7 @@
 	    	</div>
     	</header>
 
-        <nav>
+        <nav id="article-side-nav">
         	<div>
         		<p id="avatar" class="img-thumbnail img-circle" style="background:url({{ author.avatar }}) no-repeat center;background-size: cover;"></p>
         	</div>
@@ -59,19 +74,38 @@
         	</ul>
         </nav>
 
-        <main>
+        <main id="article-main">
         	<div id="social_btns">
         		<p>Share</p>
-        		<a href="https://twitter.com/share" class="twitter-share-button" data-via="_thisisempire" data-hashtags="ThisIsEmpire">Tweet</a>
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-				<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
+        	
+            	<a href="https://twitter.com/share" class="twitter-share-button" data-via="_thisisempire" data-hashtags="ThisIsEmpire">Tweet</a>
+                
+                <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-color="red" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png" /></a>
+
+                <div class="g-plus" data-action="share" data-annotation="bubble" data-height="24"></div>
+
+                <div class="fb-share-button" data-href="http://empire.life" data-layout="button_count"></div>
         	</div>
 
         	<article class="content">
-				<div id="commentable-container" class="commentable-container">{{ article.content }}</div>
-			</article>	
+				<div id="commentable-container" class="container commentable-container">{{ article.content }}</div>
+			</article>
+
+            <div id="tags"><small><strong>Tags:</strong> {{ ', '.join(article.tags) }}</small></div>	
         </main>
+
+        <div class="clearfix"></div>
+        
+        <!-- share buttons -->
+        <div id="article-social-btm"></div>
+
+
+
+        <div id="fb-root"></div>
     </body>
+
+    <script src="{{ url_for('static', filename='plugins/sc/release/side-comments.js') }}"></script>
+    <script src="{{ url_for('static', filename='plugins/sc/support/test_data.js') }}"></script>
 
     <script>
     	$(function() {
@@ -81,6 +115,48 @@
 			
 			$('#article_date').empty().append(date);
 			$('#commentable-container').empty().html(text);
+
+            $('p.fr-tag').each(function(i) {
+                $(this).addClass('commentable-section').attr('data-section-id', i+1);
+            });
+
+            var SideComments = require('side-comments');
+            window.sideComments = new SideComments('#commentable-container', currentUser, existingComments);
+            
+            window.sideComments.on('commentPosted', function( comment ) {
+             comment.id = parseInt(Math.random() * (100000 - 1) + 1);
+             sideComments.insertComment(comment);
+            });
+            
+            window.sideComments.on('commentDeleted', function( comment ) {
+             sideComments.removeComment(comment.sectionId, comment.id);
+            });
+
+            // Listen to "commentPosted", and send a request to your backend to save the comment.
+            // More about this event in the "docs" section.
+            // sideComments.on('commentPosted', function( comment ) {
+            //     $.ajax({
+            //         url: '/comments',
+            //         type: 'POST'
+            //         data: comment,
+            //         success: function( savedComment ) {
+            //             // Once the comment is saved, you can insert the comment into the comment stream with "insertComment(comment)".
+            //             sideComments.insertComment(comment);
+            //         }
+            //     });
+            // });
+                 
+            // // Listen to "commentDeleted" and send a request to your backend to delete the comment.
+            // // More about this event in the "docs" section.
+            // sideComments.on('commentDeleted', function( commentId ) {
+            //     $.ajax({
+            //         url: '/comments/' + commentId,
+            //         type: 'DELETE',
+            //         success: function( success ) {
+            //             // Do something.
+            //         }
+            //     });
+            // });
 		});
     </script>
 </html>

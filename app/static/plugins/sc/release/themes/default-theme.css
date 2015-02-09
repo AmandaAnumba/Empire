@@ -51,11 +51,11 @@
 }
 .side-comment .marker:hover,
 .side-comment.active .marker {
-  background: #4FAF62;
+  background: #f3844d;
 }
 .side-comment .marker:hover:after,
 .side-comment.active .marker:after {
-  border-color: #4FAF62 transparent;
+  border-color: #f3844d transparent;
 }
 .side-comment .comments-wrapper {
   top: -22px;
@@ -158,11 +158,11 @@
   text-decoration: none;
 }
 .side-comment .add-comment:hover {
-  color: #4FAF62;
+  color: #f3844d;
 }
 .side-comment .add-comment:hover:before {
-  border-color: #4FAF62;
-  color: #4FAF62;
+  border-color: #f3844d;
+  color: #f3844d;
 }
 .side-comment .comment-box {
   outline: none;

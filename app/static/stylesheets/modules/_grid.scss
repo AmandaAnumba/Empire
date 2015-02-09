@@ -26,6 +26,19 @@
 				font-size: 0.7em;
 				padding-left: 8px;
 			}
+
+			& > a {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 1000;
+				text-indent: 200%;
+				white-space: nowrap;
+				font-size: 0;
+				opacity: 0;
+			}
 		}
 	}
 

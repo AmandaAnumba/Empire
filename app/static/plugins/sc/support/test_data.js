@@ -4,7 +4,7 @@ var existingComments = [
     "comments": [
       {
         "id": 88,
-        "authorAvatarUrl": "support/images/jon_snow.png",
+        "authorAvatarUrl": "../static/plugins/sc/support/images/jon_snow.png",
         "authorName": "Jon Sno",
         "authorId": 1,
         "authorUrl": "http://en.wikipedia.org/wiki/Kit_Harington",
@@ -12,7 +12,7 @@ var existingComments = [
       },
       {
         "id": 112,
-        "authorAvatarUrl": "support/images/donald_draper.png",
+        "authorAvatarUrl": "../static/plugins/sc/support/images/donald_draper.png",
         "authorName": "Donald Draper",
         "authorId": 2,
         "comment": "I need a scotch."
@@ -24,7 +24,7 @@ var existingComments = [
     "comments": [
       {
         "id": 66,
-        "authorAvatarUrl": "support/images/clay_davis.png",
+        "authorAvatarUrl": "../static/plugins/sc/support/images/clay_davis.png",
         "authorName": "Senator Clay Davis",
         "authorId": 3,
         "comment": "These Side Comments are incredible. Sssshhhiiiiieeeee."
@@ -34,7 +34,7 @@ var existingComments = [
 ];
 var currentUser = {
   "id": 4,
-  "avatarUrl": "support/images/user.png",
+  "avatarUrl": "../static/plugins/sc/support/images/user.png",
   "authorUrl": "http://google.com/",
   "name": "You"
 };

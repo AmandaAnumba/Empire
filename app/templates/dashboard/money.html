@@ -1,13 +1,13 @@
 {% extends "dashboard/base_articles_home.html" %}
 {% block content %}
 <header id='navbar_top'>
-    <div style="background:url({{ url_for('static', filename='images/binding_dark.png') }}), repeat; height: 200px;position:relative;">
+    <div style="background:url(http://media.empire.life/site/categories/money2.png), no-repeat; height: 200px;position:relative;background-size:cover;">
         <p id="section_title">Money</p>
     </div>
 
     <p id="menu-btn" class="pull-right toggle-menu menu-right" hidden><span class="icon-nav icon-menu"></span></p>
 
-    <section id="subcategories" class="money">
+    <section id="subcategories" class="money" hidden>
         <ul>
             <a href="{{ url_for('dashboard.money') }}"><li>View All</li></a>
             <a href="{{ url_for('dashboard.sub_money', sub_category='spending') }}"><li>Spending</li></a>
