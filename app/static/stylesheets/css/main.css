@@ -2226,6 +2226,12 @@ a {
 #user_wrapper #social_section ul li:nth-child(3) {
   border-right: none;
 }
+/* line 118, ../modules/_profile.scss */
+#user_wrapper #articles,
+#user_wrapper #followers,
+#user_wrapper #following {
+  height: 600px;
+}
 
 /* line 1, ../third-party/_outside2.scss */
 html {
