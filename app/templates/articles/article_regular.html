@@ -76,10 +76,15 @@
         			<p>Category</p>
         			<p>{{ ', '.join(article.category) }}</p>
         		</li>
+
+                <li>
+                    <p>Tags</p>
+                    <p><small>{{ ', '.join(article.tags) }}</small></p>
+                </li>
         	</ul>
         </nav>
 
-        <main id="article-main">
+        <section id="article-main">
         	<div id="social_btns">
         		<p>Share</p>
 
@@ -116,17 +121,18 @@
 
         	<article class="content">
 				<div id="commentable-container" class="container commentable-container">{{ article.content }}</div>
-			</article>
-
-            <div id="tags"><small><strong>Tags:</strong> {{ ', '.join(article.tags) }}</small></div>	
-        </main>
-
-        <div class="clearfix"></div>
+            </article>
+        </section>
         
         <!-- share buttons -->
-        <div id="article-social-btm"></div>
+        <div id="article-social-btm">
+            
+        </div>
 
-
+        <!-- recommended content -->
+        <section id="article-social-btm">
+            <p>Recommended Articles</p>
+        </section>
 
         <div id="fb-root"></div>
     </body>
