@@ -1,0 +1,28 @@
+#share {
+    list-style-type: none;
+
+    li {
+        width: 100px;
+        padding: 7px 5px;
+        text-align: center;
+        color:white;
+        margin: 0 7px;
+        display: inline-block;
+
+        &#tw {
+            background: blue;
+        }
+
+        &#pin {
+            background: red;
+        }
+
+        &#gp {
+            background: green;
+        }
+
+        &#fb {
+            background: blue;
+        }
+    }
+}

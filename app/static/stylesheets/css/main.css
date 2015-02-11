@@ -2227,6 +2227,36 @@ a {
   border-right: none;
 }
 
+/* line 1, ../modules/_social.scss */
+#share {
+  list-style-type: none;
+}
+/* line 4, ../modules/_social.scss */
+#share li {
+  width: 100px;
+  padding: 7px 5px;
+  text-align: center;
+  color: white;
+  margin: 0 7px;
+  display: inline-block;
+}
+/* line 12, ../modules/_social.scss */
+#share li#tw {
+  background: blue;
+}
+/* line 16, ../modules/_social.scss */
+#share li#pin {
+  background: red;
+}
+/* line 20, ../modules/_social.scss */
+#share li#gp {
+  background: green;
+}
+/* line 24, ../modules/_social.scss */
+#share li#fb {
+  background: blue;
+}
+
 /* line 1, ../third-party/_outside2.scss */
 html {
   font-family: sans-serif;
