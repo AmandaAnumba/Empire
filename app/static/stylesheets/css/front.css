@@ -617,650 +617,204 @@ a {
 }
 
 /* Media Queries */
-/* line 3, ../modules/_navbar.scss */
-#menu_wrapper {
-  height: 100%;
-  position: fixed;
-  width: 225px;
-  background: white;
-  border-right: 1px solid lightgray;
-  z-index: 50;
-  top: 0;
-  left: 0px;
-  box-shadow: 0 0px 6px rgba(0, 0, 0, 0.15);
-  font-family: Raleway, sans-serif;
+/* line 3, ../modules/_header.scss */
+#navbar_top {
+  /*height: 60px;*/
+  border-bottom: 1px solid rgba(200, 200, 200, 0.2);
 }
-/* line 15, ../modules/_navbar.scss */
-#menu_wrapper ul {
-  top: 0;
-  left: 0;
-  list-style-type: none;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  color: black;
-}
-/* line 25, ../modules/_navbar.scss */
-#menu_wrapper ul a li {
+/* line 8, ../modules/_header.scss */
+#navbar_top #section_title {
+  font-size: 3.5em;
+  font-weight: 700;
   text-align: center;
-  border-bottom: 1px solid whitesmoke;
-}
-/* line 29, ../modules/_navbar.scss */
-#menu_wrapper ul a li.active {
-  background: whitesmoke;
-}
-/* line 33, ../modules/_navbar.scss */
-#menu_wrapper ul a li.disabled {
-  cursor: not-allowed;
-}
-/* line 37, ../modules/_navbar.scss */
-#menu_wrapper ul a li p {
-  font-size: 0.8em;
-  font-weight: 300;
-  letter-spacing: 0.5px;
-  padding: 15px 0;
-}
-/* line 46, ../modules/_navbar.scss */
-#menu_wrapper ul a:nth-child(1) li {
-  height: auto;
-  text-align: center;
-}
-/* line 50, ../modules/_navbar.scss */
-#menu_wrapper ul a:nth-child(1) li img {
-  margin-top: 24px;
-}
-
-/* line 60, ../modules/_navbar.scss */
-#top_wrapper {
   position: absolute;
-  width: 95%;
-  z-index: 100;
-  color: white;
-  height: 30px;
-  padding: 1em;
-  font-size: 1.4em;
-  text-align: center;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.28);
-}
-/* line 71, ../modules/_navbar.scss */
-#top_wrapper #login, #top_wrapper #search {
-  padding: 0 13px;
-}
-/* line 75, ../modules/_navbar.scss */
-#top_wrapper #search {
-  cursor: pointer;
-}
-
-/* line 81, ../modules/_navbar.scss */
-#navbar_top_wrapper {
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -moz-transition-timing-function: ease;
-  -o-transition-timing-function: ease;
-  -webkit-transition-timing-function: ease;
-  transition-timing-function: ease;
-  height: 60px;
+  bottom: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  top: 0;
   color: white;
+  text-shadow: 1px 1px 3px black;
+  letter-spacing: 3px;
 }
-/* line 92, ../modules/_navbar.scss */
-#navbar_top_wrapper #letter {
-  margin-top: 8px;
-  float: left;
-  margin-left: 20px;
-}
-/* line 97, ../modules/_navbar.scss */
-#navbar_top_wrapper #letter img {
-  width: 50px;
-}
-/* line 102, ../modules/_navbar.scss */
-#navbar_top_wrapper #center_menu {
+/* line 20, ../modules/_header.scss */
+#navbar_top section ul {
   list-style-type: none;
-  text-align: center;
-  height: 100%;
-  line-height: 3.5;
   margin: 0;
   padding: 0;
-  position: absolute;
-  left: 43%;
+  text-align: center;
 }
-/* line 112, ../modules/_navbar.scss */
-#navbar_top_wrapper #center_menu li {
+/* line 26, ../modules/_header.scss */
+#navbar_top section ul li {
   display: inline-block;
-  font-size: 0.65em;
+  padding: 20px 0;
+  font-size: 0.75em;
   text-transform: uppercase;
-  cursor: pointer;
   letter-spacing: 1px;
-  padding: 0 8px;
-  font-weight: 300;
+  font-weight: 700;
 }
-/* line 121, ../modules/_navbar.scss */
-#navbar_top_wrapper #center_menu li:hover, #navbar_top_wrapper #center_menu li.active {
-  background: rgba(0, 0, 0, 0.9);
+/* line 38, ../modules/_header.scss */
+#navbar_top .beauty li, #navbar_top .entertainment li {
+  width: 12.5%;
 }
-/* line 128, ../modules/_navbar.scss */
-#navbar_top_wrapper #right_menu {
+/* line 45, ../modules/_header.scss */
+#navbar_top .money li {
+  width: 12.5%;
+}
+
+/* line 51, ../modules/_header.scss */
+#center_menu {
   list-style-type: none;
   text-align: center;
-  height: 100%;
-  line-height: 3.5;
-  margin: 0;
-  position: absolute;
-  right: 6%;
-}
-/* line 137, ../modules/_navbar.scss */
-#navbar_top_wrapper #right_menu li {
-  display: inline-block;
-  cursor: pointer;
-  padding: 0 8px;
-  font-weight: 300;
-}
-/* line 149, ../modules/_navbar.scss */
-#navbar_top_wrapper #right_menu li:hover .icon-nav, #navbar_top_wrapper #right_menu li.active .icon-nav {
-  opacity: 0.4;
-}
-/* line 156, ../modules/_navbar.scss */
-#navbar_top_wrapper #back {
-  text-align: center;
-  font-weight: 300;
-  font-size: 0.75em;
-  letter-spacing: 0.5px;
-  margin-top: 14px;
-  cursor: pointer;
-  position: absolute;
-  left: 0;
-}
-/* line 167, ../modules/_navbar.scss */
-#navbar_top_wrapper #menu-toggle {
-  width: 50px;
-  position: absolute;
-  z-index: 1000;
-  top: 0;
-  right: 0;
-  text-align: center;
-  margin-top: 15px;
-}
-/* line 176, ../modules/_navbar.scss */
-#navbar_top_wrapper #menu-toggle .icon {
-  cursor: pointer;
-}
-/* line 180, ../modules/_navbar.scss */
-#navbar_top_wrapper #menu-toggle.closed {
-  background: #26272b;
-  height: 100%;
-}
-/* line 185, ../modules/_navbar.scss */
-#navbar_top_wrapper #menu-toggle small {
-  letter-spacing: 0.8px;
-  font-weight: 300;
-  font-size: 0.5em;
-  margin-left: 6px;
-}
-
-/* line 198, ../modules/_navbar.scss */
-.dropdown .dropdown-menu {
-  right: -18px;
-}
-/* line 202, ../modules/_navbar.scss */
-.dropdown .dropdown-menu:after {
-  bottom: 100%;
-  left: 90%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border-color: rgba(237, 241, 242, 0);
-  border-bottom-color: #edf1f2;
-  border-width: 11px;
-  margin-left: -11px;
-}
-/* line 217, ../modules/_navbar.scss */
-.dropdown .dropdown-menu .panel-heading, .dropdown .dropdown-menu .media {
-  line-height: 1;
-  font-weight: normal;
-}
-/* line 221, ../modules/_navbar.scss */
-.dropdown .dropdown-menu .panel-body {
-  padding: 0 15px;
-}
-/* line 224, ../modules/_navbar.scss */
-.dropdown .dropdown-menu .panel-body .description {
-  line-height: 1;
-  text-align: center;
-  margin-top: 13px;
-}
-/* line 229, ../modules/_navbar.scss */
-.dropdown .dropdown-menu .panel-body .help-block {
-  line-height: 1;
-  font-size: 0.8em;
-  letter-spacing: 0.5px;
-}
-/* line 234, ../modules/_navbar.scss */
-.dropdown .dropdown-menu .panel-body .additional-info {
-  line-height: 2;
-  font-size: 0.85em;
-  letter-spacing: 0.5px;
-}
-/* line 243, ../modules/_navbar.scss */
-.dropdown .dropdown-menu.small-menu:after {
-  left: 50%;
-  border-color: rgba(255, 255, 255, 0);
-  border-bottom-color: white;
-}
-
-/* line 254, ../modules/_navbar.scss */
-.menu_lg_wrapper {
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -moz-transition-timing-function: ease;
-  -o-transition-timing-function: ease;
-  -webkit-transition-timing-function: ease;
-  transition-timing-function: ease;
-  height: 100%;
-  position: fixed;
-  width: 20.83333%;
-  background: #26272b;
-  z-index: 50;
-  top: 0;
-  left: -25%;
-  color: white;
-  padding: 2em;
-  transition: all 0.3s;
-}
-/* line 270, ../modules/_navbar.scss */
-.menu_lg_wrapper.open {
-  left: 0px;
-}
-/* line 273, ../modules/_navbar.scss */
-.menu_lg_wrapper.open #menu-toggle {
-  right: 0;
-}
-/* line 278, ../modules/_navbar.scss */
-.menu_lg_wrapper #inner_wrapper {
-  height: 91%;
-  overflow-y: scroll;
-}
-/* line 283, ../modules/_navbar.scss */
-.menu_lg_wrapper #back {
-  text-align: center;
-  color: #c0c9cb;
-  font-weight: 300;
-  font-size: 0.75em;
-  letter-spacing: 0.5px;
-  margin: 0 0 2em 0;
-  cursor: pointer;
-}
-/* line 293, ../modules/_navbar.scss */
-.menu_lg_wrapper #menu-toggle {
-  width: 50px;
-  position: absolute;
-  z-index: 1000;
-  top: 0;
-  right: -45px;
-  padding-top: 6px;
-  transition: all 0.3s;
-  text-align: center;
-}
-/* line 303, ../modules/_navbar.scss */
-.menu_lg_wrapper #menu-toggle .icon {
-  cursor: pointer;
-}
-/* line 307, ../modules/_navbar.scss */
-.menu_lg_wrapper #menu-toggle.closed {
-  background: #26272b;
-  height: 100%;
-}
-
-/* line 314, ../modules/_navbar.scss */
-.menu_top_wrapper {
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -moz-transition-timing-function: ease;
-  -o-transition-timing-function: ease;
-  -webkit-transition-timing-function: ease;
-  transition-timing-function: ease;
-  min-height: 50px;
-  height: auto;
-  position: fixed;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.84);
-  z-index: 50;
-  top: 0;
-  color: white;
-}
-/* line 328, ../modules/_navbar.scss */
-.menu_top_wrapper.open {
-  height: 135px !important;
-}
-/* line 332, ../modules/_navbar.scss */
-.menu_top_wrapper #back {
-  text-align: center;
-  font-weight: 300;
-  font-size: 0.75em;
-  letter-spacing: 0.5px;
-  margin-top: 14px;
-  cursor: pointer;
-  position: absolute;
-  left: 0;
-}
-/* line 343, ../modules/_navbar.scss */
-.menu_top_wrapper #inner_wrapper {
-  height: 91%;
-  overflow-y: scroll;
-}
-/* line 347, ../modules/_navbar.scss */
-.menu_top_wrapper #inner_wrapper #metadata {
-  list-style-type: none;
-  text-align: center;
-  height: 100%;
   line-height: 3;
   margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 40%;
 }
-/* line 354, ../modules/_navbar.scss */
-.menu_top_wrapper #inner_wrapper #metadata li {
+
+/* line 61, ../modules/_header.scss */
+#center_menu li {
   display: inline-block;
   font-size: 0.65em;
   text-transform: uppercase;
   cursor: pointer;
   letter-spacing: 1px;
   padding: 0 8px;
+  font-weight: 300;
 }
-/* line 362, ../modules/_navbar.scss */
-.menu_top_wrapper #inner_wrapper #metadata li:hover, .menu_top_wrapper #inner_wrapper #metadata li.active {
+
+/* line 71, ../modules/_header.scss */
+#center_menu li:hover,
+#center_menu li:active {
   background: rgba(0, 0, 0, 0.9);
 }
-/* line 370, ../modules/_navbar.scss */
-.menu_top_wrapper #menu-toggle {
-  width: 50px;
-  position: absolute;
-  z-index: 1000;
-  top: 0;
-  right: 0;
+
+/* line 76, ../modules/_header.scss */
+#center_menu a {
+  color: #666666;
+}
+
+/* line 80, ../modules/_header.scss */
+#center_menu a:hover {
+  color: black;
+  font-weight: 700;
+}
+
+/* line 84, ../modules/_header.scss */
+#right_menu {
+  list-style-type: none;
   text-align: center;
-  margin-top: 15px;
-}
-/* line 379, ../modules/_navbar.scss */
-.menu_top_wrapper #menu-toggle .icon {
-  cursor: pointer;
-}
-/* line 383, ../modules/_navbar.scss */
-.menu_top_wrapper #menu-toggle.closed {
-  background: #26272b;
-  height: 100%;
-}
-/* line 388, ../modules/_navbar.scss */
-.menu_top_wrapper #menu-toggle small {
-  letter-spacing: 0.8px;
-  font-weight: 300;
-  font-size: 0.5em;
-  margin-left: 6px;
-}
-
-/* line 399, ../modules/_navbar.scss */
-.header_navbar {
-  position: relative;
-  border-bottom: 1px solid #f1f1f1;
-  margin-top: 0px;
-}
-/* line 404, ../modules/_navbar.scss */
-.header_navbar .navbar_inner {
-  background: #fafafa;
-  position: relative;
-  z-index: 100;
-}
-
-/* line 412, ../modules/_navbar.scss */
-.mobile_menu {
-  display: none;
-}
-
-/* line 416, ../modules/_navbar.scss */
-.navbar_menu {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  width: 90%;
-  max-width: 69em;
-  padding: 0 1.875em;
-  height: 45px;
-  /* Add a triangle to currently open menu item link */
-}
-/* line 425, ../modules/_navbar.scss */
-.navbar_menu li {
-  margin-left: 4em;
-  display: inline-block;
-}
-/* line 434, ../modules/_navbar.scss */
-.navbar_menu li > a {
-  color: #818181;
-  font-size: 0.9em;
-  line-height: 3.1em;
-  font-weight: 300;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  display: inline-block;
-  position: relative;
-  z-index: 10000;
-  outline: none;
-}
-/* line 451, ../modules/_navbar.scss */
-.navbar_menu li.open > a:after {
-  top: 100%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
+  /* height: 100%; */
+  /* line-height: 3.5; */
+  /* margin: 0; */
   position: absolute;
-  pointer-events: none;
-  border-color: transparent;
-  border-top-color: #fafafa;
-  border-width: 10px;
-  left: 50%;
-  margin-left: -10px;
-}
-/* line 467, ../modules/_navbar.scss */
-.navbar_menu li.open .submenu {
-  z-index: 1000;
-  visibility: visible;
-}
-/* line 472, ../modules/_navbar.scss */
-.navbar_menu li.open .submenu > li {
-  opacity: 1;
-  -webkit-transition: opacity 0.5s 0.1s;
-  -moz-transition: opacity 0.5s 0.1s;
-  transition: opacity 0.5s 0.1s;
+  right: 112px;
+  top: 30px;
 }
 
-/* line 483, ../modules/_navbar.scss */
-.submenu {
-  list-style: none;
-  position: absolute;
-  padding: 0;
-  width: 135px;
-  height: auto;
-  z-index: 0;
-  text-align: center;
-  /* for aligning the sub items */
-  visibility: hidden;
-  background: white;
-  border: 1px solid #f1f1f1;
-  border-top: none;
-}
-/* line 496, ../modules/_navbar.scss */
-.submenu:before, .submenu:after {
-  content: " ";
-  display: table;
-}
-/* line 501, ../modules/_navbar.scss */
-.submenu:after {
-  clear: both;
-}
-/* line 505, ../modules/_navbar.scss */
-.submenu li {
-  height: 40px;
-  line-height: 40px;
-  text-align: left;
-  font-weight: 300;
-  font-size: 7.5pt;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  background: white;
-  display: block;
-  font-style: normal;
-  padding: 0 0 0 15px;
-  position: relative;
+/* line 95, ../modules/_header.scss */
+#right_menu li {
+  display: inline-block;
+  /*font-size: 0.65em;*/
+  /*text-transform: uppercase;*/
   cursor: pointer;
-  border-bottom: 1px solid rgba(237, 237, 237, 0.17);
+  /*letter-spacing: 1px;*/
+  padding: 0 8px;
+  font-weight: 300;
+}
+
+/* line 104, ../modules/_header.scss */
+.media p {
+  padding: 0;
   margin: 0;
 }
-/* line 524, ../modules/_navbar.scss */
-.submenu li a {
-  color: black;
-  line-height: 4.8em;
-}
-/* line 533, ../modules/_navbar.scss */
-.submenu li:hover a {
-  font-weight: 700;
-  font-style: italic;
-}
 
-/* line 544, ../modules/_navbar.scss */
-.header_navbar.fixed {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  left: 0px;
-  z-index: 999;
-  height: 50px !important;
-  -webkit-transition: height 1s;
-  -moz-transition: height 1s;
-  transition: height 1s;
-  border-bottom: 1px solid #f1f1f1;
-  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.08);
-  -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.08);
-  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.08);
-}
-
-/* line 560, ../modules/_navbar.scss */
-.header_navbar.fixed .navbar_inner {
-  height: 50px;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  transition: all 1s;
-}
-
-/* line 567, ../modules/_navbar.scss */
-.header_navbar.fixed .header_title {
-  display: none;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  transition: all 1s;
-}
-
-/* line 574, ../modules/_navbar.scss */
-.header_navbar.fixed .navbar_menu {
-  width: 100%;
+/* line 109, ../modules/_header.scss */
+.list-group-item {
   padding: 0;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  transition: all 1s;
+  margin: 0;
 }
 
-/* line 582, ../modules/_navbar.scss */
-.header_e {
-  opacity: 0;
+/* line 114, ../modules/_header.scss */
+.list-group-item > .media-body {
+  padding: 10px 20px;
+  text-transform: capitalize;
+  font-size: 0.9em;
   color: black;
-  margin: 0 !important;
-  width: 0;
 }
 
-/* line 588, ../modules/_navbar.scss */
-.header_navbar.fixed .header_e {
-  opacity: 1;
-  margin-left: 1em !important;
-  width: 60px;
-  /*background: white;*/
-  /*border-radius: 50%;*/
-  /*height: 55px;*/
-  /*font-family: 'Droidiga', Arial, sans-serif;*/
-  /*font-size: 50px;*/
-  z-index: 1001;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  transition: all 1s;
+/* line 121, ../modules/_header.scss */
+.smilie {
+  cursor: pointer;
+  font-size: 4em;
+  padding: 0 8px;
 }
 
-/* Let's allow 6 item in a row */
-/*.submenu > li {
-width: 16.2%;
-display: inline-block;
-vertical-align: top;
-box-shadow: -28px 0 0 -27px #ddd, 0 -28px 0 -27px #ddd;
-}*/
-/* First 6 items don't have upper box shadow 
-.submenu > li:nth-child(-n+6) {
-box-shadow: -28px 0 0 -27px #ddd;
-} */
-/* Every 7th item does not have a left box shadow 
-.submenu > li:nth-child(6n+1) {
-box-shadow:  0 -28px 0 -27px #ddd;
-}*/
-/* The first one does not have any box shadow 
-.submenu > li:first-child {
-box-shadow: none;
-}*/
-@media screen and (max-width: 65em) {
-  /* line 629, ../modules/_navbar.scss */
-  .header_navbar {
-    font-size: 80%;
-  }
+/* line 127, ../modules/_header.scss */
+#list_stuff {
+  text-align: left;
+  margin-left: 20%;
+  font-size: 0.8em;
 }
-@media screen and (max-width: 785px) {
-  /* line 635, ../modules/_navbar.scss */
-  .navbar_menu {
-    display: none;
-  }
 
-  /* line 639, ../modules/_navbar.scss */
-  .mobile_menu {
-    display: block;
-    color: lightgrey;
-    font-size: 21pt;
-    text-align: center;
-  }
-
-  /* line 646, ../modules/_navbar.scss */
-  .header_navbar.fixed {
-    height: 42px !important;
-  }
-
-  /* line 650, ../modules/_navbar.scss */
-  .header_navbar.fixed .navbar_inner {
-    height: 42px;
-  }
+/* line 135, ../modules/_header.scss */
+#header_wrapper {
+  border-radius: 0 0 10px 10px;
+  background: whitesmoke;
+  position: fixed;
+  top: 0;
+  right: 20px;
+  padding: 5px 10px;
 }
+/* line 143, ../modules/_header.scss */
+#header_wrapper div {
+  width: 30px;
+  height: 30px;
+  background: black;
+  float: left;
+}
+/* line 150, ../modules/_header.scss */
+#header_wrapper p {
+  float: right;
+  font-size: 0.6em;
+  padding: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* line 159, ../modules/_header.scss */
+.navibar {
+  list-style: none;
+  float: right;
+  margin-top: 19px;
+}
+
+/* line 167, ../modules/_header.scss */
+.dropdown {
+  padding: 0 14px;
+  display: inline-block;
+}
+
+/* line 172, ../modules/_header.scss */
+.icon-nav {
+  font-size: 1.4em;
+}
+
+/* line 176, ../modules/_header.scss */
+#header_title {
+  font-weight: 600;
+  /*color: #cfccc7;*/
+  float: left;
+  font-size: 2.1em;
+  line-height: 2.25;
+  margin-top: 10px;
+  margin-left: 160px;
+  letter-spacing: 1px;
+}
+
+/* line 187, ../modules/_header.scss */
+#header_actions {
+  text-align: right;
+}
+
 /* line 43, ../modules/_inputs.scss */
 .form-input {
   -moz-box-sizing: border-box;
@@ -1553,841 +1107,6 @@ box-shadow: none;
   cursor: pointer;
   filter: alpha(opacity=50);
   opacity: .5;
-}
-
-/* line 3, ../modules/_header.scss */
-#navbar_top {
-  /*height: 60px;*/
-  border-bottom: 1px solid rgba(200, 200, 200, 0.2);
-}
-/* line 8, ../modules/_header.scss */
-#navbar_top #section_title {
-  font-size: 3.5em;
-  font-weight: 700;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  color: white;
-  text-shadow: 1px 1px 3px black;
-  letter-spacing: 3px;
-}
-/* line 20, ../modules/_header.scss */
-#navbar_top section ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-/* line 26, ../modules/_header.scss */
-#navbar_top section ul li {
-  display: inline-block;
-  padding: 20px 0;
-  font-size: 0.75em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 700;
-}
-/* line 38, ../modules/_header.scss */
-#navbar_top .beauty li, #navbar_top .entertainment li {
-  width: 12.5%;
-}
-/* line 45, ../modules/_header.scss */
-#navbar_top .money li {
-  width: 12.5%;
-}
-
-/* line 51, ../modules/_header.scss */
-#center_menu {
-  list-style-type: none;
-  text-align: center;
-  line-height: 3;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  left: 40%;
-}
-
-/* line 61, ../modules/_header.scss */
-#center_menu li {
-  display: inline-block;
-  font-size: 0.65em;
-  text-transform: uppercase;
-  cursor: pointer;
-  letter-spacing: 1px;
-  padding: 0 8px;
-  font-weight: 300;
-}
-
-/* line 71, ../modules/_header.scss */
-#center_menu li:hover,
-#center_menu li:active {
-  background: rgba(0, 0, 0, 0.9);
-}
-
-/* line 76, ../modules/_header.scss */
-#center_menu a {
-  color: #666666;
-}
-
-/* line 80, ../modules/_header.scss */
-#center_menu a:hover {
-  color: black;
-  font-weight: 700;
-}
-
-/* line 84, ../modules/_header.scss */
-#right_menu {
-  list-style-type: none;
-  text-align: center;
-  /* height: 100%; */
-  /* line-height: 3.5; */
-  /* margin: 0; */
-  position: absolute;
-  right: 112px;
-  top: 30px;
-}
-
-/* line 95, ../modules/_header.scss */
-#right_menu li {
-  display: inline-block;
-  /*font-size: 0.65em;*/
-  /*text-transform: uppercase;*/
-  cursor: pointer;
-  /*letter-spacing: 1px;*/
-  padding: 0 8px;
-  font-weight: 300;
-}
-
-/* line 104, ../modules/_header.scss */
-.media p {
-  padding: 0;
-  margin: 0;
-}
-
-/* line 109, ../modules/_header.scss */
-.list-group-item {
-  padding: 0;
-  margin: 0;
-}
-
-/* line 114, ../modules/_header.scss */
-.list-group-item > .media-body {
-  padding: 10px 20px;
-  text-transform: capitalize;
-  font-size: 0.9em;
-  color: black;
-}
-
-/* line 121, ../modules/_header.scss */
-.smilie {
-  cursor: pointer;
-  font-size: 4em;
-  padding: 0 8px;
-}
-
-/* line 127, ../modules/_header.scss */
-#list_stuff {
-  text-align: left;
-  margin-left: 20%;
-  font-size: 0.8em;
-}
-
-/* line 135, ../modules/_header.scss */
-#header_wrapper {
-  border-radius: 0 0 10px 10px;
-  background: whitesmoke;
-  position: fixed;
-  top: 0;
-  right: 20px;
-  padding: 5px 10px;
-}
-/* line 143, ../modules/_header.scss */
-#header_wrapper div {
-  width: 30px;
-  height: 30px;
-  background: black;
-  float: left;
-}
-/* line 150, ../modules/_header.scss */
-#header_wrapper p {
-  float: right;
-  font-size: 0.6em;
-  padding: 10px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-/* line 159, ../modules/_header.scss */
-.navibar {
-  list-style: none;
-  float: right;
-  margin-top: 19px;
-}
-
-/* line 167, ../modules/_header.scss */
-.dropdown {
-  padding: 0 14px;
-  display: inline-block;
-}
-
-/* line 172, ../modules/_header.scss */
-.icon-nav {
-  font-size: 1.4em;
-}
-
-/* line 176, ../modules/_header.scss */
-#header_title {
-  font-weight: 600;
-  /*color: #cfccc7;*/
-  float: left;
-  font-size: 2.1em;
-  line-height: 2.25;
-  margin-top: 10px;
-  margin-left: 160px;
-  letter-spacing: 1px;
-}
-
-/* line 187, ../modules/_header.scss */
-#header_actions {
-  text-align: right;
-}
-
-/* line 1, ../modules/_dashboard.scss */
-#main_wrapper {
-  margin-left: 176px;
-  background: whitesmoke;
-}
-/* line 5, ../modules/_dashboard.scss */
-#main_wrapper #add_content {
-  width: 200px;
-  border: 2px dashed black;
-  margin: 0 auto;
-  text-align: center;
-  padding: 4% 4% 6%;
-}
-/* line 13, ../modules/_dashboard.scss */
-#main_wrapper #add_content .icon {
-  font-size: 4em;
-  font-weight: 300;
-}
-
-/* line 1, ../modules/_grid.scss */
-#articles_side {
-  width: 55%;
-  padding: 2em;
-}
-/* line 5, ../modules/_grid.scss */
-#articles_side .article.regular {
-  position: relative;
-  height: 140px;
-  margin: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(98, 98, 98, 0.11);
-}
-/* line 12, ../modules/_grid.scss */
-#articles_side .article.regular #article_img {
-  width: 200px;
-  height: 130px;
-  position: absolute;
-}
-/* line 18, ../modules/_grid.scss */
-#articles_side .article.regular figcaption {
-  position: absolute;
-  left: 250px;
-  text-align: left;
-}
-/* line 23, ../modules/_grid.scss */
-#articles_side .article.regular figcaption .a-author {
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-size: 0.7em;
-  padding-left: 8px;
-}
-/* line 30, ../modules/_grid.scss */
-#articles_side .article.regular figcaption > a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1000;
-  text-indent: 200%;
-  white-space: nowrap;
-  font-size: 0;
-  opacity: 0;
-}
-/* line 45, ../modules/_grid.scss */
-#articles_side .article.feature {
-  position: relative;
-  height: 345px;
-  margin: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(98, 98, 98, 0.11);
-  text-align: center;
-}
-/* line 53, ../modules/_grid.scss */
-#articles_side .article.feature #article_img {
-  width: 100%;
-  height: 235px;
-}
-/* line 60, ../modules/_grid.scss */
-#articles_side .article.feature figcaption h2 {
-  font-size: 2.1em;
-}
-/* line 64, ../modules/_grid.scss */
-#articles_side .article.feature figcaption .a-dscrpt {
-  font-weight: 300;
-  font-size: 1.1em;
-}
-/* line 69, ../modules/_grid.scss */
-#articles_side .article.feature figcaption .a-author {
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-size: 0.7em;
-  padding-left: 8px;
-}
-
-/* line 1, ../modules/_about.scss */
-#menu-btn {
-  position: absolute;
-  width: 100%;
-  text-align: right;
-  right: 35px;
-  color: white;
-  font-size: 2.5em;
-  top: 12px;
-  cursor: pointer;
-}
-
-/* line 13, ../modules/_about.scss */
-#top_title {
-  text-align: center;
-  position: absolute;
-  width: 100%;
-  top: 30%;
-  color: white;
-}
-/* line 25, ../modules/_about.scss */
-#top_title h1 {
-  padding: 0;
-  font-size: 2.25em;
-  margin: 0 auto;
-  font-weight: 300;
-  background: black;
-  width: 250px;
-  letter-spacing: 4px;
-}
-/* line 35, ../modules/_about.scss */
-#top_title .subline {
-  font-size: 3.2em;
-}
-/* line 39, ../modules/_about.scss */
-#top_title p {
-  width: 400px;
-  margin: 0 auto 0 auto;
-  font-weight: 300;
-  font-size: 1.2em;
-}
-
-/* line 48, ../modules/_about.scss */
-#top_feature {
-  position: absolute;
-  top: 40%;
-  right: 3%;
-  width: 211px;
-}
-/* line 57, ../modules/_about.scss */
-#top_feature h1 {
-  padding: 0 0 0.2em;
-  color: #fff;
-  font-size: 3.25em;
-  margin: 0 auto;
-}
-/* line 64, ../modules/_about.scss */
-#top_feature ul {
-  color: black;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-/* line 70, ../modules/_about.scss */
-#top_feature ul li {
-  border-bottom: 1px solid white;
-  text-align: center;
-  cursor: pointer;
-  padding: 10px 0 10px 0;
-}
-/* line 81, ../modules/_about.scss */
-#top_feature ul li p {
-  font-weight: 300;
-  font-size: 0.85em;
-  text-transform: uppercase;
-}
-/* line 87, ../modules/_about.scss */
-#top_feature ul li:hover {
-  background: whitesmoke;
-}
-
-/* line 95, ../modules/_about.scss */
-.tag {
-  background: black;
-  color: white;
-  font-size: 12px;
-  font-weight: 300;
-  text-transform: uppercase;
-  padding: 5px 30px 5px 30px;
-  text-align: center;
-}
-
-/* line 109, ../modules/_about.scss */
-#about_wrapper section {
-  margin: 5% 0;
-}
-/* line 112, ../modules/_about.scss */
-#about_wrapper section p {
-  padding: 1.4% 0;
-}
-/* line 116, ../modules/_about.scss */
-#about_wrapper .text {
-  margin: 5% 17%;
-}
-/* line 119, ../modules/_about.scss */
-#about_wrapper header {
-  font-weight: 300;
-  text-transform: uppercase;
-  font-size: 2em;
-  padding-bottom: 5px;
-  margin-bottom: 1.4%;
-  text-align: center;
-  letter-spacing: 1.3px;
-}
-/* line 130, ../modules/_about.scss */
-#about_wrapper nav ul {
-  line-height: 3.5;
-}
-/* line 133, ../modules/_about.scss */
-#about_wrapper nav ul li {
-  padding: 0 15px;
-  font-size: 0.9em;
-  cursor: pointer;
-}
-
-/* line 143, ../modules/_about.scss */
-.inline-list {
-  list-style-type: none;
-  text-align: center;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-/* line 150, ../modules/_about.scss */
-.inline-list li {
-  display: inline-block;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 300;
-  padding: 15px;
-  font-size: 1.1em;
-  cursor: pointer;
-}
-/* line 161, ../modules/_about.scss */
-.inline-list li:hover a {
-  padding-bottom: 5px;
-  border-bottom: 2px solid #d20150;
-}
-
-/* line 170, ../modules/_about.scss */
-#connect li {
-  padding: 0 19px;
-  font-size: 1.5em;
-}
-
-/* line 176, ../modules/_about.scss */
-.nav-footer.other {
-  position: relative;
-  text-align: center;
-  padding: 15px 0;
-  z-index: 51;
-  width: 100%;
-}
-
-/* line 184, ../modules/_about.scss */
-.quote {
-  color: #663D54;
-  background-color: #F2EDED;
-  font-size: 1.6em;
-  font-weight: 300;
-  font-style: italic;
-}
-
-/* line 194, ../modules/_about.scss */
-.quote:before {
-  content: "\e60a";
-  font-family: "icomoon";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  font-size: 7.5em;
-  position: absolute;
-  color: rgba(102, 61, 84, 0.21);
-}
-
-/* line 213, ../modules/_about.scss */
-#contact_form {
-  margin: 3% 21%;
-  padding: 4%;
-  border: 1px solid #c3c3c3;
-}
-/* line 218, ../modules/_about.scss */
-#contact_form h1 {
-  position: absolute;
-  left: 39%;
-  background: white;
-  margin-top: -6%;
-  width: 250px;
-}
-
-/* line 2, ../modules/_article.scss */
-#regular {
-  background: whitesmoke;
-  overflow-x: hidden;
-}
-/* line 6, ../modules/_article.scss */
-#regular a {
-  color: #f3844d !important;
-}
-/* line 10, ../modules/_article.scss */
-#regular #article-header {
-  position: absolute;
-  margin: 0 auto;
-  width: 100%;
-  top: 0;
-  height: 420px;
-}
-/* line 18, ../modules/_article.scss */
-#regular #article-header .bg-img {
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-/* line 28, ../modules/_article.scss */
-#regular #article-header .bg-img img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  min-width: 100%;
-  min-height: 100%;
-}
-/* line 38, ../modules/_article.scss */
-#regular #article-header .title {
-  position: absolute;
-  bottom: 60px;
-  color: white;
-  margin-left: 17.3em;
-  text-align: left;
-}
-/* line 46, ../modules/_article.scss */
-#regular #article-header .title h1 {
-  font-size: 3.5em;
-  font-weight: 700;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  margin: 0;
-  padding: 0;
-  letter-spacing: 1.2px;
-}
-/* line 55, ../modules/_article.scss */
-#regular #article-header .title p {
-  font-weight: 300;
-  font-size: 1.9em;
-  font-style: italic;
-}
-/* line 63, ../modules/_article.scss */
-#regular #article-side-nav {
-  width: 15.5em;
-  background: white;
-  position: absolute;
-  left: 0;
-  height: 100%;
-  top: 65px;
-  z-index: 100;
-}
-/* line 72, ../modules/_article.scss */
-#regular #article-side-nav div {
-  text-align: center;
-}
-/* line 75, ../modules/_article.scss */
-#regular #article-side-nav div #avatar {
-  width: 120px;
-  height: 120px;
-  margin: 17%;
-  border: none;
-}
-/* line 84, ../modules/_article.scss */
-#regular #article-side-nav ul {
-  list-style-type: none;
-  text-align: center;
-  font-size: 1.25em;
-  margin: 0;
-  padding: 0 20px;
-}
-/* line 91, ../modules/_article.scss */
-#regular #article-side-nav ul li {
-  margin: 18px 0;
-}
-/* line 94, ../modules/_article.scss */
-#regular #article-side-nav ul li p:nth-child(1) {
-  text-transform: uppercase;
-  font-size: 0.7em;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: rgba(0, 0, 0, 0.54);
-}
-/* line 102, ../modules/_article.scss */
-#regular #article-side-nav ul li p:nth-child(2) {
-  font-size: 0.95em;
-}
-/* line 109, ../modules/_article.scss */
-#regular #article-main {
-  position: relative;
-  padding-left: 15.5em;
-  background: whitesmoke;
-  margin-top: 420px;
-}
-/* line 116, ../modules/_article.scss */
-#regular #article-main #social_btns {
-  padding: 10px 2em;
-  border-top: 1px solid rgba(169, 169, 169, 0.22);
-  border-bottom: 1px solid rgba(169, 169, 169, 0.22);
-}
-/* line 121, ../modules/_article.scss */
-#regular #article-main #social_btns p {
-  font-size: 0.9em;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.54);
-}
-/* line 129, ../modules/_article.scss */
-#regular #article-main article {
-  margin: 2em 0;
-  padding: 0 3em 0 1.3em;
-  color: #474747;
-  font-size: 1.35em;
-}
-/* line 136, ../modules/_article.scss */
-#regular #article-main article p:nth-child(1) {
-  font-size: 1.5em;
-  font-weight: 300;
-}
-/* line 141, ../modules/_article.scss */
-#regular #article-main article p {
-  margin: 1.3em 0;
-}
-/* line 144, ../modules/_article.scss */
-#regular #article-main article p, #regular #article-main article span {
-  font-family: 'Lora', serif !important;
-}
-/* line 150, ../modules/_article.scss */
-#regular #article-social-btm {
-  border-bottom: 1px solid lightgray;
-  border-top: 1px solid lightgray;
-  padding: 15px 0;
-}
-
-/* line 3, ../modules/_login.scss */
-#social_links ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-/* line 8, ../modules/_login.scss */
-#social_links ul li {
-  margin-bottom: 7px;
-}
-/* line 11, ../modules/_login.scss */
-#social_links ul li img {
-  width: 225px;
-}
-
-/* line 18, ../modules/_login.scss */
-#login_info {
-  width: 250px;
-  border-left: 1px solid lightgray;
-  padding: 15px;
-}
-/* line 23, ../modules/_login.scss */
-#login_info ul {
-  text-align: left;
-}
-
-/* line 28, ../modules/_login.scss */
-#toggle_special {
-  position: absolute;
-  bottom: 0;
-  background: black;
-  color: white;
-  left: 50%;
-  padding: 15px;
-  cursor: pointer;
-}
-
-/* line 1, ../modules/_profile.scss */
-#user_wrapper {
-  padding: 4% 17%;
-  background: whitesmoke;
-}
-/* line 5, ../modules/_profile.scss */
-#user_wrapper #profile_header {
-  background: white;
-  -webkit-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.06);
-  -moz-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.06);
-  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.06);
-  padding: 2em;
-  position: relative;
-}
-/* line 15, ../modules/_profile.scss */
-#user_wrapper #profile_header #avatar {
-  float: left;
-}
-/* line 19, ../modules/_profile.scss */
-#user_wrapper #profile_header #info {
-  margin-left: 185px;
-}
-/* line 25, ../modules/_profile.scss */
-#user_wrapper #profile_header #info #name {
-  font-size: 2.3em;
-}
-/* line 29, ../modules/_profile.scss */
-#user_wrapper #profile_header #info #role {
-  font-style: italic;
-}
-/* line 33, ../modules/_profile.scss */
-#user_wrapper #profile_header #info ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-/* line 39, ../modules/_profile.scss */
-#user_wrapper #profile_header #info ul li {
-  font-size: 1em;
-  padding: 0;
-  margin: 6px 0;
-}
-/* line 45, ../modules/_profile.scss */
-#user_wrapper #profile_header #info ul .social {
-  text-align: left;
-}
-/* line 49, ../modules/_profile.scss */
-#user_wrapper #profile_header #info ul .social span {
-  font-size: 1.3em;
-  padding: 0 5px;
-}
-/* line 53, ../modules/_profile.scss */
-#user_wrapper #profile_header #info ul .social span.icon-facebook {
-  color: #2c4fa1;
-}
-/* line 56, ../modules/_profile.scss */
-#user_wrapper #profile_header #info ul .social span.icon-linkedin {
-  color: #007bb6;
-}
-/* line 59, ../modules/_profile.scss */
-#user_wrapper #profile_header #info ul .social span.icon-twitter {
-  color: #01afec;
-}
-/* line 62, ../modules/_profile.scss */
-#user_wrapper #profile_header #info ul .social span.icon-tumblr {
-  color: #2b4867;
-}
-/* line 65, ../modules/_profile.scss */
-#user_wrapper #profile_header #info ul .social span.icon-pinterest {
-  color: #cb2027;
-}
-/* line 68, ../modules/_profile.scss */
-#user_wrapper #profile_header #info ul .social span.icon-instagram {
-  color: #46769e;
-}
-/* line 77, ../modules/_profile.scss */
-#user_wrapper #social_section {
-  background: white;
-  border-top: 1px solid lightgray;
-}
-/* line 81, ../modules/_profile.scss */
-#user_wrapper #social_section ul {
-  list-style-type: none;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-/* line 87, ../modules/_profile.scss */
-#user_wrapper #social_section ul li {
-  display: inline-block;
-  width: 33%;
-  padding-top: 12px;
-  border-right: 1px solid whitesmoke;
-}
-/* line 93, ../modules/_profile.scss */
-#user_wrapper #social_section ul li p:nth-child(1) {
-  color: black;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 0.7em;
-  font-weight: 700;
-}
-/* line 101, ../modules/_profile.scss */
-#user_wrapper #social_section ul li p:nth-child(2) {
-  color: #f3844d;
-  font-size: 1.8em;
-  font-weight: 300;
-}
-/* line 112, ../modules/_profile.scss */
-#user_wrapper #social_section ul li:nth-child(3) {
-  border-right: none;
-}
-/* line 118, ../modules/_profile.scss */
-#user_wrapper #articles,
-#user_wrapper #followers,
-#user_wrapper #following {
-  height: 600px;
-}
-
-/* line 1, ../modules/_social.scss */
-#share {
-  list-style-type: none;
-}
-/* line 4, ../modules/_social.scss */
-#share li {
-  width: 100px;
-  padding: 7px 5px;
-  text-align: center;
-  color: white;
-  margin: 0 7px;
-  display: inline-block;
-}
-/* line 12, ../modules/_social.scss */
-#share li#tw {
-  background: #4099ff;
-}
-/* line 16, ../modules/_social.scss */
-#share li#pin {
-  background: #cf1b2c;
-}
-/* line 20, ../modules/_social.scss */
-#share li#gp {
-  background: #e9544f;
-}
-/* line 24, ../modules/_social.scss */
-#share li#fb {
-  background: #3b5998;
 }
 
 /* line 1, ../third-party/_outside2.scss */

@@ -14,8 +14,8 @@
         <link rel="icon" type="image/png" href="http://media.empire.life/site/images/favicon.png">
         <title>Empire</title>
         <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
-        <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
         <meta name="author" content="ThreePillarMedia, LLC" />
+        <meta name="url" content="http://www.empire.life">
 
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -30,10 +30,9 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/login.css') }}" />
         
         <!--For login modal -->
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+        <!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css"> -->
         <script>
           window.fbAsyncInit = function() {
             FB.init({
@@ -61,7 +60,11 @@
     </head>
 
     <body id="welcome">
-        <div id="main">
+        <nav id="top-nav">
+            <p id="login" class="pull-right" onclick="jQuery('#login_modal').modal('show');"><small>Log In</small></p>
+        </nav>
+
+        <section id="cycle_header">
             <div hidden>
                 <svg width="64" height="64" viewBox="0 0 64 64">
                     <path id="arrow-left-3" d="M44.797 17.28l0.003 29.44-25.6-14.72z" />
@@ -71,333 +74,267 @@
                 </svg>
             </div>
 
-            <div class="container">
-                <div id="splitlayout">
-                    <div id="mainlogin">
-                        <div style="float:right;">
-                            {% if loggedin %}
-                                <p id ="mainusername" style="margin-top:10px;">
-                                    Welcome <span style='color:#e64c65'>{{ username }}<span>
-                                </p>
-                                <a class="btn logout_btn" href="{{ url_for('logout') }}">Logout</a>
-                            {% else %}
-                                <p id ="mainusername2" style="margin-top:10px;" hidden> Welcome </p>
-                                <p id="mainloginbtn" onclick="jQuery('#login').modal('show');" class='btn' value='Login' style="margin:10px 2px 0px 0px;">Login</p>
-                                <p id="mainregisterbtn" onclick="jQuery('#register').modal('show');" class='btn' value='Register' style="margin:10px 0px 0px 2px;">Register</p>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div id="logo">
-                        <img src="http://media.empire.life/site/images/logo-blk.png" alt="Empire logo" width="320" />
-                        <p class="beta" data-toggle="tooltip" data-placement="right" title="PSSST! Click Me!" style="cursor:pointer;" onclick="$('#beta').modal('show');">Beta!</p>
-                    </div>
+            <div id="cycle" style="background:url({{ url_for('static', filename='images/selfReflection3.jpg') }}) no-repeat center;background-size:cover;height:500px;width:100%;">
                     
-                    <div class="side side-left text-center" style="overflow-y:hidden;">
-                        <div class="intro-content">
-                            <h1 class="title">
-                                <span class="animated fadeInUp">Choose a topic</span>
-                            </h1>
-                        </div>
+                    <a id="current_cycle" class="intro-content animated fadeInUp" href="{{ url_for('dashboard.cycle') }}">
+                        <p id="cycle-count">Cycle 02</p>
                         
-                        <div id="categories" class="text-center">
-                            <p id="close_cat" class="pull-right" style="cursor: pointer; padding:17px; font-size: 2em;"><span class="icon icon-cross"></span></p>
+                        <h1 id="cycle-title">They Think They <strong>Know</strong></h1>
+                        
+                        <p><small>A healthy identity does not rest on feelings ofsuperiority, ‘power over others,’ the need tocompete and be ‘best,’ or possession of morematerial things than others. Instead it is seeingoneself as a part of the whole, not the center,and as unique, but not ‘special’.</small></p>
+                        <hr>
+                        
+                        <p>
+                            <small>
+                                <strong>Core Topics: </strong>
+                                Cultural identity, competency, and the difference in being a "millennial".
+                            </small>
+                        </p>
 
-                            <h1>What are you in the mood for?</h1> 
-
-                            <ul>
-                                <li class="category" style="background:url(http://media.empire.life/site/categories/politics.jpg) no-repeat; background-size: cover;background-position-y: -68px;">
-                                    <a href="{{ url_for('dashboard.news') }}"><p>Current Events</p></a>
-                                </li>
-                                
-                                
-                                <li class="category" style="background:url(http://media.empire.life/site/categories/tech.png) no-repeat; background-size: cover;background-position-y: -27px;">
-                                    <a href="{{ url_for('dashboard.tech') }}"><p>Technology</p></a>
-                                </li>
-                                
-                                
-                                <li class="category" style="background:url(http://media.empire.life/site/categories/money2.png) no-repeat; background-size: cover;background-position-y: -64px;">
-                                    <a href="{{ url_for('dashboard.money') }}"><p>Money</p></a>
-                                </li>
-                                
-                                
-                                <li class="category" style="background:url(http://media.empire.life/site/categories/work.jpg) no-repeat; background-size: cover;background-position-y: -99px;">
-	                                <a href="{{ url_for('dashboard.career') }}"><p>Career</p></a>
-	                            </li>
-                                
-                                <!-- <a href="">
-                                    <li class="category" style="background:url(../static/images/1.jpg) no-repeat; background-size: cover;background-position-y: -112px;">
-                                        <p>Body + Beauty</p>
-                                    </li>
-                                </a>
-                                <a href="">
-                                    <li class="category" style="background:url(../static/images/5.jpg) no-repeat; background-size: cover;background-position-y: -112px;">
-                                        <p>Relationships</p>
-                                    </li>
-                                </a> -->
-                                
-                                <li class="category" style="background:url(http://media.empire.life/site/categories/mind.jpg) no-repeat; background-size: cover;background-position-y: -55px;">
-	                                <a href="{{ url_for('dashboard.mindbody') }}"><p>Mind, Body, and Spirit</p></a>
-	                            </li>
-                                
-                                <!-- <a href="">
-                                    <li class="category" style="background:url(http://media.empire.life/site/categories/sports2.png) no-repeat; background-size: cover;background-position-y: -80px;">
-                                        <p>Sports</p>
-                                    </li>
-                                </a> -->
-                                
-                                <li class="category" style="background:url(http://media.empire.life/site/categories/ent.png) no-repeat; background-size: cover;background-position-y: -41px;">
-                                	<a href="{{ url_for('dashboard.culture') }}"><p>Culture + Entertainment</p></a>
-                                </li>
-                                
-                                <!-- <a href="">
-                                    <li class="category" style="background:url(http://media.empire.life/site/categories/music.png) no-repeat; background-size: cover;background-position-y: -90px;">
-                                        <p>TV + Music</p>
-                                    </li>
-                                </a> -->
-                                
-                                <li class="category" style="background:url(http://media.empire.life/site/categories/calm.jpg) no-repeat; background-size: cover;background-position-y: -68px;">
-                                    <a href="{{ url_for('dashboard.wildcard') }}"><p>Wildcard</p></a>
-                                </li>
+                        <nav class="nav-multithumb">
+                            <span class="icon-wrap"><svg class="icon" width="32" height="32" viewBox="0 0 64 64"><use xlink:href="#arrow-right-3"></svg></span>
                             
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="side side-right" style="background: url(http://media.empire.life/site/categories/mindy.png) no-repeat center;background-size:cover;background-position-x:0px;">
-                        <a id="current_cycle" href="{{ url_for('dashboard.cycle') }}">
-                            <!-- <img src="" alt="Cycle #1 Front Page image featuring Mindy Kaling" /> -->
-
-                            <div class="intro-content">
-                                <p>Cycle #1</p>
-                                <h1><span class="animated fadeInUp">This Is Empire</span></h1>
-                            </div>
-
-                            <nav class="nav-multithumb">
-                                <span class="icon-wrap"><svg class="icon" width="32" height="32" viewBox="0 0 64 64"><use xlink:href="#arrow-right-3"></svg></span>
-                                <div></div>
-                            </nav>
-                        </a>
-                    </div>
-
-                    <footer>
-                        <nav class="nav-footer" style="left: 0;">
-                            <ul>
-                                <li>© 2015 ThreePillarMedia, LLC</li>
-                                <li><a href="{{ url_for('home.about') }}">About</a></li>
-                                <!-- <li><a href="">Archives</a></li> -->
-                                <li><a href="{{ url_for('home.contact') }}">Contact</a></li>
-                                <li><a href="{{ url_for('home.terms') }}">Terms</a></li>
-                                <li><a href="{{ url_for('home.privacy') }}">Privacy</a></li>
-                                <!-- <li id="social">Social Media</li> -->
-                            </ul>
+                            <div></div>
                         </nav>
-                    </footer>
+
+                    </a> 
+
+            </div>
+
+            <nav class="header_navbar">
+                <div class="navbar_inner">
+                    <ul class="navbar_menu">
+                        <!-- <li class="header_e"><img src="images/empire.png"></li> -->
+                        <li class="menu_item">
+                            <a href="#">News</a>
+                            <ul class="submenu">
+                                <li><a href="#">Politics</a></li>
+                                <li><a href="#">Current Events</a></li>
+                                <li><a href="#">Community</a></li>
+                                <li><a href="#">Technology</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu_item">
+                            <a href="#">Money</a>
+                            <ul class="submenu">
+                                <li><a href="#">Credit Cards</a></li>
+                                <li><a href="#">Investing + Saving</a></li>
+                                <li><a href="#">Loans</a></li>
+                                <li><a href="#">Free Money</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu_item">
+                            <a href="#">Health + Body</a>
+                            <ul class="submenu">
+                                <li><a href="#">Love + Romance</a></li>
+                                <li><a href="#">Sex</a></li>
+                                <li><a href="#">Dating</a></li>
+                                <li><a href="#">Mental Health</a></li>
+                                <li><a href="#">Physical Health</a></li>
+                                <li><a href="#">Emotional Health</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu_item">
+                            <a href="#">Career</a>
+                            <ul class="submenu">
+                                <li><a href="#">Work Etiquette</a></li>
+                                <li><a href="#">In the Spotlight</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu_item">
+                            <a href="#">Fashion</a>
+                            <ul class="submenu">
+                                <li><a href="#">The Look</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu_item">
+                            <a href="#">Entertainment</a>
+                            <ul class="submenu">
+                                <li><a href="#">Shits 'n Giggles</a></li>
+                                <li><a href="#">Calm yer tits</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="mobile_menu">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </section>
+
+        <!-- special thanks -->
+        <section id="special" hidden>
+            <h2 id="title">Special thanks to...</h2>
+            
+            <div style="margin:0 auto;">
+                <div id="tech" class="col-xs-3">
+                    <p class="top-title">Website Technologies</p>
+                    <ul>
+                        <li>Tympanus Codrops</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                
+                <div id="content" class="col-xs-3">
+                    <p class="top-title">Curated Content</p>
+                    <ul>
+                        <li>Buzzfeed</li>
+                        <li>Huffington Post</li>
+                        <li>TED</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-
-        <div id="mobile_main" hidden>
-            <div class="svg-wrap" hidden>
-                <svg width="64" height="64" viewBox="0 0 64 64">
-                    <path id="arrow-left-1" d="M46.077 55.738c0.858 0.867 0.858 2.266 0 3.133s-2.243 0.867-3.101 0l-25.056-25.302c-0.858-0.867-0.858-2.269 0-3.133l25.056-25.306c0.858-0.867 2.243-0.867 3.101 0s0.858 2.266 0 3.133l-22.848 23.738 22.848 23.738z" />
-                </svg>
-                <svg width="64" height="64" viewBox="0 0 64 64">
-                    <path id="arrow-right-1" d="M17.919 55.738c-0.858 0.867-0.858 2.266 0 3.133s2.243 0.867 3.101 0l25.056-25.302c0.858-0.867 0.858-2.269 0-3.133l-25.056-25.306c-0.858-0.867-2.243-0.867-3.101 0s-0.858 2.266 0 3.133l22.848 23.738-22.848 23.738z" />
-                </svg>
-            </div>
-
-            <p id="menu-btn" class="pull-right toggle-menu menu-right"><span class="icon-nav icon-menu"></span></p>
-            
-            <nav class="articles_page cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
-                <h3>
-                    <span class="icon icon-cross" id="close-btn" style="float: left;color: darkgray;cursor: pointer;line-height: 1.1;"></span>
-                    <!-- <span style="float:right;">Empire</span> -->
-                </h3>
-                <a href="{{ url_for('index') }}">Home</a>
-                <a href="{{ url_for('dashboard.cycle') }}">Current Cycle</a>
-                <a style="border-bottom:none;">Categories</a>
-                <ul id="cat_list">
-                    <li><a class="media-body block m-b-none"href="{{ url_for('dashboard.news') }}">Current Events</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.tech') }}">Technology</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.money') }}">Money</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.career') }}">Career</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.mindbody') }}">Mind, Body, and Spirit</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.culture') }}">Culture + Entertainment</a></li>
-                    <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.wildcard') }}">Wildcard</a></li>
-                </ul>
-                <a href="{{ url_for('home.about') }}">About</a>
-                <a href="{{ url_for('home.terms') }}">Terms and Privacy</a>
-                <a href="{{ url_for('home.contact') }}">Contact Us</a>
-            </nav>
-
-            <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1" style="width: 75%;">
-                <h3>
-                    <span class="icon icon-cross" id="closeLeft" style="float: right;color: darkgray;cursor: pointer;"></span>
-                    <span style="float:right;font-size: 0.7em;">What are you in the mood for?</span>
-                    <p class="clearfix"></p>
-                </h3>
-
-                <a href="{{ url_for('dashboard.news') }}" class="category" style="background:url(http://media.empire.life/site/categories/politics.jpg) no-repeat; background-size: cover;background-position-y: -10px;">Current Events</a>
-                
-                
-                <a href="{{ url_for('dashboard.tech') }}" class="category" style="background:url(http://media.empire.life/site/categories/tech.png) no-repeat; background-size: cover;">Technology</a>
-                
-                
-                <a href="{{ url_for('dashboard.money') }}" class="category" style="background:url(http://media.empire.life/site/categories/money2.png) no-repeat; background-size: cover;">Money</a>
-            
-                
-                <a href="{{ url_for('dashboard.career') }}" class="category" style="background:url(http://media.empire.life/site/categories/work.jpg) no-repeat; background-size: cover;">Career</a>
-                
-                <!-- <a href="">
-                    <li class="category" style="background:url(../static/images/1.jpg) no-repeat; background-size: cover;background-position-y: -112px;">
-                        <p>Body + Beauty</p>
-                    </li>
-                </a>
-                <a href="">
-                    <li class="category" style="background:url(../static/images/5.jpg) no-repeat; background-size: cover;background-position-y: -112px;">
-                        <p>Relationships</p>
-                    </li>
-                </a> -->
-                
-                <a href="{{ url_for('dashboard.mindbody') }}" class="category" style="background:url(http://media.empire.life/site/categories/mind.jpg) no-repeat; background-size: cover;">Mind, Body, and Spirit</a>
-                
-                <!-- <a href="">
-                    <li class="category" style="background:url(http://media.empire.life/site/categories/sports2.png) no-repeat; background-size: cover;background-position-y: -80px;">
-                        <p>Sports</p>
-                    </li>
-                </a> -->
-                
-                <a href="{{ url_for('dashboard.culture') }}" class="category" style="background:url(http://media.empire.life/site/categories/ent.png) no-repeat; background-size: cover;">Culture + Entertainment</a>
-
-                <!-- <a href="">
-                    <li class="category" style="background:url(http://media.empire.life/site/categories/music.png) no-repeat; background-size: cover;background-position-y: -90px;">
-                        <p>TV + Music</p>
-                    </li>
-                </a> -->
-                
-                <a href="{{ url_for('dashboard.wildcard') }}" class="category" style="background:url(http://media.empire.life/site/categories/calm.jpg) no-repeat; background-size: cover;">Wildcard</a>
-            </nav>
-
-            <header class="animated fadeInDown">
-                <img src="http://media.empire.life/site/images/logo-blk.png" alt="Empire logo"/>
-                <p class="beta" data-toggle="tooltip" data-placement="left" title="PSSST! Click Me!" style="cursor:pointer;" onclick="$('#info').modal('show');">Beta!</p>
-            </header>
 
             <div class="clearfix"></div>
+        </section>
 
-            <div id="buttons">
-                <div class="btn-round animated fadeInLeft">
-                    <a href="{{ url_for('dashboard.cycle') }}">Current Cycle <span class="pull-right"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-right-1"></svg></span></a>
+
+        <!-- footer -->
+        <footer id="footer">
+            <div id="side-left" class="pull-left" hidden>
+                <div id="logo" >
+                    <img src="http://media.empire.life/site/images/logo.png" alt="Empire logo" width="100" />
                 </div>
-                <div class="btn-round animated fadeInRight">
-                    <p id="topicsTogg" class="toggle-menu menu-left">Topics <span class="pull-left"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-left-1"></svg></span></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- <div class="modal fade" id="beta">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body text-center">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-                        <h4 class="modal-title" style="font-size: 1.3em;padding: 10px 0;">We're finally here!</h4>
-                    
-                        <p class="padder-v">Welcome to Empire. During these next couple of weeks, we would like to collect feedback from <strong>YOU</strong> to help us build the best version of Empire, a site that <strong>YOU</strong> would want to come back to every day.</p>
-
-                        <p class="padder-v">Browse the topics on your left or experience an Empire cycle on your right. Don't forget to let us know what you think of this beta release! Your feedback will be invaluable to us when we release the full-site and content.</p> 
-
-                        <p class="padder-v">Feel free to use the <a href="{{ url_for('home.contact') }}" style="color:#d20150 !important;">contact form</a> or reach out to us on social media.</p>
-
-                        <p style="text-align:left;">Stay Blessed,</p>
-                        <p style="text-align: left;font-style: italic;">- Team Empire</p>
-                    </div>
+                            
+                <div id="social" hidden>
+                    <ul>
+                        <li id="twitter"><span class="icon-twitter"></span></li>
+                        <li id="facebook"><span class="icon-facebook"></span></li>
+                        <li id="tumblr"><span class="icon-tumblr"></span></li>
+                        <li id="insta"><span class="icon-instagram"></span></li>
+                        <li id="mail"><span class="icon-mail"></span></li>
+                    </ul>
                 </div>
             </div>
-        </div> -->
+            
+            <p id="copyright">© 2015 ThreePillarMedia, LLC</p>
 
-        <div class="modal fade" id="login">
+            <nav class="nav-footer">
+                <ul>
+                    <li><a href="{{ url_for('home.about') }}">About</a></li>
+                    <!-- <li><a href="">Archives</a></li> -->
+                    <li><a href="{{ url_for('home.contact') }}">Contact</a></li>
+                    <li><a href="{{ url_for('home.terms') }}">Terms</a></li>
+                    <li><a href="{{ url_for('home.privacy') }}">Privacy</a></li>
+                    <!-- <li id="social">Social Media</li> -->
+                </ul>
+            </nav>
+
+            <div class="clearfix"></div>
+        </footer>
+
+        <!-- modals -->
+        <div class="modal fade" id="login_modal">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-body text-center" style="height:270px;">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="modal-body text-center" style="height:350px;">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
 
-                        <!-- <h4 class="modal-title" style="font-size: 1.3em;padding: 10px 0;">We're finally here!</h4> -->
-                    
-                        <div class="pull-left">
-                            <img src="http://media.empire.life/site/images/logo-blk.png" alt="Empire logo" width="75" style="margin-top:0px;"/>
-                            <div id="login_error" class="alert error" style="margin: 5px 0px 0px;" hidden>
-                                <button type="button" class="close" data-dismiss="alert">
-                                    <span aria-hidden="true">&times;</span>
-                                    <span class="sr-only">Close</span>
-                                </button>
-                                <p id="message"></p>
-                            </div>
-
-                            <div id="reg_error" class="alert error" style="margin: 5px 0px 0px;" hidden>
-                                <button type="button" class="close" data-dismiss="alert">
-                                    <span aria-hidden="true">&times;</span>
-                                    <span class="sr-only">Close</span>
-                                </button>
-                                <p id="message"></p>
-                            </div>
-
-                            <div id="reg_success" class="alert success" style="margin: 5px 0px 0px;" hidden>
-                                <button type="button" class="close" data-dismiss="alert">
-                                    <span aria-hidden="true">&times;</span>
-                                    <span class="sr-only">Close</span>
-                                </button>
-                                <p id="message"></p>
-                            </div>
-
-                            <div id="forgot_error" class="alert" style="margin: 5px 0px 0px;" hidden>
-                                <button type="button" class="close" data-dismiss="alert">
-                                    <span aria-hidden="true">&times;</span>
-                                    <span class="sr-only">Close</span>
-                                </button>
-                                <p id="message"></p>
-                            </div>
-                            <form class="pure-form pure-form-stacked" id="main_login_form">
-                                <fieldset>
-                                    <input id="username" type="text" placeholder="Username" style="margin:15px;">
-                                    <input id="password" type="password" placeholder="Password" style="margin:15px;">
-                                    <label for="remember">
-                                        <input id="remember" type="checkbox"> Remember me
-                                    </label>
-
-                                    <p onclick="empirelogin();" class="btn">Sign In</p>
-                                </fieldset>
-                            </form>
+                        <div class="text-center">
+                            <img src="http://media.empire.life/site/images/logo-blk.png" alt="Empire logo" width="75" />
                         </div>
 
-                        <div id="login_info" class="pull-right">
-                            <p style="margin:10px 0px;">As a member of Empire online you can enjoy the following benefits:</p>
-                            <ul>
-                                <li>Comment on articles</li>
-                                <li>Start discussions</li>
-                                <li>Write your own articles</li>
-                            </ul>
-                            <p style="margin:20px 0px; 10px;">Don't have an account?</p>
-                            <p onclick="jQuery('#login').modal('hide');jQuery('#register').modal('show');" class='btn' value='Register' style="margin:10px 0px 0px 2px;">Register with Empire</p>
+                        <div id="login-form" class="panel bg-white">
+                            <div class="panel-heading b-light bg-light">Sign in</div>
+                            
+                            <div class="panel-body">
+                                <form>
+                                    <input id="username" class="form-input" type="text" placeholder="Username">
+                                    
+                                    <input id="password" class="form-input" type="password" placeholder="Password">
+                                    
+                                    <div class="checkbox text-left">
+                                        <label>
+                                            <small>
+                                                <input id="remember" type="checkbox">
+                                                Remember me
+                                            </small>
+                                        </label>
+                                    </div>
+                                    
+                                    <p onclick="empirelogin();" class='btn btn-black' value='Login'>Login</p>
+                                </form>
+                                
+                                <div class="clearfix divider"></div>
+                                
+                                <section class="additional-info">
+                                    <p class="text-right">
+                                        <span class='btn-toggle' data-toggle='forgot-form'>Forgot your password?</span>
+                                        <span> | </span>
+                                        <span class='btn-toggle' data-toggle='register-form' onclick="jQuery('#login_modal').modal('hide');jQuery('#register').modal('show');">Sign Up on Empire</span>
+                                    </p>
+                                </section>
+                            </div>
                         </div>
                     </div>
+
                     <div id="login_footer">
-                            <p class="content">SIGN IN WITH
-                                <a href="#" onclick="fb_login();"><span style="margin-left: 40px;" class="icon icon-facebook2 loginicon"></span></a>
-                                <a href="#" onclick="gpluslogin();"><span class="icon icon-googleplus2 loginicon"></span></a>
-                                <a href="#" onclick="twitterlogin();"><span class="icon icon-twitter2 loginicon"></span></a>
-                            </p>
+                        <p id="login-text" class="text-uppercase pull-left">Sign In with</p>
+
+                        <ul id="icons">
+                            <li>
+                                <span class="icon-facebook" onclick="fb_login();"></span>
+                            </li>
+
+                            <li>
+                                <span class="icon-googleplus" onclick="gpluslogin();"></span>
+                            </li>
+
+                            <li>
+                                <span class="icon-twitter" onclick="twitterlogin();"></span>
+                            </li>
+                        </ul>  
                     </div>
+
                 </div>
             </div>
         </div>
+
         <div class="modal fade" id="register">
             <div class="modal-dialog">
                 <div class="modal-content" style="height: 400px;">
-                    <div class="modal-body text-center" style="height:300px; text-align:center;">
+                    <div class="modal-body text-center">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h3>Register an Empire Account</h3>
-                        <form class="pure-form pure-form-stacked" id="main_register_form">
+
+                        <div id='register-form' class="panel bg-white">
+                            <div class="panel-heading b-light bg-light">Register</div>
+                            <div class="panel-body">
+                                <form accept-charset="UTF-8">
+                                    <input type="text" class="form-input" placeholder="Username" help-text="us_help" id="username" name="username">
+                                    <p class="help-block" id="us_help">Must be at least 6 characters long and contain no spaces</p>
+                                    
+                                    <input type="email" class="form-input" placeholder="Email Address" id="email" name="email">
+
+                                    <input type="password" class="form-input" placeholder="Password" id="password" name="password">
+
+                                    <input type="password" class="form-input" placeholder="Confirm Password" id="confirm" name="confirm">
+
+                                    <p onclick="register();" class='btn' value='Register'>Sign Up</p>
+                                </form>
+
+                                <div class="alert success" style="display:none;">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        <span aria-hidden="true">&times;</span>
+                                        <span class="sr-only">Close</span>
+                                    </button>
+                                    <span class="icon-thumbsup alert-icon"></span>You have successfully signed up as an admin. Please check your email and follow the link to verify your account.
+                                </div>
+
+                                <section class="additional-info">
+                                    <p class="text-right">
+                                        <!-- <span id="forgot" style="display:none;">Check your email to verify your account</span>
+                                        <span> | </span> -->
+                                        <span class='btn-toggle' data-toggle='login-form'>Log in</span>
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+
+                        <form class="pure-form pure-form-stacked" id="main_register_form" hidden>
                             <fieldset>
                                 <input type="text" class="form-input" placeholder="Username" help-text="us_help" id="username" name="username">
                                 <p class="help-block" id="us_help"><small>Must be at least 4 characters long and contain no spaces</small></p>
@@ -435,12 +372,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-
-        <!-- <section id="special">
-            <h1>Special thanks to the following places for information and their help!</h1>
-        </section> -->
+        </div> 
     </body>
 
     <script>
@@ -449,6 +381,56 @@
             // $('.beta').tooltip();
             // setTimeout("jQuery('.beta').tooltip('show');", 1000);
             //setTimeout("jQuery('#login').modal('show');", 800);
+        });
+
+        $(function() {
+    
+
+            var win = $(window),
+                offset = 500;
+            
+            win.scroll(function() {
+                if (win.scrollTop() >= offset) {
+                    $('.header_navbar').addClass("fixed");
+                    $('.header_navbar').css('margin-top','0');
+                } 
+                else {
+                    $('.header_navbar').removeClass("fixed");
+                    $('.header_navbar').css('margin-top','0px');
+                }
+            });
+
+            var shrinkHeader = 155;
+            $(window).scroll(function() {
+                var scroll = getCurrentScroll();
+                if ( scroll >= shrinkHeader ) {
+                   $('.header').addClass('shrink');
+                }
+                else {
+                    $('.header').removeClass('shrink');
+                }
+            });
+
+            function getCurrentScroll() {
+                return window.pageYOffset || document.documentElement.scrollTop;
+            }
+
+            // for the navbar
+            $('.menu_item').mouseenter( function() {
+                if ($(this).children().length > 1) {
+                    $(this).addClass('open');
+                    // $('.header')[0].style.height = (147 + $(this).find('.submenu')[0].offsetHeight) + 'px';
+                    $(this).find('.submenu').css('visibility', 'visible');
+                }
+            });
+
+            $('.menu_item').mouseleave( function() {
+                if ($(this).children().length > 1) {
+                    $(this).removeClass('open');
+                    // $('.header')[0].style.height = '147px';
+                    $(this).find('.submenu').css('visibility', 'hidden');
+                }
+            });
         });
     </script>
 </html>

@@ -10,19 +10,19 @@
         display: inline-block;
 
         &#tw {
-            background: blue;
+            background: $twitter;
         }
 
         &#pin {
-            background: red;
+            background: $pinterest;
         }
 
         &#gp {
-            background: green;
+            background: $google;
         }
 
         &#fb {
-            background: blue;
+            background: $facebook;
         }
     }
 }

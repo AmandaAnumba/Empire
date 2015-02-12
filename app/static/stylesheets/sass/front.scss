@@ -1,0 +1,15 @@
+// partials + variables    
+@import '../partials/colors';
+@import '../partials/mixins';
+@import '../partials/icomoon';
+
+// base
+@import '../modules/base';
+
+// modules
+@import '../modules/welcome';
+@import '../modules/header'; 
+@import '../modules/inputs'; 
+
+// customized bootstrap 
+@import  '../third-party/outside2';

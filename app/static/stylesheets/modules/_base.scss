@@ -4,8 +4,9 @@
 
 
 // vars
-$main-font: 'Lato' sans-serif;
-$serif: Georgia,Times,"Times New Roman",serif;
+$main-font: 'Lato', sans-serif;
+$serif: 'Merriweather', serif;
+
 $target: 960px;
 $base-font-size: 16px;
 
@@ -21,7 +22,7 @@ $base-font-size: 16px;
 }
 
 // base styles
-* { font-family: $main-font }
+// * { font-family: $main-font }
 
 i { font-style: normal; }
 
@@ -29,7 +30,7 @@ body {
 	@include body-format();
 }
 
-h1,h2,h3,h4,h5,p {
+h1,h2,h3,h4,h5,p,ul,li,div {
 	padding: 0;
 	margin: 0;
 }
