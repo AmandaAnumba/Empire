@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang='en' ng-app="frontpage">
+    <head>
+        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="HandheldFriendly" content="true">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta charset="utf-8">  
+        <meta name="author" content="ThreePillarMedia, LLC" />
+        <meta name="url" content="http://www.empire.life">
+        <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
+        <link rel="icon" type="image/png" href="http://media.empire.life/site/images/favicon.png">
+        <title>Empire</title>
+
+        <!-- opengraph -->
+        <meta property="og:title" content="Empire"/>
+        <meta property="og:site_name" content="Empire" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="http://media.empire.life/site/images/logo.png"/>
+        <meta property="og:url" content="http://www.empire.life"/>
+        <meta property="og:description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign."/>
+        <!-- <meta property="fb:admins" content="USER_ID"/> -->
+        <meta property="og:locale" content="en_US" >
+
+        <!-- twitter -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@_thisisempire" />
+        <meta name="twitter:title" content="Empire | Succes Starts Here" />
+        <meta name="twitter:description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
+        <meta name="twitter:image" content="http://media.empire.life/site/images/logo.png" />
+        <meta name="twitter:url" content="http://www.empire.life" />
+
+        <!-- scripts -->
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap-custom.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='plugins/pushmenu/js/modernizr.custom.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/fblogin.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/gpluslogin.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/empirelogin.js') }}"></script>
+
+        <!-- styles -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/icomoon/style.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" />
+        
+        <!--For login modal -->
+        <!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css"> -->
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '345241442325838',
+              xfbml      : true,
+              version    : 'v2.1'
+            });
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <script type="text/javascript">
+            (function() {
+               var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+               po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
+               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+            })();
+        </script>
+    </head>
+
+    <body id="welcome">
+        <nav id="top-nav">
+            <div class="pull-right">
+                {% if loggedin %}
+                    <p id ="mainusername" style="margin-top:10px;">
+                        Welcome <span style='color:#e64c65'>{{ username }}<span>
+                    </p>
+                    <a class="btn logout_btn" href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
+                    <p id="login" class="pull-right" onclick="jQuery('#login_modal').modal('show');"><small>Log In</small></p>
+                {% endif %}
+            </div>
+        </nav>
+
+        <section id="cycle_header">
+            <div hidden>
+                <svg width="64" height="64" viewBox="0 0 64 64">
+                    <path id="arrow-left-3" d="M44.797 17.28l0.003 29.44-25.6-14.72z" />
+                </svg>
+                <svg width="64" height="64" viewBox="0 0 64 64">
+                    <path id="arrow-right-3" d="M19.203 17.28l-0.003 29.44 25.6-14.72z" />
+                </svg>
+            </div>
+
+            <div id="cycle" style="background:url({{ url_for('static', filename='images/selfReflection3.jpg') }}) no-repeat center;background-size:cover;height:500px;width:100%;">
+                <a id="current_cycle" class="intro-content animated fadeInUp" href="{{ url_for('content.cycle') }}">
+                    <p id="cycle-count">Cycle 02</p>
+                    
+                    <h1 id="cycle-title">They Think They <strong>Know</strong></h1>
+                    
+                    <p><small>A healthy identity does not rest on feelings ofsuperiority, ‘power over others,’ the need tocompete and be ‘best,’ or possession of morematerial things than others. Instead it is seeingoneself as a part of the whole, not the center,and as unique, but not ‘special’.</small></p>
+                    <hr>
+                    
+                    <p>
+                        <small>
+                            <strong>Core Topics: </strong>
+                            Cultural identity, competency, and the difference in being a "millennial".
+                        </small>
+                    </p>
+
+                    <nav class="nav-multithumb">
+                        <span class="icon-wrap"><svg class="icon" width="32" height="32" viewBox="0 0 64 64"><use xlink:href="#arrow-right-3"></svg></span>
+                        
+                        <div></div>
+                    </nav>
+                </a> 
+            </div>
+
+            <nav class="header_navbar">
+                <div class="navbar_inner">
+                    <ul class="navbar_menu">
+                        <li class="menu_item">
+                            <a href="#">Beauty</a>
+                            <ul class="submenu">
+                                <li><a href="#">Hair</a></li>
+                                <li><a href="#">Fashion</a></li>
+                                <li><a href="#">Body</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu_item">
+                            <a href="#">Career</a>
+                        </li>
+
+                        <li class="menu_item">
+                            <a href="#">Lifestyle</a>
+                            <ul class="submenu">
+                                <li><a href="#">Mind</a></li>
+                                <li><a href="#">Body</a></li>
+                                <li><a href="#">Travel</a></li>
+                                <li><a href="#">Food + Drink</a></li>
+                                <li><a href="#">Spirit</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu_item">
+                            <a href="#">Entertainment</a>
+                            <ul class="submenu">
+                                <li><a href="#">TV</a></li>
+                                <li><a href="#">Music</a></li>
+                                <li><a href="#">Film</a></li>
+                                <li><a href="#">Theater</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu_item">
+                            <a href="#">Money</a>
+                            <ul class="submenu">
+                                <li><a href="#">Saving</a></li>
+                                <li><a href="#">Spending</a></li>
+                                <li><a href="#">Investing</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu_item">
+                            <a href="#">Wildcard</a>
+                            <ul class="submenu">
+                                <li><a href="#">Op-Ed</a></li>
+                                <li><a href="#">Voices</a></li>
+                                <li><a href="#">Calm yer Tits, 'Merica</a></li>
+                                <li><a href="#">Shits 'n Giggles</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+
+        <!-- special thanks -->
+        <section id="special" hidden>
+            <h2 id="title">Special thanks to...</h2>
+            
+            <div style="margin:0 auto;">
+                <div id="tech" class="col-xs-3">
+                    <p class="top-title">Website Technologies</p>
+                    <ul>
+                        <li>Tympanus Codrops</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                
+                <div id="content" class="col-xs-3">
+                    <p class="top-title">Curated Content</p>
+                    <ul>
+                        <li>Buzzfeed</li>
+                        <li>Huffington Post</li>
+                        <li>TED</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </section>
+
+
+        <!-- footer -->
+        <footer id="footer">
+            <div id="side-left" class="pull-left" hidden>
+                <div id="logo" >
+                    <img src="http://media.empire.life/site/images/logo.png" alt="Empire logo" width="100" />
+                </div>
+                            
+                <div id="social" hidden>
+                    <ul>
+                        <li id="twitter"><span class="icon-twitter"></span></li>
+                        <li id="facebook"><span class="icon-facebook"></span></li>
+                        <li id="tumblr"><span class="icon-tumblr"></span></li>
+                        <li id="insta"><span class="icon-instagram"></span></li>
+                        <li id="mail"><span class="icon-mail"></span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p id="copyright">© 2015 ThreePillarMedia, LLC</p>
+
+            <nav class="nav-footer">
+                <ul>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="{{ url_for('terms') }}">Terms</a></li>
+                    <li><a href="{{ url_for('privacy') }}">Privacy</a></li>
+                </ul>
+            </nav>
+
+            <div class="clearfix"></div>
+        </footer>
+
+        <!-- modals -->
+        <div class="modal fade" id="login_modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body text-center" style="height:350px;" ng-controller="empirelogin">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                        <div class="text-center">
+                            <img src="http://media.empire.life/site/images/logo-blk.png" alt="Empire logo" width="75" />
+                        </div>
+
+                        <div id="login-form" class="panel bg-white">
+                            <div class="panel-heading b-light bg-light">Sign in</div>
+                            
+                            <div class="panel-body">
+                                <form>
+                                    <input id="username" class="form-input" type="text" placeholder="Username">
+                                    
+                                    <input id="password" class="form-input" type="password" placeholder="Password">
+                                    
+                                    <div class="checkbox text-left">
+                                        <label>
+                                            <small>
+                                                <input id="remember" type="checkbox">
+                                                Remember me
+                                            </small>
+                                        </label>
+                                    </div>
+                                    
+                                    <p onclick="login();" class='btn btn-black' value='Login'>Login</p>
+                                </form>
+                                
+                                <div class="clearfix divider"></div>
+                                
+                                <section class="additional-info">
+                                    <p class="text-right">
+                                        <span class='btn-toggle' data-toggle='forgot-form'>Forgot your password?</span>
+                                        <span> | </span>
+                                        <span class='btn-toggle' data-toggle='register-form' onclick="jQuery('#login_modal').modal('hide');jQuery('#register').modal('show');">Sign Up on Empire</span>
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="login_footer">
+                        <p id="login-text" class="text-uppercase pull-left">Sign In with</p>
+
+                        <ul id="icons">
+                            <li>
+                                <span class="icon-facebook" onclick="fb_login();"></span>
+                            </li>
+
+                            <li>
+                                <span class="icon-googleplus" onclick="gpluslogin();"></span>
+                            </li>
+
+                            <li>
+                                <span class="icon-twitter" onclick="twitterlogin();"></span>
+                            </li>
+                        </ul>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="register">
+            <div class="modal-dialog">
+                <div class="modal-content" style="height: 400px;">
+                    <div class="modal-body text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                        <div id='register-form' class="panel bg-white">
+                            <div class="panel-heading b-light bg-light">Register</div>
+                            <div class="panel-body">
+                                <form accept-charset="UTF-8">
+                                    <input type="text" class="form-input" placeholder="Username" help-text="us_help" id="username" name="username">
+                                    <p class="help-block" id="us_help">Must be at least 6 characters long and contain no spaces</p>
+                                    
+                                    <input type="email" class="form-input" placeholder="Email Address" id="email" name="email">
+
+                                    <input type="password" class="form-input" placeholder="Password" id="password" name="password">
+
+                                    <input type="password" class="form-input" placeholder="Confirm Password" id="confirm" name="confirm">
+
+                                    <p onclick="register();" class='btn' value='Register'>Sign Up</p>
+                                </form>
+
+                                <div class="alert success" style="display:none;">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        <span aria-hidden="true">&times;</span>
+                                        <span class="sr-only">Close</span>
+                                    </button>
+                                    <span class="icon-thumbsup alert-icon"></span>You have successfully signed up as an admin. Please check your email and follow the link to verify your account.
+                                </div>
+
+                                <section class="additional-info">
+                                    <p class="text-right">
+                                        <!-- <span id="forgot" style="display:none;">Check your email to verify your account</span>
+                                        <span> | </span> -->
+                                        <span class='btn-toggle' data-toggle='login-form'>Log in</span>
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+
+                        <form class="pure-form pure-form-stacked" id="main_register_form" hidden>
+                            <fieldset>
+                                <input type="text" class="form-input" placeholder="Username" help-text="us_help" id="username" name="username">
+                                <p class="help-block" id="us_help"><small>Must be at least 4 characters long and contain no spaces</small></p>
+                                
+                                <input type="email" class="form-input" placeholder="Email Address" id="email" name="email">
+
+                                <input type="password" class="form-input" placeholder="Password" help-text="pw_help" id="password" name="password">
+                                <!-- <p class="help-block" id="pw_help"><small>Must be at least 6 characters long and contain both numbers and letters</small></p> -->
+
+                                <input type="password" class="form-input" placeholder="Confirm Password" id="confirm" name="confirm">
+
+                                <div id="tt_pw" class="tooltip2 fade right" style="top: 158px; right: -126px;" hidden>
+                                    <div class="tooltip2-arrow"></div>
+                                    <div class="tooltip2-inner">Passwords must match</div>
+                                </div>
+                                <div id="tt_pw2" class="tooltip2 fade right" style="top: 119px; right: -202px;" hidden>
+                                    <div class="tooltip2-arrow"></div>
+                                    <div class="tooltip2-inner"></div>
+                                </div>
+                                <div id="tt_em1" class="tooltip2 fade right" style="top: 71px; right: -174px;" hidden>
+                                    <div class="tooltip2-arrow"></div>
+                                    <div class="tooltip2-inner">This email address is already in use</div>
+                                </div>
+                                <div id="tt_em2" class="tooltip2 fade right" style="top: 71px; right: -177px;" hidden>
+                                    <div class="tooltip2-arrow"></div>
+                                    <div class="tooltip2-inner">Please enter a valid email address</div>
+                                </div>
+                                <div id="tt_us" class="tooltip2 fade right" style="top: 16px; right: -154px;" hidden>
+                                    <div class="tooltip2-arrow"></div>
+                                    <div class="tooltip2-inner">This username already exists</div>
+                                </div>
+                                <p onclick="empireregister();" class="btn">Sign Up</p>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </body>
+
+    <script>
+        $(function() {
+    
+            $('.toggle-menu').jPushMenu();
+
+            var win = $(window),
+                offset = 500;
+            
+            win.scroll(function() {
+                if (win.scrollTop() >= offset) {
+                    $('.header_navbar').addClass("fixed");
+                    $('.header_navbar').css('margin-top','0');
+                } 
+                else {
+                    $('.header_navbar').removeClass("fixed");
+                    $('.header_navbar').css('margin-top','0px');
+                }
+            });
+
+            var shrinkHeader = 155;
+            $(window).scroll(function() {
+                var scroll = getCurrentScroll();
+                if ( scroll >= shrinkHeader ) {
+                   $('.header').addClass('shrink');
+                }
+                else {
+                    $('.header').removeClass('shrink');
+                }
+            });
+
+            function getCurrentScroll() {
+                return window.pageYOffset || document.documentElement.scrollTop;
+            }
+
+            // for the navbar
+            $('.menu_item').mouseenter( function() {
+                if ($(this).children().length > 1) {
+                    $(this).addClass('open');
+                    // $('.header')[0].style.height = (147 + $(this).find('.submenu')[0].offsetHeight) + 'px';
+                    $(this).find('.submenu').css('visibility', 'visible');
+                }
+            });
+
+            $('.menu_item').mouseleave( function() {
+                if ($(this).children().length > 1) {
+                    $(this).removeClass('open');
+                    // $('.header')[0].style.height = '147px';
+                    $(this).find('.submenu').css('visibility', 'hidden');
+                }
+            });
+        });
+    </script>
+</html>

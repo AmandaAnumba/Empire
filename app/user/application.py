@@ -1,5 +1,5 @@
-import os, random, sys, time, re, string, json, httplib, urllib
-from flask import Flask, Blueprint, url_for, render_template, request, redirect, escape, jsonify, abort
+import string, json, httplib, urllib
+from flask import Blueprint, url_for, render_template, request, redirect, escape, jsonify, abort
 
 """ 
     blueprint for all user actions and page rendering
@@ -31,7 +31,7 @@ def viewProfile(username):
 
     user = result['results'][0]
 
-    return render_template("articles/profile.html", user=user)
+    return render_template("user/profile.html", user=user)
 
 
 # points system
@@ -125,5 +125,3 @@ def subscribe():
 
     else:
         return jsonify({ 'success': "success" })
-
-# get articles to display by date

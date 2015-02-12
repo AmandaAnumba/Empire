@@ -1,5 +1,19 @@
-function empirelogin() {
-   
+var loginApp = angular.module('frontpage', []);
+
+loginApp.controller('empirelogin', function ($scope) {
+    $scope.phones = [
+    {'name': 'Nexus S',
+    'snippet': 'Fast just got faster with Nexus S.'},
+    {'name': 'Motorola XOOM™ with Wi-Fi',
+    'snippet': 'The Next, Next Generation tablet.'},
+    {'name': 'MOTOROLA XOOM™',
+    'snippet': 'The Next, Next Generation tablet.'}
+    ];
+});
+
+
+
+function login() {
     $.post('/login', {
     	username: $('#main_login_form input[id=username]').val(),
         password: $('#main_login_form input[id=password]').val(),
@@ -147,55 +161,5 @@ function forgotPass() {
         $('#loader').hide();
         $('#forgot_error #message').empty().append("<strong>Error: </strong>Please refresh the page and try again.");
     	$('#forgot_error').addClass('error').show();
-    }); 
-}
-
-
-function reset() {
-    $('#resetValform').hide();
-    $('#loader').show();
-    
-    var pw = $('#resetValform input[name=password]').val(),
-    	confirm = $('#resetValform input[name=confirm]').val(),
-    	reset = $('#resetValform input[name=reset]').val(),
-    	action = $('#resetValform input[name=actionType]').val();
-
-	$.post('/check', {
-        password: pw,
-        confirm: confirm,
-    	reset: reset,
-    	actionType: action
-    }).done(function(message) {
-		$('#loader').hide();
-
-    	if (message['password_invalid']) {
-    		$('#resetValform').show();
-        	$('#tt_match').addClass('in');
-        	setTimeout('jQuery("#tt_match").removeClass("in");', 7000)
-    	}
-
-    	if (message['password']) {
-    		$('#resetValform').show();
-        	$('#tt_pw .tooltip-inner').empty().append(message['password']);
-        	$('#tt_pw').addClass('in');
-        	setTimeout('jQuery("#tt_pw").removeClass("in");', 7000)
-    	}
-
-    	if (message['success']) {
-        	$('#alert_message #message').empty().append(message['success']);
-    		$('#alert_message').addClass('success').show();
-    		$('#return').show();
-    	}
-
-    	if (message['error']) {
-    		$('#resetValform').show();
-        	$('#alert_message #message').empty().append(message['error']);
-    		$('#alert_message').addClass('error').show();
-    		setTimeout('jQuery("#alert_message").hide();', 7000)
-    	}
-    }).fail(function() {
-        $('#loader').hide();
-        $('#alert_message #message').empty().append("<strong>Error: </strong>Please refresh the page and try again.");
-    	$('#alert_message').addClass('error').show();
     }); 
 }

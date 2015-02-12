@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+        <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="HandheldFriendly" content="true">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta charset="utf-8">  
+        <meta name="author" content="ThreePillarMedia, LLC" />
+        <meta name="url" content="http://www.empire.life">
+        <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
+        <link rel="icon" type="image/png" href="http://media.empire.life/site/images/favicon.png">
+        <title>About Us | Empire</title>
+        <!-- opengraph -->
+        <meta property="og:title" content="Empire"/>
+        <meta property="og:site_name" content="Empire" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="http://media.empire.life/site/images/logo.png"/>
+        <meta property="og:url" content="http://www.empire.life"/>
+        <meta property="og:description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign."/>
+        <!-- <meta property="fb:admins" content="USER_ID"/> -->
+        <meta property="og:locale" content="en_US" >
+
+        <!-- twitter -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@_thisisempire" />
+        <meta name="twitter:title" content="Empire | Succes Starts Here" />
+        <meta name="twitter:description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
+        <meta name="twitter:image" content="http://media.empire.life/site/images/logo.png" />
+        <meta name="twitter:url" content="http://www.empire.life" />
+
+        <!-- scripts -->
+        <script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
+        <link href="{{ url_for('static', filename='plugins/hd/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="{{ url_for('static', filename='plugins/hd/css/flexslider.css') }}" rel="stylesheet" >
+        <link href="{{ url_for('static', filename='plugins/hd/css/styles.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='plugins/hd/css/queries.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='plugins/hd/css/animate.css') }}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
+        <link href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/icons.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    
+    <body id="top" class="about_page">
+        <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+            <h3>
+                <span class="icon-cross" id="close-btn" style="float: left;color: darkgray;cursor: pointer;line-height: 1.1;"></span>
+                <!-- <span style="float:right;">Empire</span> -->
+            </h3>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('content.cycle') }}">Current Cycle</a>
+            <a style="border-bottom:none;">Categories</a>
+            <ul id="cat_list">
+                <li><a class="media-body block m-b-none"href="{{ url_for('content.news') }}">Current Events</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('content.tech') }}">Technology</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('content.money') }}">Money</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('content.career') }}">Career</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('content.mindbody') }}">Mind, Body, and Spirit</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('content.culture') }}">Culture + Entertainment</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('content.wildcard') }}">Wildcard</a></li>
+            </ul>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('terms') }}">Terms and Privacy</a>
+            <a href="{{ url_for('contact') }}">Contact Us</a>
+        </nav>
+
+        <header id="home">
+            <!-- <nav>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+                            <nav class="pull">
+                                <ul class="top-nav">
+                                    <li><a href="#intro">Mission <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="#features">Features <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="#responsive">In-Depth Look<span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="#portfolio">Portfolio <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="#team">The Team <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="#contact">Connect <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </nav> -->
+
+            <section class="hero" id="hero">
+                <div class="container">
+                    <div class="row">
+                        <p id="menu-btn" class="pull-right toggle-menu menu-right"><span class="icon-nav icon-menu"></span></p>
+                        
+                        <div class="text-right navicon" style="float:right;" hidden>
+                            <a id="nav-toggle" class="nav_slide_button" href="#"><span></span></a>
+                        </div>
+
+                        <div id="min_btn" class="text-right" hidden>
+                            <a href="{{ url_for('index') }}">Home</a>
+                            <span> | </span>
+                            <a href="{{ url_for('content.cycle') }}">Current Cycle</a>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center inner">
+                            <!-- <h1 class="animated fadeInDown" style="color: white;text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.45);"><img src="{{ url_for('static', filename='images/logo-blk.png') }}" width="350" alt="Empire logo"/></h1> -->
+                            <h1 class="animated fadeInDown">EMPIRE</h1>
+                            <p class="animated fadeInUp delay-05s">A community-centric experience built to empower you.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <section class="intro text-center section-padding" id="intro">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 wp1">
+                        <h1 class="arrow">Our Mission</h1>
+                        <p>To inspire a world where women of all backgrounds have equal access to the opportunities and resources that will help them excel personally and professionally.</p>
+                        <!--<p>Empire represents a pipeline of ladies who are inspired to thrive. A community of femmes who are rising into their womanhood. A diverse queendom built to reign over all parts of their lives.</p>-->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features text-center section-padding" id="features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="arrow" id="threepillars">The Three Pillars</h1>
+                        <div class="features-wrapper">
+                            <div class="col-md-4 wp2">
+                                <div class="icon">
+                                    <i class="fa fa-lightbulb-o shadow"></i>
+                                </div>
+                                <h2>Inspire</h2>
+                                <p><span style="font-style:italic;">Inspire a vision.</span> Empire shares stories that inspire young women looking for the right path in life and answers the questions they have yet to ask.</p>
+                            </div>
+                            
+                            <div class="col-md-4 wp2 delay-05s">
+                                <div class="icon">
+                                    <i class="fa fa-fire shadow"></i>
+                                </div>
+                                <h2>Rise</h2>
+                                <p><span style="font-style:italic;">Rise to the challenge.</span> As young women go about embracing their calling in life, Empire is here to teach and support them. </p>
+                            </div>
+                    
+                            <div class="col-md-4 wp2 delay-1s">
+                                <div class="icon">
+                                    <i class="fa fa-trophy shadow"></i>
+                                </div>
+                                <h2>Reign</h2>
+                                <p><span style="font-style:italic;">Reign.</span> Empire celebrates the achievements of young minority women and invites them to share their stories with the Empire community.</p>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="swag text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="">
+                        <h1>It’s the three pillars that hooked me – Inspire, Rise, Reign. The feeling that everyone gets a seat at the table…I think the abundance and authority that exudes from Empire would benefit many women.</h1>
+                        <p>- Alexandria Bobbitt, Student at Northwestern University</p>
+                        <a href="#threepillars" class="down-arrow-btn"><i class="fa fa-chevron-down"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="text-center section-padding" id="responsive">
+            <div class="container-fluid nopadding responsive-services">
+                <div class="wrapper">
+                    <h1 class="arrow">An In-Depth Look</h1>
+
+                    <div class="iphone">
+                        <div class="wp3"></div>
+                    </div>
+                    <div class="fluid-white"></div>
+                </div>
+                
+                <div class="container designs">
+                    <div class="row">
+                        <div class="col-md-5 col-md-offset-7">
+                            <div id="servicesSlider">
+                                <ul class="slides">
+                                    <li>
+                                        <p>Empire is a virtual and in-person experience with the purpose of enabling millennial minority women to have the knowledge, resources, and community they need to live their best lives.</p>
+                                        <p>Empire’s web-site functions as the hub of information and communication: using three focus pillars (Inspire, Rise, and Reign), users will be connected to in-depth content curated by prominent and established female leaders, young up-and-comers, and community members working to build their own path.</p>
+                                    </li>
+
+                                    <li>
+                                        <!-- <h1 class="arrow">Bootstrap Professionals</h1> -->
+                                        <p>In tandem to the site, users will also be keyed in to national meetups and exclusive events, culminating in a celebratory Summit at the end of the year. The Summit will commemorate the achievements of Empire and its community: the Empire Awards, hack-a-thons, one-on-ones with corporate sponsors, and a concert are a few examples of the elements that will be built into Empire’s annual Summit.</p>
+                                    </li>
+
+                                    <li>
+                                        <!-- <h1 class="arrow">Bootstrap Professionals</h1> -->
+                                        <p>Besides being the first site focused on the careerist millennial woman, Empire will also innovate in the digital space by form and function. The timing of the site operates on “cycles”, which are periods of time in which content focused on one overarching theme is constantly available. Conversation will be supported by a built-in comment system, allowing users to engage within any and all parts of the content that is posted. As the site grows, Empire will evolve to learn each user’s unique interests, and cater their version of the site – in addition to the upcoming mobile application – to their unique searches.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		
+        <div class="ignite-cta text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ignite-btn">
+                            <p>I like the seeds that are being planted and nurtured here. Please, continue with vigil and fervency [because many will try to tear you down]...We can rest a while, yet we can never quit on a good thing.</p>
+                            <p>- Caleb Green</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="team text-center section-padding" id="team">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="arrow">The Team</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="team-wrapper">
+                        <div id="teamSlider">
+                            <ul style="margin: 0;padding: 0;list-style: none;">
+                                <li>
+                                    <div class="col-md-3 wp5">
+                                        <img width="200" src="http://media.empire.life/site/about/becca.jpg" alt="Team Member">
+                                        <h2>Rebecca Abara</h2>
+                                        <p>Entrepreneurship has always come naturally to Rebecca. From the day she owned her first goodies-shop with snacks that her children’s church kids could purchase for good behavior, she’s run through life with a knack for using business to solve social issues.  Rebecca carries with her incredible leadership experience, from running her own not-for-profit to creating a marketing campaign with a massive reach of 14,000, 150% larger than her target audience. Her ability to envision the future, find and connect to people’s innate skills, and activate those skills around a cause enables her to lay down a path for success in Empire and make success a reality.</p>
+                                        <div class="social">
+                                            <ul class="social-buttons">
+                                                <li><a href="https://www.facebook.com/rona.abara?fref=ts" target="_blank"  class="social-btn"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="https://twitter.com/callmecharizma" target="_blank"  class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="http://instagram.com/callmecharizma" target="_blank"  class="social-btn"><i class="fa fa-instagram"></i></a></li>
+                                                <li><a href="mailto:rebecca@empire.life" target="_blank"  class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 wp5 delay-05s">
+                                        <img width="200" src="http://media.empire.life/site/about/amanda.jpg" alt="Team Member">
+                                        <h2>Amanda Anumba</h2>
+                                        <p>Amanda is able to see a beauty in the world that not many others can find. Her creativity spawned from an early age when she taught herself to code in HTML and began designing layouts for her Myspace profile. The continued expansion of technology and computer programming has equipped her with the tools she needs to create stunning user interfaces and web applications. Amanda’s ability to marry her creative mind with technological innovation, as well as her tenacity and drive for incredible work, qualifies her to be the front-man on building the face of Empire’s innovations.</p>
+                                        <div class="social">
+                                            <ul class="social-buttons">
+                                                <li><a href="https://twitter.com/__uhMANduh" target="_blank"  class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="https://www.pinterest.com/Reptawr/" target="_blank" class="social-btn"><i class="fa fa-pinterest"></i></a></li>
+                                                <li><a href="http://www.linkedin.com/in/amandaanumba" target="_blank" class="social-btn"><i class="fa fa-linkedin"></i></a></li>
+                                                <li><a href="mailto:amanda@empire.life" target="_blank"  class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 wp5 delay-1s">
+                                        <img width="200" src="http://media.empire.life/site/about/omeko.jpg" alt="Team Member">
+                                        <h2>Omeko Eromosele</h2>
+                                        <p>The day will never come when Omeko is not giving to others. Whether it be food, nurture, a helping hand, or her last dollar, Omeko has never shied away from making sure those around her are cared and given the support they need. Garnering experience in a variety of youth development programs in her early career, it is during this time she developed a strong desire in pursuing a deeper commitment in helping those around her grow personally and professionally. Her genuine desire in promoting self-excellence for the people around her has motivated her career aspirations, and makes her the perfect candidate to support Empire’s HR and management needs.</p>
+                                        <div class="social">
+                                            <ul class="social-buttons">
+                                                <li><a href="https://www.facebook.com/omeko.eromosele" target="_blank"  class="social-btn"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="http://instagram.com/naijaloveguru" target="_blank"  class="social-btn"><i class="fa fa-instagram"></i></a></li>
+                                                <li><a href="mailto:omeko@empire.life" target="_blank"  class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 wp5 delay-15s">
+                                        <img width="200" src="http://media.empire.life/site/about/tay.jpg" alt="Team Member">
+                                        <h2>Shantavia&Eacute; Wynn</h2>
+                                        <p>Shantaviaé is a natural-born operations manager. Growing up, she learned how to persevere through dysfunction and overcome her obstacles to attain her goals. She translates her background and her experiences into guiding principles when she approaches her academic and career development. Her dedication to enabling success through efficiency and timeliness allows her to be an effective operations manager, and her inclination towards technology gives Empire innovation a supportive arm. She aspires to be in a position to help others achieve their own dreams. </p>
+                                        <div class="social">
+                                            <ul class="social-buttons">
+                                                <li><a href="https://www.facebook.com/ShanTayTay?fref=ts" target="_blank"  class="social-btn"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="http://shantaviae.tumblr.com/" target="_blank" class="social-btn"><i class="fa fa-tumblr"></i></a></li>
+                                                      <li><a href="http://www.linkedin.com/pub/shantaviae-wynn/50/a31/625" target="_blank"  class="social-btn"><i class="fa fa-linkedin"></i></a></li>
+                                                <li><a href="mailto:shantaviae@empire.life" target="_blank"  class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio text-center section-padding" id="portfolio">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="arrow">Staff Writers</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="portfolioSlider">
+                        <ul style="margin: 0;padding: 0;list-style: none;">
+                            <li>
+                                <div class="col-md-4 wp4">
+                                    <div class="clearfix">
+                                        <div class="img">
+                                            <img src="http://media.empire.life/site/about/jessica.jpg" width="200" alt="Staff Writer">
+                                            <!-- <div class="overlay">
+                                                <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                                                <a class="close-overlay hidden">x</a>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <h2>Jessica Gaddis</h2>
+                                    <p>Jessica is an inquisitive mind who spends the majority of her time trying to pay attention to the lack luster task in front of her instead of the amazingly beautiful world around her because, unfortunately, tasks pay bills and beautiful worlds do not. Most days are spent playing around inside her own mind and finding new ways to channel intangible thoughts into literal actions.</p>
+                                    <p>Jessica is always trying to find new ways to express herself all the while staring at the fork in the road where following her passions and following her responsibilities meet.
+                                    <p>Jessica enjoys music, movies and food. She has an unhealthy addiction to office supplies and she likes her coffee to taste like hot chocolate. If she could spend her days doing DIY projects and cooking, she would, and while she’d love to say that she’s got most things figured out, she does not. </p>
+                                    <p>And that is why Empire is important to her. </p>
+                                    <p>Every sentence she writes will, in theory, give you something pleasant to read all the while helping her get closer to figuring herself out because the trouble with inquisitive minds is that questioning everything also includes questioning yourself.</p>
+                                    <p>You'll see her work in the career development and body & beauty sections!</p>
+                                    <div class="social">
+                                        <ul class="social-buttons">
+                                            <li><a href="https://twitter.com/mariagaddis" target="_blank"  class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="http://instagram.com/mariagaddis" target="_blank"  class="social-btn"><i class="fa fa-instagram"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 wp4 delay-05s">
+                                    <div class="clearfix">
+                                        <div class="img">
+                                            <img src="http://media.empire.life/site/about/jasmine.jpg" width="200" alt="Staff Writer">
+                                            <!-- <div class="overlay">
+                                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                                            <a class="close-overlay hidden">x</a>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <h2>Jasmine Jones</h2>
+                                    <p>Jasmine will be covering all things Fashion for Empire. She is originally from a small town in Michigan, where she grew up not really putting much thought into her wardrobe. Upon her junior year in high school, she began to realize the intrinsic confidence and beauty that comes from embracing your own personal style, and the power that can come from utilizing your body as a canvas to communicate who you are to the world. She began reading fashion magazines like Vogue and W monthly, so that she could see what styles and trends she liked and could tailor to her own personal style. </p> 
+                                    <p>She has lived in Paris, visited London, Barcelona, Switzerland, Rome, Florence, Venice, and traveled across the county, Mexico, and the Caribbean. With every experience she's had, she has taken and used as a catalyst for incorporating different cultures into her own personal wardrobe. So, if you’re looking for the perfect dress for a date, the right wardrobe for work, or a flawless outfit for a night out with the girls, you’ve come to the right place!</p>
+                                    <div class="social">
+                                        <ul class="social-buttons">
+                                            <li><a href="https://twitter.com/jasminelatrice_" target="_blank"  class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="http://instagram.com/jasminelatrice_" target="_blank"  class="social-btn"><i class="fa fa-instagram"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 wp4 delay-1s">
+                                    <div class="clearfix">
+                                        <div class="img">
+                                            <img src="http://media.empire.life/site/about/naakie.jpg" width="200" alt="Staff Writer">
+                                            <!-- <div class="overlay">
+                                                <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                                                <a class="close-overlay hidden">x</a>
+                                            </div> -->
+                                        </div>
+                                    </div>
+
+                                    <h2>Naakie Nartey</h2>
+                                    <p>Naakie Nartey is a 23-year-old dynamic young professional from Atlanta, Georgia. She spent her undergraduate collegiate years at The Georgia Institute of Technology. In May of 2014, she graduated with highest honors, receiving a BSBA with a concentration in Supply Chain and Logistics. Shortly after graduating, she began her professional post-graduate career with one of the world’s top consumer goods companies, where she currently works as a category analyst.</p>
+                                    <p>Although her professional career may be quite traditional, this spunky and outgoing young gal often likes to take the road less traveled. Whether she is jet setting to a foreign country to experience new cultures, or jumping out of an airplane plane fifteen thousand feet in the air, Naakie is always up for an adventure.</p>
+                                    <p>But living life on the edge is not her only modus operandi. She has always been passionate about the financial independence and intelligence of young professional minorities like herself. She believes that while it is important to share her knowledge of how to live a financially savvy life, it is even more impactful to lead by example. She prides herself on proving that you can travel internationally and shop top brands all while still putting fifty percent of your paycheck into a money market account and watching your bank statements grow each month.</p>
+                                    <div class="social">
+                                        <ul class="social-buttons">
+                                            <li><a href="http://naakieregina.tumblr.com/" target="_blank" class="social-btn"><i class="fa fa-tumblr"></i></a></li>
+                                            <li><a href="http://instagram.com/naakienartey" target="_blank"  class="social-btn"><i class="fa fa-instagram"></i></a></li>
+                                            <li><a href="https://twitter.com/naakienartey" target="_blank"  class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="subscribe text-center">
+            <div class="container" id="contact">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Stay Connected with Us</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="social-buttons">
+                            <li><a href="mailto:hello@empire.life" target="_top" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                            <li><a href="https://www.facebook.com/InspireRiseReign" target="_blank" class="social-btn"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://twitter.com/_thisisempire" target="_blank" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="http://thisisempire.tumblr.com" target="_blank" class="social-btn"><i class="fa fa-tumblr"></i></a></li>
+                            <li><a href="http://www.instagram.com/thisisempire" target="_blank" class="social-btn"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="http://www.pinterest.com/thisisempire/" target="_blank" class="social-btn"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="legals">
+                            <li>© 2015 ThreePillarMedia, LLC</li>
+                            <li><a href="{{ url_for('home.terms') }}">Terms &amp; Conditions</a></li>
+                            <li><a href="{{ url_for('home.privacy') }}">Privacy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="{{ url_for('static', filename='plugins/hd/js/waypoints.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='plugins/hd/js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='plugins/hd/js/scripts.js') }}"></script>
+        <script src="{{ url_for('static', filename='plugins/hd/js/jquery.flexslider.js') }}"></script>
+        <script src="{{ url_for('static', filename='plugins/hd/js/modernizr.js') }}"></script>
+    </body>
+
+    <script>
+        jQuery(document).ready(function($) {
+            $('.toggle-menu').jPushMenu();
+        });
+    </script>
+</html>

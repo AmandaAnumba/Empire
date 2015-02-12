@@ -13,30 +13,77 @@ module.exports = function(grunt) {
             }
         },
 
+        // bundling all of the require() calls and js files into a 
+        // bundle.js/module.js file
+        browserify: {
+            home: {
+                files: {
+                    'js/build.js': ['test/**/*.js'],
+                }
+            },
+            articles: {
+                files: {
+                    'js/build.js': ['test/**/*.js'],
+                }
+            },
+            users: {
+                files: {
+                    'js/build.js': ['test/**/*.js'],
+                }
+            },
+            dist: {
+                files: {
+                    'js/build.js': ['test/**/*.js'],
+                }
+            }
+        },
+
+        // minify js files
+        uglify: {
+            options: {
+                sourceMap: false,
+                banner: '/*! main.js \n all functions required for empire functionality \n <%= grunt.template.today("m-d-yy") %> */\n\n'
+            },
+            prod: {
+                files: {
+                    'app/static/js/prod/main.min.js': ['app/static/js/main.js']
+                }
+            },
+        },
+
+        // minify css files
+        cssmin: {
+            target: {
+                files: {
+                    'css/dist/built.min.css': ['css/base.css', 'css/mocha.css']
+                }
+            }
+        },
+
         watch: {
             styles: {
                 files: ['app/static/stylesheets/modules/**/*.scss','app/static/stylesheets/partials/**/*.scss'],
-                tasks: ['compass'],
+                tasks: ['compass:dev'],
                 options: {
                     spawn: false,
                 },
             },
         },
-
-        
     });
     
     // Load the plugin that provides the each task.
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-browserify');
 
     // create a task and run it by typing 'grunt lint' on the command line
-    // grunt.registerTask('<task_name', ['jshint:all']);
+    grunt.registerTask('prod', ['jshint:all']);
     
     // on watch events configure jshint:all to only run on changed file
     grunt.event.on('watch', function(action, filepath) {
-        grunt.config('jshint.all.src', filepath);
+        grunt.config('compass', filepath);
     });
 
     // Default task(s) to run by typing 'grunt' on the command line
