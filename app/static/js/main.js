@@ -23,7 +23,6 @@ $(document).ready(function() {
         $(".side-left").css({'width':'50%', 'overflow-y': 'hidden'});
 
         $('#beta, #logo').show();
-
     });
 
     // dropdown menus
@@ -55,20 +54,6 @@ $(document).ready(function() {
 	// 	$('.container').css('opacity','0.2');
 	// 	$('#loader').show();
 	// });
-
-	// dropdown menus
-	$('.dropdown-toggle').click(function(e) {
-		var target = $(this).attr('dropdown-toggle');
-		$('.dropdown-menu').not('#'+target).hide();
-		
-		if ($('#'+target).is(':visible')) {
-			$('#'+target).hide();
-		}
-		else {
-			e.stopPropagation();
-			$('#'+target).show();
-		}
-	});
 	// $(document).click(function() {
 	// 	$('.dropdown-menu').hide();
 	// 	// if ($('.dropdown-menu').is(':visible')) {
@@ -85,7 +70,7 @@ $(document).ready(function() {
 		// activate this specific form
 		// $(this).addClass('active');
 		var target = $(this).attr('data-toggle');
-		$('#'+target).slideDown();
+		$('#'+target).show();
 
 		// if (target == "register-form") {
 		// 	$('.text-right').hide();

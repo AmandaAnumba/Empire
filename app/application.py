@@ -1,7 +1,7 @@
 from app import app
 import sys, re, string, base64, hmac, urllib, json, httplib
 # from emails import *
-from flask import flash, render_template, session, request, redirect, url_for, escape, jsonify
+from flask import render_template, session, request, redirect, url_for, escape, jsonify
 
 application = app
 
@@ -22,52 +22,44 @@ RESTapiKEY = "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
 @application.route('/')
 def index():
     if session.get('username') and session.get('sessionToken') and session.get('uID'):
-       	username = escape(session['username'])
-       	return render_template('misc/index.html', username=username, loggedin=True)
+       	return render_template('user/dash_user.html', username=escape(session['username']))
     else:
     	return render_template('misc/index.html', username=None, loggedin=False)
 
 
 @application.route('/login', methods=['POST'])
 def login():
-    data = json.loads(request.data)
+    post = json.loads(request.data)
 
-    username = data['data']['username']
-    password = data['data']['password']
+    username = post['data']['username']
+    password = post['data']['password']
+    remember = post['data']['remember'] 
 
-    if 'remember' in data['data'].keys():
-        remember = data['data']['remember'] 
+    params = urllib.urlencode({"username":username,"password":password})
+    connection.connect()
+    connection.request('GET', '/1/login?%s' % params, '', {
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
+    })
+    
+    result = json.loads(connection.getresponse().read())
+    
+    if 'error' in result.keys():
+        # ERROR: {u'code': 101, u'error': u'invalid login parameters'}
+        return jsonify({'error': '<strong>Error:</strong> Your login information was incorrect. Please try again or ensure that you have an Empire account.'})
+    
     else:
-        remember = False
-
-    print username
-
-    return ""
-    # params = urllib.urlencode({"username":username,"password":password})
-    # connection.connect()
-    # connection.request('GET', '/1/login?%s' % params, '', {
-    #     "X-Parse-Application-Id": PARSEappID,
-    #     "X-Parse-REST-API-Key": RESTapiKEY
-    # })
-    
-    # result = json.loads(connection.getresponse().read())
-    
-    # if 'error' in result.keys():
-    #     print '\n', result, '\n'
-    #     return jsonify({ 'error': "<strong>Error:</strong> Your login information was incorrect. Please try again."})
-    
-    # else:
-    #     session['username'] = result['username']
-    #     session['sessionToken'] = result['sessionToken']
-    #     session['uID'] = result['objectId']
+        session['username'] = result['username']
+        session['sessionToken'] = result['sessionToken']
+        session['uID'] = result['objectId']
         
-    #     # stay logged in longer
-    #     if remember == True:
-    #     	session.permanent = True
-    #     else:
-    #     	session.permanent = False
+        # stay logged in longer
+        if remember == True:
+        	session.permanent = True
+        else:
+        	session.permanent = False
 
-    #     return jsonify({ 'username': username })
+        return jsonify({ 'success': 'success' })
 
 
 @application.route('/fblogin', methods=['POST'])
@@ -157,7 +149,9 @@ def register():
 
 @application.route('/forgot', methods=['POST'])
 def forgot():
-    email = request.form.get('email', None).lower()
+    post = json.loads(request.data)
+
+    email = post['email'].lower()
 
     connection.connect()
     connection.request('POST', '/1/requestPasswordReset', json.dumps({
@@ -182,6 +176,14 @@ def forgot():
 # ------------------------------------------------
 # other pages
 # ------------------------------------------------
+@application.route('/home')
+def home():
+    if session.get('username') and session.get('sessionToken') and session.get('uID'):
+        username = escape(session['username'])
+        return render_template('misc/index.html', username=username, loggedin=True)
+    else:
+        return render_template('misc/index.html', username=None, loggedin=False)
+
 @application.route('/about')
 def about():
     return render_template('misc/about.html')

@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 # from flask.ext.mail import Message, Mail
 from app.content.application import content as contentBP
+from app.dashboard.application import dashboard as dashBP
 from app.user.application import user as userBP
 
 
@@ -18,6 +19,7 @@ from app import application
 
 # register the blueprints
 app.register_blueprint(contentBP)
+app.register_blueprint(dashBP)
 app.register_blueprint(userBP)
 
 
