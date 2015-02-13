@@ -1,14 +1,47 @@
-var loginApp = angular.module('frontpage', []);
+var index = angular.module('index', []);
 
-loginApp.controller('empirelogin', function ($scope) {
-    $scope.phones = [
-    {'name': 'Nexus S',
-    'snippet': 'Fast just got faster with Nexus S.'},
-    {'name': 'Motorola XOOM™ with Wi-Fi',
-    'snippet': 'The Next, Next Generation tablet.'},
-    {'name': 'MOTOROLA XOOM™',
-    'snippet': 'The Next, Next Generation tablet.'}
-    ];
+// index.config(['$httpProvider', function ($httpProvider) {
+//         $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+// }]);
+
+index.controller('loginFormController', function ($scope, $http) {
+    // create a blank object to hold our form information
+    // $scope will allow this to pass between controller and view
+    $scope.formData = {};
+
+    // process the form
+    $scope.login = function() {
+        console.log($scope.formData);
+
+        $http.post('/login', {'data':$scope.formData})
+            .success(function(data, status) {
+                // this callback will be called asynchronously
+                // when the response is available
+            })
+            .error(function(data, status) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        
+        // $http({
+        //     method  : 'POST',
+        //     url     : '/login',
+        //     data    : {
+        //                 'username':$scope.formData.username,
+        //                 'password':$scope.formData.password,
+        //                 'remember':$scope.formData.remember,
+        //             },
+        //     headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
+        // }).
+        //     success(function(data, status, headers, config) {
+        //     // this callback will be called asynchronously
+        //     // when the response is available
+        // }).
+        //     error(function(data, status, headers, config) {
+        //     // called asynchronously if an error occurs
+        //     // or server returns response with an error status.
+        // });
+    };
 });
 
 

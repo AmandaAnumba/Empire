@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='en' ng-app="frontpage">
+<html lang='en' ng-app="index">
     <head>
         <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
@@ -253,12 +253,12 @@
         <div class="modal fade" id="login_modal">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-body text-center" style="height:350px;" ng-controller="empirelogin">
+                    <div class="modal-body text-center" style="height:285px;" ng-controller="loginFormController">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
 
-                        <div class="text-center">
+                        <div class="text-center" hidden>
                             <img src="http://media.empire.life/site/images/logo-blk.png" alt="Empire logo" width="75" />
                         </div>
 
@@ -266,21 +266,21 @@
                             <div class="panel-heading b-light bg-light">Sign in</div>
                             
                             <div class="panel-body">
-                                <form>
-                                    <input id="username" class="form-input" type="text" placeholder="Username">
+                                <form novalidate="novalidate">
+                                    <input id="username" class="form-input" type="text" placeholder="Username" ng-model="formData.username" autocomplete="off">
                                     
-                                    <input id="password" class="form-input" type="password" placeholder="Password">
+                                    <input id="password" class="form-input" type="password" placeholder="Password" ng-model="formData.password" autocomplete="off">
                                     
                                     <div class="checkbox text-left">
                                         <label>
                                             <small>
-                                                <input id="remember" type="checkbox">
-                                                Remember me
+                                                <input id="remember" type="checkbox" ng-model="formData.remember.true" ng-checked="true">
+                                                Stay Logged In
                                             </small>
                                         </label>
                                     </div>
                                     
-                                    <p onclick="login();" class='btn btn-black' value='Login'>Login</p>
+                                    <p ng-click="login()" class='btn btn-black' value='Login'>Login</p>
                                 </form>
                                 
                                 <div class="clearfix divider"></div>

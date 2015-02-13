@@ -30,35 +30,44 @@ def index():
 
 @application.route('/login', methods=['POST'])
 def login():
-    username = request.form.get('username', None)
-    password = request.form.get('password', None)
-    remember = request.form.get('remember', None)
+    data = json.loads(request.data)
 
-    params = urllib.urlencode({"username":username,"password":password})
-    connection.connect()
-    connection.request('GET', '/1/login?%s' % params, '', {
-        "X-Parse-Application-Id": PARSEappID,
-        "X-Parse-REST-API-Key": RESTapiKEY
-    })
-    
-    result = json.loads(connection.getresponse().read())
-    
-    if 'error' in result.keys():
-        print '\n', result, '\n'
-        return jsonify({ 'error': "<strong>Error:</strong> Your login information was incorrect. Please try again."})
-    
+    username = data['data']['username']
+    password = data['data']['password']
+
+    if 'remember' in data['data'].keys():
+        remember = data['data']['remember'] 
     else:
-        session['username'] = result['username']
-        session['sessionToken'] = result['sessionToken']
-        session['uID'] = result['objectId']
-        
-        # stay logged in longer
-        if remember == True:
-        	session.permanent = True
-        else:
-        	session.permanent = False
+        remember = False
 
-        return jsonify({ 'username': username })
+    print username
+
+    return ""
+    # params = urllib.urlencode({"username":username,"password":password})
+    # connection.connect()
+    # connection.request('GET', '/1/login?%s' % params, '', {
+    #     "X-Parse-Application-Id": PARSEappID,
+    #     "X-Parse-REST-API-Key": RESTapiKEY
+    # })
+    
+    # result = json.loads(connection.getresponse().read())
+    
+    # if 'error' in result.keys():
+    #     print '\n', result, '\n'
+    #     return jsonify({ 'error': "<strong>Error:</strong> Your login information was incorrect. Please try again."})
+    
+    # else:
+    #     session['username'] = result['username']
+    #     session['sessionToken'] = result['sessionToken']
+    #     session['uID'] = result['objectId']
+        
+    #     # stay logged in longer
+    #     if remember == True:
+    #     	session.permanent = True
+    #     else:
+    #     	session.permanent = False
+
+    #     return jsonify({ 'username': username })
 
 
 @application.route('/fblogin', methods=['POST'])
