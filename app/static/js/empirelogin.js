@@ -18,11 +18,11 @@ index.controller('loginFormController', function ($scope, $http) {
     // create a blank object to hold our form information
     // $scope will allow this to pass between controller and view
     $scope.formData = {};
-    console.log($scope.formData);
+    // console.log($scope.formData);
 
     // process the form
     $scope.login = function() {
-        console.log($scope.formData);
+        // console.log($scope.formData);
 
         $http.post('/login', {
             'data': $scope.formData

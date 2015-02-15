@@ -81,7 +81,7 @@
                     
                     <h1 id="cycle-title">They Think They <strong>Know</strong></h1>
                     
-                    <p><small>A healthy identity does not rest on feelings ofsuperiority, ‘power over others,’ the need tocompete and be ‘best,’ or possession of morematerial things than others. Instead it is seeingoneself as a part of the whole, not the center,and as unique, but not ‘special’.</small></p>
+                    <p id="cycle-description">A healthy identity does not rest on feelings of superiority, 'power over others', the need to compete and be 'best', or possession of more material things than others. Instead, it is seeing oneself as a part of the whole, not the center, and as unique, but not 'special'.</p>
                     <hr>
                     
                     <p>
@@ -223,7 +223,7 @@
         <div class="modal fade" id="login_modal">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-body text-center" style="height:285px;">
+                    <div class="modal-body text-center" style="height:auto;">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -346,7 +346,7 @@
                             </li>
 
                             <li>
-                                <span class="icon-twitter" onclick="twitterlogin();"></span>
+                                <a href="{{ url_for('oauth_authorize', provider='twitter') }}"><span class="icon-twitter"></span></a>
                             </li>
                         </ul>  
                     </div>

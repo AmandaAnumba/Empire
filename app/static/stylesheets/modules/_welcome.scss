@@ -127,6 +127,16 @@
 			}
 		}
 	}
+
+	.modal-content {
+		border-radius: 0px !important;
+		box-shadow: none !important;
+		border: none !important;
+	}
+
+	.panel {
+		box-shadow: none !important;
+	}
 }
 
 #cycle {
@@ -162,8 +172,8 @@
 
 					&::after {
 						opacity: 1;
-						-webkit-transition-delay: 0.5s;
-						transition-delay: 0.5s;
+						-webkit-transition-delay: 0.3s;
+						transition-delay: 0.3s;
 						-webkit-transform: translateY(0);
 						transform: translateY(0);
 					}
@@ -188,8 +198,14 @@
 		}
 
 		#cycle-title {
-			font-size: 2em;
+			font-size: 3em;
 			letter-spacing: 1px;
+			font-weight: 300;
+		}
+
+		#cycle-description{
+			font-size: 0.8em;
+			letter-spacing: 0.7px;
 			font-weight: 300;
 		}
 
@@ -377,11 +393,9 @@
 	cursor: pointer;
 }
 .help-block {
+	font-size: 0.8em;
 	text-align: left;
-	display: none;
-	font-size: 0.45em;
-	color: white;
-	font-weight: 300;
+	padding-left: 11px;
 }
 
 // #splitlayout {

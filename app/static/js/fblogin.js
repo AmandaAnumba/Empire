@@ -22,20 +22,47 @@ var user_pic;
 function fb_login(){
     FB.login(function(response) {
         if (response.authResponse) {
-            console.log('Welcome!  Fetching your information.... ');
-            //console.log(response); // dump complete info
-            access_token = response.authResponse.accessToken; //get access token
-            user_id = response.authResponse.userID; //get FB UID
+            access_token = response.authResponse.accessToken;
+            user_id = response.authResponse.userID;
+            exp = response.authResponse.expiresIn;
 
-            FB.api('/me', {fields:'first_name, last_name, cover,email'}, function(response) {
-                user_email = response.email; //get users email
-                //console.log(user_email);
-                firstname = response.first_name; //get users first name
-                lastname = response.last_name; //get users last name
-                pic = response.cover.source; //get users profile picture
-                //console.log(user_pic);
-                // you can store this data into your database 
-                console.log(firstname, lastname, pic, email);
+            // console.log(access_token, user_id);
+
+            FB.api('/me', {fields:'first_name,last_name,cover,email'}, function(response) {
+                email = response.email;
+                first = response.first_name;
+                last = response.last_name;
+                pic = response.cover.source; 
+
+                // console.log(first, last, pic, email);
+
+                // post data to Parse DB
+                $.post('/fblogin', {
+                    name: first + ' ' + last,
+                    email: email,
+                    avatar: pic,
+                    token: access_token,
+                    id: user_id,
+                    expire: exp
+                }).done(function(message) {
+                    if (message['error']) {
+                        $('#login_error #message').empty().append(message['error']);
+                        $('#login_error, #login-form').show();
+                        console.log('error');
+                    }
+
+                    if (message['success']) {
+                        window.location = "/dashboard";
+                    }
+                }).fail(function() {
+                    $('#login_error #message').empty().append("<strong>Error: </strong>Please refresh the page and try again.");
+                    $('#login_error').show();
+                    console.log('error');
+                });
+
+
+
+
 
                 // var str2 = "<img style='width:50px;height:50px;margin-right:10px;' src='" + user_pic + "' /> ";
                 // str2+= document.getElementById("mainusername").innerHTML;
@@ -59,13 +86,6 @@ function fb_login(){
         scope: 'public_profile,email,user_friends'
     });
 }
-
-(function() {
-    //var e = document.createElement('script');
-    //e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-    //e.async = true;
-    //document.getElementById('fb-root').appendChild(e);
-}());
 
 function fblogout(){
   FB.logout(function(response) {

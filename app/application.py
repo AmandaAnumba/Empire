@@ -2,6 +2,7 @@ from app import app
 import sys, re, string, base64, hmac, urllib, json, httplib
 # from emails import *
 from flask import render_template, session, request, redirect, url_for, escape, jsonify
+from oauth import OAuthSignIn
 
 application = app
 
@@ -51,6 +52,7 @@ def login():
     else:
         session['username'] = result['username']
         session['sessionToken'] = result['sessionToken']
+        session['sessionType'] = 'Empire'
         session['uID'] = result['objectId']
         
         # stay logged in longer
@@ -64,35 +66,63 @@ def login():
 
 @application.route('/fblogin', methods=['POST'])
 def fblogin():
-    username = request.form.get('username', None)
-    password = request.form.get('password', None)
-    remember = request.form.get('remember', None)
+    name = request.form.get('name', None)
+    email = request.form.get('email', None)
+    avatar = request.form.get('pic', None)
+    token = request.form.get('token', None)
+    expire = request.form.get('expire', None)
+    uID = request.form.get('id', None)
 
-    params = urllib.urlencode({"username":username,"password":password})
     connection.connect()
-    connection.request('GET', '/1/login?%s' % params, '', {
+    connection.request('POST', '/1/users', json.dumps({
+        "fullname": name,
+        "email": email,
+        "avatar": avatar,
+        "role": "Member",
+        "authData": {
+            "facebook": {
+                "id": uID,
+                "access_token": token,
+                "expiration_date": expire,
+            }
+        }
+    }), {
         "X-Parse-Application-Id": PARSEappID,
-        "X-Parse-REST-API-Key": RESTapiKEY
+        "X-Parse-REST-API-Key": RESTapiKEY,
+        "Content-Type": "application/json"
     })
-    
     result = json.loads(connection.getresponse().read())
+
     
     if 'error' in result.keys():
         print '\n', result, '\n'
-        return jsonify({ 'error': "<strong>Error:</strong> Your login information was incorrect. Please try again."})
+        return jsonify({ 'error': "<strong>Error:</strong> There was a problem signing in with your Facebook account. Please try again."})
     
     else:
-        session['username'] = result['username']
-        session['sessionToken'] = result['sessionToken']
-        session['uID'] = result['objectId']
-        
-        # stay logged in longer
-        if remember == True:
-            session.permanent = True
-        else:
-            session.permanent = False
+        session['username'] = name
+        session['sessionToken'] = token
+        session['sessionType'] = 'Facebook'
+        session['uID'] = uID
 
-        return jsonify({ 'username': username })
+        return jsonify({ 'success': 'success' })
+
+
+@app.route('/authorize/<provider>')
+def oauth_authorize(provider):
+    oauth = OAuthSignIn.get_provider(provider)
+    return oauth.authorize()
+
+
+@app.route('/callback/<provider>')
+def oauth_callback(provider):
+    oauth = OAuthSignIn.get_provider(provider)
+    social_id, username, email = oauth.callback()
+
+    # if social_id is None:
+    #     print 'Authentication failed.'
+    #     return redirect(url_for('index'))
+    
+    return ""
 
 
 @application.route('/logout')

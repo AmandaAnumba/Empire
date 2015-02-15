@@ -8,6 +8,12 @@ from app.user.application import user as userBP
 # create the application
 app = Flask(__name__)
 app.config.from_object('config')
+app.config['OAUTH_CREDENTIALS'] = {
+    'twitter': {
+        'id': 'ZvTKglUVednzCiOwDF3ykoHJc',
+        'secret': 'r4Myy0xc2w35N1boYIzWwLenXPkqmJrwQzgJMGzNseckCD6NmR'
+    }
+}
 
 
 # initialize email client - GMail
