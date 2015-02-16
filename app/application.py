@@ -2,7 +2,7 @@ from app import app
 import sys, re, string, base64, hmac, urllib, json, httplib
 # from emails import *
 from flask import render_template, session, request, redirect, url_for, escape, jsonify
-from oauth import OAuthSignIn
+# from oauth import OAuthSignIn
 
 application = app
 
@@ -23,7 +23,18 @@ RESTapiKEY = "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
 @application.route('/')
 def index():
     if session.get('username') and session.get('sessionToken') and session.get('uID'):
-       	return render_template('user/dash_user.html', username=escape(session['username']))
+        
+        # get the user's information
+        connection.connect()
+        connection.request('GET', '/1/users/me', '', {
+            "X-Parse-Application-Id": PARSEappID,
+            "X-Parse-REST-API-Key": RESTapiKEY,
+            "X-Parse-Session-Token": escape(session['sessionToken'])
+        })
+
+        result = json.loads(connection.getresponse().read())
+
+       	return render_template('user/dash_user.html', username=escape(session['username']), user=result)
     else:
     	return render_template('misc/index.html', username=None, loggedin=False)
 
@@ -107,22 +118,22 @@ def fblogin():
         return jsonify({ 'success': 'success' })
 
 
-@app.route('/authorize/<provider>')
-def oauth_authorize(provider):
-    oauth = OAuthSignIn.get_provider(provider)
-    return oauth.authorize()
+# @app.route('/authorize/<provider>')
+# def oauth_authorize(provider):
+#     oauth = OAuthSignIn.get_provider(provider)
+#     return oauth.authorize()
 
 
-@app.route('/callback/<provider>')
-def oauth_callback(provider):
-    oauth = OAuthSignIn.get_provider(provider)
-    social_id, username, email = oauth.callback()
+# @app.route('/callback/<provider>')
+# def oauth_callback(provider):
+#     oauth = OAuthSignIn.get_provider(provider)
+#     social_id, username, email = oauth.callback()
 
-    # if social_id is None:
-    #     print 'Authentication failed.'
-    #     return redirect(url_for('index'))
+#     # if social_id is None:
+#     #     print 'Authentication failed.'
+#     #     return redirect(url_for('index'))
     
-    return ""
+#     return ""
 
 
 @application.route('/logout')
@@ -136,20 +147,13 @@ def logout():
 
 @application.route('/register', methods=['POST'])
 def register():
-    username = request.form.get('username', None)
-    email = request.form.get('email', None).lower()
-    password = request.form.get('password', None)
-    confirm = request.form.get('confirm', None)
+    post = json.loads(request.data)
 
-    if not re.match(r"^[A-Za-z0-9\.\+_-]+@[A-Za-z0-9\._-]+\.[a-zA-Z]*$", email): 
-        print 'email invalid'
-        return jsonify({ 'email': "invalid" })
+    username = post['register']['username']
+    email = post['register']['email']
+    password = post['register']['password']
 
-    if password != confirm: 
-        print 'password no match'
-        return jsonify({ 'password-invalid': "invalid" })
-
-    else:
+    try:
         connection.connect()
         connection.request('POST', '/1/users', json.dumps({
             "username": username,
@@ -168,13 +172,18 @@ def register():
             return jsonify({ 'error': "There was a problem while creating your account. Please try again." })
 
         else:
-            print 'successful registration'
             session['username'] = username
-        
+            session['sessionToken'] = result['sessionToken']
+            session['sessionType'] = 'Empire'
+            session['uID'] = result['objectId']
+
             # stay logged in longer
             session.permanent = True
 
             return jsonify({ 'success': "Registration successful. You are now logged in." })
+
+    except:
+        return jsonify({ 'error': "There was a problem while creating your account. Please try again." })
 
 
 @application.route('/forgot', methods=['POST'])
