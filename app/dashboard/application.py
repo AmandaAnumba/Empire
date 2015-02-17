@@ -1,6 +1,3 @@
-import re, string, json, httplib, urllib
-from flask import session, Blueprint, render_template, request, redirect, escape, jsonify
-
 """
     This is the blueprint for monitoring and regulating the users dashboard
     
@@ -10,6 +7,11 @@ from flask import session, Blueprint, render_template, request, redirect, escape
 
     Future Actions:
 """
+
+import re, string, json, httplib, urllib
+from flask import session, Blueprint, render_template, request, redirect, escape, jsonify
+
+
 
 dashboard = Blueprint('dashboard', __name__)
 

@@ -1,29 +1,37 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en" ng-app="dashboard">
     <head>
         <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
-        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Raleway:300,400' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' />
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-        <meta name="HandheldFriendly" content="true" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="HandheldFriendly" content="true">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <meta charset="utf-8">  
+        <meta name="author" content="ThreePillarMedia, LLC" />
+        <meta name="url" content="http://www.empire.life">
+        <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
         <link rel="icon" type="image/png" href="http://media.empire.life/site/images/favicon.png">
         <title>Empire</title>
-        <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
-        <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
-        <meta name="author" content="ThreePillarMedia, LLC" />
-        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+        <script src="{{ url_for('static', filename='plugins/pushmenu/js/classie.js') }}"></script>
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/search/css/component.css') }}" />
+        {% block header %}{% endblock %}
     </head>
 
     <body>
-        <nav id='menu_wrapper'>
-            <ul id='menu'>
+        <nav id="menu_wrapper">
+            <ul id="menu">
                 <a href="">
                     <li id="logo">
                         <img src="http://media.empire.life/site/images/logo-blk.png" alt="Empire logo" width="140px">
@@ -31,7 +39,7 @@
                 </a>
 
                 <a href="">
-                    <li class="tab active" id="write">
+                    <li class="tab active" id="subscriptions">
                         <p>My Feed</p>
                     </li>
                 </a>
@@ -67,10 +75,13 @@
         </nav>
 
         <header id="header_wrapper">
-            <div></div>
+            <p id="login" class="icon-head pull-right"></p>
+            <p id="search" class="icon-search pull-right"></p>
+            
+            <div style="background:url({{ user.avatar }}) no-repeat center;background-size:cover;"></div>
             <p>{{ username }}</p>
         </header>
         
-        {% block content %}{% endblock %}
+        {% block body %}{% endblock %}
     </body>    
 </html>

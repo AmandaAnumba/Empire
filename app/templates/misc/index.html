@@ -30,7 +30,6 @@
         <meta name="twitter:description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
         <meta name="twitter:image" content="http://media.empire.life/site/images/logo.png" />
         <meta name="twitter:url" content="http://www.empire.life" />
-        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
         <script src="{{ url_for('static', filename='js/bootstrap-custom.min.js') }}"></script>
         <script src="{{ url_for('static', filename='plugins/pushmenu/js/modernizr.custom.js') }}"></script>
         <script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
@@ -52,12 +51,15 @@
     </head>
 
     <body id="welcome">
+        <div id="fb-root"></div>
+
         <nav id="top-nav">
             <div class="pull-right">
-                {% if loggedin %}
-                    <p id ="mainusername" style="margin-top:10px;">
+                {% if loggedIn %}
+                    <p id="mainusername" style="margin-top:10px;">
                         Welcome <span style='color:#e64c65'>{{ username }}<span>
                     </p>
+                    <p><a class="btn logout_btn" href="{{ url_for('index') }}">Dashboard -->></a></p>
                     <a class="btn logout_btn" href="{{ url_for('logout') }}">Logout</a>
                 {% else %}
                     <p id="login" class="pull-right" onclick="jQuery('#login_modal').modal('show');"><small>Log In</small></p>
@@ -167,10 +169,23 @@
                 <div id="tech" class="col-xs-3">
                     <p class="top-title">Website Technologies</p>
                     <ul>
-                        <li>Tympanus Codrops</li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>Tympanus Codrops Tutorials
+                            <ul>
+                                <li>Halcyon Days Layout for about page</li>
+                                <li>Hover Effects</li>
+                                <li>Article Intro Effects</li>
+                                <li>Morphing Search tool</li>
+                            </ul>
+                        </li>
+                        <li>Site Graphics
+                            <ul>
+                                <li>Halcyon Days Layout for about page</li>
+                                <li>Hover Effects</li>
+                                <li>Morphing Search tool</li>
+                            </ul>
+                        </li>
+                        <li>Icomoon for font icons</li>
+                        <li>SideComments.js for comments style</li>
                     </ul>
                 </div>
                 
@@ -362,7 +377,6 @@
                 </div>
             </div>
         </div>
-        <div id="fb-root"></div>
     </body>
 
     <script>

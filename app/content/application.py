@@ -637,6 +637,7 @@ def read_wildcard(slug):
         print 'error'
         return redirect(url_for('articles.wildcard'))
 
+
 # =========================================================================
 # =========================================================================
 # ------------- Functions ------------- 
@@ -670,27 +671,32 @@ def rate():
         print result
 
         if 'error' in result.keys():
-            return jsonify({ 'error': "error" })
+            return jsonify({ "error": "error" })
 
         else:
-            return jsonify({ 'success': "success" })
+            return jsonify({ "success": "success" })
    
 
 # search for an article
 @content.route('/search', methods=['POST'])
 def search():
-    searchTerm = request.form.get('searchTerm', None)
-    search = searchTerm.split()
+    post = json.loads(request.data)
+    stoplist = ['a', 'an', 'as', 'are', 'aren\'t', 'at',\
+                'be', 'because', 'but', 'by', 'is', 'it',\
+                'isn\'t', 'its', 'it\'s', 'of', 'or', 'the',\
+                'that', 'to', 'what', 'when', 'where', 'with', \
+                'had', 'has', 'hasn\'t', 'have', 'for', 'do', 'does']
 
+    searchTerm = post['searchTerm']
+    y = searchTerm.lower().split(' ')
+    search = []    
+
+    for i in y and not in stoplist:
+        search.append({"search": i})
+    
     connection.connect()
     params = urllib.urlencode({"where":json.dumps({
-       "$or": [
-            {"category": "Entertainment"},
-            {"category": "TV"},
-            {"category": "Music"},
-            {"category": "Theater"},
-            {"category": "Film"}
-        ]
+        "$or": search
     })})
     
     connection.request('GET', '/1/classes/Articles?%s' % params, '', {
@@ -700,13 +706,15 @@ def search():
 
     result = json.loads(connection.getresponse().read())
 
-    articles = result['results']
-
-    return render_template("dashboard/entertainment.html", articles=articles, sub=None)
-
     if 'error' in result.keys():
         return jsonify({ 'error': "error" })
 
     else:
-        return jsonify({ 'success': "success" })
+        items = result['results']
+        
+        if len(items) > 0:
+            return jsonify({ 'data': items })
+        else:
+            return jsonify({ 'nodata': 'No articles matching your search query could be found. Try rephrasing your search.' })
+
 

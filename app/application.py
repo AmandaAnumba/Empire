@@ -36,7 +36,7 @@ def index():
 
        	return render_template('user/dash_user.html', username=escape(session['username']), user=result)
     else:
-    	return render_template('misc/index.html', username=None, loggedin=False)
+    	return render_template('misc/index.html', username=None, loggedIn=False)
 
 
 @application.route('/login', methods=['POST'])
@@ -219,9 +219,9 @@ def forgot():
 def home():
     if session.get('username') and session.get('sessionToken') and session.get('uID'):
         username = escape(session['username'])
-        return render_template('misc/index.html', username=username, loggedin=True)
+        return render_template('misc/index.html', username=username, loggedIn=True)
     else:
-        return render_template('misc/index.html', username=None, loggedin=False)
+        return render_template('misc/index.html', loggedIn=False)
 
 @application.route('/about')
 def about():

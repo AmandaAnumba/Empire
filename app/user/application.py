@@ -1,10 +1,24 @@
-import string, json, httplib, urllib
-from flask import Blueprint, url_for, render_template, session, request, redirect, escape, jsonify, abort
-
 """ 
     blueprint for all user actions and page rendering
 
+    Current Actions:
+        - view and edit profile
+        - subscribe to a topic
+        - receive points
+        - follow a user 
+
+    Future Actions:
+        - write an article
+            * Op-Ed / opinion
+            * Voices
+            * Article 
+
 """
+
+import string, json, httplib, urllib
+from flask import Blueprint, url_for, render_template, session, request, redirect, escape, jsonify, abort
+
+
 
 user = Blueprint('user', __name__)
 
@@ -104,7 +118,6 @@ def editProfile():
 
         else:
             return jsonify({ 'success': "Your profile has been saved. Redirecting you to the home page..." })
-
 
 
 @user.route('/_<username>')

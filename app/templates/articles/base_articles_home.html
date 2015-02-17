@@ -20,7 +20,7 @@
         <script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
         <script src="{{ url_for('static', filename='js/masonry.js') }}"></script>
         <script src="{{ url_for('static', filename='js/imagesLoaded.min.js') }}"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap-custom.min.js') }}"></script>          
         <link rel="stylesheet" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
@@ -40,20 +40,19 @@
                 <!-- <span style="float:right;">Empire</span> -->
             </h3>
             <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('dashboard.cycle') }}">Current Cycle</a>
+            <a href="{{ url_for('content.cycle') }}">Current Cycle</a>
             <a style="border-bottom:none;">Categories</a>
             <ul id="cat_list">
-                <li><a class="media-body block m-b-none"href="{{ url_for('dashboard.beauty') }}">Current Events</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.lifestyle') }}">Technology</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.money') }}">Money</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.career') }}">Career</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.mindbody') }}">Mind, Body, and Spirit</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.culture') }}">Culture + Entertainment</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('dashboard.wildcard') }}">Wildcard</a></li>
+                <li><a class="media-body block m-b-none"href="{{ url_for('content.beauty') }}">Current Events</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('content.lifestyle') }}">Technology</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('content.money') }}">Money</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('content.career') }}">Career</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('content.culture') }}">Culture + Entertainment</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('content.wildcard') }}">Wildcard</a></li>
             </ul>
-            <a href="{{ url_for('home.about') }}">About</a>
-            <a href="{{ url_for('home.terms') }}">Terms and Privacy</a>
-            <a href="{{ url_for('home.contact') }}">Contact Us</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('terms') }}">Terms and Privacy</a>
+            <a href="{{ url_for('contact') }}">Contact Us</a>
         </nav>
         
         <div class="container">
@@ -67,22 +66,22 @@
                     
                     <div class="dummy-column">
                         <h2>Categories</h2>
-                        <a class="dummy-media-object" href="{{ url_for('dashboard.beauty') }}">
+                        <a class="dummy-media-object" href="{{ url_for('content.beauty') }}">
                             <h3>Beauty</h3>
                         </a>
-                        <a class="dummy-media-object" href="{{ url_for('dashboard.career') }}">
+                        <a class="dummy-media-object" href="{{ url_for('content.career') }}">
                             <h3>Career</h3>
                         </a>
-                        <a class="dummy-media-object" href="{{ url_for('dashboard.money') }}">
+                        <a class="dummy-media-object" href="{{ url_for('content.money') }}">
                             <h3>Money</h3>
                         </a>
-                        <a class="dummy-media-object" href="{{ url_for('dashboard.entertainment') }}">
+                        <a class="dummy-media-object" href="{{ url_for('content.entertainment') }}">
                             <h3>Entertainment</h3>
                         </a>
-                        <a class="dummy-media-object" href="{{ url_for('dashboard.lifestyle') }}">
+                        <a class="dummy-media-object" href="{{ url_for('content.lifestyle') }}">
                             <h3>Lifestyle</h3>
                         </a>
-                        <a class="dummy-media-object" href="{{ url_for('dashboard.wildcard') }}">
+                        <a class="dummy-media-object" href="{{ url_for('content.wildcard') }}">
                             <h3>Wildcard</h3>
                         </a>
                     </div>
