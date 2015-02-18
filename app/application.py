@@ -115,7 +115,9 @@ def oauth_authorize(provider):
 
 @app.route('/callback/<provider>')
 def oauth_callback(provider):
+    print "hit target"
     oauth = OAuthSignIn.get_provider(provider)
+    print "back"
     social_id, username, email = oauth.callback()
 
     # if social_id is None:

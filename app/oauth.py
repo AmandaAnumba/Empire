@@ -18,8 +18,8 @@ class OAuthSignIn(object):
         pass
 
     def get_callback_url(self):
-        return url_for('oauth_callback', provider=self.provider_name,
-                       _external=True)
+        print "getting url"
+        return url_for('oauth_callback', provider=self.provider_name, _external=True)
 
     @classmethod
     def get_provider(self, provider_name):
@@ -32,9 +32,10 @@ class OAuthSignIn(object):
 
 
 class TwitterSignIn(OAuthSignIn):
+    
     def __init__(self):
         super(TwitterSignIn, self).__init__('twitter')
-        self.service = OAuth1Service(
+        self.twitter = OAuth1Service(
             name='twitter',
             consumer_key=self.consumer_id,
             consumer_secret=self.consumer_secret,
@@ -44,24 +45,37 @@ class TwitterSignIn(OAuthSignIn):
             base_url='https://api.twitter.com/1.1/'
         )
 
+    # def authorize(self):
+    #     request_token = self.twitter.get_request_token(
+    #         params={'oauth_callback': self.get_callback_url()}
+    #     )
+    #     session['request_token'] = request_token
+    #     return redirect(self.twitter.get_authorize_url(request_token[0]))
+
     def authorize(self):
-        request_token = self.service.get_request_token(
-            params={'oauth_callback': self.get_callback_url()}
-        )
-        session['request_token'] = request_token
-        return redirect(self.service.get_authorize_url(request_token[0]))
+        request_token, request_token_secret = self.twitter.get_request_token()
+        # authorize_url = self.twitter.get_authorize_url(request_token)
+        return redirect(self.twitter.get_authorize_url(request_token))
+        # print 'Visit this URL in your browser: ' + authorize_url
+        # session = self.twitter.get_auth_session(request_token,
+        #                                         request_token_secret,
+        #                                         method='POST',
+        #                                         data={'oauth_verifier': pin})
+        # print session.access_token, session.access_token_secret # Save this to database
+        # return session
+
 
     def callback(self):
+        print "here"
         request_token = session.pop('request_token')
         if 'oauth_verifier' not in request.args:
             return None, None, None
-        oauth_session = self.service.get_auth_session(
+        oauth_session = self.twitter.get_auth_session(
             request_token[0],
             request_token[1],
             data={'oauth_verifier': request.args['oauth_verifier']}
         )
         me = oauth_session.get('account/verify_credentials.json').json()
-        print me
         social_id = 'twitter$' + str(me.get('id'))
         username = me.get('screen_name')
         return social_id, username, None   # Twitter does not provide email
