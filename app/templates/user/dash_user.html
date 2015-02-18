@@ -1,11 +1,63 @@
 {% extends "user/base_dash.html" %}
-{% block content %}
+
+
+{% block header %}{% endblock %}
+
+
+{% block body %}
 
 <main id="main_wrapper">
-	<section id="add_content">
-		<p class="icon"><span class="icon-plus"></span></p>
-		<p>Add Content to your Feed</p>
-	</section>	
+	<div class="container">
+	    <div id="morphsearch" class="morphsearch">
+	        <form name="morphsearchForm" class="morphsearch-form" ng-controller="morphsearch">
+	            <input id="input" name="input" class="morphsearch-input" type="search" placeholder="Search..." ng-model="input" />
+	            <p class="morphsearch-submit" ng-click="submitSearch()">Search</p>
+	        </form>
+	        
+	        <div class="morphsearch-content">
+	            <div id="columnCategories" class="dummy-column">
+	                <h2>Topics</h2>
+	                <a class="dummy-media-object" href="{{ url_for('content.beauty') }}">
+	                    <h3>Beauty</h3>
+	                </a>
+	                <a class="dummy-media-object" href="{{ url_for('content.career') }}">
+	                    <h3>Career</h3>
+	                </a>
+	                <a class="dummy-media-object" href="{{ url_for('content.money') }}">
+	                    <h3>Money</h3>
+	                </a>
+	                <a class="dummy-media-object" href="{{ url_for('content.entertainment') }}">
+	                    <h3>Entertainment</h3>
+	                </a>
+	                <a class="dummy-media-object" href="{{ url_for('content.lifestyle') }}">
+	                    <h3>Lifestyle</h3>
+	                </a>
+	                <a class="dummy-media-object" href="{{ url_for('content.wildcard') }}">
+	                    <h3>Wildcard</h3>
+	                </a>
+	            </div>
+
+	            <div id="searchResults" hidden>
+	            	
+	            </div>
+	        </div>
+	        
+	        <span class="morphsearch-close"></span>
+	    </div>
+
+	    <div class="overlay"></div>
+	</div>
+
+	{% if user.subscriptions %}
+		<section id="add_content">
+			<p class="icon"><span class="icon-plus"></span></p>
+			<p>Add Content to your Feed</p>
+		</section>
+	{% else %}	
+		<section>
+			<!-- new articles in each subscription category go here -->
+		</section>
+	{% endif %}
 </main>
 
 {% endblock %}

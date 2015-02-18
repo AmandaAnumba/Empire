@@ -11,7 +11,7 @@ body {
 	width: 200px;
 	min-height: 0px;
 	background: #f1f1f1;
-	position: absolute;
+	position: fixed;
 	z-index: 10000;
 	top: 50px;
 	right: 50px;

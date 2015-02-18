@@ -18,22 +18,22 @@ module.exports = function(grunt) {
         browserify: {
             home: {
                 files: {
-                    'js/build.js': ['test/**/*.js'],
+                    'app/static/js/build.js': ['test/**/*.js'],
                 }
             },
             articles: {
                 files: {
-                    'js/build.js': ['test/**/*.js'],
+                    'app/static/js/build.js': ['test/**/*.js'],
                 }
             },
             users: {
                 files: {
-                    'js/build.js': ['test/**/*.js'],
+                    'app/static/js/users.dist.js': ['app/static/js/s3uploader.js'],
                 }
             },
             dist: {
                 files: {
-                    'js/build.js': ['test/**/*.js'],
+                    'app/static/js/build.js': ['test/**/*.js'],
                 }
             }
         },

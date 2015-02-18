@@ -30,7 +30,6 @@
         <meta name="twitter:description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
         <meta name="twitter:image" content="http://media.empire.life/site/images/logo.png" />
         <meta name="twitter:url" content="http://www.empire.life" />
-        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
         <script src="{{ url_for('static', filename='js/bootstrap-custom.min.js') }}"></script>
         <script src="{{ url_for('static', filename='plugins/pushmenu/js/modernizr.custom.js') }}"></script>
         <script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
@@ -52,12 +51,15 @@
     </head>
 
     <body id="welcome">
+        <div id="fb-root"></div>
+
         <nav id="top-nav">
             <div class="pull-right">
-                {% if loggedin %}
-                    <p id ="mainusername" style="margin-top:10px;">
+                {% if loggedIn %}
+                    <p id="mainusername" style="margin-top:10px;">
                         Welcome <span style='color:#e64c65'>{{ username }}<span>
                     </p>
+                    <p><a class="btn logout_btn" href="{{ url_for('index') }}">Dashboard -->></a></p>
                     <a class="btn logout_btn" href="{{ url_for('logout') }}">Logout</a>
                 {% else %}
                     <p id="login" class="pull-right" onclick="jQuery('#login_modal').modal('show');"><small>Log In</small></p>
@@ -167,10 +169,23 @@
                 <div id="tech" class="col-xs-3">
                     <p class="top-title">Website Technologies</p>
                     <ul>
-                        <li>Tympanus Codrops</li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>Tympanus Codrops Tutorials
+                            <ul>
+                                <li>Halcyon Days Layout for about page</li>
+                                <li>Hover Effects</li>
+                                <li>Article Intro Effects</li>
+                                <li>Morphing Search tool</li>
+                            </ul>
+                        </li>
+                        <li>Site Graphics
+                            <ul>
+                                <li>Halcyon Days Layout for about page</li>
+                                <li>Hover Effects</li>
+                                <li>Morphing Search tool</li>
+                            </ul>
+                        </li>
+                        <li>Icomoon for font icons</li>
+                        <li>SideComments.js for comments style</li>
                     </ul>
                 </div>
                 
@@ -233,10 +248,17 @@
                             <div class="panel-heading b-light bg-light">Sign in</div>
                             
                             <div class="panel-body">
-                                <form>
-                                    <input name="username" class="form-input" type="text" placeholder="Username" ng-model="formData.username" autocomplete="off">
+                                <div class="error_msg" id="log" class="alert error animated fadeInDown" hidden>
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <p class="message"></p>
+                                </div>
+
+                                <form name="loginForm">
+                                    <input name="username" class="form-input" type="text" placeholder="Username" ng-model="formData.username" autocomplete="off" required>
                                     
-                                    <input name="password" class="form-input" type="password" placeholder="Password" ng-model="formData.password" autocomplete="off">
+                                    <input name="password" class="form-input" type="password" placeholder="Password" ng-model="formData.password" autocomplete="off" required>
                                     
                                     <div class="checkbox text-left" ng-init="formData.remember=true">
                                         <label>
@@ -247,7 +269,7 @@
                                         </label>
                                     </div>
                                     
-                                    <p ng-click="login()" class="btn btn-black">Login</p>
+                                    <p ng-click="login()" class="btn btn-black" ng-disabled="loginForm.$invalid">Login</p>
                                 </form>
                                 
                                 <div class="clearfix divider"></div>
@@ -274,17 +296,19 @@
                                     <p class="message"></p>
                                 </div>
 
-                                <form>
-                                    <input type="text" class="form-input" placeholder="Username" id="reg_user" ng-model="formData.username" ng-minlength="6" ng-maxlength="30">
-                                    <p class="help-block">Must be at least 6 characters long and contain no spaces</p>
+                                <form name="regForm">
+                                    <input type="text" class="form-input" placeholder="Username" id="reg_user" ng-model="formData.username" ng-minlength="6" ng-maxlength="30" required>
+                                    <p class="help-block" ng-show="">Must be at least 6 characters long and contain no spaces</p>
                                     
-                                    <input type="email" class="form-input" placeholder="Email Address" id="reg_email" ng-model="formData.email">
+                                    <input type="email" class="form-input" placeholder="Email Address" id="reg_email" ng-model="formData.email" required>
+                                    <p class="help-block" ng-show="">Please enter a valid email address</p>
 
-                                    <input type="password" class="form-input" placeholder="Password" id="reg_pass" ng-model="formData.password">
+                                    <input type="password" class="form-input" placeholder="Password" id="reg_pass" ng-model="formData.password" required>
 
-                                    <input type="password" class="form-input" placeholder="Confirm Password" id="reg_conf" ng-model="formData.confirm" pw-check="reg_pass">
+                                    <input type="password" class="form-input" placeholder="Confirm Password" id="reg_conf" ng-model="formData.confirm" pw-check="reg_pass" required>
+                                    <p class="help-block" ng-show="">Your passwords must match</p>
 
-                                    <p ng-click="register()" class="btn btn-black">Sign Up</p>
+                                    <p ng-click="register()" class="btn btn-black" ng-disabled="regForm.$invalid">Sign Up</p>
                                 </form>
 
                                 <section class="additional-info">
@@ -314,12 +338,12 @@
                                     <p class="message"></p>
                                 </div>
 
-                                <form>
+                                <form name="forgotForm">
                                     <p class="description">Enter your email address below and a link to reset your password will be sent to you</p>
                                     
-                                    <input type="email" class="form-input" placeholder="Email Address" id="reg_email" ng-model="formData.email" ng-required="">
+                                    <input type="email" class="form-input" placeholder="Email Address" id="reg_email" ng-model="formData.email" required>
 
-                                    <p ng-click="forgot()" class='btn btn-black'>Send Email</p>
+                                    <p ng-click="forgot()" class='btn btn-black' ng-disabled="forgotForm.$invalid">Send Email</p>
                                 </form>
 
                                 <section class="additional-info">
@@ -345,15 +369,14 @@
                                 <span class="icon-googleplus" onclick="gpluslogin();"></span>
                             </li>
 
-                            <li>
-                                <a href="{{ url_for('oauth_authorize', provider='twitter') }}"><span class="icon-twitter"></span></a>
-                            </li>
+                            <!-- <li>
+                                {# <a href="{{ url_for('oauth_authorize', provider='twitter') }}"><span class="icon-twitter"></span></a> #}
+                            </li> -->
                         </ul>  
                     </div>
                 </div>
             </div>
         </div>
-        <div id="fb-root"></div>
     </body>
 
     <script>

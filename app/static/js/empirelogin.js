@@ -1,19 +1,24 @@
-var index = angular.module('index', [])
-    .directive('pwCheck', [function () {
-        return {
-            require: 'ngModel',
-            link: function (scope, elem, attrs, ctrl) {
-                var firstPassword = '#' + attrs.pwCheck;
-                elem.add(firstPassword).on('keyup', function () {
-                    scope.$apply(function () {
-                        var v = elem.val()===$(firstPassword).val();
-                        ctrl.$setValidity('pwmatch', v);
-                    });
-                });
-            }
-        }
-    }]);
+var index = angular.module('index', ['index.directives']);
 
+// Directives
+angular.module('index.directives', [])
+    .directive('pwCheck', [function () {
+    return {
+        require: 'ngModel',
+        link: function (scope, elem, attrs, ctrl) {
+            var firstPassword = '#' + attrs.pwCheck;
+            elem.add(firstPassword).on('keyup', function () {
+                scope.$apply(function () {
+                    // console.info(elem.val() === $(firstPassword).val());
+                    ctrl.$setValidity('pwmatch', elem.val() === $(firstPassword).val());
+                });
+            });
+        }
+    }
+}]);
+
+
+// Controllers
 index.controller('loginFormController', function ($scope, $http) {
     // create a blank object to hold our form information
     // $scope will allow this to pass between controller and view
@@ -30,24 +35,23 @@ index.controller('loginFormController', function ($scope, $http) {
         .success(function(data) {
             // this callback will be called asynchronously
             // when the response is available
-            console.log(data);
+            // console.log(data);
 
             if (data['error']) {
-                $('#login_error #message').empty().append(data['error']);
-                $('#login_error, #main_login_form').show();
+                $('.error_msg#log > .message').empty().append(data['error']);
+                $('.error_msg#log').show();
             }
 
             if (data['success']) {
-                window.location = "/myhome";
+                window.location = "/";
             }
         })
         .error(function(data) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
-            console.log(data);
-            // $('#loader').hide();
-            // $('#login_error #message').empty().append("<strong>Error: </strong>Please refresh the page and try again.");
-            // $('#login_error').show();
+            // console.log(data);
+            $('.error_msg#log > .message').empty().append("<strong>Error: </strong>Please refresh the page and try again.");
+            $('.error_msg#log').show();
         });
     };
 });
@@ -59,7 +63,7 @@ index.controller('registerFormController', function ($scope, $http) {
         console.log($scope.formData);
 
         $http.post('/register', {
-            'data': $scope.formData
+            'register': $scope.formData
         })
         .success(function(data) {
             console.log(data);
@@ -70,12 +74,8 @@ index.controller('registerFormController', function ($scope, $http) {
             }
 
             if (data['success']) {
-                // prompt them to fill out their profile; simple profile
-                // - show full name
-                // - show email
-                // - show avatar
-                // - add their social media info
-                window.location = "/myhome";
+                // successfull registration? so take them to edit their profile
+                window.location = "/profile";
             }
         })
         .error(function(data) {
