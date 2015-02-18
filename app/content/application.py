@@ -707,6 +707,7 @@ def search():
     result = json.loads(connection.getresponse().read())
 
     if 'error' in result.keys():
+        print result
         return jsonify({ 'error': "error" })
 
     else:

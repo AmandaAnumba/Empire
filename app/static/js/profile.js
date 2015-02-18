@@ -1,8 +1,8 @@
-var profile = angular.module('profile', []);
+var editProfile = angular.module('editProfile', []);
 
 
 // Controllers
-profile.controller('profileController', function ($scope, $http) {
+editProfile.controller('profileController', function ($scope, $http) {
     $scope.formData = {};
 
     $scope.updateProfile = function() {

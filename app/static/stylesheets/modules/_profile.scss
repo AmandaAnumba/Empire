@@ -84,7 +84,7 @@
 			margin:0;
 			padding:0;
 
-			li {
+			.toggle-div {
 				display:inline-block;
 				width: 33%;
 				padding-top: 12px;
@@ -104,9 +104,9 @@
 					font-weight: 300;
 				}
 
-				// &:hover {
-				// 	border-bottom: 3px solid black;
-				// }
+				&.active {
+					background: whitesmoke;
+				}
 			}
 
 			li:nth-child(3) {
@@ -119,6 +119,11 @@
 	#followers,
 	#following {
 		height: 600px;
+		display:none;
+
+		&.open {
+			display:block;
+		}
 	}
 }
 

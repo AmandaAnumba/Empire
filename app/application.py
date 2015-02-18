@@ -137,6 +137,7 @@ def logout():
     # remove the username from the session if it's there
     session.pop('username', None)
     session.pop('sessionToken', None)
+    session.pop('sessionType', None)
     session.pop('uID', None)
     return redirect(url_for('index'))
 
