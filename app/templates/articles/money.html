@@ -1,5 +1,19 @@
-{% extends "dashboard/base_articles_home.html" %}
-{% block content %}
+{% extends "articles/base_articles_home.html" %}
+
+{% block title %}
+    Money
+{% endblock %}
+
+
+{% block title2 %}
+    Money
+{% endblock %}
+
+
+{% block header %}{% endblock %}
+
+
+{% block body %}
 <header id='navbar_top'>
     <div style="background:url(http://media.empire.life/site/categories/money2.png), no-repeat; height: 200px;position:relative;background-size:cover;">
         <p id="section_title">Money</p>
@@ -9,10 +23,10 @@
 
     <section id="subcategories" class="money" hidden>
         <ul>
-            <a href="{{ url_for('dashboard.money') }}"><li>View All</li></a>
-            <a href="{{ url_for('dashboard.sub_money', sub_category='spending') }}"><li>Spending</li></a>
-            <a href="{{ url_for('dashboard.sub_money', sub_category='investing') }}"><li>Investing</li></a>
-            <a href="{{ url_for('dashboard.sub_money', sub_category='saving') }}"><li>Saving</li></a>
+            <a href="{{ url_for('content.money') }}"><li>View All</li></a>
+            <a href="{{ url_for('content.sub_money', sub_category='spending') }}"><li>Spending</li></a>
+            <a href="{{ url_for('content.sub_money', sub_category='investing') }}"><li>Investing</li></a>
+            <a href="{{ url_for('content.sub_money', sub_category='saving') }}"><li>Saving</li></a>
         </ul>
     </section>
 </header>

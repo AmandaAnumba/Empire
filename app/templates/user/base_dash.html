@@ -31,23 +31,23 @@
 
     <body>
         <nav id="menu_wrapper">
-            <div class="text-center">
+            <div class="text-center m-t">
                 <img src="http://media.empire.life/site/images/logo-blk.png" alt="Empire logo" width="140px">
-
             </div>
 
             <div class="text-center">
-                <span class="text-mute"></span>
+                <small><span class="text-mute text-uppercase">Search</span></small>
                 <span id="search" class="icon-search pull-right"></span>
             </div>
 
-            <ul id="menu">
-                <a href="">
-                    <li id="logo">
-                        
-                    </li>
-                </a>
+            <div class="text-center m">
+                <span class="icon-head m-l-xs"></span>
+                |
+                <span class="icon-search m-l-xs"></span>
+                |
+            </div>
 
+            <ul id="menu">
                 <a href="">
                     <li class="tab active" id="subscriptions">
                         <p>My Feed</p>
@@ -83,11 +83,11 @@
                 </a> 
             </ul>
 
-            <div style="background:url({{ user.avatar }}) no-repeat center;background-size:cover;"></div>
+            <div id="avatar_section" style="background:url({{ user.avatar }}) no-repeat center;background-size:cover;"></div>
             <p>{{ username }}</p>
         </nav>
 
-        <header id="header_wrapper">
+        <header id="header_wrapper" hidden>
             <p id="login" class="icon-head pull-right"></p>
             
             

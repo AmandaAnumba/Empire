@@ -1,5 +1,20 @@
-{% extends "dashboard/base_articles_home.html" %}
-{% block content %}
+{% extends "articles/base_articles_home.html" %}
+
+
+{% block title %}
+    Lifestyle
+{% endblock %}
+
+
+{% block title2 %}
+    Lifestyle
+{% endblock %}
+
+
+{% block header %}{% endblock %}
+
+
+{% block body %}
 <header id='navbar_top'>
     <div style="background:url({{ url_for('static', filename='images/binding_dark.png') }}), repeat;height: 200px;position:relative;">
         <p id="section_title">Lifestyle</p>
@@ -9,12 +24,12 @@
 
     <section id="subcategories" class="lifestyle">
         <ul>
-            <a href="{{ url_for('dashboard.lifestyle') }}"><li>View All</li></a>
-            <a href="{{ url_for('dashboard.sub_lifestyle', sub_category='mind') }}"><li>Mind</li></a>
-            <a href="{{ url_for('dashboard.sub_lifestyle', sub_category='body') }}"><li>Body</li></a>
-            <a href="{{ url_for('dashboard.sub_lifestyle', sub_category='spirit') }}"><li>Spirit</li></a>
-            <a href="{{ url_for('dashboard.sub_lifestyle', sub_category='fooddrink') }}"><li>Food + Drink</li></a>
-            <a href="{{ url_for('dashboard.sub_lifestyle', sub_category='travel') }}"><li>Travel</li></a>
+            <a href="{{ url_for('content.lifestyle') }}"><li>View All</li></a>
+            <a href="{{ url_for('content.sub_lifestyle', sub_category='mind') }}"><li>Mind</li></a>
+            <a href="{{ url_for('content.sub_lifestyle', sub_category='body') }}"><li>Body</li></a>
+            <a href="{{ url_for('content.sub_lifestyle', sub_category='spirit') }}"><li>Spirit</li></a>
+            <a href="{{ url_for('content.sub_lifestyle', sub_category='fooddrink') }}"><li>Food + Drink</li></a>
+            <a href="{{ url_for('content.sub_lifestyle', sub_category='travel') }}"><li>Travel</li></a>
         </ul>
     </section>
 </header>

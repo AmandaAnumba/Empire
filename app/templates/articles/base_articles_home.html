@@ -2,39 +2,71 @@
 <html lang='en'>
     <head>
         <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
-        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet'>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-        <meta name="HandheldFriendly" content="true" />
-         <meta name="mobile-web-app-capable" content="yes">
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="HandheldFriendly" content="true">
+        <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <meta charset="utf-8">  
-        <link rel="icon" type="image/png" href="http://media.empire.life/site/images/favicon.png">
-        <title>Empire</title>
-        <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
-        <meta name="keywords" content="Empire, minority, empowerment, women, minority women, woman, black, black women, career, entertainment, media, magazine" />
         <meta name="author" content="ThreePillarMedia, LLC" />
-        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/masonry.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/imagesLoaded.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/bootstrap-custom.min.js') }}"></script>          
-        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
+        <meta name="url" content="http://www.empire.life">
+        <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
+        <link rel="icon" type="image/png" href="http://media.empire.life/site/images/favicon.png">
+        <title>{% block title %}{% endblock %} | Empire</title>
+        <meta property="og:title" content="{% block title2 %}{% endblock %} | Empire"/>
+        <meta property="og:site_name" content="Empire" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="http://media.empire.life/site/images/logo.png"/>
+        <meta property="og:url" content="http://www.empire.life"/>
+        <meta property="og:description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign."/>
+        <meta property="og:locale" content="en_US" >
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@_thisisempire" />
+        <meta name="twitter:title" content="Empire | Succes Starts Here" />
+        <meta name="twitter:description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
+        <meta name="twitter:image" content="http://media.empire.life/site/images/logo.png" />
+        <meta name="twitter:url" content="http://www.empire.life" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/pushmenu.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='plugins/search/css/component.css') }}" />
+        {% block header %}{% endblock %}
     </head>
 
     <body id="content">
-        <nav id="top_wrapper">
-            <p class="pull-left"><img width="50" src="http://media.empire.life/site/images/e-logo.png" /></p>
-            <p id="login" class="icon-head pull-right"></p>
+        <nav id="top-wrapper">
+            <div class="text-center">
+                <img width="50" src="http://media.empire.life/site/images/e-logo.png" />
+            </div>
+
+            {% if loggedIn %}
+                <p class="pull-left font-bold text-u-c m-l">
+                    <small>{{ username }}</small>
+                </p>
+
+                <p class="pull-left font-bold text-u-c m-l l-s">
+                    <a href="{{ url_for('index') }}"><small>Dashboard</small></a>
+                </p>
+            {% else %}
+                <p class="pull-left font-bold text-u-c m-l l-s" onclick="jQuery('#login_modal').modal('show');">
+                    <small>Log In</small>
+                </p>
+            {% endif %}
+
+            <p class="pull-left font-bold text-u-c m-l l-s">
+                <small>Topics</small>
+            </p>
+
+            <p class="pull-left font-bold text-u-c m-l l-s">
+                <small>Resources</small>
+            </p>
+
             <p id="search" class="icon-search pull-right"></p>
         </nav>
 
-        <nav class="articles_page cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+        <nav class="articles_page cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2" hidden>
             <h3>
                 <span class="icon icon-cross" id="close-btn" style="float: left;color: darkgray;cursor: pointer;line-height: 1.1;"></span>
                 <!-- <span style="float:right;">Empire</span> -->
@@ -94,7 +126,7 @@
             <div class="overlay"></div>
         </div>
 
-        {% block content %}{% endblock %}
+        {% block body %}{% endblock %}
 
         <script src="{{ url_for('static', filename='plugins/pushmenu/js/classie.js') }}"></script>
         <script>
@@ -134,10 +166,7 @@
                 //     classie.toggle( menuRight, 'cbp-spmenu-open' );
                 //     // disableOther( 'showRight' );
                 // };
-            });
-        </script>
-        <script>
-            $(function(){
+                // 
                 $('#search').click(function() {
                     $('#morphsearch').addClass('open');
                     $('.morphsearch-form').show();

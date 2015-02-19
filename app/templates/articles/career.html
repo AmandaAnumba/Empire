@@ -1,60 +1,73 @@
-{% extends "dashboard/base_articles_home.html" %}
-{% block content %}
-<header id='navbar_top'>
-    <div style="background:url({{ url_for('static', filename='images/binding_dark.png') }}), repeat;height: 200px;position:relative;">
-        <p id="section_title">Career</p>
-    </div>
+{% extends "articles/base_articles_home.html" %}
 
-    <p id="menu-btn" class="pull-right toggle-menu menu-right" hidden><span class="icon-nav icon-menu"></span></p>
-</header>
+{% block title %}
+    Career
+{% endblock %}
 
-<main id="content_wrapper">
-    <section id="articles_side" class="pull-left">
-    {% if articles %}
-    	{%- for i in articles %}
 
-            {% if i.doctype == 'feature' %}
-        	<figure class="article feature">
-        		<p id="article_img" style="background:url({{ i.featureIMG }}) center;background-size: cover;"></p>
+{% block title2 %}
+    Career
+{% endblock %}
 
-        		<figcaption>
-        			<h2>{{ i.title }}</h2>
-        			<p class="a-dscrpt">{{ i.description }}</p>
-        			<p><em>by </em><span class="article_author"> {{ i.author }}</span></p>
-                    
-                    {% if sub == None %}
-                    <a href="/career/{{ i.slug }}">View more</a>
-                    {% else %}
-                    <a href="/career/{{sub}}/{{ i.slug }}">View more</a>
-                    {% endif %}
-        		</figcaption>			
-        	</figure>
 
-            {% elif i.doctype == 'regular' %}
-            <figure class="article regular">
-                <p id="article_img" style="background:url({{ i.featureIMG }}) center;background-size: cover;"></p>
+{% block header %}{% endblock %}
 
-                <figcaption>
-                    <h2>{{ i.title }}</h2>
-                    <p class="a-dscrpt">{{ i.description }}</p>
-                    <p><em>by </em><span class="a-author"> {{ i.author }}</span></p>
-                    
-                    {% if sub == None %}
-                    <a href="/career/{{ i.slug }}">View more</a>
-                    {% else %}
-                    <a href="/career/{{sub}}/{{ i.slug }}">View more</a>
-                    {% endif %}
-                </figcaption>           
-            </figure>
-            {% endif %}
 
-    	{% endfor -%}
-    {% endif %}
-    </section>
+{% block body %}
+    <header id='navbar_top'>
+        <div style="background:url({{ url_for('static', filename='images/binding_dark.png') }}), repeat;height: 200px;position:relative;">
+            <p id="section_title">Career</p>
+        </div>
 
-    <section id="" class="pull-right">
-        
-    </section>
-</main>
+        <p id="menu-btn" class="pull-right toggle-menu menu-right" hidden><span class="icon-nav icon-menu"></span></p>
+    </header>
 
+    <main id="content_wrapper">
+        <section id="articles_side" class="pull-left">
+        {% if articles %}
+        	{%- for i in articles %}
+
+                {% if i.doctype == 'feature' %}
+            	<figure class="article feature">
+            		<p id="article_img" style="background:url({{ i.featureIMG }}) center;background-size: cover;"></p>
+
+            		<figcaption>
+            			<h2>{{ i.title }}</h2>
+            			<p class="a-dscrpt">{{ i.description }}</p>
+            			<p><em>by </em><span class="article_author"> {{ i.author }}</span></p>
+                        
+                        {% if sub == None %}
+                        <a href="/career/{{ i.slug }}">View more</a>
+                        {% else %}
+                        <a href="/career/{{sub}}/{{ i.slug }}">View more</a>
+                        {% endif %}
+            		</figcaption>			
+            	</figure>
+
+                {% elif i.doctype == 'regular' %}
+                <figure class="article regular">
+                    <p id="article_img" style="background:url({{ i.featureIMG }}) center;background-size: cover;"></p>
+
+                    <figcaption>
+                        <h2>{{ i.title }}</h2>
+                        <p class="a-dscrpt">{{ i.description }}</p>
+                        <p><em>by </em><span class="a-author"> {{ i.author }}</span></p>
+                        
+                        {% if sub == None %}
+                        <a href="/career/{{ i.slug }}">View more</a>
+                        {% else %}
+                        <a href="/career/{{sub}}/{{ i.slug }}">View more</a>
+                        {% endif %}
+                    </figcaption>           
+                </figure>
+                {% endif %}
+
+        	{% endfor -%}
+        {% endif %}
+        </section>
+
+        <section id="" class="pull-right">
+            
+        </section>
+    </main>
 {% endblock %}

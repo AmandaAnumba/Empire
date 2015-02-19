@@ -48,7 +48,7 @@ function fb_login(){
                     if (message['error']) {
                         $('#login_error #message').empty().append(message['error']);
                         $('#login_error, #login-form').show();
-                        console.log('error');
+                        console.log('login error');
                     }
 
                     if (message['success']) {
@@ -57,7 +57,7 @@ function fb_login(){
                 }).fail(function() {
                     $('#login_error #message').empty().append("<strong>Error: </strong>Please refresh the page and try again.");
                     $('#login_error').show();
-                    console.log('error');
+                    console.log('fatal error');
                 });
 
 

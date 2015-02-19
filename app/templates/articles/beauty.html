@@ -1,69 +1,82 @@
 {% extends "articles/base_articles_home.html" %}
-{% block content %}
-<header id='navbar_top'>
-    <div style="background:url({{ url_for('static', filename='images/beauty.jpeg') }}), no-repeat; background-size:cover;height: 200px;background-position-y: -255px;position:relative;">
-        <p id="section_title">Beauty</p>
-    </div>
 
-    <p id="menu-btn" class="pull-right toggle-menu menu-right" hidden><span class="icon-nav icon-menu"></span></p>
+{% block title %}
+    Beauty
+{% endblock %}
 
-    <section id="subcategories" class="beauty">
-        <ul>
-            <a href="{{ url_for('content.beauty') }}"><li>View All</li></a>
-            <a href="/beauty/fashion"><li>Fashion</li></a>
-            <a href="/beauty/hair"><li>Hair</li></a>
-            <a href="/beauty/body"><li>Body</li></a>
-        </ul>
-    </section>
-</header>
 
-<main id="content_wrapper">
-    <section id="articles_side" class="pull-left">
-    {% if articles %}
-    	{%- for i in articles %}
+{% block title2 %}
+    Beauty
+{% endblock %}
 
-            {% if i.doctype == 'feature' %}
-        	<figure class="article feature">
-        		<p id="article_img" style="background:url({{ i.featureIMG }}) center;background-size: cover;"></p>
 
-        		<figcaption>
-        			<h2>{{ i.title }}</h2>
-        			<p class="a-dscrpt">{{ i.description }}</p>
-        			<p><em>by </em><span class="article_author"> {{ i.author }}</span></p>
-                     
-                    {% if sub == None %}
-                    <a href="/beauty/{{i.slug}}">View more</a>
-                    {% else %}
-                    <a href="/beauty/{{sub}}/{{i.slug}}">View more</a>
-                    {% endif %}
-        		</figcaption>			
-        	</figure>
+{% block header %}{% endblock %}
 
-            {% elif i.doctype == 'regular' %}
-            <figure class="article regular">
-                <p id="article_img" style="background:url({{ i.featureIMG }}) center;background-size: cover;"></p>
 
-                <figcaption>
-                    <h2>{{ i.title }}</h2>
-                    <p class="a-dscrpt">{{ i.description }}</p>
-                    <p><em>by </em><span class="a-author"> {{ i.author }}</span></p>
-                    
-                    {% if sub == None %}
-                    <a href="/beauty/{{i.slug}}">View more</a>
-                    {% else %}
-                    <a href="/beauty/{{sub}}/{{i.slug}}">View more</a>
-                    {% endif %}
-                </figcaption>           
-            </figure>
-            {% endif %}
+{% block body %}
+    <header id='navbar_top'>
+        <div style="background:url({{ url_for('static', filename='images/beauty.jpeg') }}), no-repeat; background-size:cover;height: 200px;background-position-y: -255px;position:relative;">
+            <p id="section_title">Beauty</p>
+        </div>
 
-    	{% endfor -%}
-    {% endif %}
-    </section>
+        <p id="menu-btn" class="pull-right toggle-menu menu-right" hidden><span class="icon-nav icon-menu"></span></p>
 
-    <section id="" class="pull-right">
-        
-    </section>
-</main>
+        <section id="subcategories" class="beauty">
+            <ul>
+                <a href="{{ url_for('content.beauty') }}"><li>View All</li></a>
+                <a href="/beauty/fashion"><li>Fashion</li></a>
+                <a href="/beauty/hair"><li>Hair</li></a>
+                <a href="/beauty/body"><li>Body</li></a>
+            </ul>
+        </section>
+    </header>
 
+    <main id="content_wrapper">
+        <section id="articles_side" class="pull-left">
+        {% if articles %}
+        	{%- for i in articles %}
+
+                {% if i.doctype == 'feature' %}
+            	<figure class="article feature">
+            		<p id="article_img" style="background:url({{ i.featureIMG }}) center;background-size: cover;"></p>
+
+            		<figcaption>
+            			<h2>{{ i.title }}</h2>
+            			<p class="a-dscrpt">{{ i.description }}</p>
+            			<p><em>by </em><span class="article_author"> {{ i.author }}</span></p>
+                         
+                        {% if sub == None %}
+                        <a href="/beauty/{{i.slug}}">View more</a>
+                        {% else %}
+                        <a href="/beauty/{{sub}}/{{i.slug}}">View more</a>
+                        {% endif %}
+            		</figcaption>			
+            	</figure>
+
+                {% elif i.doctype == 'regular' %}
+                <figure class="article regular">
+                    <p id="article_img" style="background:url({{ i.featureIMG }}) center;background-size: cover;"></p>
+
+                    <figcaption>
+                        <h2>{{ i.title }}</h2>
+                        <p class="a-dscrpt">{{ i.description }}</p>
+                        <p><em>by </em><span class="a-author"> {{ i.author }}</span></p>
+                        
+                        {% if sub == None %}
+                        <a href="/beauty/{{i.slug}}">View more</a>
+                        {% else %}
+                        <a href="/beauty/{{sub}}/{{i.slug}}">View more</a>
+                        {% endif %}
+                    </figcaption>           
+                </figure>
+                {% endif %}
+
+        	{% endfor -%}
+        {% endif %}
+        </section>
+
+        <section id="" class="pull-right">
+            
+        </section>
+    </main>
 {% endblock %}

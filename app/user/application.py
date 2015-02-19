@@ -56,50 +56,29 @@ def editProfile():
     elif request.method == 'POST':
         post = json.loads(request.data)
 
-        fullname = post['data']['fullname']
-        email = post['data']['email']
-        bio = post['data']['bio']
-        avatar = post['data']['avatar']
-        website = post['data']['website']
-        facebook = post['data']['facebook']
-        tumblr = post['data']['tumblr']
-        twitter = post['data']['twitter']
-        pinterest = post['data']['pinterest']
-        linkedin = post['data']['linkedin']
-        instagram = post['data']['instagram']
+        fullname = request.form.get('fullname', None)
+        email = request.form.get('email', None)
+        bio = request.form.get('bio', None)
+        avatar = request.form.get('avatar', None)
+        website = request.form.get('website', None)
+        facebook = request.form.get('facebook', None)
+        tumblr = request.form.get('tumblr', None)
+        twitter = request.form.get('twitter', None)
+        pinterest = request.form.get('pinterest', None)
+        linkedin = request.form.get('linkedin', None)
+        instagram = request.form.get('instagram', None)
         
-        if fullname and (user['fullname'] != fullname):
-            updates['fullname'] = fullname
-
-        if avatar and (user['avatar'] != avatar):
-            updates['avatar'] = avatar
-
-        if bio and (user['bio'] != bio):
-            updates['fullname'] = fullname
-
-        if email and (user['email'] != email):
-            updates['email'] = email
-
-        if website and (user['website'] != website):
-            updates['website'] = website
-
-        if facebook and (user['facebook'] != facebook):
-            updates['facebook'] = facebook
-
-        if tumblr and (user['tumblr'] != tumblr):
-            updates['tumblr'] = tumblr
-
-        if twitter and (user['twitter'] != twitter):
-            updates['twitter'] = twitter
-
-        if linkedin and (user['linkedin'] != linkedin):
-            updates['linkedin'] = linkedin
-
-        if pinterest and (user['pinterest'] != pinterest):
-            updates['pinterest'] = pinterest
-
-        if instagram and (user['instagram'] != instagram):
-            updates['instagram'] = instagram 
+        updates['fullname'] = fullname
+        updates['avatar'] = avatar
+        updates['bio'] = bio
+        updates['email'] = email
+        updates['website'] = website
+        updates['facebook'] = facebook
+        updates['tumblr'] = tumblr
+        updates['twitter'] = twitter
+        updates['linkedin'] = linkedin
+        updates['pinterest'] = pinterest
+        updates['instagram'] = instagram
 
         connection.connect()
         connection.request('PUT', '/1/users/'+user['objectId'], json.dumps(updates),

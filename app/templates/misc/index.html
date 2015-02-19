@@ -105,64 +105,69 @@
                 <div class="navbar_inner">
                     <ul class="navbar_menu">
                         <li class="menu_item">
-                            <a href="#">Beauty</a>
+                            <a href="{{ url_for('content.beauty') }}">Beauty</a>
                             <ul class="submenu">
-                                <li><a href="#">Hair</a></li>
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Body</a></li>
+                                <li><a href="/beauty/hair">Hair</a></li>
+                                <li><a href="/beauty/fashion">Fashion</a></li>
+                                <li><a href="/beauty/body">Body</a></li>
                             </ul>
                         </li>
 
                         <li class="menu_item">
-                            <a href="#">Career</a>
+                            <a href="{{ url_for('content.career') }}">Career</a>
                         </li>
 
                         <li class="menu_item">
-                            <a href="#">Lifestyle</a>
+                            <a href="{{ url_for('content.lifestyle') }}">Lifestyle</a>
                             <ul class="submenu">
-                                <li><a href="#">Mind</a></li>
-                                <li><a href="#">Body</a></li>
-                                <li><a href="#">Travel</a></li>
-                                <li><a href="#">Food + Drink</a></li>
-                                <li><a href="#">Spirit</a></li>
+                                <li><a href="/lifestyle/mind">Mind</a></li>
+                                <li><a href="/lifestyle/body">Body</a></li>
+                                <li><a href="/lifestyle/travel">Travel</a></li>
+                                <li><a href="/lifestyle/fooddrink">Food + Drink</a></li>
+                                <li><a href="/lifestyle/spirit">Spirit</a></li>
                             </ul>
                         </li>
 
                         <li class="menu_item">
-                            <a href="#">Entertainment</a>
+                            <a href="{{ url_for('content.entertainment') }}">Entertainment</a>
                             <ul class="submenu">
-                                <li><a href="#">TV</a></li>
-                                <li><a href="#">Music</a></li>
-                                <li><a href="#">Film</a></li>
-                                <li><a href="#">Theater</a></li>
+                                <li><a href="/entertainment/tv">TV</a></li>
+                                <li><a href="/entertainment/music">Music</a></li>
+                                <li><a href="/entertainment/film">Film</a></li>
+                                <li><a href="/entertainment/theater">Theater</a></li>
                             </ul>
                         </li>
 
                         <li class="menu_item">
-                            <a href="#">Money</a>
+                            <a href="{{ url_for('content.money') }}">Money</a>
                             <ul class="submenu">
-                                <li><a href="#">Saving</a></li>
-                                <li><a href="#">Spending</a></li>
-                                <li><a href="#">Investing</a></li>
+                                <li><a href="/money/saving">Saving</a></li>
+                                <li><a href="/money/spending">Spending</a></li>
+                                <li><a href="/money/investing">Investing</a></li>
                             </ul>
                         </li>
 
                         <li class="menu_item">
-                            <a href="#">Wildcard</a>
-                            <ul class="submenu">
-                                <li><a href="#">Op-Ed</a></li>
-                                <li><a href="#">Voices</a></li>
-                                <li><a href="#">Calm yer Tits, 'Merica</a></li>
-                                <li><a href="#">Shits 'n Giggles</a></li>
-                            </ul>
+                            <a href="{{ url_for('content.wildcard') }}">Wildcard</a>
+                            <!-- <ul class="submenu">
+                                <li><a href="/wildcard/hair">Op-Ed</a></li>
+                                <li><a href="/wildcard/hair">Voices</a></li>
+                                <li><a href="/wildcard/hair">Calm yer Tits, 'Merica</a></li>
+                                <li><a href="/wildcard/hair">Shits 'n Giggles</a></li>
+                            </ul> -->
                         </li>
                     </ul>
                 </div>
             </nav>
         </section>
 
+
+        <!-- new and top trending -->
+        <section id="top-trending"></section>
+
+
         <!-- special thanks -->
-        <section id="special" hidden>
+        <section id="special">
             <h2 id="title">Special thanks to...</h2>
             
             <div style="margin:0 auto;">
