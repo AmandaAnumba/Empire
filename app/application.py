@@ -33,8 +33,18 @@ def index():
         })
 
         result = json.loads(connection.getresponse().read())
+        # print result
 
-       	return render_template('user/dash_user.html', username=escape(session['username']), user=result)
+        if 'error' in result.keys():
+            return render_template('misc/index.html', username=None, loggedIn=False)
+
+        if 'subscriptions' in result.keys():
+            x = len(result['subscriptions'])
+       	    return render_template('user/dash_user.html', username=escape(session['username']), user=result, subscriptions=x)
+
+        else:
+            return render_template('user/dash_user.html', username=escape(session['username']), user=result, subscriptions=0)
+
     else:
     	return render_template('misc/index.html', username=None, loggedIn=False)
 
@@ -157,7 +167,10 @@ def register():
         connection.request('POST', '/1/users', json.dumps({
             "username": username,
             "password": password,
-            "email": email
+            "email": email,
+            "subscriptions": [],
+            "followers": [],
+            "following": [],
         }), {
             "X-Parse-Application-Id": PARSEappID,
             "X-Parse-REST-API-Key": RESTapiKEY,

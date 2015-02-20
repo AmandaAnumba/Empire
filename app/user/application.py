@@ -32,7 +32,7 @@ RESTapiKEY = "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
 def editProfile():
     username = escape(session['username'])
     sessionToken = escape(session['sessionToken'])
-    print escape(session['uID'])
+    # print escape(session['uID'])
 
     params = urllib.urlencode({
         "where":json.dumps({
@@ -228,7 +228,7 @@ def follow():
 def subscribe():
     post = json.loads(request.data)
 
-    topic = post['data']['topic']
+    topics = post['data']['topics']
     userID = escape(session['uID'])
     sessionToken = escape(session['sessionToken'])
     

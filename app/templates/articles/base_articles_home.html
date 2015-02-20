@@ -131,25 +131,25 @@
         <script src="{{ url_for('static', filename='plugins/pushmenu/js/classie.js') }}"></script>
         <script>
             $(function() {
-                $('.dropdown-toggle').dropdown();
+                // $('.dropdown-toggle').dropdown();
 
                 // dropdown menus
-                $('.dropdown-toggle').click(function(e) {
-                    var target = $(this).attr('dropdown-toggle');
-                    $('.dropdown-menu').not('#'+target).hide();
+                // $('.dropdown-toggle').click(function(e) {
+                //     var target = $(this).attr('dropdown-toggle');
+                //     $('.dropdown-menu').not('#'+target).hide();
                     
-                    if ($('#'+target).is(':visible')) {
-                        $('#'+target).hide();
-                    }
-                    else {
-                        e.stopPropagation();
-                        $('#'+target).show();
-                    }
-                });
+                //     if ($('#'+target).is(':visible')) {
+                //         $('#'+target).hide();
+                //     }
+                //     else {
+                //         e.stopPropagation();
+                //         $('#'+target).show();
+                //     }
+                // });
 
-                jQuery(document).ready(function($) {
-                    $('.toggle-menu').jPushMenu();
-                });
+                // jQuery(document).ready(function($) {
+                //     $('.toggle-menu').jPushMenu();
+                // });
 
                 // var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
                 //     showRight = document.getElementById( 'menu-btn' ),

@@ -1,111 +1,114 @@
-#main_wrapper {
-	margin-left: 176px;
-	background: whitesmoke;
+#mainWrapper {
+    margin-left: 225px;
+    background: whitesmoke;
+    height: 100%;
 
-	#add_content {
-		width: 200px;
-		// height: 200px;
-		border: 2px dashed black;
-		margin: 0 auto;
-		text-align: center;
-		padding: 4% 4% 6%;
+    #subscribeTo {
+        width: 400px;
+        margin: auto;
+        padding: 4% 4% 6%;
 
-		.icon {
-			font-size: 4em;
-			font-weight: 300;
-		}
-	}
+        .icon {
+            font-size: 4em;
+            font-weight: 300;
+        }
+
+        #catList {
+            height: 200px;
+            overflow-y:scroll;
+        }
+    }
 }
 
  
 // #content_wrapper {
-// 	background: #f9f9f9;
-// 	padding-left: 85px;
-// 	padding-top: 25px;
-// 	// width: 100%;
-// 	height: 100%;
-// 	position: relative;
-// 	box-shadow: inset 0 0px 6px rgba(0, 0, 0, 0.15);
-// 	padding-bottom: 5%;
+//  background: #f9f9f9;
+//  padding-left: 85px;
+//  padding-top: 25px;
+//  // width: 100%;
+//  height: 100%;
+//  position: relative;
+//  box-shadow: inset 0 0px 6px rgba(0, 0, 0, 0.15);
+//  padding-bottom: 5%;
 // }
 
 // #review_wrapper {
-// 	background: #f9f9f9;
-// 	padding-left: 115px;
-// 	padding-top: 25px;
-// 	// width: 100%;
-// 	height: 100%;
-// 	position: relative;
-// 	box-shadow: inset 0 0px 6px rgba(0, 0, 0, 0.15);
+//  background: #f9f9f9;
+//  padding-left: 115px;
+//  padding-top: 25px;
+//  // width: 100%;
+//  height: 100%;
+//  position: relative;
+//  box-shadow: inset 0 0px 6px rgba(0, 0, 0, 0.15);
 
-// 	header {
-// 		padding-left: 30px;
-// 		color: rgb(107, 107, 107);
-// 		font-size: 1.2em;
-// 		font-weight: 300;
-// 	}
+//  header {
+//      padding-left: 30px;
+//      color: rgb(107, 107, 107);
+//      font-size: 1.2em;
+//      font-weight: 300;
+//  }
 // }
 
 // #proof_wrapper {
-// 	// height: 900px;
-// 	background: white;
-// 	margin: 0 14%;
-// 	position: relative;
+//  // height: 900px;
+//  background: white;
+//  margin: 0 14%;
+//  position: relative;
 
-// 	.btn-default {
-// 		background-color: #F2F2F2;
-// 	}
+//  .btn-default {
+//      background-color: #F2F2F2;
+//  }
 // }
 
 // #menu-toggle > p {
-// 	transform: rotate(-90deg);
-// 	transform-origin: left bottom;
-// 	position: relative;
-// 	left: 29px;
-// 	top: 221px;
-// 	/* height: 200px; */
-// 	width: 200px;
-// 	font-weight: 300;
-// 	text-transform: uppercase;
-// 	font-size: 12px;
-// 	letter-spacing: 3px;
+//  transform: rotate(-90deg);
+//  transform-origin: left bottom;
+//  position: relative;
+//  left: 29px;
+//  top: 221px;
+//  /* height: 200px; */
+//  width: 200px;
+//  font-weight: 300;
+//  text-transform: uppercase;
+//  font-size: 12px;
+//  letter-spacing: 3px;
 // }
 // .froala-wrapper.f-basic {
-// 	border-bottom: none !important;
-// 	border-right: none !important;
-// 	border-left: none !important;
+//  border-bottom: none !important;
+//  border-right: none !important;
+//  border-left: none !important;
 // }
 
 // .froala-element {
-// 	height: inherit !important;
-// 	// padding: 0 30px !important;
+//  height: inherit !important;
+//  // padding: 0 30px !important;
 // }
 
 
 
 // .label2 {
-// 	font-size: 0.85em;
-// 	color: #303030;
-// 	/* text-transform: uppercase; */
-// 	letter-spacing: 0.9px;
-// 	/* border-bottom: 1px solid #5A5A5A; */
-// 	padding-top: 15px;
-// 	/* margin: 0 2em; */
-// 	font-weight: 300;
+//  font-size: 0.85em;
+//  color: #303030;
+//  /* text-transform: uppercase; */
+//  letter-spacing: 0.9px;
+//  /* border-bottom: 1px solid #5A5A5A; */
+//  padding-top: 15px;
+//  /* margin: 0 2em; */
+//  font-weight: 300;
 // }
 
 // .media {
-// 	text-align: left;
+//  text-align: left;
 // }
 
 // .draft_item {
-// 	// margin-left: 15px;
-// 	margin-bottom: 5px;
-// 	cursor: pointer;
-// 	// position: relative;
-// 	// display: inline-block;
-// 	color: #7d7f7f;
-// 	font-size: 0.8em;
+//  // margin-left: 15px;
+//  margin-bottom: 5px;
+//  cursor: pointer;
+//  // position: relative;
+//  // display: inline-block;
+//  color: #7d7f7f;
+//  font-size: 0.8em;
 // }
 // .flip {
 //     -moz-transform: scaleX(-1);
@@ -117,16 +120,16 @@
 // }
 
 // .panel {
-// 	max-height: 320px;
-// 	overflow-y: scroll;
+//  max-height: 320px;
+//  overflow-y: scroll;
 // }
 
 // .thin {
-// 	font-weight: 300;
+//  font-weight: 300;
 // }
 
 // span.title {
-// 	padding-left: 9px;
+//  padding-left: 9px;
 // }
 // // xenon code
 // .xe-widget.xe-todo-list {
@@ -157,7 +160,7 @@
 // }
 
 // .xe-icon.pull-left {
-// 	margin-right: 10px;
+//  margin-right: 10px;
 // }
 
 // .xe-widget.xe-todo-list .xe-header .xe-label span {
@@ -285,5 +288,5 @@
 // }
 
 // .xe-footer > .form-control {
-// 	width: 90% !important;
+//  width: 90% !important;
 // }

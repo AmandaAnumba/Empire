@@ -83,7 +83,7 @@
 
 
 
-// .cycle_header > figcaption {
+// .cycleHeader > figcaption {
 // 	position: absolute;
 // 	top: 0;
 // 	left: 0;
@@ -94,12 +94,12 @@
 // }
 
 
-.cycle_header
-.cycle_header > figcaption:hover h2::after {
+.cycleHeader
+.cycleHeader > figcaption:hover h2::after {
 	transform: translate3d(-50%,0,0);
 }
 
-.cycle_header > figcaption:hover p {
+.cycleHeader > figcaption:hover p {
 	opacity: 1;
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);

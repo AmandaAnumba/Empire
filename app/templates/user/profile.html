@@ -1,5 +1,11 @@
 {% extends "misc/blank_page.html" %}
 
+
+{% block title %}
+    @ {{ user.username }}
+{% endblock %}
+
+
 {% block header %}
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
     <script src="{{ url_for('static', filename='js/profile2.js') }}"></script>
@@ -7,95 +13,95 @@
 
 
 {% block content %}
-	<main id="user_wrapper" ng-app="profile">
-		<header id="profile_header">
-			<p id="avatar" class="img-thumbnail img-circle" style="background:url({{ user.avatar }}) no-repeat center;background-size: cover;width: 150px;height: 150px;border: none;text-align:left;"></p>
+    <main id="user_wrapper" ng-app="profile">
+        <header id="profile_header">
+            <p id="avatar" class="img-thumbnail img-circle" style="background:url({{ user.avatar }}) no-repeat center;background-size: cover;width: 150px;height: 150px;border: none;text-align:left;"></p>
 
-			<div id="info">
-				<p id="name" style="text-transform: uppercase;font-size: 1.3em;letter-spacing: 2px;font-weight: 700;">{{ user.fullname }}</p>
-				
-				<p id="role">{{ user.role }}</p>
-				
-				<p id="bio">Entrepreneur, technologist, inventor. Founder of Primal.com and Official Community Corp. Internet technology and social media, particularly, What's Next?</p>
-				
-				<ul>
-					{% if user.website %}
-						<li class="social"><span class="icon-global"></span><a href="{{ user.website }}">{{ user.website }}</a></li>
-					{% endif %}
+            <div id="info">
+                <p id="name" style="text-transform: uppercase;font-size: 1.3em;letter-spacing: 2px;font-weight: 700;">{{ user.fullname }}</p>
+                
+                <p id="role">{{ user.role }}</p>
+                
+                <p id="bio">Entrepreneur, technologist, inventor. Founder of Primal.com and Official Community Corp. Internet technology and social media, particularly, What's Next?</p>
+                
+                <ul>
+                    {% if user.website %}
+                        <li class="social"><span class="icon-global"></span><a href="{{ user.website }}">{{ user.website }}</a></li>
+                    {% endif %}
 
-					{% if user.linkedin %}
-						<li class="social"><span class="icon-linkedin"><a href="{{ user.linkedin }}"></span>{{ user.linkedin }}</a></li>
-					{% endif %}
+                    {% if user.linkedin %}
+                        <li class="social"><span class="icon-linkedin"><a href="{{ user.linkedin }}"></span>{{ user.linkedin }}</a></li>
+                    {% endif %}
 
-					{% if user.facebook %}
-						<li class="social"><span class="icon-facebook"></span><a href="https://www.facebook.com/{{ user.facebook }}">@{{ user.facebook }}</a></li>
-					{% endif %}
+                    {% if user.facebook %}
+                        <li class="social"><span class="icon-facebook"></span><a href="https://www.facebook.com/{{ user.facebook }}">@{{ user.facebook }}</a></li>
+                    {% endif %}
 
-					{% if user.twitter %}
-						<li class="social"><span class="icon-twitter"><a href="https://twitter.com/{{ user.twitter }}"></span>@{{ user.twitter }}</a></li>
-					{% endif %}
+                    {% if user.twitter %}
+                        <li class="social"><span class="icon-twitter"><a href="https://twitter.com/{{ user.twitter }}"></span>@{{ user.twitter }}</a></li>
+                    {% endif %}
 
-					{% if user.tumblr %}
-						<li class="social"><span class="icon-tumblr"><a href="{{ user.tumblr }}.tumblr.com"></span>@{{ user.tumblr }}</a></li>
-					{% endif %}
+                    {% if user.tumblr %}
+                        <li class="social"><span class="icon-tumblr"><a href="{{ user.tumblr }}.tumblr.com"></span>@{{ user.tumblr }}</a></li>
+                    {% endif %}
 
-					{% if user.pinterest %}
-						<li class="social"><span class="icon-pinterest"><a href="https://www.pinterest.com/{{ user.pinterest }}"></span>{{ user.pinterest }}</a></li>
-					{% endif %}
+                    {% if user.pinterest %}
+                        <li class="social"><span class="icon-pinterest"><a href="https://www.pinterest.com/{{ user.pinterest }}"></span>@{{ user.pinterest }}</a></li>
+                    {% endif %}
 
-					{% if user.instagram %}
-						<li class="social"><span class="icon-instagram"><a href="http://instagram.com/{{ user.instagram }}"></span>@{{ user.instagram }}</a></li>
-					{% endif %}
-				</ul>
-			</div>
+                    {% if user.instagram %}
+                        <li class="social"><span class="icon-instagram"><a href="http://instagram.com/{{ user.instagram }}"></span>@{{ user.instagram }}</a></li>
+                    {% endif %}
+                </ul>
+            </div>
 
-			<div class="clearfix"></div>
-		</header>
-		
-		<section id="social_section">
-			<ul>
-				<li class="toggle-div" data-toggle="articles">
-					<p>Articles</p>
-					<p>0</p>
-					{# <p>{{ articlesCount }}</p> #}
-				</li>
+            <div class="clearfix"></div>
+        </header>
+        
+        <section id="social_section">
+            <ul>
+                <li class="toggle-div" data-toggle="articles">
+                    <p>Articles</p>
+                    <p>0</p>
+                    {# <p>{{ articlesCount }}</p> #}
+                </li>
 
-				<li class="toggle-div" data-toggle="followers">
-					<p>Followers</p>
-					<p>0</p>
-					{# <p>{{ user.followers }}</p> #} 
-				</li>
+                <li class="toggle-div" data-toggle="followers">
+                    <p>Followers</p>
+                    <p>0</p>
+                    {# <p>{{ user.followers }}</p> #} 
+                </li>
 
-				<li class="toggle-div" data-toggle="following">
-					<p>Following</p>
-					<p>0</p>
-					{# <p>{{ user.following }}</p> #}
-				</li>
-			</ul>
-		</section>
+                <li class="toggle-div" data-toggle="following">
+                    <p>Following</p>
+                    <p>0</p>
+                    {# <p>{{ user.following }}</p> #}
+                </li>
+            </ul>
+        </section>
 
-		<section id="articles" class="section open" ng-controller="articlesController">
-			<h2>Articles</h2>
-		</section>
+        <section id="articles" class="section open" ng-controller="articlesController">
+            <h2>Articles</h2>
+        </section>
 
-		<section id="followers" class="section" ng-controller="followersController" data-followers="{{ ','.join(user.followers) }}">
-			<h2>{{ user.username }}'s Followers</h2>
-		</section>
+        <section id="followers" class="section" ng-controller="followersController" data-followers="{{ ','.join(user.followers) }}">
+            <h2>{{ user.username }}'s Followers</h2>
+        </section>
 
-		<section id="following" class="section" ng-controller="followingController" data-following="{{ ','.join(user.following) }}">
-			<h2>Who {{ user.username }} Follows</h2>
-		</section>
-	</main>
+        <section id="following" class="section" ng-controller="followingController" data-following="{{ ','.join(user.following) }}">
+            <h2>Who {{ user.username }} Follows</h2>
+        </section>
+    </main>
 
-	<script>
-		$('.toggle-div').click(function() {
-			var toggle = $(this).attr('data-toggle');
-			
-			$('.toggle-div').removeClass('active');
-			$(this).addClass('active');
-			
-			$('.section').removeClass('open');
-			$('#'+toggle).addClass('open');
-		});
-	</script>
+    <script>
+        $('.toggle-div').click(function() {
+            var toggle = $(this).attr('data-toggle');
+            
+            $('.toggle-div').removeClass('active');
+            $(this).addClass('active');
+            
+            $('.section').removeClass('open');
+            $('#'+toggle).addClass('open');
+        });
+    </script>
 {% endblock %}

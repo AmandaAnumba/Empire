@@ -28,7 +28,7 @@ module.exports = function(grunt) {
             },
             users: {
                 files: {
-                    'app/static/js/users.dist.js': ['app/static/js/s3uploader.js'],
+                    'app/static/js/dash.dist.js': ['app/static/js/navbar.js'],
                 }
             },
             dist: {

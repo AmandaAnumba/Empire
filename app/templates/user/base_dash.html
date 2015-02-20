@@ -18,9 +18,8 @@
         <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
         <link rel="icon" type="image/png" href="http://media.empire.life/site/images/favicon.png">
         <title>Empire</title>
+        <script src="{{ url_for('static', filename='js/classie.js') }}"></script>
         <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
-        <script src="{{ url_for('static', filename='plugins/pushmenu/js/classie.js') }}"></script>
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='plugins/pushmenu/css/component.css') }}" />
@@ -44,34 +43,23 @@
                 <span class="icon-head m-l-xs"></span>
                 |
                 <span class="icon-search m-l-xs"></span>
-                |
             </div>
 
             <ul id="menu">
                 <a href="">
-                    <li class="tab active" id="subscriptions">
+                    <li class="tab active">
                         <p>My Feed</p>
                     </li>
                 </a>
 
                 <a href="">
-                    <li class="tab" id="review">
-                        <p>Content</p>
-                        <!-- <ul>
-                            <li>Cycle 1</li>
-                            <li>Categories</li>
-                        </ul> -->
-                    </li>
-                </a>
-
-                <a href="">
-                    <li class="tab" id="mine">
+                    <li class="tab">
                         <p>Comments</p>
                     </li>
                 </a>
 
                 <a href="">
-                    <li class="tab" id="tools">
+                    <li class="tab">
                         <p>Discussions</p>
                     </li>
                 </a>

@@ -6,11 +6,11 @@
 
 {% block body %}
 
-	<main id="main_wrapper">
+	<main id="mainWrapper">
 		<div class="container">
 		    <div id="morphsearch" class="morphsearch">
-		        <form name="morphsearchForm" class="morphsearch-form" ng-controller="morphsearch">
-		            <input id="input" name="input" class="morphsearch-input" type="search" placeholder="Search..." ng-model="input" />
+		        <form name="morphsearchForm" class="morphsearch-form" ng-controller="morphSearchController">
+		            <input id="searchinput" name="searchinput" class="morphsearch-input" type="search" placeholder="Search..." ng-model="input" />
 		            <p class="morphsearch-submit" ng-click="submitSearch()">Search</p>
 		        </form>
 		        
@@ -48,16 +48,105 @@
 		    <div class="overlay"></div>
 		</div>
 
-		{% if user.subscriptions %}
-			<section id="add_content">
-				<p class="icon"><span class="icon-plus"></span></p>
-				<p>Add Content to your Feed</p>
-			</section>
+		{% if subscriptions == 0 %}
+			<div id="subscribeTo" class="panel panel-default">
+				<div class="panel-heading text-center">
+					<p>Build your Content</p>
+					<p class="small">subscribing to a topic populates your feed with content just for you!</p>
+				</div>
+
+				<div class="panel-body">
+					<ul id="catList">
+						<li>Career</li>
+						<li>Drinks</li>
+						<li>Entertainment</li>
+						<li>Fashion</li>
+						<li>Film</li>
+						<li>Fitness</li>
+						<li>Food</li>
+						<li>Hair</li>
+						<li>Health</li>
+						<li>Investing</li>
+						<li>Mind</li>
+						<li>Money</li>
+						<li>Music</li>
+						<li>Saving Money</li>
+						<li>Shits 'n Giggles</li>
+						<li>Spending Money</li>
+						<li>Spiritual Health</li>
+						<li>Theater</li>
+						<li>Travel</li>
+						<li>TV</li>
+					</ul>
+
+					<p class="btn btn-black">Subscribe</p>
+					<p class="btn btn-default">Skip step</p>
+				</div>
+			</div>
 		{% else %}	
 			<section>
 				<!-- new articles in each subscription category go here -->
 			</section>
 		{% endif %}
 	</main>
+
+	<script>
+        $(function() {
+            $('#search').click(function() {
+                $('#morphsearch').addClass('open');
+                $('.morphsearch-form').show();
+            });
+        });
+
+        (function() {
+            var morphSearch = document.getElementById( 'morphsearch' ),
+                input = morphSearch.querySelector( 'input.morphsearch-input' ),
+                ctrlClose = morphSearch.querySelector( 'span.morphsearch-close' ),
+                isOpen = isAnimating = false,
+                // show/hide search area
+                toggleSearch = function(evt) {
+                    // return if open and the input gets focused
+                    if( evt.type.toLowerCase() === 'focus' && isOpen ) return false;
+
+                    var offsets = morphsearch.getBoundingClientRect();
+                    if( isOpen ) {
+                        classie.remove( morphSearch, 'open' );
+
+                        // trick to hide input text once the search overlay closes 
+                        if( input.value !== '' ) {
+                            setTimeout(function() {
+                                classie.add( morphSearch, 'hideInput' );
+                                setTimeout(function() {
+                                    classie.remove( morphSearch, 'hideInput' );
+                                    input.value = '';
+                                }, 300 );
+                            }, 500);
+                        }
+                        
+                        input.blur();
+                    }
+                    else {
+                        classie.add( morphSearch, 'open' );
+                    }
+                    isOpen = !isOpen;
+                };
+
+            // events
+            input.addEventListener( 'focus', toggleSearch );
+            ctrlClose.addEventListener( 'click', toggleSearch );
+            // esc key closes search overlay
+            // keyboard navigation events
+            document.addEventListener( 'keydown', function( ev ) {
+                var keyCode = ev.keyCode || ev.which;
+                if( keyCode === 27 && isOpen ) {
+                    toggleSearch(ev);
+                }
+            } );
+
+
+            /***** for demo purposes only: don't allow to submit the form *****/
+            morphSearch.querySelector( 'button[type="submit"]' ).addEventListener( 'click', function(ev) { ev.preventDefault(); } );
+        })();
+    </script>
 
 {% endblock %}

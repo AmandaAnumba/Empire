@@ -1,52 +1,14 @@
 $(function() {
-    $('.dropdown-toggle').dropdown();
-
-    // dropdown menus
-    $('.dropdown-toggle').click(function(e) {
-        var target = $(this).attr('dropdown-toggle');
-        $('.dropdown-menu').not('#'+target).hide();
-        
-        if ($('#'+target).is(':visible')) {
-            $('#'+target).hide();
-        }
-        else {
-            e.stopPropagation();
-            $('#'+target).show();
-        }
-    });
-
-    // $('.toggle-menu').jPushMenu();
-
     $('#search').click(function() {
         $('#morphsearch').addClass('open');
         $('.morphsearch-form').show();
     });
-
-    // $('span.morphsearch-close').click(function() {
-
-    // });
-
-    // var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-    //     showRight = document.getElementById( 'menu-btn' ),
-    //     closeRight = document.getElementById( 'close-btn' );
-    
-    // showRight.onclick = function() {
-    //     classie.toggle( this, 'active' );
-    //     classie.toggle( menuRight, 'cbp-spmenu-open' );
-    //     // disableOther( 'showRight' );
-    // };
-
-    // closeRight.onclick = function() {
-    //     // classie.toggle( this, 'active' );
-    //     classie.toggle( menuRight, 'cbp-spmenu-open' );
-    //     // disableOther( 'showRight' );
-    // };
 });
 
 
 (function() {
     var morphSearch = document.getElementById( 'morphsearch' ),
-        input = morphSearch.querySelector( 'input.morphsearch-input' ),
+        input = morphSearch.querySelector( '#searchinput' ),
         ctrlClose = morphSearch.querySelector( 'span.morphsearch-close' ),
         isOpen = isAnimating = false,
         // show/hide search area
@@ -88,8 +50,4 @@ $(function() {
             toggleSearch(ev);
         }
     } );
-
-
-    /***** for demo purposes only: don't allow to submit the form *****/
-    morphSearch.querySelector( 'button[type="submit"]' ).addEventListener( 'click', function(ev) { ev.preventDefault(); } );
 })();
