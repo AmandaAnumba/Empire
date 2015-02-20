@@ -1,5 +1,5 @@
 from app import app
-import sys, re, string, base64, hmac, urllib, json, httplib
+import sys, re, string, base64, hmac, urllib, json, httplib, datetime
 # from emails import *
 from flask import render_template, session, request, redirect, url_for, escape, jsonify
 # from oauth import OAuthSignIn
@@ -79,7 +79,7 @@ def login():
 def fblogin():
     name = request.form.get('name', None)
     email = request.form.get('email', None)
-    avatar = request.form.get('pic', None)
+    avatar = request.form.get('avatar', None)
     token = request.form.get('token', None)
     expire = request.form.get('expire', None)
     uID = request.form.get('id', None)
@@ -89,6 +89,7 @@ def fblogin():
         "fullname": name,
         "email": email,
         "avatar": avatar,
+        "username": " ",
         "role": "Member",
         "authData": {
             "facebook": {
@@ -110,10 +111,11 @@ def fblogin():
         return jsonify({ 'error': "<strong>Error:</strong> There was a problem signing in with your Facebook account. Please try again."})
     
     else:
+        print result 
         session['username'] = name
-        session['sessionToken'] = token
+        session['sessionToken'] = result['sessionToken']
         session['sessionType'] = 'Facebook'
-        session['uID'] = uID
+        session['uID'] = result['objectId']
 
         return jsonify({ 'success': 'success' })
 

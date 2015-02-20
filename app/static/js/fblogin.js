@@ -24,7 +24,7 @@ function fb_login(){
         if (response.authResponse) {
             access_token = response.authResponse.accessToken;
             user_id = response.authResponse.userID;
-            exp = response.authResponse.expiresIn;
+            exp = new Date(response.authResponse.expiresIn).toISOString();
 
             // console.log(access_token, user_id);
 
@@ -34,7 +34,7 @@ function fb_login(){
                 last = response.last_name;
                 pic = response.cover.source; 
 
-                // console.log(first, last, pic, email);
+                console.log(pic);
 
                 // post data to Parse DB
                 $.post('/fblogin', {
@@ -52,7 +52,7 @@ function fb_login(){
                     }
 
                     if (message['success']) {
-                        window.location = "/dashboard";
+                        window.location = "/profile";
                     }
                 }).fail(function() {
                     $('#login_error #message').empty().append("<strong>Error: </strong>Please refresh the page and try again.");

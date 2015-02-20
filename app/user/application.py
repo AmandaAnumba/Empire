@@ -32,10 +32,16 @@ RESTapiKEY = "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
 def editProfile():
     username = escape(session['username'])
     sessionToken = escape(session['sessionToken'])
+    print escape(session['uID'])
 
-    params = urllib.urlencode({"where":json.dumps({
-        "username": username
-    })})
+    params = urllib.urlencode({
+        "where":json.dumps({
+            "$or": [
+                {"username": username},
+                {"fullname": username}
+            ]
+        })
+    })
 
     connection.connect()
     connection.request('GET', '/1/users/me', '', {
@@ -49,7 +55,7 @@ def editProfile():
     updates = {}
 
     user = result
- 
+    
     if request.method == 'GET':
         return render_template("user/edit_profile.html",user=user)
 
