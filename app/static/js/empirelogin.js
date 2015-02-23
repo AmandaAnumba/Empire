@@ -43,6 +43,13 @@ index.controller('loginFormController', function ($scope, $http) {
             }
 
             if (data['success']) {
+                var userData = {
+                    "id": 
+                    "avatarUrl":
+                    "authorUrl":
+                    "name":
+                };
+                localStorage.setItem("currentUser", JSON.stringify(x));
                 window.location = "/";
             }
         })

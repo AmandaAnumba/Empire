@@ -719,3 +719,43 @@ def search():
             return jsonify({ 'nodata': 'No articles matching your search query could be found. Try rephrasing your search.' })
 
 
+# search for an article
+@content.route('/search', methods=['POST'])
+def search():
+    post = json.loads(request.data)
+    stoplist = ['a', 'an', 'as', 'are', 'aren\'t', 'at',\
+                'be', 'because', 'but', 'by', 'is', 'it',\
+                'isn\'t', 'its', 'it\'s', 'of', 'or', 'the',\
+                'that', 'to', 'what', 'when', 'where', 'with', \
+                'had', 'has', 'hasn\'t', 'have', 'for', 'do', 'does']
+
+    searchTerm = post['searchTerm']
+    y = searchTerm.lower().split(' ')
+    search = []    
+
+    for i in y and i not in stoplist:
+        search.append({"search": i})
+    
+    connection.connect()
+    params = urllib.urlencode({"where":json.dumps({
+        "$or": search
+    })})
+    
+    connection.request('GET', '/1/classes/Articles?%s' % params, '', {
+        "X-Parse-Application-Id": PARSEappID,
+        "X-Parse-REST-API-Key": RESTapiKEY
+    })
+
+    result = json.loads(connection.getresponse().read())
+
+    if 'error' in result.keys():
+        print result
+        return jsonify({ 'error': "error" })
+
+    else:
+        items = result['results']
+        
+        if len(items) > 0:
+            return jsonify({ 'data': items })
+        else:
+            return jsonify({ 'nodata': 'No articles matching your search query could be found. Try rephrasing your search.' })

@@ -125,12 +125,40 @@
         
         <!-- share buttons -->
         <div id="article-social-btm">
-            
+            <p class="text-center text-uppercase">Share this Article</p>
+            <ul id="share">
+                <li id="tw">
+                    <span class="icon-twitter pull-left"></span>
+                    <span>Twitter</span>
+                </li>
+                
+                <li id="pin">
+                    <span class="icon-pinterest pull-left"></span>
+                    <span>Pinterest</span>
+                </li>
+
+                <li id="gp">
+                    <span class="icon-google-plus pull-left"></span>
+                    <span>Google +</span>
+                </li>
+
+                <li id="fb">
+                    <span class="icon-facebook pull-left"></span>
+                    <span>Facebook</span>
+                </li>
+            </ul>
         </div>
 
         <!-- recommended content -->
         <section id="article-social-btm">
             <p>Recommended Articles</p>
+
+            <!-- 3 recommended articles either with the same tags or from the same section -->
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </section>
 
         <div id="fb-root"></div>
@@ -143,7 +171,8 @@
     	$(function() {
 		    var dateStr = $('#article_date').text().split(','),
 				date = moment(dateStr).format("ddd, MMM Do YY"),
-				text = $('#commentable-container').text();
+				text = $('#commentable-container').text(),
+                currentUser = {};
 			
 			$('#article_date').empty().append(date);
 			$('#commentable-container').empty().html(text);
@@ -152,31 +181,38 @@
                 $(this).addClass('commentable-section').attr('data-section-id', i+1);
             });
 
+            var currentUser = {
+                "id": 4,
+                "avatarUrl": "../static/plugins/sc/support/images/user.png",
+                "authorUrl": "http://google.com/",
+                "name": "You"
+            };
+
             var SideComments = require('side-comments');
             window.sideComments = new SideComments('#commentable-container', currentUser, existingComments);
             
             window.sideComments.on('commentPosted', function( comment ) {
-             comment.id = parseInt(Math.random() * (100000 - 1) + 1);
-             sideComments.insertComment(comment);
+                comment.id = parseInt(Math.random() * (100000 - 1) + 1);
+                sideComments.insertComment(comment);
             });
             
             window.sideComments.on('commentDeleted', function( comment ) {
-             sideComments.removeComment(comment.sectionId, comment.id);
+                sideComments.removeComment(comment.sectionId, comment.id);
             });
 
             // Listen to "commentPosted", and send a request to your backend to save the comment.
             // More about this event in the "docs" section.
-            // sideComments.on('commentPosted', function( comment ) {
-            //     $.ajax({
-            //         url: '/comments',
-            //         type: 'POST'
-            //         data: comment,
-            //         success: function( savedComment ) {
-            //             // Once the comment is saved, you can insert the comment into the comment stream with "insertComment(comment)".
-            //             sideComments.insertComment(comment);
-            //         }
-            //     });
-            // });
+            sideComments.on('commentPosted', function( comment ) {
+                $.ajax({
+                    url: '/comments',
+                    type: 'POST'
+                    data: comment,
+                    success: function( savedComment ) {
+                        // Once the comment is saved, you can insert the comment into the comment stream with "insertComment(comment)".
+                        sideComments.insertComment(comment);
+                    }
+                });
+            });
                  
             // // Listen to "commentDeleted" and send a request to your backend to delete the comment.
             // // More about this event in the "docs" section.

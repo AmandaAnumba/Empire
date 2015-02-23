@@ -82,7 +82,12 @@ def login():
         else:
         	session.permanent = False
 
-        return jsonify({ 'success': 'success' })
+        return jsonify({ 
+            'success': 'success',
+            'username': result['username'],
+            'sessionType': 'Empire',
+            'uID': result['objectId'],
+        })
 
 
 @application.route('/fblogin', methods=['POST'])
@@ -130,13 +135,13 @@ def fblogin():
         return jsonify({ 'success': 'success' })
 
 
-# @app.route('/authorize/<provider>')
+# @application.route('/authorize/<provider>')
 # def oauth_authorize(provider):
 #     oauth = OAuthSignIn.get_provider(provider)
 #     return oauth.authorize()
 
 
-# @app.route('/callback/<provider>')
+# @application.route('/callback/<provider>')
 # def oauth_callback(provider):
 #     print "hit target"
 #     oauth = OAuthSignIn.get_provider(provider)
