@@ -720,8 +720,8 @@ def search():
 
 
 # search for an article
-@content.route('/search', methods=['POST'])
-def search():
+@content.route('/postcomment', methods=['POST'])
+def postcomment():
     post = json.loads(request.data)
     stoplist = ['a', 'an', 'as', 'are', 'aren\'t', 'at',\
                 'be', 'because', 'but', 'by', 'is', 'it',\

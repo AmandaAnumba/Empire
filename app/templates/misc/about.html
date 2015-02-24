@@ -23,18 +23,13 @@
         <meta property="og:image" content="http://media.empire.life/site/images/logo.png"/>
         <meta property="og:url" content="http://www.empire.life"/>
         <meta property="og:description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign."/>
-        <!-- <meta property="fb:admins" content="USER_ID"/> -->
         <meta property="og:locale" content="en_US" >
-
-        <!-- twitter -->
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@_thisisempire" />
         <meta name="twitter:title" content="Empire | Succes Starts Here" />
         <meta name="twitter:description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
         <meta name="twitter:image" content="http://media.empire.life/site/images/logo.png" />
         <meta name="twitter:url" content="http://www.empire.life" />
-
-        <!-- scripts -->
         <script src="{{ url_for('static', filename='js/jPushMenu.js') }}"></script>
         <link href="{{ url_for('static', filename='plugins/hd/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -64,12 +59,11 @@
             <a href="{{ url_for('content.cycle') }}">Current Cycle</a>
             <a style="border-bottom:none;">Categories</a>
             <ul id="cat_list">
-                <li><a class="media-body block m-b-none"href="{{ url_for('content.news') }}">Current Events</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('content.tech') }}">Technology</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('content.money') }}">Money</a></li>
+                <li><a class="media-body block m-b-none"href="{{ url_for('content.beauty') }}">Beauty</a></li>
                 <li><a class="media-body block m-b-none" href="{{ url_for('content.career') }}">Career</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('content.mindbody') }}">Mind, Body, and Spirit</a></li>
-                <li><a class="media-body block m-b-none" href="{{ url_for('content.culture') }}">Culture + Entertainment</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('content.money') }}">Money</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('content.entertainment') }}">Entertainment</a></li>
+                <li><a class="media-body block m-b-none" href="{{ url_for('content.lifestyle') }}">Lifestyle</a></li>
                 <li><a class="media-body block m-b-none" href="{{ url_for('content.wildcard') }}">Wildcard</a></li>
             </ul>
             <a href="{{ url_for('about') }}">About</a>
@@ -425,8 +419,8 @@
                     <div class="col-md-6">
                         <ul class="legals">
                             <li>© 2015 ThreePillarMedia, LLC</li>
-                            <li><a href="{{ url_for('home.terms') }}">Terms &amp; Conditions</a></li>
-                            <li><a href="{{ url_for('home.privacy') }}">Privacy</a></li>
+                            <li><a href="{{ url_for('terms') }}">Terms &amp; Conditions</a></li>
+                            <li><a href="{{ url_for('privacy') }}">Privacy</a></li>
                         </ul>
                     </div>
                 </div>
