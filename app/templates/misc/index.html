@@ -313,15 +313,15 @@
                                 </div>
 
                                 <form name="regForm">
-                                    <input type="text" class="form-input" placeholder="Username" id="reg_user" ng-model="formData.username" ng-minlength="6" ng-maxlength="30" required>
+                                    <input type="text" class="form-input" placeholder="Username" id="regUser" ng-model="formData.username" ng-minlength="6" ng-maxlength="30" required>
                                     <p class="help-block" ng-show="">Must be at least 6 characters long and contain no spaces</p>
                                     
-                                    <input type="email" class="form-input" placeholder="Email Address" id="reg_email" ng-model="formData.email" required>
+                                    <input type="email" class="form-input" placeholder="Email Address" id="regEmail" ng-model="formData.email" required>
                                     <p class="help-block" ng-show="">Please enter a valid email address</p>
 
-                                    <input type="password" class="form-input" placeholder="Password" id="reg_pass" ng-model="formData.password" required>
+                                    <input type="password" class="form-input" placeholder="Password" id="regPass" ng-model="formData.password" required>
 
-                                    <input type="password" class="form-input" placeholder="Confirm Password" id="reg_conf" ng-model="formData.confirm" pw-check="reg_pass" required>
+                                    <input type="password" class="form-input" placeholder="Confirm Password" id="regConf" ng-model="formData.confirm" pw-check="reg_pass" required>
                                     <p class="help-block" ng-show="">Your passwords must match</p>
 
                                     <p ng-click="register()" class="btn btn-black" ng-disabled="regForm.$invalid">Sign Up</p>

@@ -50,31 +50,29 @@ function fb_login(){
                         $('#login_error, #login-form').show();
                         console.log('login error');
                     }
-
                     if (message['success']) {
-                        window.location = "/profile";
+                        var userData = {
+                            "id": message['uID'],
+                            "avatarUrl": message['avatar'],
+                            "authorUrl": 'none',
+                            "name": message['fullname'],
+                            "sessionType": 'Facebook'
+                        };
+                        localStorage.setItem("currentUser", JSON.stringify(userData));
+                        
+                        if (message['status'] === '201 Created') {
+                            window.location = "/profile";
+                        }
+
+                        if (message['status'] === '200 OK') {
+                            window.location = "/";
+                        }
                     }
                 }).fail(function() {
                     $('#login_error #message').empty().append("<strong>Error: </strong>Please refresh the page and try again.");
                     $('#login_error').show();
                     console.log('fatal error');
-                });
-
-
-
-
-
-                // var str2 = "<img style='width:50px;height:50px;margin-right:10px;' src='" + user_pic + "' /> ";
-                // str2+= document.getElementById("mainusername").innerHTML;
-                // str2+="<span style='color:#e64c65'>" + user_firstname + " " + user_lastname + "</span>";
-                // str2+="<p id='fblogoutbtn' onclick='fblogout()' value='Logout' class='btn logout_btn'>Logout</p>";
-                // document.getElementById("mainusername").innerHTML = str2
-
-                // document.getElementById("fblogoutbtn").style.display = "block";
-                // jQuery('#login').modal('hide');
-                // document.getElementById("mainusername").style.display = "block";
-                // document.getElementById("mainloginbtn").style.display = "none";
-                // document.getElementById("mainregisterbtn").style.display = "none";           
+                });         
             });
         } 
         else {
@@ -87,9 +85,9 @@ function fb_login(){
     });
 }
 
-function fblogout(){
-  FB.logout(function(response) {
-    console.log(response);
-    location.reload();
-  });    
+function fblogout() {
+    FB.logout(function(response) {
+        console.log(response);
+        location.reload();
+    });    
 }

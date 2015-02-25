@@ -2,13 +2,14 @@
     blueprint for all user actions and page rendering
 
     Current Actions:
-        - view and edit profile
+        - edit profile
+        - view profile
         - subscribe to a topic
         - receive points
         - follow a user 
 
     Future Actions:
-        - write an article
+        - write a post/article
             * Op-Ed / opinion
             * Voices
             * Article 
@@ -17,7 +18,6 @@
 
 import string, json, httplib, urllib
 from flask import Blueprint, url_for, render_template, session, request, redirect, escape, jsonify, abort
-
 
 
 user = Blueprint('user', __name__)
@@ -52,7 +52,6 @@ def editProfile():
 
     result = json.loads(connection.getresponse().read())
 
-    updates = {}
 
     user = result
     
@@ -61,29 +60,32 @@ def editProfile():
 
     elif request.method == 'POST':
         post = json.loads(request.data)
+        updates = {}
 
-        fullname = request.form.get('fullname', None)
-        email = request.form.get('email', None)
-        bio = request.form.get('bio', None)
-        avatar = request.form.get('avatar', None)
-        website = request.form.get('website', None)
-        facebook = request.form.get('facebook', None)
-        tumblr = request.form.get('tumblr', None)
-        twitter = request.form.get('twitter', None)
-        pinterest = request.form.get('pinterest', None)
-        linkedin = request.form.get('linkedin', None)
-        instagram = request.form.get('instagram', None)
+        username = post['data']['username']
+        fullname = post['data']['fullname']
+        email = post['data']['email']
+        bio = post['data']['bio']
+        avatar = post['data']['avatar']
+        website = post['data']['website']
+        facebook = post['data']['facebook']
+        tumblr = post['data']['tumblr']
+        twitter = post['data']['twitter']
+        pinterest = post['data']['pinterest']
+        linkedin = post['data']['linkedin']
+        instagram = post['data']['instagram']
         
+        updates['username'] = username
         updates['fullname'] = fullname
-        updates['avatar'] = avatar
-        updates['bio'] = bio
         updates['email'] = email
+        updates['bio'] = bio
+        updates['avatar'] = avatar
         updates['website'] = website
         updates['facebook'] = facebook
         updates['tumblr'] = tumblr
         updates['twitter'] = twitter
-        updates['linkedin'] = linkedin
         updates['pinterest'] = pinterest
+        updates['linkedin'] = linkedin
         updates['instagram'] = instagram
 
         connection.connect()

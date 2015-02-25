@@ -44,12 +44,13 @@ index.controller('loginFormController', function ($scope, $http) {
 
             if (data['success']) {
                 var userData = {
-                    "id": 
-                    "avatarUrl":
-                    "authorUrl":
-                    "name":
+                    "id": data['uID'],
+                    "avatarUrl": 'none',
+                    "authorUrl": 'http://www.empire.life/_'+data['username'],
+                    "name": data['username'],
+                    "sessionType": data['sessionType'],
                 };
-                localStorage.setItem("currentUser", JSON.stringify(x));
+                localStorage.setItem("currentUser", JSON.stringify(userData));
                 window.location = "/";
             }
         })

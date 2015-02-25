@@ -132,7 +132,14 @@ def fblogin():
         session['sessionType'] = 'Facebook'
         session['uID'] = result['objectId']
 
-        return jsonify({ 'success': 'success' })
+        return jsonify({ 
+            'success': 'success',
+            'username': 'none',
+            'fullname': name,
+            'uID': result['objectId'],
+            'avatar': avatar,
+            'status': result['status']
+        })
 
 
 # @application.route('/authorize/<provider>')
