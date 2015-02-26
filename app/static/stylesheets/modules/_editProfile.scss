@@ -26,7 +26,7 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 700;
-        color: rgba(197, 85, 85, 0.5);
+        color: rgba(237, 69, 69, 0.5);
     }
 
     .form-input2 {
@@ -42,8 +42,12 @@
         color: #000;
         border: none;
         font-size: 1em;
-        margin: 7px 0;
+        // margin: 7px 0;
         border-bottom: 1px solid #e7e7e7;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
     }
 
     .form-inline {

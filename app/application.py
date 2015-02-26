@@ -126,21 +126,30 @@ def fblogin():
         return jsonify({ 'error': "<strong>Error:</strong> There was a problem signing in with your Facebook account. Please try again."})
     
     else:
-        print result 
-        return ""
-        # session['username'] = name
-        # session['sessionToken'] = result['sessionToken']
-        # session['sessionType'] = 'Facebook'
-        # session['uID'] = result['objectId']
+        session['username'] = name
+        session['sessionToken'] = result['sessionToken']
+        session['sessionType'] = 'Facebook'
+        session['uID'] = result['objectId']
 
-        # return jsonify({ 
-        #     'success': 'success',
-        #     'username': 'none',
-        #     'fullname': name,
-        #     'uID': result['objectId'],
-        #     'avatar': avatar,
-        #     'status': result['status']
-        # })
+        if 'bio' in result.keys():
+            return jsonify({ 
+                'success': 'success',
+                'username': 'none',
+                'fullname': name,
+                'uID': result['objectId'],
+                'avatar': avatar,
+                'location': '/'
+            })
+        
+        else:
+            return jsonify({ 
+                'success': 'success',
+                'username': 'none',
+                'fullname': name,
+                'uID': result['objectId'],
+                'avatar': avatar,
+                'location': '/profile'
+            })
 
 
 # @application.route('/authorize/<provider>')

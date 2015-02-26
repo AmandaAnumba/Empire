@@ -10,6 +10,7 @@
   "author": "Amanda Anumba",
   "license": "ISC",
   "devDependencies": {
+    "aws-sdk": "^2.1.14",
     "grunt": "^0.4.5",
     "grunt-browserify": "^3.3.0",
     "grunt-contrib-compass": "^1.0.1",

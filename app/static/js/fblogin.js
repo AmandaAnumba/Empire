@@ -60,13 +60,7 @@ function fb_login(){
                         };
                         localStorage.setItem("currentUser", JSON.stringify(userData));
                         
-                        if (message['status'] === '201 Created') {
-                            window.location = "/profile";
-                        }
-
-                        if (message['status'] === '200 OK') {
-                            window.location = "/";
-                        }
+                        window.location = message['location'];
                     }
                 }).fail(function() {
                     $('#login_error #message').empty().append("<strong>Error: </strong>Please refresh the page and try again.");
