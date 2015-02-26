@@ -48,15 +48,21 @@
             <form id="profile" novalidate="novalidate" ng-controller="profileController">
                 <h3>General Settings</h3>
 
-                <p class="label2">Username</p>
-                <input type="text" id="formUsername" class="form-input" ng-model="formData.username" ng-init="formData.username='{{ user['username'] or '' }}'" required>
-                <p class="help-block" ng-show="formUsername.$invalid">Please create a username. You can change it as often as you like (as long as it doesn't already exist).</p>
+                <div class="form-group">
+                    <p class="label2 pull-left">Username</p>
+                    <input type="text" id="formUsername" class="form-input2" ng-model="formData.username" ng-init="formData.username='{{ user['username'] or '' }}'" required>
+                    <p class="help-block" ng-show="formUsername.$invalid">Please create a username. You can change it as often as you like (as long as it doesn't already exist).</p>
+                </div>
 
-                <p class="label2">Email Address</p>
-                <input type="email" class="form-input" ng-model="formData.email" ng-init="formData.email='{{ user['email'] or '' }}'">
-
-                <p class="label2">Full Name</p>
-                <input type="text" class="form-input" ng-model="formData.fullname" ng-init="formData.fullname='{{ user['fullname'] or '' }}'">
+                <div class="form-group">
+                    <p class="label2">Email Address</p>
+                    <input type="email" class="form-input2" ng-model="formData.email" ng-init="formData.email='{{ user['email'] or '' }}'">
+                </div>
+                
+                <div class="form-group">
+                    <p class="label2">Full Name</p>
+                    <input type="text" class="form-input2" ng-model="formData.fullname" ng-init="formData.fullname='{{ user['fullname'] or '' }}'">
+                </div>
 
                 <h3 style="margin: 22px 0 0;">Avatar</h3>
                 {% if user.avatar %}
@@ -98,49 +104,52 @@
                 {% endif %}
 
                 <h3 style="margin: 22px 0 0;">Personal Info</h3>
-                <p class="label2">Biographical Info</p>
-                <textarea class="form-control" placeholder="A short, captivating statement about yourself" ng-model="formData.bio" ng-init="formData.bio='{{ user['bio'] or '' }}'"></textarea>
+                
+                <div class="form-group">
+                    <p class="label2">Biographical Info</p>
+                    <textarea class="form-control" placeholder="A short, captivating statement about yourself" ng-model="formData.bio" ng-init="formData.bio='{{ user['bio'] or '' }}'"></textarea>
+                </div>
 
                 <div class="input-wrap">
                     <p class="label2">Personal Website</p>
                     <span class="icon icon-global icon-social"></span>
-                    <input type="text" class="form-inline form-input" ng-model="formData.website" ng-init="formData.website='{{ user['website'] or '' }}'">
+                    <input type="text" class="form-inline form-input2" ng-model="formData.website" ng-init="formData.website='{{ user['website'] or '' }}'">
                 </div>
 
                 <div class="input-wrap">
                     <p class="label2">Facebook</p>
                     <span class="icon icon-facebook2 icon-social"></span>
-                    <input type="text" class="form-inline form-input" ng-model="formData.facebook" ng-init="formData.facebook='{{ user['facebook'] or '' }}'">
+                    <input type="text" class="form-inline form-input2" ng-model="formData.facebook" ng-init="formData.facebook='{{ user['facebook'] or '' }}'">
                 </div>
 
                 <div class="input-wrap">
                     <p class="label2">Twitter</p>
                     <span class="icon icon-twitter2 icon-social"></span>
-                    <input type="text" class="form-inline form-input" ng-model="formData.twitter" ng-init="formData.twitter='{{ user['twitter'] or '' }}'">
+                    <input type="text" class="form-inline form-input2" ng-model="formData.twitter" ng-init="formData.twitter='{{ user['twitter'] or '' }}'">
                 </div>
 
                 <div class="input-wrap">
                     <p class="label2">Tumblr</p>
                     <span class="icon icon-tumblr2 icon-social"></span>
-                    <input type="text" class="form-inline form-input" ng-model="formData.tumblr" ng-init="formData.tumblr='{{ user['tumblr'] or '' }}'">
+                    <input type="text" class="form-inline form-input2" ng-model="formData.tumblr" ng-init="formData.tumblr='{{ user['tumblr'] or '' }}'">
                 </div>
 
                 <div class="input-wrap">
                     <p class="label2">Pinterest</p>
                     <span class="icon icon-pinterest icon-social"></span>
-                    <input type="text" class="form-inline form-input" ng-model="formData.pinterest" ng-init="formData.pinterest='{{ user['pinterest'] or '' }}'">
+                    <input type="text" class="form-inline form-input2" ng-model="formData.pinterest" ng-init="formData.pinterest='{{ user['pinterest'] or '' }}'">
                 </div>
 
                 <div class="input-wrap">
                     <p class="label2">LinkedIn</p>
                     <span class="icon icon-linkedin icon-social"></span>
-                    <input type="text" class="form-inline form-input" ng-model="formData.linkedin" ng-init="formData.linkedin='{{ user['linkedin'] or '' }}'">
+                    <input type="text" class="form-inline form-input2" ng-model="formData.linkedin" ng-init="formData.linkedin='{{ user['linkedin'] or '' }}'">
                 </div>
 
                 <div class="input-wrap">
                     <p class="label2">Instagram</p>
                     <span class="icon icon-instagram icon-social"></span>
-                    <input type="text" class="form-inline form-input" ng-model="formData.instagram" ng-init="formData.instagram='{{ user['instagram'] or '' }}'">
+                    <input type="text" class="form-inline form-input2" ng-model="formData.instagram" ng-init="formData.instagram='{{ user['instagram'] or '' }}'">
                 </div>
                 
                 <input type="text" id="imageURL" class="form-inline" ng-model="formData.avatar" ng-init="formData.avatar='{{ user['avatar'] or '' }}'" hidden="true">

@@ -24,7 +24,7 @@ function loginCallback(result) {
             var fullname = resp.displayName,
                 email = resp.emails[0].value,
                 avatar = resp.image.url,
-                id = resp.id,
+                id = resp.id;
 
             console.log(resp);
         });

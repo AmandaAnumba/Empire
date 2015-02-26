@@ -127,19 +127,20 @@ def fblogin():
     
     else:
         print result 
-        session['username'] = name
-        session['sessionToken'] = result['sessionToken']
-        session['sessionType'] = 'Facebook'
-        session['uID'] = result['objectId']
+        return ""
+        # session['username'] = name
+        # session['sessionToken'] = result['sessionToken']
+        # session['sessionType'] = 'Facebook'
+        # session['uID'] = result['objectId']
 
-        return jsonify({ 
-            'success': 'success',
-            'username': 'none',
-            'fullname': name,
-            'uID': result['objectId'],
-            'avatar': avatar,
-            'status': result['status']
-        })
+        # return jsonify({ 
+        #     'success': 'success',
+        #     'username': 'none',
+        #     'fullname': name,
+        #     'uID': result['objectId'],
+        #     'avatar': avatar,
+        #     'status': result['status']
+        # })
 
 
 # @application.route('/authorize/<provider>')
