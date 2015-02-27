@@ -13,6 +13,7 @@ sys.setdefaultencoding("utf-8")
 # Globals
 # --------------
 CURRCYCLE = 1
+MAINTENANCE = False
 
 # Parse database connection for RESTful API calls
 connection = httplib.HTTPSConnection('api.parse.com', 443)
@@ -22,31 +23,35 @@ RESTapiKEY = "Rip5cgtxGNddTSe3yAoWdiIeJpMDALKJmUastpyf"
 
 @application.route('/')
 def index():
-    if session.get('username') and session.get('sessionToken') and session.get('uID'):
-        
-        # get the user's information
-        connection.connect()
-        connection.request('GET', '/1/users/me', '', {
-            "X-Parse-Application-Id": PARSEappID,
-            "X-Parse-REST-API-Key": RESTapiKEY,
-            "X-Parse-Session-Token": escape(session['sessionToken'])
-        })
-
-        result = json.loads(connection.getresponse().read())
-        # print result
-
-        if 'error' in result.keys():
-            return render_template('misc/index.html', username=None, loggedIn=False)
-
-        if 'subscriptions' in result.keys():
-            x = len(result['subscriptions'])
-       	    return render_template('user/dash_user.html', username=escape(session['username']), user=result, subscriptions=x)
-
-        else:
-            return render_template('user/dash_user.html', username=escape(session['username']), user=result, subscriptions=0)
+    if MAINTENANCE:
+        return render_template('utilities/maintenance.html')
 
     else:
-    	return render_template('misc/index.html', username=None, loggedIn=False)
+        if session.get('username') and session.get('sessionToken') and session.get('uID'):
+            
+            # get the user's information
+            connection.connect()
+            connection.request('GET', '/1/users/me', '', {
+                "X-Parse-Application-Id": PARSEappID,
+                "X-Parse-REST-API-Key": RESTapiKEY,
+                "X-Parse-Session-Token": escape(session['sessionToken'])
+            })
+
+            result = json.loads(connection.getresponse().read())
+            # print result
+
+            if 'error' in result.keys():
+                return render_template('misc/index.html', username=None, loggedIn=False)
+
+            if 'subscriptions' in result.keys():
+                x = len(result['subscriptions'])
+                return render_template('user/dash_user.html', username=escape(session['username']), user=result, subscriptions=x)
+
+            else:
+                return render_template('user/dash_user.html', username=escape(session['username']), user=result, subscriptions=0)
+
+        else:
+            return render_template('misc/index.html', username=None, loggedIn=False)
 
 
 @application.route('/login', methods=['POST'])
@@ -78,9 +83,9 @@ def login():
         
         # stay logged in longer
         if remember == True:
-        	session.permanent = True
+            session.permanent = True
         else:
-        	session.permanent = False
+            session.permanent = False
 
         return jsonify({ 
             'success': 'success',

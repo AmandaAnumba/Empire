@@ -1,6 +1,6 @@
 {
-  "name": "EmpireDev",
-  "version": "1.0.0",
+  "name": "Empire",
+  "version": "0.0.1",
   "description": "development environment for Empire main website",
   "main": "gruntfile.js",
   "private": true,
@@ -10,10 +10,8 @@
   "author": "Amanda Anumba",
   "license": "ISC",
   "devDependencies": {
-    "aws-sdk": "^2.1.14",
     "grunt": "^0.4.5",
     "grunt-browserify": "^3.3.0",
-    "grunt-contrib-compass": "^1.0.1",
     "grunt-contrib-cssmin": "^0.12.1",
     "grunt-contrib-uglify": "^0.7.0",
     "grunt-contrib-watch": "^0.6.1",

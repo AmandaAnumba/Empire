@@ -29,7 +29,12 @@ app.register_blueprint(dashBP)
 app.register_blueprint(userBP)
 
 
-# Sample HTTP error handling
+# HTTP error handling
 @app.errorhandler(404)
 def not_found(error):
-    return render_template('errors/404.html'), 404
+    return render_template('utilities/404.html'), 404
+
+
+@app.errorhandler(500)
+def not_found(error):
+    return render_template('utilities/500.html'), 500

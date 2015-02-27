@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="HandheldFriendly" content="true">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta charset="utf-8">  
+        <meta name="author" content="ThreePillarMedia, LLC" />
+        <meta name="url" content="http://www.empire.life">
+        <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
+        <link rel="icon" type="image/png" href="http://media.empire.life/site/images/favicon.png">
+        <title>Whoops! 404 | Empire</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/utilities.css') }}" />
+    </head>
+
+    <body>
+		<div class="homepage">
+			<img src="{{ url_for('static', filename='images/404.png') }}" alt="404 Error: Page cannot be found" />
+			
+			<h1>Well.... this is embarrassing.</h1>
+			
+			<p class="btn" onClick="window.location='/';">Return to my dashboard.</p>
+		</div>
+    </body>
+</html>

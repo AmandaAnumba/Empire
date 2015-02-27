@@ -1,17 +1,6 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        
-        // compiling sass files to css with compass
-        compass: {
-            dev: {
-                options: {
-                    config: 'config.rb',
-                    outputStyle: 'compressed',
-                    noLineComments:true, 
-                }
-            }
-        },
 
         // bundling all of the require() calls and js files into a 
         // bundle.js/module.js file
@@ -72,7 +61,6 @@ module.exports = function(grunt) {
     });
     
     // Load the plugin that provides the each task.
-    grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -82,9 +70,9 @@ module.exports = function(grunt) {
     grunt.registerTask('prod', ['jshint:all']);
     
     // on watch events configure jshint:all to only run on changed file
-    grunt.event.on('watch', function(action, filepath) {
-        grunt.config('compass', filepath);
-    });
+    // grunt.event.on('watch', function(action, filepath) {
+    //     grunt.config('compass', filepath);
+    // });
 
     // Default task(s) to run by typing 'grunt' on the command line
     grunt.registerTask('default', ['watch']);
