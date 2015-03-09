@@ -43,9 +43,12 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" />
         <script>
             (function() {
-                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                var po = document.createElement('script'); 
+                po.type = 'text/javascript'; 
+                po.async = true;
                 po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                var s = document.getElementsByTagName('script')[0]; 
+                s.parentNode.insertBefore(po, s);
             })();
         </script>
     </head>
