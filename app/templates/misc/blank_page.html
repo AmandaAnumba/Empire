@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
     <head>
         <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
@@ -15,9 +15,9 @@
         <meta name="url" content="http://www.empire.life">
         <meta name="description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign." />
         <link rel="icon" type="image/png" href="http://media.empire.life/site/images/favicon.png">
-        <title>{% block title %}{% endblock %} | Empire</title>
+        <title>{% block title %}{% endblock %}</title>
 
-        <!-- opengraph -->
+        {# opengraph #} 
         <meta property="og:title" content="Empire"/>
         <meta property="og:site_name" content="Empire" />
         <meta property="og:type" content="website"/>
@@ -26,7 +26,7 @@
         <meta property="og:description" content="A community-centric experience built to empower you. Inspire a vision. Rise to the challenge. Reign."/>
         <meta property="og:locale" content="en_US" >
 
-        <!-- twitter -->
+        {# twitter #} 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@_thisisempire" />
         <meta name="twitter:title" content="Empire | Succes Starts Here" />
@@ -34,15 +34,11 @@
         <meta name="twitter:image" content="http://media.empire.life/site/images/logo.png" />
         <meta name="twitter:url" content="http://www.empire.life" />
 
-        <!-- scripts -->
-        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        {# scripts #}
+        {% block scripts %}{% endblock %}
         
-        <!-- styles -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/main.css') }}" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/css/rwd.css') }}" />
-
-        {% block header %}{% endblock %}
+        {# styles #}
+        {% block styles %}{% endblock %}
     </head>
 
     <body>

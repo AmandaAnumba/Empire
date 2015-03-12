@@ -79,41 +79,7 @@ $(document).ready(function() {
 
 });
 
-function send() {
-    // $('#about_wrapper form').css({'opacity':'0.2'});
-    $('#about_wrapper form').hide();
-    $('#loader').show();
-    
-    var name = $('#name').val(),
-    	email = $('#email').val(),
-    	subject = $('#subject').val(),
-    	msg = $('textarea[name=message]').val();
 
-    $.post('/contact', {
-    	name: name,
-        email: email,
-        subject: subject,
-        msg: msg
-    }).done(function(message) {
-    	$('#loader').hide();
-
-    	if (message['error']) {
-        	$('#error > .message').empty().append(message['error']);
-        	$('#error, #about_wrapper > form').show();
-    	}
-
-    	if (message['success']) {
-    		$('#success > .message').empty().append(message['success']);
-        	$('#success').show();
-        	setTimeout('window.location = "/";', 4000);
-    	}
-
-    }).fail(function() {
-        $('#loader').hide();
-        $('#error > .message').empty().append("<strong>Error: </strong>Please refresh the page and try again.");
-        $('#error').show();
-    });
-}
 
 function rate(action) {
     console.log('here');

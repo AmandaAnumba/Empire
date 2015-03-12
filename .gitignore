@@ -2,9 +2,5 @@
 *.pyc
 .sass-cache
 .sass-cache/*
-node_modules
-node_modules/*
-npm-debug.log
-package.json
 macEnv
 macEnv/*

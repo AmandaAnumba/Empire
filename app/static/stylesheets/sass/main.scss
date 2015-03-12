@@ -2,25 +2,28 @@
 @import '../partials/colors';
 @import '../partials/mixins';
 @import '../partials/icomoon';
+@import '../partials/outside2';
 
 // base
-@import '../modules/base';
+@import '../partials/base';
+
+// bootstrap
+@import '../modules/bootstrap';
 
 // modules
-@import '../modules/welcome';    
 @import '../modules/footer';
 @import '../modules/navbar';
 @import '../modules/inputs'; 
 @import '../modules/header';
-@import '../modules/dashboard'; 
-@import '../modules/grid';  
-@import '../modules/about'; 
+@import '../modules/articlefeature';  
 @import '../modules/article'; 
-@import '../modules/login';  
-@import '../modules/profile';   
-@import '../modules/editProfile';   
 @import '../modules/social';   
-    
-// third-party 
-@import '../third-party/outside2'; 
+
+// layouts
+@import '../layouts/welcome';    
+@import '../layouts/dashboard'; 
+@import '../layouts/about'; 
+@import '../layouts/login';  
+@import '../layouts/profile';   
+@import '../layouts/editProfile';   
    
